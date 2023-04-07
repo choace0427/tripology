@@ -2,22 +2,15 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
-use App\Models\Category;
-use App\Models\Affiliate;
-use App\Models\Destination;
-use App\Models\PackageMeta;
-use App\Models\PackageImages;
+use App\Models\Package;
 
-class Package extends Model
+class PackageImages extends Model
 {
-    use CrudTrait;
-    use HasFactory;
-    use HasRoles;
+    use HasFactory, HasRoles;
 
     /*
     |--------------------------------------------------------------------------
@@ -25,11 +18,11 @@ class Package extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'packages';
+    protected $table = 'package_images';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['packageMeta'];
+    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -51,41 +44,14 @@ class Package extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function setFeaturedImageAttribute($value)
-    {
-        $attribute_name = "featured_image";
-        $disk = "public";
-        $destination_path = "/uploads/packageImages";
-
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path, $fileName = null);
-
-        // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
-    }
-
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
 
-    public function category() {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function affiliate() {
-        return $this->belongsTo(Affiliate::class);
-    }
-
-    public function destination() {
-        return $this->belongsTo(Destination::class);
-    }
-
-    public function packageMeta() {
-        return $this->belongsToMany(PackageMeta::class);
-    }
-
-    public function packageImages() {
-        return $this->belongsToMany(PackageImages::class);
+    public function package() {
+        return $this->belongsTo(Package::class);
     }
 
     /*

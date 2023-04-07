@@ -98,24 +98,22 @@ class PackagesCrudController extends CrudController
             'name'  => 'additionalInfo',
             'attributes'  => ['id' => 'additionalInfo'],
             'type'  => 'hidden',
-            'value' => 'active',
+            'value' => '0',
         ]);
 
         /* CRUD::addField([   // Textarea
             'name'  => 'description',
             'label' => 'Description',
             'type'  => 'textarea'
-        ]);
+        ]);*/
 
         CRUD::addField([   // Upload
-            'name'      => 'image',
-            'label'     => 'Image',
+            'name'      => 'featured_image',
+            'label'     => 'Featured Image',
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-            // optional:
-            'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified
-        ]); */
+        ]);
 
 CRUD::field('package_meta_separator')->type('custom_html')->value('<h5 class="text-center">#Package Meta</h5><hr>');
 
@@ -151,7 +149,18 @@ CRUD::field('package_meta_separator')->type('custom_html')->value('<h5 class="te
         $this->crud->hasAccessOrFail('create');
         // execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
-        $data_r = $this->crud->getStrippedSaveRequest($request);
-        dd($data_r); die;
+        // $data_r = $this->crud->getStrippedSaveRequest($request);
+        if ($request->file('packageMeta')) {
+            $disk = "public";
+            $destination_path = "/uploads/packageImages";
+            foreach($request->file('packageMeta') as $pmImg) {
+                $file = $pmImg['img'];
+                $md5Name = md5_file($file->getRealPath());
+                $guessExtension = $file->guessExtension();
+                $file = $file->storeAs($destination_path, $md5Name.'.'.$guessExtension, $disk);
+                dd($file);
+            }
+        }
+        dd($request->post()); die;
     }
 }
