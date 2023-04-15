@@ -6,6 +6,11 @@ use App\Http\Requests\PackagesRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\CRUD\app\Library\Widget;
+use App\Models\PackageMeta;
+use Illuminate\Http\Request;
+use App\Models\Package;
+use Illuminate\Support\Facades\DB;
+
 
 /**
  * Class PackagesCrudController
@@ -15,7 +20,7 @@ use Backpack\CRUD\app\Library\Widget;
 class PackagesCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation{ store as traitStore; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
@@ -93,14 +98,7 @@ class PackagesCrudController extends CrudController
         // CRUD::field('status');
         // CRUD::field('created_by');
         // CRUD::field('updated_by');
-
-        CRUD::addField([   // Hidden
-            'name'  => 'additionalInfo',
-            'attributes'  => ['id' => 'additionalInfo'],
-            'type'  => 'hidden',
-            'value' => '0',
-        ]);
-
+        
         /* CRUD::addField([   // Textarea
             'name'  => 'description',
             'label' => 'Description',
@@ -115,15 +113,39 @@ class PackagesCrudController extends CrudController
             'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
         ]);
 
-CRUD::field('package_meta_separator')->type('custom_html')->value('<h5 class="text-center">#Package Meta</h5><hr>');
+        // using this to get id from url
+        $id=(int)request()->segment(3);
+        //$id = $this->get('id') ?? request()->route('id');
+        $results = DB::select("select * from package_meta where package_id = $id");
+        $additionalInfo=json_encode($results); 
+
+        CRUD::addField([   // Hidden
+            'name'  => 'additionalInfo',
+            'attributes'  => ['id' => 'additionalInfo'],
+            'default' => $additionalInfo,
+            'type'  => 'hidden',
+            'fake'     => true,
+            'value' => '1',
+        ]);
+
+
+        CRUD::field('package_meta_separator')->type('custom_html')->value('<h5 class="text-center">#Package Meta</h5><hr>');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
          * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
          */
+  
+        //$id=$this->crud->entry->id;
+
         Widget::add()->type('script')->content('assets/js/trip.js');
-    }
+        // if ($_SERVER['REQUEST_METHOD']==='POST') {
+        //  //   CRUD::setModel(\App\Models\PackageMeta::class);s
+        //  //   meta::setdata($v1,$v2)
+       
+       
+    }       
 
     /**
      * Define what happens when the Update operation is loaded.
@@ -143,24 +165,45 @@ CRUD::field('package_meta_separator')->type('custom_html')->value('<h5 class="te
         $request = $this->crud->validateRequest();
         $data_r = $this->crud->getStrippedSaveRequest($request);
     }
-
+           
     public function store()
     {
         $this->crud->hasAccessOrFail('create');
-        // execute the FormRequest authorization and validation, if one is required
+        //execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
-        // $data_r = $this->crud->getStrippedSaveRequest($request);
-        if ($request->file('packageMeta')) {
-            $disk = "public";
-            $destination_path = "/uploads/packageImages";
-            foreach($request->file('packageMeta') as $pmImg) {
-                $file = $pmImg['img'];
-                $md5Name = md5_file($file->getRealPath());
-                $guessExtension = $file->guessExtension();
-                $file = $file->storeAs($destination_path, $md5Name.'.'.$guessExtension, $disk);
-                dd($file);
+        $response = $this->traitStore();
+        $arr = $_POST;
+        $metaArr = [];
+        // in case we add package meta 
+
+        if (array_key_exists('packageMeta', $arr)) {
+
+            foreach ($arr['packageMeta'] as $key => $value) {
+                $metaArr[$key] = $value;
             }
-        }
-        dd($request->post()); die;
+            foreach ($metaArr as $key => $val) {
+                $new = new PackageMeta();
+                $arrVal = array_values($val);
+                //$new->type=$val;
+                $new->package_id = $this->crud->entry->id;
+                $new->name = $arrVal[0];
+                $new->value = $arrVal[1];
+                $new->save();
+            }
+        }   
+                //  $data_r = $this->crud->getStrippedSaveRequest($request);
+                // if ($request->file('packageMeta')) {
+                //     $disk = "public";
+                //     $destination_path = "/uploads/packageImages";
+                //     foreach($request->file('packageMeta') as $pmImg) {
+                //         $file = $pmImg['img'];
+                //         $md5Name = md5_file($file->getRealPath());
+                //         $guessExtension = $file->guessExtension();
+                //         $file = $file->storeAs($destination_path, $md5Name.'.'.$guessExtension, $disk);
+                //         dd($file);
+                //     }
+                // }
+                //dd($arr);die;
+            return $response;
     }
 }

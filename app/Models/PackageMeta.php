@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use App\Models\Package;
 
 class PackageMeta extends Model
 {
-    use HasFactory, HasRoles;
+    use CrudTrait,HasFactory, HasRoles;
 
     /*
     |--------------------------------------------------------------------------
@@ -52,6 +53,17 @@ class PackageMeta extends Model
 
     public function package() {
         return $this->belongsTo(Package::class);
+    }
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function affiliate() {
+        return $this->belongsTo(Affiliate::class);
+    }
+
+    public function destination() {
+        return $this->belongsTo(Destination::class);
     }
 
     /*

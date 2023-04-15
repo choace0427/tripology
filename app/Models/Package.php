@@ -29,7 +29,7 @@ class Package extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['packageMeta'];
+    //protected $fillable = ['packageMeta'];
     // protected $hidden = [];
     // protected $dates = [];
 
