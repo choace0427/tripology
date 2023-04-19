@@ -22,7 +22,7 @@
     </head>
     <body class="antialiased">
         <div>
-            <img src="http://localhost:8000/comingsoon.jpg">
+            <img src="https://tripology.nodesure.com/comingsoon.jpg">
         </div>
     </body>
 </html>
