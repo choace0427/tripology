@@ -121,7 +121,10 @@ jQuery(function($){
         })
         $('.card-body').on('change', '#selectType', function() {
             if ($(this).find("option:selected").val() == 'text') {
-                $('<div class="row col-sm-12"><div class="form-group col-sm-6" element="div">\
+                $('<div class="row col-sm-12"><div class="form-group col-sm-3" element="div">\
+                <label>Field Type</label>\
+                <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][type]" value="text" class="form-control" readonly>\
+                </div><div class="form-group col-sm-3" element="div">\
                 <label>Enter Field Label</label>\
                 <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][textLabel]" value="" class="form-control">\
                 </div><div class="form-group col-sm-6" element="div">\
@@ -129,7 +132,10 @@ jQuery(function($){
                 <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][textValue]" value="" class="form-control">\
                 </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>').insertBefore("#additionalMetaSelect");
             } else if ($(this).find("option:selected").val() == 'textarea') {
-                $('<div class="row col-sm-12"><div class="form-group col-sm-6" element="div">\
+                $('<div class="row col-sm-12"><div class="form-group col-sm-3" element="div">\
+                <label>Field Type</label>\
+                <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][type]" value="textarea" class="form-control" readonly>\
+                </div><div class="form-group col-sm-3" element="div">\
                 <label>Enter Field Label</label>\
                 <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][textAreaLabel]" value="" class="form-control">\
                 </div><div class="form-group col-sm-6" element="div">\
@@ -137,17 +143,21 @@ jQuery(function($){
                 <textarea name="packageMeta['+ $('#additionalInfo').val() +'][textAreaValue]" class="form-control"></textarea>\
                 </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>').insertBefore("#additionalMetaSelect");
             } else if ($(this).find("option:selected").val() == 'image') {
-                $('<div class="row col-sm-12"><div class="form-group col-sm-6" element="div">\
+                $('<div class="row col-sm-12"><div class="form-group col-sm-3" element="div">\
+                <label>Field Type</label>\
+                <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][type]" value="image" class="form-control" readonly>\
+                </div><div class="form-group col-sm-3" element="div">\
                 <label>Enter Image Label</label>\
                 <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][imgLabel]" value="" class="form-control">\
                 </div><div data-init-function="bpFieldInitUploadElement" data-field-name="image" class="form-group col-sm-6" element="div">\
                 <label>Upload Image</label>\
                 <div class="backstrap-file">\
-                    <input type="file" name="packageMeta['+ $('#additionalInfo').val() +'][img]" class="file_input backstrap-file-input">\
+                    <input type="file" name="img[]" class="file_input backstrap-file-input" multiple="multiple" enctype="multipart/form-data" >\
                     <label class="backstrap-file-label" for="customFile"></label>\
                 </div>\
                 </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>').insertBefore("#additionalMetaSelect");
             } else {}
+
             $('#additionalMetaSelect').hide();
             $('#additionalInfo').val(parseInt($('#additionalInfo').val()) + 1);
         })

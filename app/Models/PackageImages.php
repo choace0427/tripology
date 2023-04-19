@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Package;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class PackageImages extends Model
 {
     use HasFactory, HasRoles;
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +45,7 @@ class PackageImages extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-
+    
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

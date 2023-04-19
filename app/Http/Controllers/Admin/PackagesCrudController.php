@@ -10,7 +10,7 @@ use App\Models\PackageMeta;
 use Illuminate\Http\Request;
 use App\Models\Package;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\PackageImages;
 
 /**
  * Class PackagesCrudController
@@ -114,6 +114,8 @@ class PackagesCrudController extends CrudController
         ]);
 
         // using this to get id from url
+        // $entry =$this->crud->getCurrentEntry();
+        // $id=$entry->id;
         $id=(int)request()->segment(3);
         //$id = $this->get('id') ?? request()->route('id');
         $results = DB::select("select * from package_meta where package_id = $id");
@@ -124,7 +126,7 @@ class PackagesCrudController extends CrudController
             'attributes'  => ['id' => 'additionalInfo'],
             'default' => $additionalInfo,
             'type'  => 'hidden',
-            'fake'     => true,
+            //'fake'     => true,
             'value' => '1',
         ]);
 
@@ -141,7 +143,7 @@ class PackagesCrudController extends CrudController
 
         Widget::add()->type('script')->content('assets/js/trip.js');
         // if ($_SERVER['REQUEST_METHOD']==='POST') {
-        //  //   CRUD::setModel(\App\Models\PackageMeta::class);s
+        //  //   CRUD::setModel(\App\Models\PackageMeta::class);
         //  //   meta::setdata($v1,$v2)
        
        
@@ -165,7 +167,7 @@ class PackagesCrudController extends CrudController
         $request = $this->crud->validateRequest();
         $data_r = $this->crud->getStrippedSaveRequest($request);
     }
-           
+
     public function store()
     {
         $this->crud->hasAccessOrFail('create');
@@ -182,28 +184,48 @@ class PackagesCrudController extends CrudController
                 $metaArr[$key] = $value;
             }
             foreach ($metaArr as $key => $val) {
-                $new = new PackageMeta();
-                $arrVal = array_values($val);
-                //$new->type=$val;
-                $new->package_id = $this->crud->entry->id;
-                $new->name = $arrVal[0];
-                $new->value = $arrVal[1];
-                $new->save();
+                if ($val['type'] != 'image') {
+                    $new = new PackageMeta();
+                    $arrVal = array_values($val);
+                    $new->package_id = $this->crud->entry->id;
+                    $new->type = $arrVal[0];
+                    $new->name = $arrVal[1];
+                    $new->value = $arrVal[2];
+                    $new->save();
+                } else {
+                    $arrVal = array_values($val);
+                    $disk = "public";
+                    $destination_path = "/uploads/packageImages";
+                    $file = $request->file('img');
+
+                    foreach ($file as $pmImg => $v) {
+                        $new = new PackageImages();
+                        $new->package_id = $this->crud->entry->id;
+                        $new->type = 'image';
+                        $new->name = $arrVal[1];
+                        //$new->uploadFileToDisk($v,$attribute_name, $disk, $destination_path, $fileName = null);
+                        $filename = date('YmdHi') . $v->getClientOriginalName();
+                        $v->move(public_path('storage/app/public'), $filename);
+                        $new->value = (string)$filename;
+                        $new->save();
+                        //$results = DB::insert('insert into  package_images (package_id,type,name,value) values (?,?,?,?)',[$id,'image',$arrVal[1],'']);
+                    }
+                }
             }
-        }   
-                //  $data_r = $this->crud->getStrippedSaveRequest($request);
-                // if ($request->file('packageMeta')) {
-                //     $disk = "public";
-                //     $destination_path = "/uploads/packageImages";
-                //     foreach($request->file('packageMeta') as $pmImg) {
-                //         $file = $pmImg['img'];
-                //         $md5Name = md5_file($file->getRealPath());
-                //         $guessExtension = $file->guessExtension();
-                //         $file = $file->storeAs($destination_path, $md5Name.'.'.$guessExtension, $disk);
-                //         dd($file);
-                //     }
-                // }
-                //dd($arr);die;
-            return $response;
+        }
+        //  $data_r = $this->crud->getStrippedSaveRequest($request);
+        // if ($request->file('packageMeta')) {
+        //     $disk = "public";
+        //     $destination_path = "/uploads/packageImages";
+        //     foreach($request->file('packageMeta') as $pmImg) {
+        //         $file = $pmImg['img'];
+        //         $md5Name = md5_file($file->getRealPath());
+        //         $guessExtension = $file->guessExtension();
+        //         $file = $file->storeAs($destination_path, $md5Name.'.'.$guessExtension, $disk);
+        //         dd($file);
+        //     }
+        // }
+        //dd($arr);die;
+        return $response;
     }
 }
