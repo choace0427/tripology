@@ -102,7 +102,21 @@ jQuery(function($){
         })
     }
     if ($('#additionalInfo').length) {
-        $('.card-body').append('<div class="form-group col-sm-12" id="additionalMeta" element="div"><button id="addMeta" class="btn btn-success" style="float-right">Add Meta</button></div>')
+        
+        $('.card-body').append('<div class="form-group col-sm-12" id="additionalMeta" element="div"><button id="addMeta" class="btn btn-success" style="float-right">Add Meta</button></div><div class="row col-sm-12"><div class="form-group col-sm-3" element="div">\
+        <label>Field Type</label>\
+        <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][type]" value="image" class="form-control" readonly>\
+        </div><div class="form-group col-sm-3" element="div">\
+        <label>Enter Image Label</label>\
+        <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][imgLabel]" value="" class="form-control">\
+        </div><div data-init-function="bpFieldInitUploadElement" data-field-name="image" class="form-group col-sm-6" element="div">\
+        <label>Upload Images</label>\
+        <div class="backstrap-file">\
+            <input type="file" name="img[]" class="file_input backstrap-file-input" multiple="multiple" enctype="multipart/form-data" >\
+            <label class="backstrap-file-label" for="customFile"></label>\
+        </div>\
+        </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>')
+
         $('#addMeta').on('click', (e) => {
             e.preventDefault();
             if ($('#additionalMetaSelect').length) {
@@ -114,7 +128,6 @@ jQuery(function($){
                         <option value="">-</option>\
                         <option value="text">Text</option>\
                         <option value="textarea">Text Area</option>\
-                        <option value="image">Image</option>\
                     </select>\
                 </div>').insertBefore("#additionalMeta");
             }
@@ -142,24 +155,27 @@ jQuery(function($){
                 <label>Enter Field Value</label>\
                 <textarea name="packageMeta['+ $('#additionalInfo').val() +'][textAreaValue]" class="form-control"></textarea>\
                 </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>').insertBefore("#additionalMetaSelect");
-            } else if ($(this).find("option:selected").val() == 'image') {
-                $('<div class="row col-sm-12"><div class="form-group col-sm-3" element="div">\
-                <label>Field Type</label>\
-                <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][type]" value="image" class="form-control" readonly>\
-                </div><div class="form-group col-sm-3" element="div">\
-                <label>Enter Image Label</label>\
-                <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][imgLabel]" value="" class="form-control">\
-                </div><div data-init-function="bpFieldInitUploadElement" data-field-name="image" class="form-group col-sm-6" element="div">\
-                <label>Upload Image</label>\
-                <div class="backstrap-file">\
-                    <input type="file" name="img[]" class="file_input backstrap-file-input" multiple="multiple" enctype="multipart/form-data" >\
-                    <label class="backstrap-file-label" for="customFile"></label>\
-                </div>\
-                </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>').insertBefore("#additionalMetaSelect");
-            } else {}
-
+            } 
+            //    else if ($(this).find("option:selected").val() == 'image') {
+            //     $('<div class="row col-sm-12"><div class="form-group col-sm-3" element="div">\
+            //     <label>Field Type</label>\
+            //     <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][type]" value="image" class="form-control" readonly>\
+            //     </div><div class="form-group col-sm-3" element="div">\
+            //     <label>Enter Image Label</label>\
+            //     <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][imgLabel]" value="" class="form-control">\
+            //     </div><div data-init-function="bpFieldInitUploadElement" data-field-name="image" class="form-group col-sm-6" element="div">\
+            //     <label>Upload Image</label>\
+            //     <div class="backstrap-file">\
+            //         <input type="file" name="img[]" class="file_input backstrap-file-input" multiple="multiple" enctype="multipart/form-data" >\
+            //         <label class="backstrap-file-label" for="customFile"></label>\
+            //     </div>\
+            //     </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>').insertBefore("#additionalMetaSelect");
+            // } 
+            else {}
+            console.log($('#additionalInfo'));
             $('#additionalMetaSelect').hide();
             $('#additionalInfo').val(parseInt($('#additionalInfo').val()) + 1);
         })
+                   
     }
 });
