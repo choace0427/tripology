@@ -103,19 +103,7 @@ jQuery(function($){
     }
     if ($('#additionalInfo').length) {
         
-        $('.card-body').append('<div class="form-group col-sm-12" id="additionalMeta" element="div"><button id="addMeta" class="btn btn-success" style="float-right">Add Meta</button></div><div class="row col-sm-12"><div class="form-group col-sm-3" element="div">\
-        <label>Field Type</label>\
-        <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][type]" value="image" class="form-control" readonly>\
-        </div><div class="form-group col-sm-3" element="div">\
-        <label>Enter Image Label</label>\
-        <input type="text" name="packageMeta['+ $('#additionalInfo').val() +'][imgLabel]" value="" class="form-control">\
-        </div><div data-init-function="bpFieldInitUploadElement" data-field-name="image" class="form-group col-sm-6" element="div">\
-        <label>Upload Images</label>\
-        <div class="backstrap-file">\
-            <input type="file" name="img[]" class="file_input backstrap-file-input" multiple="multiple" enctype="multipart/form-data" >\
-            <label class="backstrap-file-label" for="customFile"></label>\
-        </div>\
-        </div></div><div class="form-group col-sm-12" element="div"><h5 class="text-center">~~~~~</h5></div>')
+        $('.card-body').append('<div class="form-group col-sm-12" id="additionalMeta" element="div"><button id="addMeta" class="btn btn-success" style="float-right">Add Meta</button></div><div class="form-group col-sm-12 dropzone" element="div"></div>')
 
         $('#addMeta').on('click', (e) => {
             e.preventDefault();
@@ -176,6 +164,23 @@ jQuery(function($){
             $('#additionalMetaSelect').hide();
             $('#additionalInfo').val(parseInt($('#additionalInfo').val()) + 1);
         })
-                   
+        
+        Dropzone.autoDiscover = false;
+        var myDropzone = new Dropzone(".dropzone",{ 
+            url: '/admin/packages/upload',
+            maxFilesize: 2, // 2 mb
+            acceptedFiles: ".jpeg,.jpg,.png,.pdf",
+        });
+        myDropzone.on("sending", function(file, xhr, formData) {
+            formData.append("_token", CSRF_TOKEN);
+        }); 
+        myDropzone.on("success", function(file, response) {
+
+            if(response.success == 0){ // Error
+                alert(response.error);
+            }
+
+        });
+
     }
 });

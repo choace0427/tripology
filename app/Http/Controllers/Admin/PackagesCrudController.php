@@ -144,6 +144,8 @@ class PackagesCrudController extends CrudController
         //$id=$this->crud->entry->id;
 
         Widget::add()->type('script')->content('assets/js/trip.js');
+        Widget::add()->type('script')->content('dropzone/dist/dropzone-min.js');
+        Widget::add()->type('style')->content('dropzone/dist/dropzone.css');
         // if ($_SERVER['REQUEST_METHOD']==='POST') {
         //  //   CRUD::setModel(\App\Models\PackageMeta::class);
         //  //   meta::setdata($v1,$v2)
