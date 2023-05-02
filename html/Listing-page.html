@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"/>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                          <a class="navbar-brand" href="#"><img src="images/logo.png" class="w-100" alt=""></a>
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Destinations</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Deals</a>
+                              </li>
+
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Plans</a>
+                              </li>
+                              
+                            </ul>
+                            <form class="d-flex" role="search">
+                              <div class="input">
+                                   <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                                   <a href="#">Agent <span><i class="bi bi-caret-down-fill"></i></span></a>
+                              <button class="" type="submit">Search</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="babba2">
+                            <h5>Similar Packages</h5>
+                            <p><span>About Vietnam Tourism: </span>Evoking pictures of bustling historical cities, rivers, beaches, rolling 
+                                green hills, Buddhist pagodas, delicious cuisine and unique traditions, the southeast Asian 
+                                Holidify’s Vietnam tour packages.</p>
+                                <p>It takes a minimum of 7-8 days to travel across Vietnam properly. There are three weather regions. 
+                                    The best time to visit is during spring, from February to April, when Vietnam experiences sunny 
+                                    can be explored on a trip to Vietnam.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt-4 ">
+
+
+<div class="hid">
+<button type="button" class="btn hid2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Filter
+  </button>
+  
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="babba">
+                        <h5>Price Range (per person)</h5>
+          
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="range pt-2">
+           
+
+            <p>
+                <label for="amount">Price range:</label>
+                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+              </p>
+               
+              <div id="slider-range"></div>
+
+            <h6>Select from the ranges below</h6>
+            <h5> <input type="checkbox"> $ 0 - ₹ 10000</h5>
+            <h5> <input type="checkbox"> $ 10001 - ₹ 20000</h5>
+            <h5> <input type="checkbox"> $ 20001 - ₹ 50000</h5>
+            <h5> <input type="checkbox"> $ 5000+</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="babba">
+                        <h5>Duration</h5>
+          
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="range pt-2">
+            <p>
+                <label for="amount2">Price range:</label>
+                <input type="text" id="amount2" readonly style="border:0; color:#f6931f; font-weight:bold;">
+              </p>
+               
+              <div id="slider-range2"></div>
+
+            <h6>Select from the ranges below</h6>
+            <h5> <input type="checkbox"> 0 - 3 Days</h5>
+            <h5> <input type="checkbox"> 4 - 5 Days</h5>
+            <h5> <input type="checkbox"> 6 - 7 Days</h5>
+            <h5> <input type="checkbox"> 8 - 9 Days</h5>
+            <h5> <input type="checkbox"> 10+ Days</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="babba">
+                        <h5>Combined With</h5>
+          
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="range pt-1">
+            <h5> <input type="checkbox"> Hanoi</h5>
+            <h5> <input type="checkbox"> Phu Quoc Island</h5>
+            <h5> <input type="checkbox"> Siem Reap</h5>
+            <h5> <input type="checkbox"> Hoi An</h5>
+            <h5> <input type="checkbox"> Da Nang</h5>
+            <h5> <input type="checkbox"> Sapa</h5>
+            <h5> <input type="checkbox"> Phnom Penh</h5>
+            <h5> <input type="checkbox"> Ho Chi Minh City</h5>
+            <h5> <input type="checkbox"> Halong Bay</h5>
+            <h5> <input type="checkbox"> Hue</h5>
+            <h5> <input type="checkbox"> Nha Trang</h5>
+            <h5> <input type="checkbox"> Mekong Delta</h5>
+            <h5> <input type="checkbox"> Ninh Binh</h5>
+            <h5> <input type="checkbox"> Mai Chau</h5>
+            <h5> <input type="checkbox"> Dong Hoi</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="babba">
+                        <h5>Starting From</h5>
+          
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="range pt-1">
+            <h5> <input type="checkbox"> Hanoi</h5>
+            <h5> <input type="checkbox"> Ho Chi Minh City</h5>
+            <h5> <input type="checkbox"> Ho Chi Minh City</h5>
+            <h5> <input type="checkbox"> N</h5>
+            <h5> <input type="checkbox"> Saigon</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+                    <div class="col-md-3 banda">
+
+
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="babba3">
+                                    <h5>Filter By</h5>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="babba3">
+                                    <h6>Reset All</h6>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="babba">
+                                    <h5>Price Range (per person)</h5>
+                      
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="range pt-2">
+                       
+
+                        <p>
+                            <label for="amount">Price range:</label>
+                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                          </p>
+                           
+                          <div id="slider-range"></div>
+
+                        <h6>Select from the ranges below</h6>
+                        <h5> <input type="checkbox"> $ 0 - ₹ 10000</h5>
+                        <h5> <input type="checkbox"> $ 10001 - ₹ 20000</h5>
+                        <h5> <input type="checkbox"> $ 20001 - ₹ 50000</h5>
+                        <h5> <input type="checkbox"> $ 5000+</h5>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="babba">
+                                    <h5>Duration</h5>
+                      
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="range pt-2">
+                        <p>
+                            <label for="amount2">Price range:</label>
+                            <input type="text" id="amount2" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                          </p>
+                           
+                          <div id="slider-range2"></div>
+
+                        <h6>Select from the ranges below</h6>
+                        <h5> <input type="checkbox"> 0 - 3 Days</h5>
+                        <h5> <input type="checkbox"> 4 - 5 Days</h5>
+                        <h5> <input type="checkbox"> 6 - 7 Days</h5>
+                        <h5> <input type="checkbox"> 8 - 9 Days</h5>
+                        <h5> <input type="checkbox"> 10+ Days</h5>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="babba">
+                                    <h5>Combined With</h5>
+                      
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="range pt-1">
+                        <h5> <input type="checkbox"> Hanoi</h5>
+                        <h5> <input type="checkbox"> Phu Quoc Island</h5>
+                        <h5> <input type="checkbox"> Siem Reap</h5>
+                        <h5> <input type="checkbox"> Hoi An</h5>
+                        <h5> <input type="checkbox"> Da Nang</h5>
+                        <h5> <input type="checkbox"> Sapa</h5>
+                        <h5> <input type="checkbox"> Phnom Penh</h5>
+                        <h5> <input type="checkbox"> Ho Chi Minh City</h5>
+                        <h5> <input type="checkbox"> Halong Bay</h5>
+                        <h5> <input type="checkbox"> Hue</h5>
+                        <h5> <input type="checkbox"> Nha Trang</h5>
+                        <h5> <input type="checkbox"> Mekong Delta</h5>
+                        <h5> <input type="checkbox"> Ninh Binh</h5>
+                        <h5> <input type="checkbox"> Mai Chau</h5>
+                        <h5> <input type="checkbox"> Dong Hoi</h5>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="babba">
+                                    <h5>Starting From</h5>
+                      
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="range pt-1">
+                        <h5> <input type="checkbox"> Hanoi</h5>
+                        <h5> <input type="checkbox"> Ho Chi Minh City</h5>
+                        <h5> <input type="checkbox"> Ho Chi Minh City</h5>
+                        <h5> <input type="checkbox"> N</h5>
+                        <h5> <input type="checkbox"> Saigon</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="sort">
+                                    <h6>54 Holiday Packages for Vietnam Found</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                               <div class="row rty">
+                                <div class="col-md-6 rty1 text-end">
+                                    <div class="sort"><h6>Sort by:</h6></div>
+                                </div>
+
+                                <div class="col-md-6 rty1">
+                                    <div class="sort"><button>Relvance</button></div>
+                                </div>
+                               </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row  list">
+                            <div class="col-md-3 dard ps-0">
+                                <div class="mal">
+                                    <img src="images/mal.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 tnam">
+                                <div class="lock">
+                                    <h6>11 Nights / 12 Days</h6>
+                                    <h5>Experience the Best of Vietnam from 
+                                        India - 11 Nights 12 Days</h5>
+                                        <p>Hanoi(2N) →  Halong Bay(1N) →  Hue(1N) →  Hoi 
+                                            An(2N)→  Nha Trang(3N) →  Ho Chi Minh City(2N)</p>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Sightseeing in a private cab </span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h4 class="pt-3 tika"><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+
+                                            <h4><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mekong">
+                                <div class="row item-list">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <h6>INR 62,000</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <button>6% off</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <h5>$ 58,000</h5>
+                                            <p>per adult on twin sharing</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get2">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row mt-4 list">
+                            <div class="col-md-3 dard ps-0">
+                                <div class="mal">
+                                    <img src="images/mal.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 tnam">
+                                <div class="lock">
+                                    <h6>11 Nights / 12 Days</h6>
+                                    <h5>Experience the Best of Vietnam from 
+                                        India - 11 Nights 12 Days</h5>
+                                        <p>Hanoi(2N) →  Halong Bay(1N) →  Hue(1N) →  Hoi 
+                                            An(2N)→  Nha Trang(3N) →  Ho Chi Minh City(2N)</p>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Sightseeing in a private cab </span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h4 class="pt-3 tika"><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+
+                                            <h4><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mekong">
+                                <div class="row item-list">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <h6>INR 62,000</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <button>6% off</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <h5>$ 58,000</h5>
+                                            <p>per adult on twin sharing</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get2">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row mt-4 list">
+                            <div class="col-md-3 dard ps-0">
+                                <div class="mal">
+                                    <img src="images/mal.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 tnam">
+                                <div class="lock">
+                                    <h6>11 Nights / 12 Days</h6>
+                                    <h5>Experience the Best of Vietnam from 
+                                        India - 11 Nights 12 Days</h5>
+                                        <p>Hanoi(2N) →  Halong Bay(1N) →  Hue(1N) →  Hoi 
+                                            An(2N)→  Nha Trang(3N) →  Ho Chi Minh City(2N)</p>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Sightseeing in a private cab </span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h4 class="pt-3 tika"><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+
+                                            <h4><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mekong">
+                                <div class="row item-list">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <h6>INR 62,000</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <button>6% off</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <h5>$ 58,000</h5>
+                                            <p>per adult on twin sharing</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get2">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row mt-4 list">
+                            <div class="col-md-3 dard ps-0">
+                                <div class="mal">
+                                    <img src="images/mal.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 tnam">
+                                <div class="lock">
+                                    <h6>11 Nights / 12 Days</h6>
+                                    <h5>Experience the Best of Vietnam from 
+                                        India - 11 Nights 12 Days</h5>
+                                        <p>Hanoi(2N) →  Halong Bay(1N) →  Hue(1N) →  Hoi 
+                                            An(2N)→  Nha Trang(3N) →  Ho Chi Minh City(2N)</p>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Sightseeing in a private cab </span></h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div>
+                                                        <i class="bi bi-house-lock-fill"></i>
+                                                        <h6><span>Twin-
+                                                            sharing 
+                                                            rooms</span></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h4 class="pt-3 tika"><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+
+                                            <h4><span><i class="bi bi-arrow-up-right"></i></span> Boat Trip to Ben Tre (Mekong Delta)</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mekong">
+                                <div class="row item-list">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <h6>INR 62,000</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <button>6% off</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <h5>$ 58,000</h5>
+                                            <p>per adult on twin sharing</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get2">
+                                            <button>Get Quotes ></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="qutote text-center">
+                                    <a href="#"><</a>
+                                    <a href="#"><span>1</span></a>
+                                    <a href="#"><span>2</span></a>
+                                    <a href="#"><span>3</span></a>
+                                    <a href="#"><span>4</span></a>
+                                    <a href="#"><span>5</span></a>
+                                    <a href="#">></a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="babba">
+                                    <h5>Best International Tour Packages</h5>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="tub">
+                                            <img src="images/tub1.png" alt="">
+                                            <h6>Hanoi Packages</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="tub">
+                                            <img src="images/tub2.png" alt="">
+                                            <h6>Phu Quoc Island Packages</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="tub">
+                                            <img src="images/tub3.png" alt="">
+                                            <h6>Siem Reap Packages</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="babba">
+                                    <h5>Best International Tour Packages</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>
+                                    <div class="owl-carousel runforfour owl-theme">
+                                        <div class="item84" >
+                                          <div class="text-start">
+                                            <img src="images/raj1.png" alt="">
+                                            <h5> Maldives Packages</h5>
+                                          </div>
+                                        </div>
+                                        <div class="item84" >
+                                          <div class="text-start">
+                                            <img src="images/raj2.png" alt="">
+                                            <h5> Maldives Packages</h5>
+                                          </div>
+                                        </div>
+                                        <div class="item84" >
+                                          <div class="text-start">
+                                            <img src="images/raj3.png" alt="">
+                                            <h5> Maldives Packages</h5>
+                                          </div>
+                                        </div>
+                                        <div class="item84" >
+                                          <div class="text-start">
+                                            <img src="images/raj4.png" alt="">
+                                            <h5> Maldives Packages</h5>
+                                          </div>
+                                        </div>
+                                        <div class="item84" >
+                                          <div class="text-start">
+                                            <img src="images/raj1.png" alt="">
+                                            <h5> Maldives Packages</h5>
+                                          </div>
+                                        </div>
+                                        <div class="item84" >
+                                          <div class="text-start">
+                                            <img src="images/raj2.png" alt="">
+                                            <h5> Maldives Packages</h5>
+                                          </div>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="bg-last mt-5 py-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="last-logo">
+                    <img src="images/logo-3.png" alt="">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="last-logo">
+                    <h3>Destinations</h3>
+                    <ul class="ps-0">
+                      <li><a href="#">Africa & Middle East</a></li>
+                      <li><a href="#">Asia & Pacific</a></li>
+                      <li><a href="#">Europe</a></li>
+                      <li><a href="#">Latin America</a></li>
+                      <li><a href="#">Mexico & Caribbean</a></li>
+                      <li><a href="#">USA & Canada</a></li>
+                    </ul>
+                    <h3>Destinations</h3>
+                    <a href="#">Last Minute Deals</a>
+                  </div>
+                </div>
+      
+      
+                <div class="col-md-3">
+                  <div class="last-logo">
+                    <h3>About</h3>
+                    <ul class="ps-0">
+                      <li><a href="#">About IWV</a></li>
+                      <li><a href="#">Flexible Travel</a></li>
+                      <li><a href="#">Travel Updates</a></li>
+                      <li><a href="#">Health & Safety</a></li>
+                      <li><a href="#">Traveler Reviews</a></li>
+                      <li><a href="#">On Your Trip</a></li>
+                      <li><a href="#">Before You Go</a></li>
+                      <li><a href="#">Travel Insurance</a></li>
+                      <li><a href="#">Contact us</a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+      
+                <div class="col-md-4">
+                  <div class="last-logo">
+                    <h3>Our Newsletter</h3>
+                    <p>Subscribe to our newsletter and get exlusive 
+                      first minute offers straight into your inbox.</p>
+                      <input type="text" class="input2" placeholder="Enter your email adders">
+                      <ul class="ps-0 d-flex mt-2">
+                        <li><a href="#">Join As:</a></li>
+                        <li class="ps-2"><a href="#"><input type="radio">Travel Agent</a></li>
+                        <li class="ps-2"><a href="#"><input type="radio">Customer</a></li>
+                      </ul>
+      
+                      <button>Subscribe</button>
+                  </div>
+                </div>
+              </div>
+              <hr>
+      
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="text-center">
+                    <h6>Travel Website @2023 All Right Reserved</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+
+          <script>
+            $('.runforfour').owlCarousel({
+           rtl:true,
+           loop:true,
+           margin:10,
+           nav:true,
+           dots:false,
+           responsive:{
+               0:{
+                   items:1
+               },
+               600:{
+                   items:2
+               },
+               1000:{
+                   items:4
+               }
+           }
+       })
+           </script>
+    
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
+  </script>
+
+<script>
+    $( function() {
+      $( "#slider-range2" ).slider({
+        range: true,
+        min: 0,
+        max: 500,
+        values: [ 75, 300 ],
+        slide: function( event, ui ) {
+          $( "#amount2" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        }
+      });
+      $( "#amount2" ).val( "$" + $( "#slider-range2" ).slider( "values", 0 ) +
+        " - $" + $( "#slider-range2" ).slider( "values", 1 ) );
+    } );
+    </script>
+
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  </body>
+</html>
