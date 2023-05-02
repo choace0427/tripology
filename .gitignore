@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /vendor
+/backup
+/tripology
 .env
 .env.backup
 .env.example

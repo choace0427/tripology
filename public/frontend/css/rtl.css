@@ -1,0 +1,220 @@
+.top-header,
+.menu-area,
+.service-area,
+.featured-package,
+.counterup-area,
+.portfolio-page,
+.team-area,
+.testimonial-area,
+.blog-area,
+.brand-area,
+.newsletter-area,
+.footer-area,
+.footer-bottom,
+.banner-slider,
+.single-service-area,
+.about-area,
+.team-detail,
+.faq-page,
+.package-tabarea,
+.featured-detail,
+.login-area,
+.dashboard-area,
+.contact-area,
+.single-blog-area {
+	direction: rtl!important;
+	text-align: right!important;
+}
+
+.top-header-left i, .top-header-right i {
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.top-header-right,
+.sf-menu {
+	float: left;
+}
+
+.sf-menu > li {
+	float: right;
+}
+
+.sf-menu > li > a:before {
+	right: 0;
+}
+
+.sf-arrows .sf-with-ul:after {
+	right: auto;
+	left: 1em;
+}
+
+.sf-arrows .sf-with-ul {
+	padding-right: 26px;
+	padding-left: 2.5em;
+}
+
+.sf-menu li li > a {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.sf-menu ul {
+	left: auto;
+	right: 0;
+}
+
+.text-animated h1,
+.text-animated p {
+	text-align: right;
+}
+
+.text-animated ul {
+	float: right;
+}
+
+.blog-image .date {
+	right: auto;
+	left: 12px;
+}
+
+.fa-chevron-circle-right:before {
+	content: '\f137';
+}
+
+.button a i {
+	margin-left: auto;
+	margin-right: 5px;
+}
+
+
+.blog-carousel .owl-nav .owl-prev, 
+.blog-carousel .owl-nav .owl-next {
+	right: auto;
+	left: 0;
+}
+
+.blog-carousel .owl-nav .owl-prev {
+	margin-left: 0;
+}
+
+.blog-carousel .owl-nav .owl-next {
+	margin-left: 50px;
+}
+
+.newsletter-submit input[type='text'] {
+	margin-left: -4px;
+}
+
+.newsletter-submit input[type='submit'] {
+	width: 40%;
+}
+
+.footer-item ul li a:before {
+	left: auto;
+	right: 0;
+	content: '\f359';
+}
+
+.footer-item ul li a {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+.footer-address-item {
+	padding-right: 30px;
+	padding-left: 0;
+}
+
+.footer-address-item .icon {
+	left: auto;
+	right: 0;
+}
+
+.copy-text {
+	float: right;
+	border-right: 0;
+	border-left: 1px solid #fff;
+	text-align: right;
+	padding-right: 0;
+	padding-left: 20px;
+}
+
+.copy-text p {
+	text-align: right;
+}
+
+.footer-bottom-menu {
+	float: right;
+}
+
+.footer-bottom-menu ul li {
+	float: right;
+	margin-left: 0;
+	padding-right: 20px;
+}
+
+.scroll-top {
+	right: auto;
+	left: 15px;
+}
+
+.service-list ul li a {
+	padding-left: 0;
+	padding-right: 34px;
+}
+
+.service-list ul li a:before {
+	left: auto;
+	right: 14px;
+	content: '\f359';
+}
+
+.team-detail-text li i {
+	margin-left: 7px;
+	margin-right: 0;
+}
+
+.accordion-button::after {
+	margin-left: 0;
+	margin-right: auto;
+}
+
+.package-tabarea .nav {
+	margin-right: 0!important;
+	margin-left: 1.5rem!important;
+}
+
+.package-tabarea .nav-link {
+	text-align: right!important;
+}
+
+a.forget-password-link {
+	margin-left: 0;
+	margin-right: 20px;
+}
+
+.option-board ul li span {
+	margin-right: 0;
+	margin-left: 15px;
+}
+
+.single-blog ul li {
+	margin-right: 0;
+	margin-left: 15px;
+}
+
+.single-blog #st-1 {
+	text-align: right!important;
+}
+
+.sidebar-item ul li a {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+.sidebar-item ul li a:before {
+	left: auto;
+	right: 0;
+	content: '\f359';
+}

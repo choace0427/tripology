@@ -1,0 +1,208 @@
+/*Tablet Layout*/
+@media only screen and (max-width:991px) {
+	.slicknav_menu{
+		display: block;
+	}
+	.top-header {
+		background: #e1e1e2;
+	}
+	.top-header-left p, 
+	.top-header-right a{
+		color: #333;
+	}
+	.logo{
+		text-align: center;
+	}
+	.nav-wrapper{
+		display: none;
+	}
+	.slider-table{
+		height: 500px;
+	}
+	.text-animated h1{
+		font-size: 38px;
+	}
+	.text-animated li a{
+		padding: 9px 30px;
+	}
+	.featured-detail-photo{
+		height: 410px;
+	}
+	.clear-three:nth-child(3n+1){
+		clear: none;
+	}
+	.clear-three:nth-child(2n+1){
+		clear: both;
+	}
+	.count-four:nth-child(2n+1){
+		clear: both;
+	}
+	.table-responsive{
+		border: 0;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width:991px) {
+	.featured-photo {
+		display: block;
+		width: 100%;
+	}
+	.featured-text {
+		display: block;
+		width: 100%;
+	}
+	.clear-four:nth-child(4n+1){
+		clear: none;
+	}
+	.clear-four:nth-child(3n+1){
+		clear: both;
+	}
+}
+
+
+/*mobail small layout*/
+
+@media only screen and (max-width:767px) {
+	.slider-table{
+		height: 450px;
+	}
+	.text-animated h1{
+		font-size: 34px;
+	}
+	.text-animated li a{
+		padding: 9px 30px;
+	}
+	.featured-detail-photo{
+		height: 380px;
+	}
+	.clear-four:nth-child(4n+1){
+		clear: none;
+	}
+	.clear-four:nth-child(2n+1){
+		clear: both;
+	}
+	.table-responsive{
+		margin-bottom: 0;
+		padding: 15px 0;
+	}
+    .banner-slider.high-banner{
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width:599px) {
+	.blog-area .col-xs-6{
+		width: 100%;
+	}
+	.newsletter-submit {
+		width: 100%;
+	}
+    .banner-slider.high-banner{
+        height: 320px;
+    }
+}
+
+@media only screen and (max-width:575px) {
+	.top-header{
+		padding: 7px 0;
+	}
+	.top-header .col-xs-8,
+	.top-header .col-xs-4{
+		text-align: center;
+		width: 100%;
+		line-height: 30px;
+	}
+	.top-header-right{
+		float: none;
+	}
+	.slider-table{
+		height: 400px;
+	}
+	.text-animated h1{
+		font-size: 30px;
+	}
+	.text-animated li a{
+		padding: 9px 30px;
+	}
+	.service-area .col-xs-6{
+		width: 100%;
+	}
+	.counter-item{
+		text-align: center;
+	}
+	.counter-icon{
+		display: block;
+		float: none;
+		margin: 0 auto;
+	}
+	.counter-text{
+		display: block;
+		margin-top: 10px;
+	}
+	.portpage-menu li{
+		display: block;
+	}
+	.featured-detail-photo{
+		height: 290px;
+	}
+	.comment-list .thumb{
+		display: block;
+	}
+	.comment-list .com-text{
+		display: block;
+		padding: 0;
+		margin-top: 15px;
+	}
+	.comment-list .com-text h5{
+		margin-bottom: 2px;
+	}
+	.comment-list ul ul.children{
+		margin-left: 30px;
+	}
+	.testimonial-pra{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width:500px){
+	.featured-photo {
+		display: block;
+		width: 100%;
+	}
+	.featured-text {
+		display: block;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width:460px) {
+	.portfolio-page .col-xs-6{
+		width: 100%;
+	}
+	.team-area .col-xs-6{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width:359px) {
+	.slider-table{
+		height: 380px;
+	}
+	.text-animated h1{
+		font-size: 28px;
+	}
+	.text-animated li a{
+		padding: 7px 24px;
+	}
+	.featured-detail-photo{
+		height: 210px;
+	}
+}
+
+
+@media only screen and (min-width:600px) {
+	.newsletter-message {
+	    width: 56%;
+	    margin: 0 auto;
+	}
+}

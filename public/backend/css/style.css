@@ -1,0 +1,202 @@
+*:focus {
+    outline: none !important;
+}
+body {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 15px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: inherit;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.v-center {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+    bottom: initial;
+    z-index: 4;
+}
+.bg-login-image,
+.bg-password-image {
+    background-image: url(../img/bg-login-image.jpg);
+}
+
+.text-red {
+    color: red!important;
+}
+
+.card-header h6 {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.card-body iframe {
+    width: 300px;
+    height: 200px;
+}
+
+.card-body iframe.w_500 {
+    width: 500px;
+    height: 350px;
+}
+
+.card-body label {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.w_50 {width: 50px!important;}
+.w_100 {width: 100px!important;}
+.w_150 {width: 150px!important;}
+.w_200 {width: 200px!important;}
+.w_300 {width: 300px!important;}
+.w_100_p {width: 100%!important;}
+
+.h_55 {height: 55px!important;}
+.h_70 {height: 70px!important;}
+.h_80 {height: 80px!important;}
+.h_100 {height: 100px!important;}
+.h_150 {height: 150px!important;}
+.h_200 {height: 200px!important;}
+
+.fz-40 {font-size: 40px!important;}
+
+.bg_f3f3f3 {background: #f3f3f3!important;}
+
+form.user .form-control-user,
+form.user .btn-user {
+    border-radius: .35rem;
+}
+
+.sidebar .nav-item .nav-link {
+    padding-top: 0.6rem!important;
+    padding-bottom: 0.6rem!important;
+}
+.sidebar .nav-item .nav-link i {
+    width: 18px!important;
+}
+
+.dashboard-page .h4 {
+    font-size: 16px!important;
+}
+
+.dashboard-page .h5 {
+    font-size: 30px!important;
+}
+
+.t-left .nav-pills .nav-link {
+    background-color: #e6e6e6;
+    margin-bottom: 5px;
+}
+
+.nav-pills .nav-link.active {
+    color: #fff!important;
+    background-color: #4e73df!important;
+}
+
+.iframe-container-300 iframe {
+    width: 300px;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item.active {
+    background: #eaecf4;
+}
+
+.sidebar .nav-item.active .nav-link {
+    font-weight: 500!important;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item {
+    white-space: normal!important;
+}
+
+body,
+.table {
+    color: #6f6f6f!important;
+}
+
+.table-bordered td, .table-bordered th {
+    font-weight: 500!important;
+}
+
+.invoice-area img {height: 90px;}
+.invoice-area .company-info {font-size: 16px;}
+.invoice-head {margin-bottom: 30px;border-bottom: 1px solid #efebeb;padding-bottom: 20px;}
+.invoice-head .iv-left span {color: #444;}
+.invoice-head span {font-size: 21px;font-weight: 700;color: #777;}
+.invoice-address h3 {font-size: 24px;text-transform: uppercase;font-weight: 600;color: #333;margin-bottom: 15px;}
+.invoice-address h5 {font-size: 17px;margin-bottom: 10px;}
+.invoice-address p {font-size: 13px;color: #555;margin-bottom: 3px;}
+.invoice-date li {font-size: 15px;color: #555;font-weight: 700;margin-bottom: 5px;}
+.invoice-table .table-bordered td,
+.invoice-table .table-bordered th {border: 1px solid rgba(120, 130, 140, 0.13) !important;border-left: none!important;border-right: none!important;font-size: 13px!important;}
+.invoice-table tr td {color: #666;}
+.invoice-table tfoot tr td {text-transform: uppercase;font-weight: 600;color: #444;}
+.invoice-buttons a {display: inline-block;font-size: 15px;color: #fff;background: #815ef6;padding: 12px 19px;border-radius: 3px;text-transform: capitalize;font-family: 'Maven Pro', sans-serif;font-weight: 600;letter-spacing: 0.03em;margin-left: 6px;}
+.invoice-buttons a:hover {background: #574494;}
+
+@media print {
+    .invoice-heading,
+    .sidebar,
+    .card-header,
+    .print-invoice-button {display:none!important;}
+}
+
+.bg-gradient-primary {
+    background: #2f2f48!important;
+}
+
+.sidebar-dark .nav-item .nav-link i {
+    color: rgba(255,255,255,.8)!important;
+}
+
+.sidebar .nav-item .nav-link span {
+    font-size: 13px!important;
+    font-weight: 500!important;
+}
+
+.sidebar .nav-item .collapse .collapse-inner,
+.sidebar .nav-item .collapsing .collapse-inner {
+    font-size: 13px!important;
+}
+
+.form-control {
+    font-size: 14px!important;
+    font-weight: 500!important;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item {
+    font-weight: 500!important;
+}
+
+.text-gray-800 {
+    font-size: 18px!important;
+    font-weight: 600!important;
+}
+
+.btn-success {
+    font-size: 14px!important;
+    font-weight: 600!important;
+}
+
+.select2-container {
+    width: 100%;
+}
+.select2-container--default .select2-selection--single {
+    border-color: #d1d3e2;
+}
+.select2-container .select2-selection--single {
+    height: 34px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 34px;
+}
