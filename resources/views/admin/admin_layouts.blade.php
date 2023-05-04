@@ -55,7 +55,7 @@
 
 
         <!-- General Settings -->
-        <li class="nav-item @if($conName[1] == 'setting' && $conName[2] == 'general') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'setting' && $conName[2] == 'general') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSetting" aria-expanded="true" aria-controls="collapseSetting">
                 <i class="fas fa-cog"></i>
                 <span>General Settings</span>
@@ -78,11 +78,11 @@
                     <a class="collapse-item @if($conName[3] == 'layout') active @endif" href="{{ route('admin.general_setting.layout') }}">Layout</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 
         <!-- Page Settings -->
-        <li class="nav-item @if($conName[1] == 'page' || $conName[1] == 'page_home_update') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'page' || $conName[1] == 'page_home_update') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePageSettings" aria-expanded="true" aria-controls="collapsePageSettings">
                 <i class="fas fa-paste"></i>
                 <span>Page Settings</span>
@@ -104,12 +104,12 @@
                     <a class="collapse-item @if($conName[2] == 'other') active @endif" href="{{ route('admin.page_other.edit') }}">Other</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 
 
         <!-- Payment Settings -->
-        <li class="nav-item @if($conName[1] == 'payment' || $conName[1] == 'currency') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'payment' || $conName[1] == 'currency') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment">
                 <i class="fas fa-file-invoice-dollar"></i>
                 <span>Payment Settings</span>
@@ -120,12 +120,12 @@
                     <a class="collapse-item" href="{{ route('admin.currency') }}">Currency Setup</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 
 
         <!-- Blog Section -->
-        <li class="nav-item @if($conName[1] == 'category' || $conName[1] == 'blog') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'category' || $conName[1] == 'blog') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog" aria-expanded="true" aria-controls="collapseBlog">
                 <i class="fas fa-cubes"></i>
                 <span>Blog Section</span>
@@ -136,7 +136,7 @@
                     <a class="collapse-item" href="{{ route('admin.blog.index') }}">Blogs</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 
         <!-- Destinations -->
@@ -157,26 +157,26 @@
 
 
         <!-- Dynamic Pages -->
-        <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
             <a class="nav-link" href="{{ route('admin.dynamic_page.index') }}">
                 <i class="fas fa-cube"></i>
                 <span>Dynamic Pages</span>
             </a>
-        </li>
+        </li> -->
 
 
         <!-- Language -->
-        <li class="nav-item @if($conName[1] == 'language') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'language') active @endif">
             <a class="nav-link" href="{{ route('admin.language.index') }}">
                 <i class="fas fa-globe"></i>
                 <span>Language</span>
             </a>
-        </li>
+        </li> -->
 
 
 
         <!-- Website Section -->
-        <li class="nav-item @if($conName[1] == 'slider' || $conName[1] == 'service' || $conName[1] == 'testimonial' || $conName[1] == 'team-member' || $conName[1] == 'faq' || $conName[1] == 'social-media') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'slider' || $conName[1] == 'service' || $conName[1] == 'testimonial' || $conName[1] == 'team-member' || $conName[1] == 'faq' || $conName[1] == 'social-media') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWebsite" aria-expanded="true" aria-controls="collapseWebsite">
                 <i class="fas fa-globe-europe"></i>
                 <span>Website Section</span>
@@ -192,36 +192,36 @@
                     <a class="collapse-item" href="{{ route('admin.social_media.index') }}">Social Media</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 
         <!-- Order -->
-        <li class="nav-item @if($conName[1] == 'order') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'order') active @endif">
             <a class="nav-link" href="{{ route('admin.order.index') }}">
                 <i class="fas fa-bookmark"></i>
                 <span>Order</span>
             </a>
-        </li>
+        </li> -->
 
         <!-- Traveller -->
-        <li class="nav-item @if($conName[1] == 'traveller') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'traveller') active @endif">
             <a class="nav-link" href="{{ route('admin.traveller.index') }}">
                 <i class="fas fa-users"></i>
                 <span>Traveller</span>
             </a>
-        </li>
+        </li> -->
 
 
         <!-- Email Template -->
-        <li class="nav-item @if($conName[1] == 'email-template') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'email-template') active @endif">
             <a class="nav-link" href="{{ route('admin.email_template.index') }}">
                 <i class="fas fa-envelope"></i>
                 <span>Email Template</span>
             </a>
-        </li>
+        </li> -->
 
         <!-- Subscriber -->
-        <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+        <!-- <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubscriber" aria-expanded="true" aria-controls="collapseSubscriber">
                 <i class="fas fa-share-alt-square"></i>
                 <span>Subscriber</span>
@@ -232,7 +232,7 @@
                     <a class="collapse-item" href="{{ route('admin.subscriber.send_email') }}">Send Email to Subscribers</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
 
 
