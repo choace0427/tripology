@@ -20,7 +20,7 @@
                         <th>Destination Name</th>
                         <th>Total People Registered</th>
                         <th>
-                            Photo & Video
+                            Photo
                         </th>
                         <th>Action</th>
                     </tr>
@@ -45,7 +45,7 @@
                             </td>
                             <td>
                                 <a href="{{ URL::to('admin/package/photo/'.$row->id) }}" class="btn btn-success btn-sm btn-block w_150">Manage Photos</a>
-                                <a href="{{ URL::to('admin/package/video/'.$row->id) }}" class="btn btn-success btn-sm btn-block w_150">Manage Videos</a>
+                                <!-- <a href="{{ URL::to('admin/package/video/'.$row->id) }}" class="btn btn-success btn-sm btn-block w_150">Manage Videos</a> -->
                             </td>
                             <td class="w_100">
                                 <a href="{{ URL::to('admin/package/edit/'.$row->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
