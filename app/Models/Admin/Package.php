@@ -23,6 +23,11 @@ class Package extends Model
         'p_terms',
         'p_is_featured',
         'destination_id',
+        'p_age_range',
+        'p_max_group_size',
+        'p_tour_operator',
+        'p_started_from',
+        'p_operated_in',
         'seo_title',
         'seo_meta_description'
     ];
