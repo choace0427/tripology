@@ -23,7 +23,13 @@ class Destination extends Model
         'd_transportation',
         'd_culture',
         'd_order',
+        'd_parent_id',
         'seo_title',
         'seo_meta_description'
     ];
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'd_parent_id');
+    }
 }

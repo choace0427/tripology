@@ -25,7 +25,9 @@ class DestinationController extends Controller
 
     public function create()
     {
-        return view('admin.destination.create');
+        $parents = Destination::with('children')->select('id','d_name','d_parent_id')->get();
+        //dd($parents);
+        return view('admin.destination.create', compact('parents'));
     }
 
     public function store(Request $request)
@@ -67,7 +69,8 @@ class DestinationController extends Controller
     public function edit($id)
     {
         $destination = Destination::findOrFail($id);
-        return view('admin.destination.edit', compact('destination'));
+        $parents = Destination::with('children')->select('id','d_name','d_parent_id')->get();
+        return view('admin.destination.edit', compact('destination', 'parents'));
     }
 
     public function update(Request $request, $id)
