@@ -8,9 +8,7 @@
     <h1 class="h3 mb-3 text-gray-800">Schedules of {{ $package_row->p_name }}</h1>
     <form action="{{ route('admin.package.schedule-store') }}" method="post" enctype="multipart/form-data">
         @csrf
-
         <input type="hidden" name="package_id" value="{{ $package_id }}">
-
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Package Schedule</h6>
@@ -21,11 +19,11 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="">Start Date</label>
-                    <input id="datepicker" autocomplete="off" type="text" name="start_date" class="form-control" value="{{ old('start_date') }}">
+                    <input id="txtstartdate" autocomplete="off" type="text" name="start_date" class="form-control" value="{{ old('start_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">End Date</label>
-                    <input id="datepicker1" autocomplete="off" type="text" name="end_date" class="form-control" value="{{ old('end_date') }}">
+                    <input id="txtenddate" autocomplete="off" type="text" name="end_date" class="form-control" value="{{ old('end_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Price</label>
@@ -35,9 +33,6 @@
             </div>
         </div>
     </form>
-
-
-
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 mt-2 font-weight-bold text-primary">All Existing Schedules</h6>

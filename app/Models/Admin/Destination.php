@@ -32,4 +32,9 @@ class Destination extends Model
     {
         return $this->hasMany(self::class, 'd_parent_id');
     }
+
+    public function parent()
+    {
+        return $this->hasOne(self::class, 'id','d_parent_id')->select('id','d_name');
+    }
 }
