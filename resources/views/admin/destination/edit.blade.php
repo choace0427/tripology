@@ -28,11 +28,8 @@
                     <select class="form-control" data-toggle="select" data-live-search="true" name="d_parent_id" id="d_parent_id">
                     @foreach($parents as $category)
                         @if($category->d_parent_id == 0)
-                        <option value="@if($destination->id == $category->id) 0 @else{{$category->id}}@endif" @if($destination->d_parent_id == $category->id) selected @endif>{{ $category->d_name }}</option>
+                        <option value="{{$category->id}}" @if($destination->d_parent_id == $category->id) selected @endif>{{ $category->d_name }}</option>
                         @endif
-                            @foreach($category->children as $child)
-                                @include('admin.destination.child_destinations', ['child' => $child])
-                            @endforeach
                     @endforeach
                     </select>
                 </div>

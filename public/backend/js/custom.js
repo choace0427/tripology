@@ -21,4 +21,12 @@
     });
     $( "#timepicker" ).timepicker();
     $('.select2').select2();
+    $("#txtstartdate").datepicker({
+        minDate: 0,
+        onSelect: function(date) {
+            $("#txtenddate").datepicker('option', 'minDate', date);
+        }
+    });
+
+    $("#txtenddate").datepicker({});
 })(jQuery);
