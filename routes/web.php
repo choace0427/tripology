@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\SocialMediaItemController;
 use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\TeamMemberController as TeamMemberControllerForAdmin;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\SpotlightController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\FaqController as FaqControllerForAdmin;
 use App\Http\Controllers\Admin\OrderController as OrderControllerForAdmin;
@@ -193,6 +194,11 @@ Route::get('admin/slider/delete/{id}', [SliderController::class,'destroy']);
 Route::get('admin/slider/edit/{id}', [SliderController::class,'edit']);
 Route::post('admin/slider/update/{id}', [SliderController::class,'update']);
 
+/* --------------------------------------- */
+/* Spotlight - Admin */
+/* --------------------------------------- */
+Route::get('admin/spotlight/view', [SpotlightController::class,'index'])->name('admin.spotlight.index');
+Route::post('admin/spotlight/store', [SpotlightController::class,'store'])->name('admin.spotlight.store');
 
 /* --------------------------------------- */
 /* Logo - Admin */
