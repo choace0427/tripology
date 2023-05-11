@@ -28,8 +28,6 @@ class SpotlightController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
 
-       
-
         $spotlight = Spotlight::count();
         if($spotlight == 0){
 
@@ -41,13 +39,15 @@ class SpotlightController extends Controller
             $final_name = 'spotlight-'.time().'.'.$ext;
             $request->file('spotlight_facilities_photo')->move(public_path('uploads'), $final_name);
 
+            $spotlight = new Spotlight();
             
             $data = $request->only($spotlight->getFillable());
             unset($data['spotlight_facilities_photo']);
             $data['spotlight_facilities_photo'] = $final_name;
-
-            $slider->fill($data)->save();
+            
+            $spotlight->fill($data)->save();
         }else{
+            $final_name = "";
             $spotlight = Spotlight::first();
             if($request->file('spotlight_facilities_photo')){
                 if($spotlight->spotlight_facilities_photo != ''){
@@ -56,12 +56,14 @@ class SpotlightController extends Controller
                 // Uploading new photo
                 $ext = $request->file('spotlight_facilities_photo')->extension();
                 $final_name = 'spotlight-'.time().'.'.$ext;
-                $request->file('spotlight_facilities_photo')->move(public_path('uploads/'), $final_name);
-        
-                $data['spotlight_facilities_photo'] = $final_name;
+                $request->file('spotlight_facilities_photo')->move(public_path('uploads'), $final_name);
+               
             }
             $data = $request->only($spotlight->getFillable());
             unset($data['spotlight_facilities_photo']);
+            if ($final_name) {
+                $data['spotlight_facilities_photo'] = $final_name;
+            }
             Spotlight::where('id',$spotlight->id)->update($data);
         }
         
