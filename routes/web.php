@@ -410,6 +410,9 @@ Route::post('admin/package/update/{id}', [PackageControllerForAdmin::class,'upda
 Route::get('admin/package/photo/{id}', [PackageControllerForAdmin::class,'photo']);
 Route::post('admin/package/photo-store', [PackageControllerForAdmin::class,'photostore'])->name('admin.package.photo-store');
 Route::get('admin/package/photo-delete/{id}', [PackageControllerForAdmin::class,'photodelete']);
+Route::get('admin/package/schedule/{id}', [PackageControllerForAdmin::class,'schedule']);
+Route::post('admin/package/schedule-store', [PackageControllerForAdmin::class,'schedulestore'])->name('admin.package.schedule-store');
+Route::get('admin/package/schedule-delete/{id}', [PackageControllerForAdmin::class,'scheduledelete']);
 Route::get('admin/package/video/{id}', [PackageControllerForAdmin::class,'video']);
 Route::post('admin/package/video-store', [PackageControllerForAdmin::class,'videostore'])->name('admin.package.video-store');
 Route::get('admin/package/video-delete/{id}', [PackageControllerForAdmin::class,'videodelete']);

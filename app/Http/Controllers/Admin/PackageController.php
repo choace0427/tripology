@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Package;
 use App\Models\Admin\PackagePhoto;
+use App\Models\Admin\PackageSchedule;
 use App\Models\Admin\PackageVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -26,8 +27,14 @@ class PackageController extends Controller
 
     public function create()
     {
+        $ranges = [ 
+            '18-24' => 18,
+            '25-35' => 25,
+            '36-45' => 36,
+            '46+' => 46
+        ];
         $destination=DB::table('destinations')->get();
-        return view('admin.package.create', compact('destination'));
+        return view('admin.package.create', compact('destination','ranges'));
     }
 
     public function store(Request $request)
@@ -38,7 +45,7 @@ class PackageController extends Controller
 
         $package = new Package();
         $data = $request->only($package->getFillable());
-
+        
         $request->validate([
             'p_name' => 'required|unique:packages',
             'p_slug' => 'unique:packages',
@@ -46,7 +53,13 @@ class PackageController extends Controller
             'p_end_date' => 'required',
             'p_last_booking_date' => 'required',
             'p_price' => 'required',
-            'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'p_age_range' => 'required|numeric',
+            'p_max_group_size' => 'required|numeric',
+            'p_tour_operator' => 'required',
+            'p_started_from' => 'required',
+            'p_operated_in' => 'required',
+            'p_photo' => 'required'        
         ],
         [],
         [
@@ -56,7 +69,12 @@ class PackageController extends Controller
             'p_end_date' => "Package End Date",
             'p_last_booking_date' => "Package Last Booking Date",
             'p_price' => "Package Price",
-            'p_photo' => "Package Photo"
+            'p_photo' => "Package Photo",
+            'p_age_range' => 'Package Age Range',
+            'p_max_group_size' => 'Package Max Group Size',
+            'p_tour_operator' => 'Package Tour Operator',
+            'p_started_from' => 'Package Started From',
+            'p_operated_in' => 'Package Operated In'
         ]);
 
         if(empty($data['p_slug'])) {
@@ -69,7 +87,7 @@ class PackageController extends Controller
         $final_name = 'package-main-photo-'.$ai_id.'.'.$ext;
         $request->file('p_photo')->move(public_path('uploads/'), $final_name);
         $data['p_photo'] = $final_name;
-
+        
         $package->fill($data)->save();
         return redirect()->route('admin.package.index')->with('success', 'Package is added successfully!');
     }
@@ -78,7 +96,13 @@ class PackageController extends Controller
     {
         $package = Package::findOrFail($id);
         $destination=DB::table('destinations')->get();
-        return view('admin.package.edit', compact('package', 'destination'));
+        $ranges = [ 
+            '18-24' => 18,
+            '25-35' => 25,
+            '36-45' => 36,
+            '46+' => 46
+        ];
+        return view('admin.package.edit', compact('package', 'destination','ranges'));
     }
 
     public function update(Request $request, $id)
@@ -99,13 +123,23 @@ class PackageController extends Controller
                 'p_slug'   =>  [
                     Rule::unique('packages')->ignore($id),
                 ],
+                'p_age_range' => 'required|numeric',
+                'p_max_group_size' => 'required|numeric',
+                'p_tour_operator' => 'required',
+                'p_started_from' => 'required',
+                'p_operated_in' => 'required',
                 'p_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ],
             [],
             [
                 'p_name' => "Package Name",
                 'p_slug' => "Package Slug",
-                'p_photo' => "Package Photo"
+                'p_photo' => "Package Photo",
+                'p_age_range' => 'Package Age Range',
+                'p_max_group_size' => 'Package Max Group Size',
+                'p_tour_operator' => 'Package Tour Operator',
+                'p_started_from' => 'Package Started From',
+                'p_operated_in' => 'Package Operated In'
             ]);
             unlink(public_path('uploads/'.$package->p_photo));
             $ext = $request->file('p_photo')->extension();
@@ -120,12 +154,22 @@ class PackageController extends Controller
                 ],
                 'p_slug'   =>  [
                     Rule::unique('packages')->ignore($id),
-                ]
+                ],
+                'p_age_range' => 'required|numeric',
+                'p_max_group_size' => 'required|numeric',
+                'p_tour_operator' => 'required',
+                'p_started_from' => 'required',
+                'p_operated_in' => 'required'
             ],
             [],
             [
                 'p_name' => "Package Name",
-                'p_slug' => "Package Slug"
+                'p_slug' => "Package Slug",
+                'p_age_range' => 'Package Age Range',
+                'p_max_group_size' => 'Package Max Group Size',
+                'p_tour_operator' => 'Package Tour Operator',
+                'p_started_from' => 'Package Started From',
+                'p_operated_in' => 'Package Operated In'
             ]);
             $data['p_photo'] = $package->p_photo;
         }
@@ -196,6 +240,48 @@ class PackageController extends Controller
         unlink(public_path('uploads/'.$package_photo->photo));
         $package_photo->delete();
         return Redirect()->back()->with('success', 'Package Photo is deleted successfully!');
+    }
+
+    public function schedule($id)
+    {
+        $package_schedule = PackageSchedule::where('package_id',$id)->get();
+        $package_id = $id;
+        return view('admin.package.schedule', compact('package_schedule','package_id'));
+    }
+
+    public function schedulestore(Request $request)
+    {
+        if(env('PROJECT_MODE') == 0) {
+            return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
+        }
+
+        $package_schedule = new PackageSchedule();
+        $data = $request->only($package_schedule->getFillable());
+
+        $request->validate([
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'price' => 'required'
+        ]);
+
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'package_schedules'");
+        $data['package_id'] = $request->package_id;
+        $data['start_date'] = $request->start_date;
+        $data['end_date'] = $request->end_date;
+        $data['price'] = $request->price;
+        $package_schedule->fill($data)->save();
+        return redirect()->back()->with('success', 'Package Schedule is added successfully!');
+    }
+
+    public function scheduledelete($id)
+    {
+        if(env('PROJECT_MODE') == 0) {
+            return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
+        }
+        
+        $package_schedule = PackageSchedule::findOrFail($id);
+        $package_schedule->delete();
+        return Redirect()->back()->with('success', 'Package Schedule is deleted successfully!');
     }
 
     public function video($id)

@@ -17,6 +17,7 @@
                         <th>SL</th>
                         <th>Photo</th>
                         <th>Destination Name</th>
+                        <th>Destination Parent</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -28,6 +29,7 @@
                                 <img src="{{ asset('uploads/'.$row->d_photo) }}" alt="" class="w_200">
                             </td>
                             <td>{{ $row->d_name }}</td>
+                            <td>{{ ($row->d_parent_id != 0) ? $row->parent->d_name: '-'}}</td>
                             <td>
                                 <a href="{{ URL::to('admin/destination/edit/'.$row->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                 <a href="{{ URL::to('admin/destination/delete/'.$row->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
