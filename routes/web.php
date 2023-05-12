@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\SocialMediaItemController;
 use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\TeamMemberController as TeamMemberControllerForAdmin;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\SpotlightController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\FaqController as FaqControllerForAdmin;
 use App\Http\Controllers\Admin\OrderController as OrderControllerForAdmin;
@@ -193,6 +194,11 @@ Route::get('admin/slider/delete/{id}', [SliderController::class,'destroy']);
 Route::get('admin/slider/edit/{id}', [SliderController::class,'edit']);
 Route::post('admin/slider/update/{id}', [SliderController::class,'update']);
 
+/* --------------------------------------- */
+/* Spotlight - Admin */
+/* --------------------------------------- */
+Route::get('admin/spotlight/view', [SpotlightController::class,'index'])->name('admin.spotlight.index');
+Route::post('admin/spotlight/store', [SpotlightController::class,'store'])->name('admin.spotlight.store');
 
 /* --------------------------------------- */
 /* Logo - Admin */
@@ -410,6 +416,9 @@ Route::post('admin/package/update/{id}', [PackageControllerForAdmin::class,'upda
 Route::get('admin/package/photo/{id}', [PackageControllerForAdmin::class,'photo']);
 Route::post('admin/package/photo-store', [PackageControllerForAdmin::class,'photostore'])->name('admin.package.photo-store');
 Route::get('admin/package/photo-delete/{id}', [PackageControllerForAdmin::class,'photodelete']);
+Route::get('admin/package/schedule/{id}', [PackageControllerForAdmin::class,'schedule']);
+Route::post('admin/package/schedule-store', [PackageControllerForAdmin::class,'schedulestore'])->name('admin.package.schedule-store');
+Route::get('admin/package/schedule-delete/{id}', [PackageControllerForAdmin::class,'scheduledelete']);
 Route::get('admin/package/video/{id}', [PackageControllerForAdmin::class,'video']);
 Route::post('admin/package/video-store', [PackageControllerForAdmin::class,'videostore'])->name('admin.package.video-store');
 Route::get('admin/package/video-delete/{id}', [PackageControllerForAdmin::class,'videodelete']);

@@ -8,7 +8,7 @@
             <div class="card-header py-3">
                 <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Pakage</h6>
                 <div class="float-right d-inline">
-                    <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> View All</a>
+                    <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> View All</a>
                 </div>
             </div>
             <div class="card-body">
@@ -37,6 +37,14 @@
                 <div class="form-group">
                     <label for="">Location</label>
                     <textarea name="p_location" class="form-control h_100" cols="30" rows="10">{{ old('p_location') }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Started From</label>
+                    <input type="text" name="p_started_from" class="form-control" value="{{ old('p_started_from') }}">
+                </div>
+                <div class="form-group">
+                    <label for="">Tour Operator</label>
+                    <input type="text" name="p_tour_operator" class="form-control" value="{{ old('p_tour_operator') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Start Date</label>
@@ -80,12 +88,32 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="">Max group size</label>
+                    <select name="p_max_group_size" class="form-control select2">
+                        @for($i = 1; $i <= 20; $i++ )
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor;
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Age range</label>
+                    <select name="p_age_range" class="form-control select2">
+                        @foreach($ranges as $key => $range)
+                            <option value="{{ $range }}">{{ $key }}</option>
+                        @endforeach;
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="">Destination</label>
                     <select name="destination_id" class="form-control select2">
                         @foreach($destination as $row)
                             <option value="{{ $row->id }}">{{ $row->d_name }}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Operated in</label>
+                    <input type="text" name="p_operated_in" class="form-control" value="{{ old('p_operated_in') }}">
                 </div>
             </div>
             <div class="card-header py-3">

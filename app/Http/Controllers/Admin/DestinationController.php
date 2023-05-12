@@ -19,13 +19,15 @@ class DestinationController extends Controller
 
     public function index()
     {
-        $destination = Destination::all();
+        $destination = Destination::with('parent')->get();
         return view('admin.destination.index', compact('destination'));
     }
 
     public function create()
     {
-        return view('admin.destination.create');
+        $parents = Destination::with('children')->select('id','d_name','d_parent_id')->get();
+        //dd($parents);
+        return view('admin.destination.create', compact('parents'));
     }
 
     public function store(Request $request)
@@ -36,7 +38,10 @@ class DestinationController extends Controller
 
         $destination = new Destination();
         $data = $request->only($destination->getFillable());
-
+        $isParent = Destination::select('d_parent_id')->where('id',$data['d_parent_id'])->first();
+        if(isset($isParent) && $isParent->d_parent_id != 0){
+            return redirect()->back()->withInput()->with('error', 'Please Select Parent Only!');
+        }
         $request->validate([
             'd_name' => 'required|unique:destinations',
             'd_slug' => 'unique:destinations',
@@ -67,7 +72,8 @@ class DestinationController extends Controller
     public function edit($id)
     {
         $destination = Destination::findOrFail($id);
-        return view('admin.destination.edit', compact('destination'));
+        $parents = Destination::with('children')->select('id','d_name','d_parent_id')->get();
+        return view('admin.destination.edit', compact('destination', 'parents'));
     }
 
     public function update(Request $request, $id)
@@ -78,7 +84,10 @@ class DestinationController extends Controller
 
         $destination = Destination::findOrFail($id);
         $data = $request->only($destination->getFillable());
-
+        $isParent = Destination::select('d_parent_id')->where('id',$data['d_parent_id'])->first();
+        if(isset($isParent) && $isParent->d_parent_id != 0){
+            return redirect()->back()->with('error', 'Please Select Parent Only!');
+        }
         if($request->hasFile('d_photo')) {
             $request->validate([
                 'd_name'   =>  [

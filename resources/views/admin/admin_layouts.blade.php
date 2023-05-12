@@ -155,6 +155,20 @@
             </a>
         </li>
 
+        <li class="nav-item @if($conName[1] == 'slider') active @endif">
+            <a class="nav-link" href="{{ route('admin.slider.index') }}">
+            <i class="fas fa-globe-europe"></i>
+                <span>Home Page Slides</span>
+            </a>
+        </li>
+
+        <li class="nav-item @if($conName[1] == 'spotlight') active @endif">
+            <a class="nav-link" href="{{ route('admin.spotlight.index') }}">
+            <i class="fas fa-globe-europe"></i>
+                <span>Spotlight</span>
+            </a>
+        </li>
+
 
         <!-- Dynamic Pages -->
         <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
