@@ -159,7 +159,7 @@
         <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
             <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
                 <i class="fas fa-share-alt-square"></i>
-                <span>Subscribers</span>
+                <span>Subscribers </span>
             </a>
         </li>
 
