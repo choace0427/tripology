@@ -152,7 +152,7 @@
             <a class="nav-link" href="{{ route('admin.package.index') }}">
                 <i class="fas fa-box"></i>
                 <span>Packages</span>
-            </a>
+            </a> 
         </li>
 
         <li class="nav-item @if($conName[1] == 'slider') active @endif">
