@@ -152,9 +152,38 @@
             <a class="nav-link" href="{{ route('admin.package.index') }}">
                 <i class="fas fa-box"></i>
                 <span>Packages</span>
+            </a> 
+        </li>
+
+        <li class="nav-item @if($conName[1] == 'slider') active @endif">
+            <a class="nav-link" href="{{ route('admin.slider.index') }}">
+            <i class="fas fa-globe-europe"></i>
+                <span>Home Page Slides</span>
             </a>
         </li>
 
+        <li class="nav-item @if($conName[1] == 'spotlight') active @endif">
+            <a class="nav-link" href="{{ route('admin.spotlight.index') }}">
+            <i class="fas fa-globe-europe"></i>
+                <span>Spotlight</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+            <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
+                <i class="fas fa-share-alt-square"></i>
+                <span>Subscribers </span>
+            </a>
+        </li>
+
+        
+        <li class="nav-item @if($conName[1] == 'reviews') active @endif">
+            <a class="nav-link" href="{{ route('admin.review.index') }}">
+                <i class="fas fa-comments"></i>
+                <span>Reviews </span>
+            </a>
+        </li>
 
         <!-- Dynamic Pages -->
         <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
@@ -221,7 +250,7 @@
         </li> -->
 
         <!-- Subscriber -->
-        <!-- <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+        <!--li class="nav-item @if($conName[1] == 'subscriber') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubscriber" aria-expanded="true" aria-controls="collapseSubscriber">
                 <i class="fas fa-share-alt-square"></i>
                 <span>Subscriber</span>
@@ -232,7 +261,7 @@
                     <a class="collapse-item" href="{{ route('admin.subscriber.send_email') }}">Send Email to Subscribers</a>
                 </div>
             </div>
-        </li> -->
+        </li-->
 
 
 
