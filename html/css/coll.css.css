@@ -1,0 +1,1455 @@
+
+
+.header {
+    background: #1E73BE;
+
+}
+
+.navbar-nav li a {
+    font-size: 25px;
+    color: #FFF204;
+    margin-left: 15px;
+}
+
+.input {
+    display: flex;
+    background: transparent;
+    border: solid 1px #FFF204;
+    border-radius: 40px;
+    padding: 5px 10px 5px 20px;
+}
+
+.input a {
+    color: #FFF204;
+    font-size: 25px;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+.input button {
+    background: #20B9FC;
+    padding: 6px 20px 6px 20px;
+    font-size: 20px;
+    border-radius: 30px;
+    color: #FFF204;
+    border: none;
+
+}
+
+.carousel-caption h2 {
+    font-size: 50px;
+}
+
+.carousel-caption p {
+    margin-bottom: 60px;
+}
+
+.big-btn1 {
+    position: relative;
+}
+
+.big-btn {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0px 0px 11px;
+    padding: 20px 20px;
+    border-radius: 10px;
+    top: -30px;
+    left: 0px;
+    width: 100%;
+}
+
+/* .big-btn input{
+    width: 100%;
+    background: #fff;
+    border: none;
+    box-shadow: 0px 0px 11px;
+    padding: 20px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -35px;
+    
+} */
+
+.explore h2 {
+    color: #333;
+}
+
+.img-icon {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 11px;
+    text-align: center;
+    padding: 25px 0px;
+    border-radius: 10px;
+    height: 150px;
+}
+
+.img-icon img {
+    width: 20%;
+}
+
+.img-icon h4 {
+    color: #333;
+    font-weight: 400;
+}
+
+
+.item span {
+    background-color: #04730b;
+    color: white;
+    padding: 5px;
+}
+
+.item img {
+    height: 230px;
+}
+
+.item13 img {
+    height: 200px !important;
+}
+
+.item h5 {
+    font-size: 16px;
+}
+
+.item h6 {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.item h6 span {
+    font-weight: 600;
+}
+
+.bg-last {
+    background: #FFF204;
+}
+
+.vinay {
+    border: solid .5px black;
+    background-color: white;
+    box-shadow: 0px 0px 11px;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.head h3 {
+    margin-top: 20px;
+}
+
+.reviews1 hr {
+    width: 50%;
+}
+.reviews h1{
+    font-size: 16px;
+}
+.reviews1 h5{
+    font-size: 12px;
+
+}
+.reviews1 h6{
+    font-size:10px ;
+}
+
+.vinay hr {
+    margin-top: 5px;
+
+}
+
+.departure1 button {
+    background-color: #6899b5;
+    border: solid .5px black;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: 10px;
+
+}
+
+.departure2 button {
+    background-color: #ffff;
+    border: solid .5px #6899b5;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: 10px;
+
+
+}
+
+.departure3 button {
+    background-color: #ffff;
+    border: solid .5px #6899b5;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: 10px;
+
+
+}
+
+.departure4 button {
+    background-color: #ffff;
+    border: solid .5px #6899b5;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: 10px;
+
+}
+
+.departure5 button {
+    background-color: #ffff;
+    border: solid .5px #6899b5;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: 10px;
+
+}
+
+.departure6 button {
+    background-color: #ffff;
+    border: solid .5px #6899b5;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: 10px;
+
+}
+
+.pandit {
+    margin-top: 10px;
+    margin-left: 0px;
+
+}
+
+.vp {
+    margin-left: 0px;
+}
+.dip1 h6{
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.dipi3 h6 {
+    margin-left: 60px;
+}
+.dip2 h6{
+    font-size: 12px;
+}
+.dip3 h6{
+    font-size: 12px;
+}
+
+.dip4 h6 {
+    font-size: 12px;
+    margin-left: 0px;
+}
+.dip4 button{
+    font-size: 10px;
+    border-radius: 10px;
+    background-color: #6899b5;
+    color: white;
+    padding: 5px;
+    align-items: end;
+}
+
+.slider{
+    max-width: 610px;
+    height: 500px;
+}
+.reviews {
+    margin-top: 30px;
+
+}
+
+.reviews hr {
+    margin-left: 30px;
+    width: 2px;
+}
+
+.reviews1 span {
+    background-color: rgb(189, 185, 185);
+    border-radius: 50px;
+    margin-left: 30px;
+    padding: 5px 18px;
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.star span {
+    border-radius: 10px;
+    background-color: #04730b;
+    color: white;
+    padding: 5px;
+}
+
+.star1 span {
+    border-radius: 10px;
+    background-color: #ff7505;
+    color: white;
+    padding: 5px;
+}
+
+.star2 span {
+    border-radius: 10px;
+    background-color: #ff0033;
+    color: white;
+    padding: 5px;
+}
+
+.star3 span {
+    border-radius: 10px;
+    background-color: #d1f500;
+    color: white;
+    padding: 5px;
+}
+
+.star4 {
+    border-radius: 10px;
+    background-color: #f5009b;
+    color: white;
+    padding: 5px;
+}
+
+.description {
+    margin-left: 40px;
+    color: #999999;
+}
+
+.last-logo {
+    width: 100%;
+}
+
+.last-logo img {
+    width: 100%;
+}
+
+.last-logo h3 {
+    font-weight: 600;
+}
+
+.last-logo ul li a {
+    font-size: 15px;
+    font-weight: 200;
+    color: #333;
+}
+
+.last-logo a {
+    font-size: 15px;
+    font-weight: 200;
+    color: #333;
+}
+
+.last-logo p {
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.last-logo button {
+    background: #1E73BE;
+    color: #fff;
+    border: none;
+    width: 50%;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 19px;
+}
+
+.input2 {
+    background: #fff;
+    width: 80%;
+    height: 50px;
+    padding: 0px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.owl-nav {
+    position: relative;
+    align-items: center;
+}
+
+.owl-next span {
+    font-size: 55px;
+    position: absolute;
+    bottom: 3em;
+    left: -22px;
+    color: #000000;
+    border-color: #000;
+}
+
+.owl-next span:hover {
+    color: #000000;
+    color: #a9a9a9;
+}
+
+.owl-prev span {
+    font-size: 55px;
+    position: absolute;
+    bottom: 3em;
+    right: -22px;
+    color: #000000;
+}
+
+.owl-prev span:hover {
+    color: #000000;
+
+    color: #a9a9a9;
+}
+
+
+@media(max-width:1400px) {
+    .lock h6 {
+        font-size: 13px !important;
+    }
+
+    .lock h5 {
+        font-size: 16px !important;
+        padding-top: 0px !important;
+    }
+
+    .lock p {
+        font-size: 11px !important;
+        padding-top: 0px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .lock h4 {
+        font-size: 11px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .lock i {
+        font-size: 17px !important;
+    }
+
+    .lock h6 span {
+        font-size: 12px !important;
+        padding-top: 0px !important;
+    }
+
+    .lock span i {
+        font-size: 12px !important;
+    }
+
+    .item-list h6 {
+        font-size: 13px !important;
+        padding-top: 5px !important;
+    }
+
+    .item-list button {
+        font-size: 13px !important;
+        padding: 5px 19px !important;
+    }
+
+    .item-list {
+        margin-top: 25px !important;
+    }
+
+    .mekong h5 {
+        font-size: 15px !important;
+    }
+
+    .mekong p {
+        font-size: 12px !important;
+        font-weight: 200 !important;
+    }
+}
+
+
+@media(max-width:1200px) {
+    .get button {
+        padding: 8px 18px !important;
+        font-size: 14px !important;
+    }
+
+    .get2 button {
+        padding: 6px 16px !important;
+        font-size: 14px !important;
+        margin-top: 6px !important;
+    }
+
+    .range h5 {
+        padding-top: 1px !important;
+    }
+
+    .banda {
+        height: 1350px !important;
+    }
+}
+
+@media(max-width:1024px) {
+    .container {
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    .come h6 {
+        font-size: 14px;
+    }
+
+    .come img {
+        display: none;
+    }
+
+
+    .ert {
+        padding: 0px 10px !important;
+    }
+
+    .girl2 h4 {
+        font-size: 18px !important;
+        margin: 0px 0px 0px;
+    }
+
+    .girl2 p {
+        font-size: 15px !important;
+        margin: 0px 0px 0px;
+    }
+
+    .tika {
+        padding-top: 0px !important;
+    }
+
+    .sort h6 {
+        font-size: 16px !important;
+    }
+
+    .sort {
+        text-align: left;
+    }
+
+
+    .item-list button {
+        font-size: 12px !important;
+        padding: 6px 8px !important;
+    }
+
+    .item-list h6 {
+        font-size: 12px !important;
+    }
+
+
+}
+
+@media(max-width:992px) {
+    .list {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .dard {
+        width: 37%;
+    }
+
+    .mekong {
+        width: 100%;
+        margin-top: 10px;
+        border-top-right-radius: 0px !important;
+    }
+
+    .mal img {
+        width: 86%;
+        border-bottom-left-radius: 0px !important;
+    }
+
+    .item-list h6 {
+        font-size: 22px !important;
+    }
+
+    .item-list button {
+        font-size: 18px !important;
+        padding: 6px 30px !important;
+    }
+
+    .mekong h5 {
+        font-size: 20px !important;
+    }
+
+    .mekong p {
+        font-size: 14px !important;
+    }
+
+    .get2 button {
+        margin-bottom: 12px !important;
+    }
+
+    .rty {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .rty1 {
+        width: 100%;
+    }
+}
+
+@media(max-width:768px) {
+    .come2 {
+        display: none;
+    }
+
+    .header {
+        margin-top: 0px !important;
+    }
+
+    .last-logo ul li a {
+        font-size: 12px;
+    }
+
+    .last-logo p {
+        font-size: 12px;
+    }
+
+    .last-logo a {
+        font-size: 12px;
+    }
+
+    .last-logo img {
+        width: 30% !important;
+    }
+
+    .img-icon {
+        margin-top: 15px;
+    }
+
+    .img-icon img {
+        width: 17%;
+    }
+
+    .let h1 {
+        font-size: 40px !important;
+        padding-top: 0px !important;
+    }
+
+    .let h4 {
+        font-size: 19px !important;
+    }
+
+    .let p {
+        font-size: 16px !important;
+        padding-top: 0px !important;
+        line-height: 21px !important;
+    }
+
+    .ert2 {
+        padding: 0px 0px !important;
+    }
+
+    .bajna p {
+        font-size: 13px !important;
+        line-height: 15px !important;
+        padding-top: 6px !important;
+    }
+
+    .plasi img {
+        height: 120px;
+    }
+
+    .bajna a {
+        font-size: 12px !important;
+    }
+
+    .girl2 {
+        padding: 8px !important;
+    }
+
+    .kahdi h3 {
+        font-size: 16px !important;
+    }
+
+    .kuch {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .kuch1 {
+        width: 100%;
+        margin-top: 0px !important;
+    }
+
+    .katire2 a span {
+        font-size: 14px !important;
+        color: #000;
+    }
+
+    .kahdi button {
+        font-size: 14px !important;
+    }
+
+    .mal img {
+        width: 98% !important;
+    }
+
+}
+
+
+
+.hid {
+    display: none;
+}
+
+@media(max-width:767px) {
+    .plasi img {
+        height: 250px !important;
+    }
+
+    .banda {
+        display: none;
+    }
+
+
+    .hid {
+        display: block;
+        position: relative;
+    }
+
+    .hid2 {
+        position: absolute;
+        top: 65px;
+        right: 10px;
+        padding: 5px 30px;
+        background: transparent;
+        border: solid 2px #387088;
+        color: #000;
+        border-radius: 0px !important;
+    }
+
+    .list {
+        margin-left: 0px !important;
+    }
+
+    .tnam {
+        width: 62%;
+    }
+
+    .mal {
+        width: 100%;
+    }
+}
+
+
+
+
+@media(max-width:426px) {
+    .big-btn input {
+        padding: 15px 20px !important;
+        bottom: -29px;
+    }
+
+
+
+    .explore h2 {
+        font-size: 20px;
+    }
+
+    .nav-item a {
+        font-size: 17px !important;
+    }
+
+    .input a {
+        font-size: 17px !important;
+    }
+
+    .input button {
+        font-size: 17px !important;
+        padding: 2px 10px 2px 10px;
+    }
+
+    .ges {
+        margin-top: 0px !important;
+    }
+
+    .ges1 {
+        margin-top: 10px !important;
+    }
+
+    .navbar-brand {
+        width: 50%;
+    }
+
+    .big-btn input {
+        font-size: 15px;
+    }
+
+    .expol h3 {
+        font-size: 19px !important;
+    }
+
+    .form-bg {
+        padding: 0px 10px !important;
+    }
+
+    .let h1 {
+        font-size: 25px !important;
+        margin: 0px 0px 2px !important;
+    }
+
+    .let h4 {
+        font-size: 15px !important;
+        margin: 0px 0px 0px !important;
+    }
+
+    .contact h2 {
+        font-size: 35px !important;
+    }
+
+    .girl {
+        margin-top: 10px !important;
+    }
+
+    .dard {
+        width: 100%;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .mal img {
+        width: 100% !important;
+        border-top-right-radius: 10px !important;
+        border-bottom-right-radius: 10px !important;
+    }
+
+    .lock h6 {
+        font-size: 16px !important;
+        /* padding-top: 10px !important; */
+        margin: 0px 0px 0px !important;
+    }
+
+    .lock h5 {
+        font-size: 18px !important;
+        padding-top: 5px !important;
+    }
+
+    .lock p {
+        font-size: 13px !important;
+        padding-top: 5px !important;
+    }
+
+    .lock i {
+        font-size: 30px !important;
+        padding-top: 5px !important;
+    }
+
+    .lock h6 span {
+        font-size: 18px !important;
+        padding-top: 0px !important;
+    }
+
+    .tika {
+        padding-top: 20px !important;
+    }
+}
+
+@media(max-width:340px) {
+    .hid2 {
+        top: 84px !important;
+    }
+}
+
+@media(max-width:320px) {
+    .qutote a span {
+        margin: 0px !important;
+    }
+
+
+}
+
+
+.cross button {
+    height: 40px;
+    border-color: #3700fe;
+    color: #1988D6;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-width: 1px;
+    box-shadow: 0px 0px 5px;
+}
+
+
+/* section-2 */
+/* section-2 */
+/* section-2 */
+/* section-2 */
+
+
+.form-bg {
+    background: url(../images/form-bg.png);
+    background-size: 100% 100%;
+}
+
+.let h4 {
+    font-style: normal;
+    font-weight: 100;
+    font-size: 24px;
+    line-height: 46px;
+    letter-spacing: 0.27em;
+}
+
+.let h1 {
+    padding-top: 10px;
+    font-size: 56px;
+    /* width: 45%; */
+    font-weight: 800;
+}
+
+.let p {
+    padding-top: 15px;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 29px;
+    /* width: 50%; */
+}
+
+.contact h2 {
+    font-size: 46px;
+    font-weight: 600;
+}
+
+.contact p {
+    font-size: 19px;
+    font-weight: 100;
+}
+
+.contact p span {
+    font-weight: bold;
+}
+
+.first label {
+    font-weight: 100;
+    color: #043552;
+    margin: 0px 0px 3px;
+}
+
+.first input {
+    background: #fff;
+    color: #043552;
+    border: 1px solid #000000;
+    padding: 15px 8px;
+}
+
+.tact h3 {
+    font-weight: 600;
+}
+
+.tact h4 {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.tact p {
+    font-weight: 200;
+    font-size: 19px;
+}
+
+.port li a {
+    color: #333;
+}
+
+.port li a span {
+    padding-left: 10px;
+}
+
+.port h5 {
+    font-size: 1rem;
+}
+
+.recent h3 {
+    color: #043552;
+    letter-spacing: 0.1em;
+    font-weight: 200;
+}
+
+.recent h2 {
+    color: #000;
+    font-size: 32px;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.recent p {
+    color: #000;
+    font-size: 19px;
+    font-weight: 200;
+    padding-top: 8px;
+}
+
+.girl {
+    width: 100%;
+    color: #fff;
+
+}
+
+.girl img {
+    width: 150;
+    height: 150px;
+
+}
+
+.girl2 {
+    background: #ffffff;
+    padding: 10px;
+    border: solid black .25px;
+    box-shadow: 0px 0px 11px;
+
+}
+
+.girl2 h6 {
+    font-size: 16px;
+    color: #000;
+}
+
+.girl2 h5 {
+    color: #797979;
+}
+
+.girl2 h4 {
+    color: red;
+    font-size: 10px;
+}
+
+.girl2 h3 {
+    color: #000;
+    font-size: 12px;
+}
+
+.girl2 p {
+    color: #000;
+    font-size: 14px;
+    font-weight: 100;
+    font-weight: bold;
+}
+
+
+
+/* details-page */
+/* details-page */
+/* details-page */
+/* details-page */
+
+
+
+
+
+/* colletion-page */
+/* colletion-page */
+/* colletion-page */
+/* colletion-page */
+.nadi {
+    padding: 5px;
+}
+
+.nadi h4 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nadi a {
+    color: #4A4A4A;
+}
+
+.nadi span {
+    background-color: #04730b;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.babba {
+    padding: 8px;
+}
+
+.babba h4 {
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.babba p {
+    color: #797979;
+    max-width: 700px;
+
+}
+
+.havai img {
+    width: 50%;
+    border-radius: 11px;
+}
+
+.havai h6 {
+    font-size: 14px;
+}
+
+.babba h5 {
+    font-size: 18px;
+}
+
+.babba p {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 2px;
+}
+
+.babba2 h5 {
+    font-size: 27px;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.babba2 p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 2px;
+    padding-top: 10px;
+    letter-spacing: 1px;
+}
+
+.babba2 p span {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.babba3 h5 {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.babba3 h6 {
+    font-size: 15px;
+    font-weight: 400;
+    color: #949494;
+}
+
+.katire {
+    background: #fff;
+    box-shadow: 0px 0px 11px;
+    padding: 30px 20px;
+}
+
+.katire a img {
+    width: 35px;
+}
+
+.katire a span {
+    font-size: 19px;
+    color: #000;
+}
+
+
+.katire2 a img {
+    width: 27px;
+}
+
+.katire2 a span {
+    font-size: 17px;
+    color: #000;
+}
+
+.callbtn button {
+    padding: 10px 30px;
+    border-radius: 5px;
+    background: #387088;
+    border: none;
+    font-size: 19px;
+    color: #fff;
+}
+
+.kahdi {
+    background: #fff;
+    box-shadow: 0px 0px 11px;
+    padding: 10px;
+}
+
+.kahdi h3 {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.kahdi h3 span {
+    font-size: 12px;
+    font-weight: 100;
+    margin-bottom: 2px;
+}
+
+.kahdi p {
+    font-size: 16px;
+    line-height: 20px;
+    padding-top: 20px;
+}
+
+.kahdi button {
+    background: #FF433A;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 19px;
+}
+
+.banda {
+    background: #fff;
+    box-shadow: 0px 0px 11px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 1570px;
+}
+
+.range h6 {
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.range h5 {
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.sort h6 {
+    font-size: 19px;
+    font-weight: 500;
+    padding-top: 6px;
+}
+
+.sort button {
+    padding: 5px 30px;
+    background: transparent;
+    border: solid 2px #387088;
+}
+
+.mal {
+    width: 100%;
+}
+
+.mal img {
+    width: 86%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.lock h6 {
+    color: #F44336;
+    font-size: 17px;
+    padding-top: 5px;
+}
+
+.lock h5 {
+    color: #000;
+    font-size: 21px;
+    padding-top: 5px;
+}
+
+.lock p {
+    color: #333333;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.lock i {
+    font-size: 23px;
+}
+
+.lock span i {
+    font-size: 15px;
+}
+
+.lock h6 span {
+    color: #333333;
+    font-size: 19px;
+    padding-top: 5px;
+}
+
+.lock h4 {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.list {
+    background: #fff;
+    box-shadow: 0px 0px 3px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.item-list {
+    margin-top: 40px;
+
+}
+
+.item-list h6 {
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.mekong {
+    background: #d4b0b035;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.mekong h5 {
+    font-size: 19px;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.mekong p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.item-list button {
+    font-size: 14px;
+    padding: 5px 25px;
+    background: #237C29;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.get button {
+    background: #FF433A;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+}
+
+.get2 button {
+    background: #ffff;
+    color: #3D81BB;
+    border: solid 2px #3D81BB;
+    padding: 10px 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.qutote a {
+    font-size: 30px;
+    color: #000;
+    font-weight: 600;
+}
+
+.qutote a span {
+    font-size: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 6px 12px;
+    border-radius: 60%;
+    margin: 5px;
+
+}
+
+.tub {
+    width: 100%;
+}
+
+.tub img {
+    width: 100%;
+}
+
+.tub h6 {
+    padding-top: 8px;
+    font-size: 17px;
+}
+
+.item84 img {
+    position: relative;
+}
+
+.item84 h5 {
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+    color: #fff;
+}
+
+.logi {
+    width: 100%;
+}
+
+.logi img {
+    width: 90%;
+}
+
+.logi h5 {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.logi input {
+    background: #fff;
+    border: solid 2px #333;
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 7px;
+    color: #333;
+}
+
+.logi p {
+    font-size: 16px;
+    font-weight: 100;
+    padding-top: 10px;
+}
+
+.logi button {
+    background: #01008C;
+    color: #fff;
+    width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+}
+
+.main-login {
+    background: #fff;
+    box-shadow: 0px 0px 11px;
+    border-radius: 10px;
+}
+
+.reg {
+    width: 100%;
+}
+
+.reg img {
+    width: 67%;
+}
+
+.logi2 h5 {
+    font-size: 29px;
+    font-weight: 600;
+}
+
+.optio {
+    background: #fff;
+    border: solid 2px #333;
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 7px;
+    color: #333;
+}
+
+.atti button {
+    background: #1988D6;
+    color: #ffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+/* .shankar2{
+    position: relative;
+} */
+/* .shankar2 input{
+    position: absolute;
+    bottom: 0px;
+    right: 76px;
+    width: 44%;
+    padding: 5px;
+
+} */
