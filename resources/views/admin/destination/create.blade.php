@@ -8,10 +8,38 @@
             <div class="card-header py-3">
                 <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Destination</h6>
                 <div class="float-right d-inline">
-                    <a href="{{ route('admin.destination.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> View All</a>
+                    <a href="{{ route('admin.destination.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> View All</a>
                 </div>
             </div>
             <div class="card-body">
+                <div class="form-group">
+                    <label for="">Parent</label>
+                    <!--select name="d_parent_id" class="form-control select2">
+                        @forelse($parents as $keyParent => $parent)
+                            <optgroup label="{{ $parent->d_name }}">
+                                <option value="{{ $parent->id }}">{{ $parent->d_name }}</option>
+                                    @foreach($parents as $keyChild => $sub)
+                                        @if($sub->d_parent_id === $parent->id)
+                                            @unset($parents[$keyChild])
+                                            <option value="{{ $sub->id }}">--{{ $sub->d_name }}</option>
+                                        @endif
+                                    @endforeach
+                            </optgroup>
+                            @empty
+                        @endforelse   
+                    </select-->
+                    <select class="form-control" data-toggle="select" data-live-search="true" name="d_parent_id" id="d_parent_id">
+
+                            @foreach($parents as $category)
+                                    <option value="{{ $category->id }}">{{ $category->d_name }}</option>
+                                        @foreach($category->children as $child)
+                                            <option value="{{ $child->id }}">-- {{ $child->d_name }}</option>
+                                        @endforeach
+                            @endforeach
+                    </select>
+
+                    
+                </div>
                 <div class="form-group">
                     <label for="">Name *</label>
                     <input type="text" name="d_name" class="form-control" value="{{ old('d_name') }}" autofocus>

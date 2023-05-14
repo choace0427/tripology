@@ -31,6 +31,7 @@ class CreateDestinationsTable extends Migration
             $table->text('d_transportation')->nullable();
             $table->text('d_culture')->nullable();
             $table->smallInteger('d_order')->default(0);
+            $table->integer('d_parent_id')->default(0);
             $table->text('seo_title')->nullable();
             $table->text('seo_meta_description')->nullable();
             $table->timestamps();
