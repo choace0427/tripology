@@ -177,6 +177,21 @@
             </a>
         </li>
 
+        
+        <li class="nav-item @if($conName[1] == 'reviews') active @endif">
+            <a class="nav-link" href="{{ route('admin.review.index') }}">
+                <i class="fas fa-comments"></i>
+                <span>Reviews </span>
+            </a>
+        </li>
+
+        <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+            <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
+                <i class="fas fa-share-alt-square"></i>
+                <span>Subscribers </span>
+            </a>
+        </li>
+
         <!-- Dynamic Pages -->
         <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
             <a class="nav-link" href="{{ route('admin.dynamic_page.index') }}">
