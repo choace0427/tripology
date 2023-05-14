@@ -169,7 +169,6 @@
             </a>
         </li>
 
-
         <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
             <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
                 <i class="fas fa-share-alt-square"></i>
@@ -182,13 +181,6 @@
             <a class="nav-link" href="{{ route('admin.review.index') }}">
                 <i class="fas fa-comments"></i>
                 <span>Reviews </span>
-            </a>
-        </li>
-
-        <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
-            <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
-                <i class="fas fa-share-alt-square"></i>
-                <span>Subscribers </span>
             </a>
         </li>
 
