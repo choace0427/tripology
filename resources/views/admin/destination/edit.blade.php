@@ -15,20 +15,12 @@
                 </div>
             </div>
             <div class="card-body">
-                <!--select class="form-control" data-toggle="select" data-live-search="true" name="d_parent_id" id="d_parent_id">
-                    @foreach($parents as $category)
-                        <option value="0" @if($destination->id == $category->id) selected @endif>{{ $category->d_name }}</option>
-                            @foreach($category->children as $child)
-                                @include('admin.destination.child_destinations', ['child' => $child])
-                            @endforeach
-                    @endforeach
-                </select-->
                 <div class="form-group">
                     <label for="">Parent</label>
                     <select class="form-control" data-toggle="select" data-live-search="true" name="d_parent_id" id="d_parent_id">
                     @foreach($parents as $category)
                         @if($category->d_parent_id == 0)
-                        <option value="{{$category->id}}" @if($destination->d_parent_id == $category->id) selected @endif>{{ $category->d_name }}</option>
+                        <option value="{{$category->id}}" @if($destination->id == $category->id) selected @endif>{{ $category->d_name }}</option>
                         @endif
                     @endforeach
                     </select>
