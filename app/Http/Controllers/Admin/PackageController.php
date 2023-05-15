@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Package;
 use App\Models\Admin\PackagePhoto;
 use App\Models\Admin\PackageSchedule;
+use App\Models\Admin\PackageItinerary;
 use App\Models\Admin\PackageVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -283,6 +284,47 @@ class PackageController extends Controller
         $package_schedule->delete();
         return Redirect()->back()->with('success', 'Package Schedule is deleted successfully!');
     }
+    //Itinerary starts here
+    public function itinerary($id)
+    {
+        $package_itinerary = PackageItinerary::where('package_id',$id)->get();
+        $package_id = $id;
+        return view('admin.package.itinerary', compact('package_itinerary','package_id'));
+    }
+
+    public function itinerarystore(Request $request)
+    {
+        if(env('PROJECT_MODE') == 0) {
+            return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
+        }
+
+        $package_itinerary = new PackageItinerary();
+        $data = $request->only($package_itinerary->getFillable());
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'package_itineraries'");
+        $data['package_id'] = $request->package_id;
+        $data['title'] = $request->title;
+        $data['description'] = $request->description;
+        $package_itinerary->fill($data)->save();
+        return redirect()->back()->with('success', 'Package Itinerary is added successfully!');
+    }
+
+    public function itinerarydelete($id)
+    {
+        if(env('PROJECT_MODE') == 0) {
+            return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
+        }
+        
+        $package_itinerary = PackageItinerary::findOrFail($id);
+        $package_itinerary->delete();
+        return Redirect()->back()->with('success', 'Package Itinerary is deleted successfully!');
+    }
+    //Itinerary ends here
 
     public function video($id)
     {
