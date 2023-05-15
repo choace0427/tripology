@@ -45,11 +45,11 @@
                     <textarea name="p_location" class="form-control h_100" cols="30" rows="10">{{ $package->p_location }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">Started From</label>
+                    <label for="">Started From *</label>
                     <input type="text" name="p_started_from" class="form-control" value="{{ $package->p_started_from }}">
                 </div>
                 <div class="form-group">
-                    <label for="">Tour Operator</label>
+                    <label for="">Tour Operator *</label>
                     <input type="text" name="p_tour_operator" class="form-control" value="{{ $package->p_tour_operator }}">
                 </div>
                 <div class="form-group">
@@ -94,7 +94,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Max group size</label>
+                    <label for="">Max group size *</label>
                     <select name="p_max_group_size" class="form-control select2">
                         @for($i = 1; $i <= 20; $i++ )
                             <option value="{{ $i }}" @if($i == $package->p_max_group_size) selected @endif>{{ $i }}</option>
@@ -102,7 +102,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Age range</label>
+                    <label for="">Age range *</label>
                     <select name="p_age_range" class="form-control select2">
                         @foreach($ranges as $key => $range)
                             <option value="{{ $range }}" @if($range == $package->p_age_range) selected @endif>{{ $key }}</option>
@@ -118,7 +118,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Operated in</label>
+                    <label for="">Operated in *</label>
                     <input type="text" name="p_operated_in" class="form-control" value="{{ $package->p_operated_in }}">
                 </div>
             </div>
