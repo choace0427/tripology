@@ -48,11 +48,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">Start Date</label>
-                    <input id="datepicker" type="text" name="p_start_date" class="form-control" value="{{ old('p_start_date') }}">
+                    <input id="txtstartdate" type="text" autocomplete="off" name="p_start_date" class="form-control" value="{{ old('p_start_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">End Date</label>
-                    <input id="datepicker1" type="text" name="p_end_date" class="form-control" value="{{ old('p_end_date') }}">
+                    <input id="txtenddate" type="text" autocomplete="off" name="p_end_date" class="form-control" value="{{ old('p_end_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Last Booking Date</label>
