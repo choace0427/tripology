@@ -486,7 +486,7 @@
                   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     @foreach($parents as  $count => $dest)
                       <li class="nav-item"  role="presentation">
-                          <button  @if($count == 0) class="nav-link bhan active" @else class="nav-link" @endif id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home-{{ $dest->id }}" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><img src="{{ asset('uploads/'.$dest->d_photo) }}" style="width: 15%;" alt=""> {{$dest->d_name}}</button>
+                          <button  @if($count == 0) class="nav-link bhan active" @else class="nav-link" @endif id="pills-home-tab-{{ $dest->id }}" data-bs-toggle="pill" data-bs-target="#pills-home-{{ $dest->id }}" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><img src="{{ asset('uploads/'.$dest->d_photo) }}" style="width: 15%;" alt=""> {{$dest->d_name}}</button>
                       </li>
                      @endforeach
                      <!--li class="nav-item" role="presentation">
@@ -825,4 +825,5 @@
 </div>
 <!-- </body>
    </html> -->
+
 @endsection
