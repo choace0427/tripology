@@ -47,12 +47,12 @@
                     <input type="text" name="p_tour_operator" class="form-control" value="{{ old('p_tour_operator') }}">
                 </div>
                 <div class="form-group">
-                    <label for="">Start Date *</label>
-                    <input id="datepicker" type="text" name="p_start_date" class="form-control" value="{{ old('p_start_date') }}">
+                    <label for="">Start Date</label>
+                    <input id="txtstartdate" type="text" autocomplete="off" name="p_start_date" class="form-control" value="{{ old('p_start_date') }}">
                 </div>
                 <div class="form-group">
-                    <label for="">End Date *</label>
-                    <input id="datepicker1" type="text" name="p_end_date" class="form-control" value="{{ old('p_end_date') }}">
+                    <label for="">End Date</label>
+                    <input id="txtenddate" type="text" autocomplete="off" name="p_end_date" class="form-control" value="{{ old('p_end_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Last Booking Date *</label>

@@ -297,7 +297,8 @@
                <h3>{{ $spotlight->spotlight_facilities_heading }}</h3>
                <div class="row">
                   <div class="col-md-5 ps-2">
-                     <p><span><i class="bi bi-star-fill"></i></span> {!! $spotlight->spotlight_facilities !!}</p>
+                  {!! $spotlight->spotlight_facilities !!}
+                     <!--p><span><i class="bi bi-star-fill"></i></span> </p-->
                      <!-- <p><span><i class="bi bi-star-fill"></i></span> Flat $80 OFF</p>
                         <p><span><i class="bi bi-star-fill"></i></span> 40% OFF up to $80</p>
                         <p><span><i class="bi bi-star-fill"></i></span> 10% Hotal Free</p> -->
