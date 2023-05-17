@@ -2,231 +2,230 @@
 <html class="no-js" lang="en">
 <head>
     <!-- Meta Tags -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-@php
-$url = Request::path();
-$conName = explode('/',$url);
-if(!isset($conName[1]))
-{
-    $conName[1] = '';
-}
-if(!isset($conName[2]))
-{
-    $conName[2] = '';
-}
-if(!isset($conName[3]))
-{
-    $conName[3] = '';
-}
-@endphp
+    @php
+    $url = Request::path();
+    $conName = explode('/',$url);
+    if(!isset($conName[1]))
+    {
+        $conName[1] = '';
+    }
+    if(!isset($conName[2]))
+    {
+        $conName[2] = '';
+    }
+    if(!isset($conName[3]))
+    {
+        $conName[3] = '';
+    }
+    @endphp
 
-@if($conName[0] == '')
-@php
-    $item_row = DB::table('page_home_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @if($conName[0] == '')
+    @php
+        $item_row = DB::table('page_home_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'about')
-@php
-    $item_row = DB::table('page_about_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'about')
+    @php
+        $item_row = DB::table('page_about_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'services')
-@php
-    $item_row = DB::table('page_service_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'services')
+    @php
+        $item_row = DB::table('page_service_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'blog' && $conName[1]=='' && $conName[2]=='')
-@php
-    $item_row = DB::table('page_blog_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'blog' && $conName[1]=='' && $conName[2]=='')
+    @php
+        $item_row = DB::table('page_blog_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'faq')
-@php
-    $item_row = DB::table('page_faq_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'faq')
+    @php
+        $item_row = DB::table('page_faq_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'team-members' && $conName[1] == '' && $conName[2] == '')
-@php
-    $item_row = DB::table('page_team_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'team-members' && $conName[1] == '' && $conName[2] == '')
+    @php
+        $item_row = DB::table('page_team_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'testimonial')
-@php
-    $item_row = DB::table('page_testimonial_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'testimonial')
+    @php
+        $item_row = DB::table('page_testimonial_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'destination' && $conName[1] == '' && $conName[2] == '')
-@php
-    $item_row = DB::table('page_destination_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'destination' && $conName[1] == '' && $conName[2] == '')
+    @php
+        $item_row = DB::table('page_destination_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'package' && $conName[1] == '' && $conName[2] == '')
-@php
-    $item_row = DB::table('page_package_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'package' && $conName[1] == '' && $conName[2] == '')
+    @php
+        $item_row = DB::table('page_package_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'contact')
-@php
-    $item_row = DB::table('page_contact_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'contact')
+    @php
+        $item_row = DB::table('page_contact_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'terms-and-conditions')
-@php
-    $item_row = DB::table('page_term_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'terms-and-conditions')
+    @php
+        $item_row = DB::table('page_term_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'privacy-policy')
-@php
-    $item_row = DB::table('page_privacy_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'privacy-policy')
+    @php
+        $item_row = DB::table('page_privacy_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'search')
-@php
-    $item_row = DB::table('page_other_items')->where('id',1)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'search')
+    @php
+        $item_row = DB::table('page_other_items')->where('id',1)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'traveller' && $conName[1] == 'login')
-@php
-    $item_row = DB::table('page_other_items')->where('id',4)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'traveller' && $conName[1] == 'login')
+    @php
+        $item_row = DB::table('page_other_items')->where('id',4)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'traveller' && $conName[1] == 'register')
-@php
-    $item_row = DB::table('page_other_items')->where('id',5)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'traveller' && $conName[1] == 'register')
+    @php
+        $item_row = DB::table('page_other_items')->where('id',5)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'traveller' && $conName[1] == 'forget-password')
-@php
-    $item_row = DB::table('page_other_items')->where('id',6)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'traveller' && $conName[1] == 'forget-password')
+    @php
+        $item_row = DB::table('page_other_items')->where('id',6)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'traveller' && ($conName[1] == 'dashboard' || $conName[1] == 'order' || $conName[1] == 'profile-change' || $conName[1] == 'password-change') )
-@php
-    $item_row = DB::table('page_other_items')->where('id',7)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'traveller' && ($conName[1] == 'dashboard' || $conName[1] == 'order' || $conName[1] == 'profile-change' || $conName[1] == 'password-change') )
+    @php
+        $item_row = DB::table('page_other_items')->where('id',7)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'package' && $conName[1] == 'store' && $conName[2] == 'list')
-@php
-    $item_row = DB::table('page_other_items')->where('id',8)->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'package' && $conName[1] == 'store' && $conName[2] == 'list')
+    @php
+        $item_row = DB::table('page_other_items')->where('id',8)->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'service' && $conName[1]!='')
-@php
-    $item_row = DB::table('services')->where('slug',$conName[1])->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'service' && $conName[1]!='')
+    @php
+        $item_row = DB::table('services')->where('slug',$conName[1])->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'destination' && $conName[1]!='')
-@php
-    $item_row = DB::table('destinations')->where('d_slug',$conName[1])->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'destination' && $conName[1]!='')
+    @php
+        $item_row = DB::table('destinations')->where('d_slug',$conName[1])->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'package' && $conName[1]!='' && $conName[2]=='')
-@php
-$item_row = DB::table('packages')->where('p_slug',$conName[1])->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'package' && $conName[1]!='' && $conName[2]=='')
+    @php
+    $item_row = DB::table('packages')->where('p_slug',$conName[1])->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'team-member' && $conName[1]!='')
-@php
-$item_row = DB::table('team_members')->where('slug',$conName[1])->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'team-member' && $conName[1]!='')
+    @php
+    $item_row = DB::table('team_members')->where('slug',$conName[1])->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'blog' && $conName[1]!='')
-@php
-$item_row = DB::table('blogs')->where('blog_slug',$conName[1])->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
-    <meta property="og:title" content="{{ $item_row->blog_title }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ route('front.blog_detail', $item_row->blog_slug) }}">
-    <meta property="og:description" content="{{ $item_row->blog_content_short }}">
-    <meta property="og:image" content="{{ asset('uploads/'.$item_row->blog_photo) }}">
+    @elseif($conName[0] == 'blog' && $conName[1]!='')
+    @php
+    $item_row = DB::table('blogs')->where('blog_slug',$conName[1])->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
+        <meta property="og:title" content="{{ $item_row->blog_title }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ route('front.blog_detail', $item_row->blog_slug) }}">
+        <meta property="og:description" content="{{ $item_row->blog_content_short }}">
+        <meta property="og:image" content="{{ asset('uploads/'.$item_row->blog_photo) }}">
 
-@elseif($conName[0] == 'page' && $conName[1]!='')
-@php
-$item_row = DB::table('dynamic_pages')->where('dynamic_page_slug',$conName[1])->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'page' && $conName[1]!='')
+    @php
+    $item_row = DB::table('dynamic_pages')->where('dynamic_page_slug',$conName[1])->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@elseif($conName[0] == 'category' && $conName[1]!='')
-@php
-$item_row = DB::table('categories')->where('category_slug',$conName[1])->first();
-@endphp
-    <meta name="description" content="{{ $item_row->seo_meta_description }}">
-    <title>{{ $item_row->seo_title }}</title>
+    @elseif($conName[0] == 'category' && $conName[1]!='')
+    @php
+    $item_row = DB::table('categories')->where('category_slug',$conName[1])->first();
+    @endphp
+        <meta name="description" content="{{ $item_row->seo_meta_description }}">
+        <title>{{ $item_row->seo_title }}</title>
 
-@endif
+    @endif
 
     <link rel="icon" type="image/png" href="{{ asset('uploads/'.$g_setting->favicon) }}">
 
     @include('layouts.styles')
 
-    @include('layouts.scripts')
 
     @if($g_setting->cookie_consent_status == 'Show')
     <script src="https://cdn.websitepolicies.io/lib/cookieconsent/1.0.3/cookieconsent.min.js" defer></script><script>window.addEventListener("load",function(){window.wpcc.init({"colors":{"popup":{"background":"#{{ $g_setting->cookie_consent_bg_color }}","text":"#{{ $g_setting->cookie_consent_text_color }}","border":"#b3d0e4"},"button":{"background":"#{{ $g_setting->cookie_consent_button_bg_color }}","text":"#{{ $g_setting->cookie_consent_button_text_color }}"}},"position":"bottom","padding":"large","margin":"none","content":{"message":"{{ $g_setting->cookie_consent_message }}","button":"{{ $g_setting->cookie_consent_button_text }}"}})});</script>
     @endif
 
 
-@if($g_setting->google_analytic_status == 'Show')
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ $g_setting->google_analytic_tracking_id }}"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    @if($g_setting->google_analytic_status == 'Show')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $g_setting->google_analytic_tracking_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', '{{ $g_setting->google_analytic_tracking_id }}');
-</script>
-@endif
+        gtag('config', '{{ $g_setting->google_analytic_tracking_id }}');
+    </script>
+    @endif
 
-    <style>
+    <!--style>
         .top-header,
         .sf-menu > li > a:before,
         .sf-menu li ul > li,
@@ -336,7 +335,7 @@ $item_row = DB::table('categories')->where('category_slug',$conName[1])->first()
             display: none!important;
         }
 
-    </style>
+    </style-->
 
 
 </head>
@@ -358,7 +357,7 @@ $item_row = DB::table('categories')->where('category_slug',$conName[1])->first()
     </div>
     @endif
 
-    <div class="top-header">
+    <!-- <div class="top-header">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-8">
@@ -382,14 +381,30 @@ $item_row = DB::table('categories')->where('category_slug',$conName[1])->first()
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <div class="bg come2">
+        <div class="container">
+            <div class="row  mt-2">
+                <div class="col-md-12">
+                  <div class="row">
+                        <div class="col-md-3 come pe-0 text-end">
+                        <img src="{{ asset('images/flagus logo.png') }}" alt="">
+                    </div>
+                    <div class="col-md-9 come pt-2">
+                      <h6 class="m-auto">{!! $top_notification->notification_message !!}</h6>
+                    </div>
+                  </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </div>    
 
     @include('layouts.nav')
 
     @yield('content')
 
-    @if($page_home_items->newsletter_status == 'Show')
+    <!-- @if($page_home_items->newsletter_status == 'Show')
     <div class="newsletter-area pt_120 pb_120" style="background-image: url({{ asset('uploads/'.$page_home_items->newsletter_bg) }})">
         <div class="newsletter-bg"></div>
         <div class="container wow fadeIn">
@@ -418,9 +433,9 @@ $item_row = DB::table('categories')->where('category_slug',$conName[1])->first()
             </div>
         </div>
     </div>
-    @endif
+    @endif -->
 
-    <div class="footer-area pt_50 pb_80">
+    <!-- <div class="footer-area pt_50 pb_80">
         <div class="container wow fadeIn">
             <div class="row">
                 <div class="col-md-3 col-sm-6 wow fadeInLeft" data-wow-delay="0.2s">
@@ -531,6 +546,76 @@ $item_row = DB::table('categories')->where('category_slug',$conName[1])->first()
 
             </div>
         </div>
+    </div> -->
+    <div class="bg-last mt-5 py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="last-logo">
+              <img src="images/logo-3.png" alt="">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="last-logo">
+              <h3>Destinations</h3>
+              <ul class="ps-0">
+                @php
+                    $destinations = DB::table('destinations')->get();
+                @endphp
+                @foreach($destinations as $destination)
+                    <li><a href="#">{{ $destination->d_name }}</a></li>
+                @endforeach
+              </ul>
+              <h3>Destinations</h3>
+              <a href="#">Last Minute Deals</a>
+            </div>
+          </div>
+
+
+          <div class="col-md-3">
+            <div class="last-logo">
+              <h3>About</h3>
+              <ul class="ps-0">
+                <li><a href="#">About IWV</a></li>
+                <li><a href="#">Flexible Travel</a></li>
+                <li><a href="#">Travel Updates</a></li>
+                <li><a href="#">Health & Safety</a></li>
+                <li><a href="#">Traveler Reviews</a></li>
+                <li><a href="#">On Your Trip</a></li>
+                <li><a href="#">Before You Go</a></li>
+                <li><a href="#">Travel Insurance</a></li>
+                <li><a href="#">Contact us</a></li>
+                
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="last-logo">
+              <h3>Our Newsletter</h3>
+              <p>Subscribe to our newsletter and get exlusive 
+                first minute offers straight into your inbox.</p>
+                <input type="text" class="input2" placeholder="Enter your email adders">
+                <ul class="ps-0 d-flex mt-2">
+                  <li><a href="#">Join As:</a></li>
+                  <li class="ps-2"><a href="#"><input type="radio">Travel Agent</a></li>
+                  <li class="ps-2"><a href="#"><input type="radio">Customer</a></li>
+                </ul>
+
+                <button>Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <h6>Travel Website @2023 All Right Reserved</h6>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="scroll-top">
@@ -539,13 +624,13 @@ $item_row = DB::table('categories')->where('category_slug',$conName[1])->first()
 
     @include('layouts.scripts_footer')
 
-
+<!--
 @if($g_setting->tawk_live_chat_status == 'Show')
     <div class="live-chat-container">
         {!! $g_setting->tawk_live_chat_code !!}
     </div>
 @endif
-
+-->
 </body>
 
 </html>

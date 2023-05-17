@@ -17,7 +17,7 @@
     @php $d_page_stat = 'Not Found';  @endphp
 @endif
 
-<div class="menu-area">
+<!-- <div class="menu-area">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12">
@@ -86,4 +86,42 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+<div class="header mt-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                          <a class="navbar-brand" href="/"><img src="{{ asset('images/logo.png') }}" class="w-100" alt=""></a>
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('front.destination') }}">Destinations</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Deals</a>
+                              </li>
+
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Plans</a>
+                              </li>
+                              
+                            </ul>
+                            <form class="d-flex" role="search">
+                              <div class="input">
+                                   <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                                   <a href="#">Agent <span><i class="bi bi-caret-down-fill"></i></span></a>
+                              <button class="" type="submit">Search</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </div>
