@@ -29,7 +29,7 @@
                         @endforelse   
                     </select-->
                     <select class="form-control" data-toggle="select" data-live-search="true" name="d_parent_id" id="d_parent_id">
-
+                            <option value="0">Create Parent</option>         
                             @foreach($parents as $category)
                                     <option value="{{ $category->id }}">{{ $category->d_name }}</option>
                                         @foreach($category->children as $child)
@@ -37,8 +37,6 @@
                                         @endforeach
                             @endforeach
                     </select>
-
-                    
                 </div>
                 <div class="form-group">
                     <label for="">Name *</label>

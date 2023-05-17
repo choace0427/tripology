@@ -42,6 +42,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\FaqController as FaqControllerForAdmin;
 use App\Http\Controllers\Admin\OrderController as OrderControllerForAdmin;
 use App\Http\Controllers\Admin\ReviewController as ReviewController;
+use App\Http\Controllers\Admin\TopNotificationController as TopNotificationController;
 
 use App\Http\Controllers\Traveller\CheckoutController;
 use App\Http\Controllers\Traveller\DashboardController as DashboardControllerForTraveller;
@@ -552,3 +553,9 @@ Route::post('admin/menu/update', [MenuController::class,'update']);
 Route::get('admin/review/view', [ReviewController::class,'index'])->name('admin.review.index');
 Route::get('admin/review/status/{id}', [ReviewController::class,'updateStatus'])->name('admin.review.status');
 Route::get('admin/review/delete/{id}', [ReviewController::class,'destroy']);
+
+/* --------------------------------------- */
+/* Notification - Admin */
+/* --------------------------------------- */
+Route::get('admin/top-notification/view', [TopNotificationController::class,'index'])->name('admin.notification.index');
+Route::post('admin/top-notification/store', [TopNotificationController::class,'store'])->name('admin.notification.store');

@@ -184,6 +184,13 @@
             </a>
         </li>
 
+        <li class="nav-item @if($conName[1] == 'admin_notification') active @endif">
+            <a class="nav-link" href="{{ route('admin.notification.index') }}">
+                <i class="fas fa-comments"></i>
+                <span>Top Notification </span>
+            </a>
+        </li>
+
         <!-- Dynamic Pages -->
         <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
             <a class="nav-link" href="{{ route('admin.dynamic_page.index') }}">

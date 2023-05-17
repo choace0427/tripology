@@ -262,7 +262,7 @@ class PackageController extends Controller
         $request->validate([
             'start_date' => 'required',
             'end_date' => 'required',
-            'price' => 'required'
+            'price' => 'required|numeric|min:0|not_in:0'
         ]);
 
         $statement = DB::select("SHOW TABLE STATUS LIKE 'package_schedules'");
