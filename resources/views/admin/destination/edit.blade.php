@@ -18,6 +18,7 @@
                 <div class="form-group">
                     <label for="">Parent</label>
                     <select class="form-control" data-toggle="select" data-live-search="true" name="d_parent_id" id="d_parent_id">
+                    <option value="0">Create Parent</option> 
                     @foreach($parents as $category)
                         @if($category->d_parent_id == 0)
                         <option value="{{$category->id}}" @if($destination->id == $category->id) selected @endif>{{ $category->d_name }}</option>
