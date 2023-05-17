@@ -105,7 +105,9 @@ class DestinationController extends Controller
                 'd_slug' => "Destination Slug",
                 'd_photo' => "Destination Photo",
             ]);
-            unlink(public_path('uploads/'.$destination->d_photo));
+            if(file_exists(public_path('uploads/'.$destination->d_photo))){
+                unlink(public_path('uploads/'.$destination->d_photo));
+            }
             $ext = $request->file('d_photo')->extension();
             $final_name = 'destination-'.$id.'.'.$ext;
             $request->file('d_photo')->move(public_path('uploads/'), $final_name);
