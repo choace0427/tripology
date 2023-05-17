@@ -382,24 +382,24 @@
                 </div>
             </div>
         </div> -->
-
+        @if($top_notification)
         <div class="bg come2">
-        <div class="container">
-            <div class="row  mt-2">
-                <div class="col-md-12">
-                  <div class="row">
-                        <div class="col-md-3 come pe-0 text-end">
-                        <img src="{{ asset('images/flagus logo.png') }}" alt="">
+            <div class="container">
+                <div class="row  mt-2">
+                    <div class="col-md-12">
+                    <div class="row">
+                            <div class="col-md-3 come pe-0 text-end">
+                            <img src="{{ asset('images/flagus logo.png') }}" alt="">
+                        </div>
+                        <div class="col-md-9 come pt-2">
+                        <h6 class="m-auto">{!! $top_notification->notification_message !!}</h6>
+                        </div>
                     </div>
-                    <div class="col-md-9 come pt-2">
-                      <h6 class="m-auto">{!! $top_notification->notification_message !!}</h6>
                     </div>
-                  </div>
                 </div>
             </div>
-        </div>
-    </div>    
-
+        </div>    
+        @endif
     @include('layouts.nav')
 
     @yield('content')

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="bg-2">
+   @if($sliders)
    <div id="carouselExampleCaptions" class="carousel slide">
       <!-- <div class="carousel-indicators">
          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -24,6 +25,7 @@
       </button>
    </div>
 </div>
+@endif
 <!-- section-4 -->
 <!-- section-4 -->
 <!-- section-4 -->
