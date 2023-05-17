@@ -382,7 +382,7 @@
                 </div>
             </div>
         </div> -->
-        @if($top_notification)
+        @if(isset($top_notification))
         <div class="bg come2">
             <div class="container">
                 <div class="row  mt-2">
