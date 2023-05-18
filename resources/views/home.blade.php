@@ -50,7 +50,7 @@
 <!-- section-5 -->
 <!-- section-5 -->
 <!-- section-5 -->
-<div class="bg-4 mt-5">
+<!--div class="bg-4 mt-5">
    <div class="container pt-3">
       <div class="row">
          <div class="col-md-12">
@@ -88,7 +88,7 @@
          </div>
       </div>
    </div>
-</div>
+</div-->
 <!-- <div class="container">
    <div class="row mt-5">
      <div class="col-md-12">
