@@ -239,11 +239,12 @@
           @foreach($packages as $package)
             <div class="item" >
               <div class="text-start nadi">
-                  <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="">
+                  <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="{{$package->p_name}}">
                   <div class="herat">
                     <i class="bi bi-heart"></i>
                   </div>
-                  <h3>{{$package->p_name}}</h3>
+                  
+                  <h3 style="direction: ltr;">{{$package->p_name}}</h3>
                   <a href="#"><i class="bi bi-stopwatch-fill"></i> 
                   @php 
                      $startDate = \Carbon\Carbon::parse($package->p_start_date); 
@@ -251,8 +252,7 @@
                      echo $diff = $endDate->diffInDays($startDate);
                   @endphp
                   Days <span>4 <i class="bi bi-star-fill"></i></span> (45)</a>
-                  <p>"{{$package->p_description_short}}"
-                  </p>
+                  <p>"{{$package->p_description_short}}"</p>
                   <h6>Starting From ₹{{$package->p_price}}</h6>
               </div>
             </div>
