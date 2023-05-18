@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Last Booking Date *</label>
-                    <input id="datepicker2" type="text" name="p_last_booking_date" class="form-control" value="{{ old('p_last_booking_date') }}">
+                    <input id="txtlastdate" type="text" autocomplete="off" name="p_last_booking_date" class="form-control" value="{{ old('p_last_booking_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Map</label>
