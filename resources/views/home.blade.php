@@ -390,7 +390,7 @@
                         <div class="item" >
                            <div class="text-start">
                               <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="">
-                              <h5>{!! $package->p_name !!}</h5>
+                              <h5  style="direction: ltr;">{!! $package->p_name !!}</h5>
                               <h6>Starting from $ <span>{{ $package->p_price }}</span></h6>
                            </div>
                         </div>
