@@ -41,7 +41,7 @@
                </select>
                <span>|</span>
                <span><img src="images/Vector.png" style="width: 2.3%;" class="Vecto" alt=""></span> 
-               <input type="text" id="search" name="search" placeholder="Search by city, destination or tour">
+               <input type="text" id="search" name="search" autocomplete="off" placeholder="Search by city, destination or tour">
             </div>
          </div>
       </div>
