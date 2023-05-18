@@ -126,7 +126,7 @@ class PackageController extends Controller
                 ],
                 'p_age_range' => 'required|numeric',
                 'p_max_group_size' => 'required|numeric',
-                'p_tour_operator' => 'required',
+                'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',
                 'p_operated_in' => 'required',
                 'p_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
