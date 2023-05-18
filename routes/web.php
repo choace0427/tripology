@@ -78,6 +78,7 @@ use Illuminate\Support\Facades\Route;
 /* Front End */
 /* --------------------------------------- */
 Route::get('/', [HomeController::class,'index']);
+Route::get('autocomplete', [HomeController::class, 'search'])->name('autocomplete');
 Route::get('about', [AboutController::class,'index'])->name('front.about');
 Route::get('destination', [DestinationControllerForFront::class,'index'])->name('front.destination');
 Route::get('destination/{slug}', [DestinationControllerForFront::class,'detail']);
