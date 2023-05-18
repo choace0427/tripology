@@ -35,10 +35,11 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        print_r($request);
         $query = $request->get('query');
-        $result = DB::table('destinations')->where('d_name', 'LIKE', '%'. $query . '%')->get();
-
-        print_r($result);
+        $result = DB::table('destinations')->select('d_name', 'id')->where('d_name', 'LIKE', '%'. $query . '%')->pluck('d_name');
+        // $result = DB::table('destinations')->whereHas('d_name', function($query1) use($query) {
+        //     $query1->where('p_name', 'LIKE', '%'. $query . '%');
+        // })->orWhere('d_name', 'LIKE', '%'. $query . '%')->pluck('d_name');
+        return response()->json($result);
     }
 }

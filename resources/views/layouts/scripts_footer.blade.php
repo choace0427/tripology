@@ -112,3 +112,16 @@ $('.runforfour').owlCarousel({
         jQuery(this).find('button').addClass('bhan active');
       });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+<script type="text/javascript">
+  const path = "{{ route('autocomplete') }}";
+  $('#search').typeahead({
+    source: function (query, process) {
+      return $.get(path, {
+        query: query
+      }, function (data) {
+        return process(data);
+      });
+    }
+  });
+</script>
