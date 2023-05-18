@@ -55,6 +55,7 @@
 
     <script>
     $('.runforthree').owlCarousel({
+    rtl:true,
     loop:true,
     margin:10,
     nav:true,
