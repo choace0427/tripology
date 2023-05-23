@@ -21,10 +21,12 @@ class PackageController extends Controller
         $package_detail = DB::table('packages')->where('p_slug', $slug)->first();
         $package_photos = DB::table('package_photos')->where('package_id', $package_detail->id)->get();
         $package_videos = DB::table('package_videos')->where('package_id', $package_detail->id)->get();
+        $package_reviews_count = DB::table('reviews')->where('package_id', $package_detail->id)->count();
+        
         if(!$package_detail) {
             return abort(404);
         }
-        return view('pages.package_detail', compact('g_setting','package_detail','package_photos','package_videos'));
+        return view('pages.package_details', compact('g_setting','package_detail','package_photos','package_videos','package_reviews_count'));
     }
 
     public function store_list(Request $request)

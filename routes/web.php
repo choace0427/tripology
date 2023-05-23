@@ -71,6 +71,7 @@ use App\Http\Controllers\Front\SubscriptionController;
 use App\Http\Controllers\Front\TeamMemberController as TeamMemberControllerForFront;
 use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\TestimonialController as TestimonialControllerForFront;
+use App\Http\Controllers\Front\MailChimpController as MailChimpController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -560,3 +561,9 @@ Route::get('admin/review/delete/{id}', [ReviewController::class,'destroy']);
 /* --------------------------------------- */
 Route::get('admin/top-notification/view', [TopNotificationController::class,'index'])->name('admin.notification.index');
 Route::post('admin/top-notification/store', [TopNotificationController::class,'store'])->name('admin.notification.store');
+
+/* --------------------------------------- */
+/* Notification - MailChimp */
+/* --------------------------------------- */
+Route::post('/subscribe', [MailChimpController::class, 'index'])->name('subscribe');
+Route::get('/subscription-details', [MailChimpController::class, 'index'])->name('subscription_details');
