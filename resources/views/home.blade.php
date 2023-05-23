@@ -238,6 +238,7 @@
          <div class="owl-carousel runforthree owl-theme">
           @foreach($packages as $package)
             <div class="item" >
+            <a href="{{ route('front.package_detail', $package->p_slug) }}">
               <div class="text-start nadi">
                   <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="{{$package->p_name}}">
                   <div class="herat">
@@ -255,6 +256,7 @@
                   <p>"{{$package->p_description_short}}"</p>
                   <h6>Starting From ₹{{$package->p_price}}</h6>
               </div>
+              </a>
             </div>
             @endforeach  
          </div>
@@ -484,7 +486,7 @@
                      // echo "</pre>";
                      ?>
                   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    @foreach($parents as  $count => $dest)
+                     @foreach($parents as  $count => $dest)
                       <li class="nav-item"  role="presentation">
                           <button  @if($count == 0) class="nav-link bhan active" @else class="nav-link" @endif id="pills-home-tab-{{ $dest->id }}" data-bs-toggle="pill" data-bs-target="#pills-home-{{ $dest->id }}" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><img src="{{ asset('uploads/'.$dest->d_photo) }}" style="width: 15%;" alt=""> {{$dest->d_name}}</button>
                       </li>
@@ -506,317 +508,21 @@
                   <div class="tab-content" id="pills-tabContent">
                   @foreach($parents as $count => $dest)
                      <div @if($count == 0) class="tab-pane fade show active" @else class="tab-pane" @endif id="pills-home-{{ $dest->id }}" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-                        <div class="row">
-                           <div class="col-md-3 ps-0">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Amalfi Coast {{ $dest->id }}</a></li>
-                                    <li><a href="#">Eastern Europe</a></li>
-                                    <li><a href="#">France</a></li>
-                                    <li><a href="#">Greece</a></li>
-                                    <li><a href="#">Ireland</a></li>
-                                    <li><a href="#">Norway</a></li>
-                                    <li><a href="#">Portugal & Spain</a></li>
-                                    <li><a href="#">Sicily</a></li>
-                                    <li><a href="#">Turkey</a></li>
-                                 </ul>
+                        @if($dest->children->isNotEmpty())
+                           <div class="row">
+                              <div class="col-md-3 ps-0">
+                                 <div class="amal">
+                                    <ul>
+                                       @foreach($dest->children as $child)
+                                          <li><a href="#">{{ $child->d_name }}</a></li>
+                                       @endforeach
+                                    </ul>
+                                 </div>
                               </div>
                            </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Austria</a></li>
-                                    <li><a href="#">England</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">Greek Islands</a></li>
-                                    <li><a href="#">Italy</a></li>
-                                    <li><a href="#">Poland</a></li>
-                                    <li><a href="#">Scandinavia</a></li>
-                                    <li><a href="#">Spain</a></li>
-                                    <li><a href="#">Tuscany</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
+                        @endif
                      </div>
-                    @endforeach 
-                     <!--div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                        <div class="row">
-                           <div class="col-md-3 ps-0">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Amalfi Coast</a></li>
-                                    <li><a href="#">Eastern Europe</a></li>
-                                    <li><a href="#">France</a></li>
-                                    <li><a href="#">Greece</a></li>
-                                    <li><a href="#">Ireland</a></li>
-                                    <li><a href="#">Norway</a></li>
-                                    <li><a href="#">Portugal & Spain</a></li>
-                                    <li><a href="#">Sicily</a></li>
-                                    <li><a href="#">Turkey</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Austria</a></li>
-                                    <li><a href="#">England</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">Greek Islands</a></li>
-                                    <li><a href="#">Italy</a></li>
-                                    <li><a href="#">Poland</a></li>
-                                    <li><a href="#">Scandinavia</a></li>
-                                    <li><a href="#">Spain</a></li>
-                                    <li><a href="#">Tuscany</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                        <div class="row">
-                           <div class="col-md-3 ps-0">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Amalfi Coast</a></li>
-                                    <li><a href="#">Eastern Europe</a></li>
-                                    <li><a href="#">France</a></li>
-                                    <li><a href="#">Greece</a></li>
-                                    <li><a href="#">Ireland</a></li>
-                                    <li><a href="#">Norway</a></li>
-                                    <li><a href="#">Portugal & Spain</a></li>
-                                    <li><a href="#">Sicily</a></li>
-                                    <li><a href="#">Turkey</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Austria</a></li>
-                                    <li><a href="#">England</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">Greek Islands</a></li>
-                                    <li><a href="#">Italy</a></li>
-                                    <li><a href="#">Poland</a></li>
-                                    <li><a href="#">Scandinavia</a></li>
-                                    <li><a href="#">Spain</a></li>
-                                    <li><a href="#">Tuscany</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-Jungle" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                        <div class="row">
-                           <div class="col-md-3 ps-0">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Amalfi Coast</a></li>
-                                    <li><a href="#">Eastern Europe</a></li>
-                                    <li><a href="#">France</a></li>
-                                    <li><a href="#">Greece</a></li>
-                                    <li><a href="#">Ireland</a></li>
-                                    <li><a href="#">Norway</a></li>
-                                    <li><a href="#">Portugal & Spain</a></li>
-                                    <li><a href="#">Sicily</a></li>
-                                    <li><a href="#">Turkey</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Austria</a></li>
-                                    <li><a href="#">England</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">Greek Islands</a></li>
-                                    <li><a href="#">Italy</a></li>
-                                    <li><a href="#">Poland</a></li>
-                                    <li><a href="#">Scandinavia</a></li>
-                                    <li><a href="#">Spain</a></li>
-                                    <li><a href="#">Tuscany</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="tab-pane fade" id="pills-Heritage" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                        <div class="row">
-                           <div class="col-md-3 ps-0">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Amalfi Coast</a></li>
-                                    <li><a href="#">Eastern Europe</a></li>
-                                    <li><a href="#">France</a></li>
-                                    <li><a href="#">Greece</a></li>
-                                    <li><a href="#">Ireland</a></li>
-                                    <li><a href="#">Norway</a></li>
-                                    <li><a href="#">Portugal & Spain</a></li>
-                                    <li><a href="#">Sicily</a></li>
-                                    <li><a href="#">Turkey</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Austria</a></li>
-                                    <li><a href="#">England</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">Greek Islands</a></li>
-                                    <li><a href="#">Italy</a></li>
-                                    <li><a href="#">Poland</a></li>
-                                    <li><a href="#">Scandinavia</a></li>
-                                    <li><a href="#">Spain</a></li>
-                                    <li><a href="#">Tuscany</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="amal">
-                                 <ul>
-                                    <li><a href="#">Croatia</a></li>
-                                    <li><a href="#">Finland</a></li>
-                                    <li><a href="#">Great Britain & UK</a></li>
-                                    <li><a href="#">Iceland</a></li>
-                                    <li><a href="#">Netherlands</a></li>
-                                    <li><a href="#">Portugal</a></li>
-                                    <li><a href="#">Scotland</a></li>
-                                    <li><a href="#">Switzerland</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div-->
-                  </div>
+                  @endforeach
                </div>
             </div>
          </div>
