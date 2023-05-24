@@ -69,7 +69,7 @@
           <div class="col-md-6">
             <div class="babba">
               <h5>Tour Id:</h5>
-              <p>123456</p>
+              <p>{{ $package_detail->id }}</p>
             </div>
           </div>
           <div class="col-md-6">
@@ -87,27 +87,13 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <div class="map">
-                      <iframe
-                        src="{{ url('uploads',$package_detail->p_map)}}"
-                        style="border-radius:20px; padding: 20px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     {!!$package_detail->p_map!!}
                     </div>
 
                     <div class="row">
                       <div class="col-md-8">
                         <div class="babba">
-                          <h3>Heighlights</h3>
-                          <h4>{{ $package_detail->p_description_short }}</h4>
                           <p><i class="bi bi-dot"></i>{!! $package_detail->p_description !!}</p>
-                          
-                          <!-- <h4>Exclusions</h4>
-                          <p><i class="bi bi-dot"></i>. GST 5% on total billing.</p>
-                          <p><i class="bi bi-dot"></i>. NGT/Green Tax for Rohtang Pass sightseeing.</p>
-                          <p><i class="bi bi-dot"></i>. Any experience of personal nature viz tips to drive & guide, cigarettes, 
-                            laundry, telephone calla, mini-bar  ets. </p>
-                          <p><i class="bi bi-dot"></i>. All extra expense incurred at the hotel other than mentioned..</p>
-                          <p><i class="bi bi-dot"></i>. Heater Charges 350-400 (Per night)</p>
-                          <p><i class="bi bi-dot"></i>. Rohtang Pass cost not included,</p> -->
                         </div>
                       </div>                      
                   </h2>
@@ -136,7 +122,7 @@
       <div class="col-md-4">
         <div class="kahdi">
           <h3>$ {{ $package_detail->p_price }} <span>per adult onwards</span></h3>
-          <h3>What's included in the price</h3>
+          <!--h3>What's included in the price</h3>
 
           <div class="row kuch">
             <div class="col-md-6 kuch1">
@@ -157,7 +143,7 @@
                 <a href="#"><img src="images/Group 1.png" alt=""> <span>Breakfast, Dinner</span></a>
               </div>
             </div>
-          </div>
+          </div-->
 
           <p><i class="bi bi-exclamation-circle"></i> Final price will be shared by our partner
             agents based on your requirements</p>
@@ -194,7 +180,7 @@
                   <p>{{ $package->p_name }}</p>
                   <h6>$ {{ $package->p_price }} <span>17% Off</span></h6>
                   <h3>$14,000 per adult on twin Twin-sharing </h3>
-                  <h4>Veiw details</h4>
+                  <h4>View details</h4>
                 </div>
               </div>
             </div>
