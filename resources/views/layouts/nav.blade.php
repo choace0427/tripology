@@ -87,7 +87,7 @@
         </div>
     </div>
 </div> -->
-<div class="header mt-2">
+<div class="header">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
