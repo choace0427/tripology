@@ -69,7 +69,7 @@
           <div class="col-md-6">
             <div class="babba">
               <h5>Tour Id:</h5>
-              <p>123456</p>
+              <p>{{ $package_detail->id }}</p>
             </div>
           </div>
           <div class="col-md-6">
@@ -87,27 +87,13 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <div class="map">
-                      <iframe
-                        src="{{ url('uploads',$package_detail->p_map)}}"
-                        style="border-radius:20px; padding: 20px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     {{$package_detail->p_map}}
                     </div>
 
                     <div class="row">
                       <div class="col-md-8">
                         <div class="babba">
-                          <h3>Heighlights</h3>
-                          <h4>{{ $package_detail->p_description_short }}</h4>
                           <p><i class="bi bi-dot"></i>{!! $package_detail->p_description !!}</p>
-                          
-                          <!-- <h4>Exclusions</h4>
-                          <p><i class="bi bi-dot"></i>. GST 5% on total billing.</p>
-                          <p><i class="bi bi-dot"></i>. NGT/Green Tax for Rohtang Pass sightseeing.</p>
-                          <p><i class="bi bi-dot"></i>. Any experience of personal nature viz tips to drive & guide, cigarettes, 
-                            laundry, telephone calla, mini-bar  ets. </p>
-                          <p><i class="bi bi-dot"></i>. All extra expense incurred at the hotel other than mentioned..</p>
-                          <p><i class="bi bi-dot"></i>. Heater Charges 350-400 (Per night)</p>
-                          <p><i class="bi bi-dot"></i>. Rohtang Pass cost not included,</p> -->
                         </div>
                       </div>                      
                   </h2>
