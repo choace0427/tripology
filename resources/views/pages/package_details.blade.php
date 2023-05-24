@@ -93,7 +93,7 @@
                     <div class="row">
                       <div class="col-md-8">
                         <div class="babba">
-                          <p><i class="bi bi-dot"></i>{!! $package_detail->p_description !!}</p>
+                          {!! $package_detail->p_description !!}
                         </div>
                       </div>                      
                   </h2>
