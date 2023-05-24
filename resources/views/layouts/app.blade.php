@@ -592,17 +592,18 @@
 
           <div class="col-md-4">
             <div class="last-logo">
-              <h3>Our Newsletter</h3>
-              <p>Subscribe to our newsletter and get exlusive 
-                first minute offers straight into your inbox.</p>
-                <input type="text" class="input2" placeholder="Enter your email adders">
-                <ul class="ps-0 d-flex mt-2">
-                  <li><a href="#">Join As:</a></li>
-                  <li class="ps-2"><a href="#"><input type="radio">Travel Agent</a></li>
-                  <li class="ps-2"><a href="#"><input type="radio">Customer</a></li>
-                </ul>
-
-                <button>Subscribe</button>
+            <form action="{{ route('subscribe') }}" method="post">
+                @csrf
+                    <h3>Our Newsletter</h3>
+                    <p>Subscribe to our newsletter and get exlusive first minute offers straight into your inbox.</p>
+                    <input type="text" class="input2" name="subs_email" value="{{ old('subs_email') }}" placeholder="Enter your email adders">
+                    <ul class="ps-0 d-flex mt-2">
+                    <li><a href="#">Join As:</a></li>
+                        <li class="ps-2"><a href="#"><input type="radio" name="joining_as" value="travel_agent">Travel Agent</a></li>
+                        <li class="ps-2"><a href="#"><input type="radio" name="joining_as" value="customer">Customer</a></li>
+                    </ul>
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
           </div>
         </div>
