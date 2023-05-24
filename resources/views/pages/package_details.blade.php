@@ -87,7 +87,7 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <div class="map">
-                     {{$package_detail->p_map}}
+                     {!!$package_detail->p_map!!}
                     </div>
 
                     <div class="row">
@@ -122,7 +122,7 @@
       <div class="col-md-4">
         <div class="kahdi">
           <h3>$ {{ $package_detail->p_price }} <span>per adult onwards</span></h3>
-          <h3>What's included in the price</h3>
+          <!--h3>What's included in the price</h3>
 
           <div class="row kuch">
             <div class="col-md-6 kuch1">
@@ -143,7 +143,7 @@
                 <a href="#"><img src="images/Group 1.png" alt=""> <span>Breakfast, Dinner</span></a>
               </div>
             </div>
-          </div>
+          </div-->
 
           <p><i class="bi bi-exclamation-circle"></i> Final price will be shared by our partner
             agents based on your requirements</p>
@@ -180,7 +180,7 @@
                   <p>{{ $package->p_name }}</p>
                   <h6>$ {{ $package->p_price }} <span>17% Off</span></h6>
                   <h3>$14,000 per adult on twin Twin-sharing </h3>
-                  <h4>Veiw details</h4>
+                  <h4>View details</h4>
                 </div>
               </div>
             </div>
