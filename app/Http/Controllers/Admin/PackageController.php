@@ -57,7 +57,7 @@ class PackageController extends Controller
             'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'p_age_range' => 'required|numeric',
             'p_max_group_size' => 'required|numeric',
-            'p_tour_operator' => 'required',
+            'p_tour_operator' => 'required|numeric',
             'p_started_from' => 'required',
             'p_operated_in' => 'required',
             'p_photo' => 'required'        
@@ -111,7 +111,6 @@ class PackageController extends Controller
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
-
         $package = Package::findOrFail($id);
         $data = $request->only($package->getFillable());
 
@@ -126,7 +125,7 @@ class PackageController extends Controller
                 ],
                 'p_age_range' => 'required|numeric',
                 'p_max_group_size' => 'required|numeric',
-                'p_tour_operator' => 'required',
+                'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',
                 'p_operated_in' => 'required',
                 'p_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
@@ -158,7 +157,7 @@ class PackageController extends Controller
                 ],
                 'p_age_range' => 'required|numeric',
                 'p_max_group_size' => 'required|numeric',
-                'p_tour_operator' => 'required',
+                'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',
                 'p_operated_in' => 'required'
             ],
@@ -262,7 +261,7 @@ class PackageController extends Controller
         $request->validate([
             'start_date' => 'required',
             'end_date' => 'required',
-            'price' => 'required'
+            'price' => 'required|numeric|min:0|not_in:0'
         ]);
 
         $statement = DB::select("SHOW TABLE STATUS LIKE 'package_schedules'");

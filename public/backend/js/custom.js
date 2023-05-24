@@ -21,12 +21,19 @@
     });
     $( "#timepicker" ).timepicker();
     $('.select2').select2();
+
     $("#txtstartdate").datepicker({
         minDate: 0,
         onSelect: function(date) {
-            $("#txtenddate").datepicker('option', 'minDate', date);
+            $("#txtenddate,#txtlastdate").datepicker('option', 'minDate', date);
         }
     });
 
-    $("#txtenddate").datepicker({});
+    $("#txtenddate").datepicker({ 
+        onSelect: function(date) {
+            $("#txtlastdate").datepicker('option', 'maxDate', date);
+        }
+    });
+
+    $("#txtlastdate").datepicker();
 })(jQuery);

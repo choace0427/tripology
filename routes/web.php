@@ -42,6 +42,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\FaqController as FaqControllerForAdmin;
 use App\Http\Controllers\Admin\OrderController as OrderControllerForAdmin;
 use App\Http\Controllers\Admin\ReviewController as ReviewController;
+use App\Http\Controllers\Admin\TopNotificationController as TopNotificationController;
 
 use App\Http\Controllers\Traveller\CheckoutController;
 use App\Http\Controllers\Traveller\DashboardController as DashboardControllerForTraveller;
@@ -70,6 +71,7 @@ use App\Http\Controllers\Front\SubscriptionController;
 use App\Http\Controllers\Front\TeamMemberController as TeamMemberControllerForFront;
 use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\TestimonialController as TestimonialControllerForFront;
+use App\Http\Controllers\Front\MailChimpController as MailChimpController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -77,6 +79,7 @@ use Illuminate\Support\Facades\Route;
 /* Front End */
 /* --------------------------------------- */
 Route::get('/', [HomeController::class,'index']);
+Route::get('autocomplete', [HomeController::class, 'search'])->name('autocomplete');
 Route::get('about', [AboutController::class,'index'])->name('front.about');
 Route::get('destination', [DestinationControllerForFront::class,'index'])->name('front.destination');
 Route::get('destination/{slug}', [DestinationControllerForFront::class,'detail']);
@@ -552,3 +555,15 @@ Route::post('admin/menu/update', [MenuController::class,'update']);
 Route::get('admin/review/view', [ReviewController::class,'index'])->name('admin.review.index');
 Route::get('admin/review/status/{id}', [ReviewController::class,'updateStatus'])->name('admin.review.status');
 Route::get('admin/review/delete/{id}', [ReviewController::class,'destroy']);
+
+/* --------------------------------------- */
+/* Notification - Admin */
+/* --------------------------------------- */
+Route::get('admin/top-notification/view', [TopNotificationController::class,'index'])->name('admin.notification.index');
+Route::post('admin/top-notification/store', [TopNotificationController::class,'store'])->name('admin.notification.store');
+
+/* --------------------------------------- */
+/* Notification - MailChimp */
+/* --------------------------------------- */
+Route::post('/subscribe', [MailChimpController::class, 'index'])->name('subscribe');
+Route::get('/subscription-details', [MailChimpController::class, 'index'])->name('subscription_details');

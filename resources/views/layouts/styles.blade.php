@@ -1,5 +1,5 @@
 <!-- Stylesheets -->
-<link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
+<!--link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/fontawesome-free/css/all.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}">
@@ -13,6 +13,14 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/datatable.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/toastr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/css/style_home.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/css/coll.css.css') }}"-->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"/>
+<link rel="stylesheet" href="{{ asset('frontend/css/style_home.css') }}">
 
 @if($g_setting->layout_direction == 'Right to Left')
 <link rel="stylesheet" href="{{ asset('frontend/css/rtl.css') }}">

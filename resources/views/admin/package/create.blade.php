@@ -39,24 +39,24 @@
                     <textarea name="p_location" class="form-control h_100" cols="30" rows="10">{{ old('p_location') }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">Started From</label>
+                    <label for="">Started From *</label>
                     <input type="text" name="p_started_from" class="form-control" value="{{ old('p_started_from') }}">
                 </div>
                 <div class="form-group">
-                    <label for="">Tour Operator</label>
+                    <label for="">Tour Operator *</label>
                     <input type="text" name="p_tour_operator" class="form-control" value="{{ old('p_tour_operator') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Start Date</label>
-                    <input id="datepicker" type="text" name="p_start_date" class="form-control" value="{{ old('p_start_date') }}">
+                    <input id="txtstartdate" type="text" autocomplete="off" name="p_start_date" class="form-control" value="{{ old('p_start_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">End Date</label>
-                    <input id="datepicker1" type="text" name="p_end_date" class="form-control" value="{{ old('p_end_date') }}">
+                    <input id="txtenddate" type="text" autocomplete="off" name="p_end_date" class="form-control" value="{{ old('p_end_date') }}">
                 </div>
                 <div class="form-group">
-                    <label for="">Last Booking Date</label>
-                    <input id="datepicker2" type="text" name="p_last_booking_date" class="form-control" value="{{ old('p_last_booking_date') }}">
+                    <label for="">Last Booking Date *</label>
+                    <input id="txtlastdate" type="text" autocomplete="off" name="p_last_booking_date" class="form-control" value="{{ old('p_last_booking_date') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Map</label>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Price</label>
+                    <label for="">Price *</label>
                     <input type="text" name="p_price" class="form-control" value="{{ old('p_price') }}">
                 </div>
 
@@ -88,7 +88,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Max group size</label>
+                    <label for="">Max group size *</label>
                     <select name="p_max_group_size" class="form-control select2">
                         @for($i = 1; $i <= 20; $i++ )
                             <option value="{{ $i }}">{{ $i }}</option>
@@ -96,7 +96,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Age range</label>
+                    <label for="">Age range *</label>
                     <select name="p_age_range" class="form-control select2">
                         @foreach($ranges as $key => $range)
                             <option value="{{ $range }}">{{ $key }}</option>
@@ -112,7 +112,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Operated in</label>
+                    <label for="">Operated in *</label>
                     <input type="text" name="p_operated_in" class="form-control" value="{{ old('p_operated_in') }}">
                 </div>
             </div>
