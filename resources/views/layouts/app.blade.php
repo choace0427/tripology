@@ -383,7 +383,7 @@
             </div>
         </div> -->
         @if(isset($top_notification))
-        <div class="bg come2">
+        <div class="bg come2 mb-2">
             <div class="container">
                 <div class="row  mt-2">
                     <div class="col-md-12">
