@@ -552,7 +552,7 @@
         <div class="row">
           <div class="col-md-2">
             <div class="last-logo">
-              <img src="images/logo-3.png" alt="">
+              <img src="{{ asset('images/logo-3.png') }}" alt="">
             </div>
           </div>
           <div class="col-md-3">

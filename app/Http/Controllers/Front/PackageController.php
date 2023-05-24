@@ -22,11 +22,17 @@ class PackageController extends Controller
         $package_photos = DB::table('package_photos')->where('package_id', $package_detail->id)->get();
         $package_videos = DB::table('package_videos')->where('package_id', $package_detail->id)->get();
         $package_reviews_count = DB::table('reviews')->where('package_id', $package_detail->id)->count();
+        $starRatings = DB::table('reviews')->where('package_id', $package_detail->id)->where('published', 1)->avg('rating');
+        $package_reviews = DB::table('reviews')->where('package_id', $package_detail->id)->where('published', 1)->get();
+        $similar_packages = DB::table('packages')->where('destination_id', $package_detail->destination_id)->where('id', '!=', $package_detail->id)->get();
+        $itineraries = DB::table('package_itineraries')->where('package_id', $package_detail->id)->get();
+        $package_schedules = DB::table('package_schedules')->where('package_id', $package_detail->id)->get();
+
         
         if(!$package_detail) {
             return abort(404);
         }
-        return view('pages.package_details', compact('g_setting','package_detail','package_photos','package_videos','package_reviews_count'));
+        return view('pages.package_details', compact('g_setting','package_detail','package_photos','package_videos','package_reviews_count','starRatings','package_reviews','similar_packages','itineraries','package_schedules'));
     }
 
     public function store_list(Request $request)
