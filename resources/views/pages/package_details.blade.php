@@ -93,8 +93,7 @@
                     <div class="row">
                       <div class="col-md-8">
                         <div class="babba">
-                          <h3>Heighlights</h3>
-                          <p><i class="bi bi-dot"></i>{!! $package_detail->p_description !!}</p>
+                         {!! $package_detail->p_description !!}</p>
                           
                           <!-- <h4>Exclusions</h4>
                           <p><i class="bi bi-dot"></i>. GST 5% on total billing.</p>
