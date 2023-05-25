@@ -72,7 +72,7 @@ use App\Http\Controllers\Front\TeamMemberController as TeamMemberControllerForFr
 use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\TestimonialController as TestimonialControllerForFront;
 use App\Http\Controllers\Front\MailChimpController as MailChimpController;
-use App\Http\Controllers\Front\QuotesController as QuotesController;
+use App\Http\Controllers\Front\LeadController as LeadController;
 use Illuminate\Support\Facades\Route;
 
 /* --------------------------------------- */
@@ -568,4 +568,7 @@ Route::post('admin/top-notification/store', [TopNotificationController::class,'s
 Route::post('/subscribe', [MailChimpController::class, 'index'])->name('subscribe');
 Route::get('/subscription-details', [MailChimpController::class, 'index'])->name('subscription_details');
 
-Route::post('/quote/store', [QuotesController::class, 'store'])->name('quote.store');
+/* --------------------------------------- */
+/* Package Detail - Lead submit */
+/* --------------------------------------- */
+Route::post('/lead/store', [LeadController::class, 'store'])->name('lead.store');
