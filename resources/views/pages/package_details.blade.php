@@ -136,26 +136,7 @@
       <div class="col-md-4">
         <div class="kahdi">
           <h3>$ {{ $package_detail->p_price }} <span>per adult onwards</span></h3>
-          <h3>What's included in the price</h3>
 
-          <div class="row kuch">
-            <div class="col-md-6 kuch1">
-              <div class="katire2">
-                <a href="#"><img src="{{ url('images/Group 1.png') }}" alt=""> <span>Twin-sharing rooms</span></a>
-              </div>
-            </div>
-
-            <div class="col-md-6 kuch1">
-              <div class="katire2">
-                <a href="#"><img src="{{ url('images/Group 1.png') }}" alt=""> <span>Sightseeing in Ac Dezire/Etios</span></a>
-              </div>
-            </div>
-
-            <div class="col-md-6 kuch1 mt-3">
-              <div class="katire2">
-                <a href="#"><img src="{{ url('images/Group 1.png') }}" alt=""> <span>Breakfast, Dinner</span></a>
-              </div>
-            </div>
           </div>
 
           <p><i class="bi bi-exclamation-circle"></i> Final price will be shared by our partner agents based on your requirements</p>
