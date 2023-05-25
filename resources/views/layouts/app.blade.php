@@ -602,7 +602,7 @@
                 @csrf
                     <h3>Our Newsletter</h3>
                     <p>Subscribe to our newsletter and get exlusive first minute offers straight into your inbox.</p>
-                    <input type="text" class="input2" name="subs_email" value="{{ old('subs_email') }}" placeholder="Enter your email adders">
+                    <input type="text" class="input2" required name="subs_email" value="{{ old('subs_email') }}" placeholder="Enter your email adders">
                     <ul class="ps-0 d-flex mt-2">
                     <li><a href="#">Join As:</a></li>
                         <li class="ps-2"><a href="#"><input type="radio" name="joining_as" value="travel_agent">Travel Agent</a></li>
