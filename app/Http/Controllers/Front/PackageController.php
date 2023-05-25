@@ -27,7 +27,6 @@ class PackageController extends Controller
         $similar_packages = DB::table('packages')->where('destination_id', $package_detail->destination_id)->where('id', '!=', $package_detail->id)->get();
         $itineraries = DB::table('package_itineraries')->where('package_id', $package_detail->id)->get();
         $package_schedules = DB::table('package_schedules')->where('package_id', $package_detail->id)->get();
-
         
         if(!$package_detail) {
             return abort(404);

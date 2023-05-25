@@ -105,7 +105,7 @@
                     <label for="">Age range *</label>
                     <select name="p_age_range" class="form-control select2">
                         @foreach($ranges as $key => $range)
-                            <option value="{{ $range }}" @if($range == $package->p_age_range) selected @endif>{{ $key }}</option>
+                            <option value="{{ $key }}" @if($key == $package->p_age_range) selected @endif>{{ $key }}</option>
                         @endforeach;
                     </select>
                 </div>

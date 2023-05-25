@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.5",
         "mews/purifier": "^3.3",
         "paypal/rest-api-sdk-php": "*",
-        "stripe/stripe-php": "^7.67"
+        "stripe/stripe-php": "^7.67",
+        "spatie/laravel-newsletter": "^4.11"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
