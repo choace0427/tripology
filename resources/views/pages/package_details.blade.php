@@ -87,10 +87,7 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <div class="map">
-                      <iframe
-                        src="{{ $package_detail->p_map }}"
-                        style="border-radius:20px; padding: 20px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {!! $package_detail->p_map !!}
                     </div>
 
                     <div class="row">
