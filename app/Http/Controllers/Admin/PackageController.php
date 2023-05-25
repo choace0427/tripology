@@ -123,7 +123,7 @@ class PackageController extends Controller
                 'p_slug'   =>  [
                     Rule::unique('packages')->ignore($id),
                 ],
-                'p_age_range' => 'required|numeric',
+                'p_age_range' => 'required',
                 'p_max_group_size' => 'required|numeric',
                 'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',
@@ -155,7 +155,7 @@ class PackageController extends Controller
                 'p_slug'   =>  [
                     Rule::unique('packages')->ignore($id),
                 ],
-                'p_age_range' => 'required|numeric',
+                'p_age_range' => 'required',
                 'p_max_group_size' => 'required|numeric',
                 'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',

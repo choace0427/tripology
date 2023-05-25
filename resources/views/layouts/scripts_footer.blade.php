@@ -7,7 +7,8 @@
 @if($g_setting->layout_direction == 'Right to Left')
 <script src="{{ asset('frontend/js/rtl.js') }}"></script>
 @endif
-
+-->
+<script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
 <script>
     toastr.options = {
         "closeButton": false,
@@ -17,10 +18,10 @@
         "positionClass": "toast-top-right",
         "preventDuplicates": true,
         "onclick": null,
-        "showDuration": "20000",
-        "hideDuration": "20000",
-        "timeOut": "20000",
-        "extendedTimeOut": "20000",
+        "showDuration": "5000",
+        "hideDuration": "5000",
+        "timeOut": "10000",
+        "extendedTimeOut": "5000",
         "showEasing": "swing",
         "hideEasing": "linear",
         "showMethod": "fadeIn",
@@ -48,12 +49,12 @@
         toastr.success('{{ session()->get('success') }}');
     </script>
 @endif
--->
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
 
-    <script>
+<script>
     $('.runforthree').owlCarousel({
     rtl:true,
     loop:true,

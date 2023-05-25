@@ -4,6 +4,7 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     @php
     $url = Request::path();
     $conName = explode('/',$url);
@@ -557,7 +558,7 @@
         <div class="row">
           <div class="col-md-2">
             <div class="last-logo">
-              <img src="images/logo-3.png" alt="">
+              <img src="{{asset('images/logo-3.png')}}" alt="">
             </div>
           </div>
           <div class="col-md-3">

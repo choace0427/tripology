@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Admin\Package;
 use DB;
 
 class PackageController extends Controller
@@ -18,7 +19,7 @@ class PackageController extends Controller
     public function detail($slug)
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $package_detail = DB::table('packages')->where('p_slug', $slug)->first();
+        $package_detail = Package::with('destination:id,d_name')->where('p_slug', $slug)->first();
         $package_photos = DB::table('package_photos')->where('package_id', $package_detail->id)->get();
         $package_videos = DB::table('package_videos')->where('package_id', $package_detail->id)->get();
         $package_reviews_count = DB::table('reviews')->where('package_id', $package_detail->id)->count();
