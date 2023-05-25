@@ -94,7 +94,6 @@
                       <div class="col-md-8">
                         <div class="babba">
                           <h3>Heighlights</h3>
-                          <h4>{{ $package_detail->p_description_short }}</h4>
                           <p><i class="bi bi-dot"></i>{!! $package_detail->p_description !!}</p>
                           
                           <!-- <h4>Exclusions</h4>
