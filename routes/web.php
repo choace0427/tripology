@@ -41,6 +41,8 @@ use App\Http\Controllers\Admin\SpotlightController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\FaqController as FaqControllerForAdmin;
 use App\Http\Controllers\Admin\OrderController as OrderControllerForAdmin;
+use App\Http\Controllers\Admin\ReviewController as ReviewController;
+use App\Http\Controllers\Admin\TopNotificationController as TopNotificationController;
 
 use App\Http\Controllers\Traveller\CheckoutController;
 use App\Http\Controllers\Traveller\DashboardController as DashboardControllerForTraveller;
@@ -69,6 +71,7 @@ use App\Http\Controllers\Front\SubscriptionController;
 use App\Http\Controllers\Front\TeamMemberController as TeamMemberControllerForFront;
 use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\TestimonialController as TestimonialControllerForFront;
+use App\Http\Controllers\Front\MailChimpController as MailChimpController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +79,7 @@ use Illuminate\Support\Facades\Route;
 /* Front End */
 /* --------------------------------------- */
 Route::get('/', [HomeController::class,'index']);
+Route::get('autocomplete', [HomeController::class, 'search'])->name('autocomplete');
 Route::get('about', [AboutController::class,'index'])->name('front.about');
 Route::get('destination', [DestinationControllerForFront::class,'index'])->name('front.destination');
 Route::get('destination/{slug}', [DestinationControllerForFront::class,'detail']);
@@ -419,6 +423,11 @@ Route::get('admin/package/photo-delete/{id}', [PackageControllerForAdmin::class,
 Route::get('admin/package/schedule/{id}', [PackageControllerForAdmin::class,'schedule']);
 Route::post('admin/package/schedule-store', [PackageControllerForAdmin::class,'schedulestore'])->name('admin.package.schedule-store');
 Route::get('admin/package/schedule-delete/{id}', [PackageControllerForAdmin::class,'scheduledelete']);
+
+Route::get('admin/package/itinerary/{id}', [PackageControllerForAdmin::class,'itinerary']);
+Route::post('admin/package/itinerary-store', [PackageControllerForAdmin::class,'itinerarystore'])->name('admin.package.itineray-store');
+Route::get('admin/package/itinerary-delete/{id}', [PackageControllerForAdmin::class,'itinerarydelete']);
+
 Route::get('admin/package/video/{id}', [PackageControllerForAdmin::class,'video']);
 Route::post('admin/package/video-store', [PackageControllerForAdmin::class,'videostore'])->name('admin.package.video-store');
 Route::get('admin/package/video-delete/{id}', [PackageControllerForAdmin::class,'videodelete']);
@@ -538,3 +547,23 @@ Route::get('admin/traveller/delete/{id}', [TravellerController::class,'destroy']
 /* --------------------------------------- */
 Route::get('admin/menu/view', [MenuController::class,'index'])->name('admin.menu.index');
 Route::post('admin/menu/update', [MenuController::class,'update']);
+
+
+/* --------------------------------------- */
+/* Review - Admin */
+/* --------------------------------------- */
+Route::get('admin/review/view', [ReviewController::class,'index'])->name('admin.review.index');
+Route::get('admin/review/status/{id}', [ReviewController::class,'updateStatus'])->name('admin.review.status');
+Route::get('admin/review/delete/{id}', [ReviewController::class,'destroy']);
+
+/* --------------------------------------- */
+/* Notification - Admin */
+/* --------------------------------------- */
+Route::get('admin/top-notification/view', [TopNotificationController::class,'index'])->name('admin.notification.index');
+Route::post('admin/top-notification/store', [TopNotificationController::class,'store'])->name('admin.notification.store');
+
+/* --------------------------------------- */
+/* Notification - MailChimp */
+/* --------------------------------------- */
+Route::post('/subscribe', [MailChimpController::class, 'index'])->name('subscribe');
+Route::get('/subscription-details', [MailChimpController::class, 'index'])->name('subscription_details');

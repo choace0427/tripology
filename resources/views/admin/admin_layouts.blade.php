@@ -152,7 +152,7 @@
             <a class="nav-link" href="{{ route('admin.package.index') }}">
                 <i class="fas fa-box"></i>
                 <span>Packages</span>
-            </a>
+            </a> 
         </li>
 
         <li class="nav-item @if($conName[1] == 'slider') active @endif">
@@ -169,6 +169,27 @@
             </a>
         </li>
 
+        <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+            <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
+                <i class="fas fa-share-alt-square"></i>
+                <span>Subscribers </span>
+            </a>
+        </li>
+
+        
+        <li class="nav-item @if($conName[1] == 'reviews') active @endif">
+            <a class="nav-link" href="{{ route('admin.review.index') }}">
+                <i class="fas fa-comments"></i>
+                <span>Reviews </span>
+            </a>
+        </li>
+
+        <li class="nav-item @if($conName[1] == 'admin_notification') active @endif">
+            <a class="nav-link" href="{{ route('admin.notification.index') }}">
+                <i class="fas fa-comments"></i>
+                <span>Top Notification </span>
+            </a>
+        </li>
 
         <!-- Dynamic Pages -->
         <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
@@ -235,7 +256,7 @@
         </li> -->
 
         <!-- Subscriber -->
-        <!-- <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+        <!--li class="nav-item @if($conName[1] == 'subscriber') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubscriber" aria-expanded="true" aria-controls="collapseSubscriber">
                 <i class="fas fa-share-alt-square"></i>
                 <span>Subscriber</span>
@@ -246,7 +267,7 @@
                     <a class="collapse-item" href="{{ route('admin.subscriber.send_email') }}">Send Email to Subscribers</a>
                 </div>
             </div>
-        </li> -->
+        </li-->
 
 
 
