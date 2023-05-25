@@ -212,6 +212,11 @@
     <script src="https://cdn.websitepolicies.io/lib/cookieconsent/1.0.3/cookieconsent.min.js" defer></script><script>window.addEventListener("load",function(){window.wpcc.init({"colors":{"popup":{"background":"#{{ $g_setting->cookie_consent_bg_color }}","text":"#{{ $g_setting->cookie_consent_text_color }}","border":"#b3d0e4"},"button":{"background":"#{{ $g_setting->cookie_consent_button_bg_color }}","text":"#{{ $g_setting->cookie_consent_button_text_color }}"}},"position":"bottom","padding":"large","margin":"none","content":{"message":"{{ $g_setting->cookie_consent_message }}","button":"{{ $g_setting->cookie_consent_button_text }}"}})});</script>
     @endif
 
+    @if (session()->has('message-for') && session()->get('message-for') == 'subscribe')
+        <div role="alert">
+            <strong>{{session('message-content')}}</strong>
+        </div>
+    {{session()->forget('flash')}} @endif
 
     @if($g_setting->google_analytic_status == 'Show')
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -552,7 +557,7 @@
         <div class="row">
           <div class="col-md-2">
             <div class="last-logo">
-              <img src="{{ asset('images/logo-3.png') }}" alt="">
+              <img src="images/logo-3.png" alt="">
             </div>
           </div>
           <div class="col-md-3">
@@ -592,7 +597,7 @@
 
           <div class="col-md-4">
             <div class="last-logo">
-            <form action="{{ route('subscribe') }}" method="post">
+                <form action="{{ route('subscribe') }}" method="post">
                 @csrf
                     <h3>Our Newsletter</h3>
                     <p>Subscribe to our newsletter and get exlusive first minute offers straight into your inbox.</p>

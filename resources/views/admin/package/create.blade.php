@@ -99,7 +99,7 @@
                     <label for="">Age range *</label>
                     <select name="p_age_range" class="form-control select2">
                         @foreach($ranges as $key => $range)
-                            <option value="{{ $range }}">{{ $key }}</option>
+                            <option value="{{ $key }}">{{ $key }}</option>
                         @endforeach;
                     </select>
                 </div>
