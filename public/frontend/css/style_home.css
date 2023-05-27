@@ -1598,7 +1598,7 @@ a{
 }
 
 
-.btn-month span button {
+.btn-month span button ,  .btn-month button.active{
     background: #387088;
     color: #000;
     width: 100%;
