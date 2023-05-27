@@ -246,49 +246,14 @@
             <div class="row box-btn">
               <div class="col-md-12">
                 <div class="row">
-                        <div class="col-md-2">
-                            <div class="btn-month"><span><button><?php echo date('F Y'); ?></button></span></div>
+                  <div class="owl-carousel runforfive owl-theme">
+                    @foreach($package_schedules as $key => $schedule)
+                        <div class="item" >
+                          <div class="btn-month"><button class="show_schedule_dates" id="{{str_replace(' ', '_',$key)}}">{{$key}}</span></div>
                         </div>
-
-                        <div class="col-md-2">
-                            <div class="btn-month"><button><?php echo date('F Y', strtotime("+1 month")); ?></button></div>
-                        </div>
-
-                        <div class="col-md-2">
-                            <div class="btn-month"><button><?php echo date('F Y', strtotime("+2 month")); ?></button></div>
-                        </div>
-
-                        <div class="col-md-2">
-                            <div class="btn-month"><button><?php echo date('F Y', strtotime("+3 month")); ?></button></div>
-                        </div>
-
-                        <div class="col-md-2">
-                            <div class="btn-month"><button><?php echo date('F Y', strtotime("+4 month")); ?></button></div>
-                        </div>
-
-                        <div class="col-md-2">
-                            <div class="btn-month"><button><?php echo date('F Y', strtotime("+5 month")); ?></button></div>
-                        </div>
-                  <!-- <div class="owl-carousel runforfive owl-theme">
-                    <div class="item" >
-                      <div class="btn-month"><span><button>May 2022</button></span></div>
+                      @endforeach             
                     </div>
-                    <div class="item" >
-                      <div class="btn-month"><button>May 2022</button></div>
-                    </div>
-                    <div class="item" >
-                      <div class="btn-month"><button>July 2022</button></div>
-                    </div>
-                    <div class="item" >
-                      <div class="btn-month"><button>Aug 2022</button></div>
-                    </div>
-                    <div class="item" >
-                      <div class="btn-month"><button>Sept. 2022</button></div>
-                    </div>
-                    <div class="item" >
-                      <div class="btn-month"><button>Oct.2022</button></div>
-                    </div>                          
-                  </div> -->
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 p-0">
@@ -297,19 +262,19 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="Departur-date">
                       <h3>Departure Date</h3> 
                     </div>
                   </div>
 
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="Departur-date">
                       <h3>End Date</h3> 
                     </div>
                   </div>
 
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="Departur-date">
                       <h3>Price</h3> 
                     </div>
@@ -322,28 +287,30 @@
                     <hr style="margin-bottom: 5px;">
                   </div>
                 </div>
+                @foreach($package_schedules as $key => $schedule)
+                  @foreach($schedule as  $schedule_dates)
+                    <div class="row schedule_dates" id="{{str_replace(' ', '_',$key)}}" >
+                        <div class="col-md-3">
+                            <div class="Departur-date"><h3>{{ date("d F, Y", strtotime($schedule_dates->start_date)) }}</h3></div>
+                          </div>
 
-                <div class="row">
-                  @foreach($package_schedules as $schedule)
-                    <div class="col-md-4">
-                      <div class="Departur-date"><h3>{{ date("M jS, Y", strtotime($schedule->start_date)) }}</h3></div>
-                    </div>
+                          <div class="col-md-3">
+                              <div class="Departur-date"><h3>{{ date("d F, Y", strtotime($schedule_dates->end_date)) }}</h3></div>
+                          </div>
 
-                    <div class="col-md-4">
-                      <div class="Departur-date"><h3>{{ date("M jS, Y", strtotime($schedule->end_date)) }}</h3></div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="Departur-date"><h3>$ {{ $schedule->price }}</h3></div>
+                          <div class="col-md-3">
+                              <div class="Departur-date"><h3>$ {{$schedule_dates->price}}</h3></div>
+                          </div>
+                        <div class="col-md-3">
+                            <div class="Departur-date">
+                                <button class="show_quote_form mb-1" data-package_start_date="{{ date('Y-m-d', strtotime($schedule_dates->start_date)) }}" 
+                                data-package_end_date="{{ date('Y-m-d', strtotime($schedule_dates->end_date)) }}"
+                                data-package_id="{{$schedule_dates->package_id}}">Confirm Date</button>
+                            </div>
+                        </div>
                     </div>
                   @endforeach
-
-                  <div class="col-md-3">
-                    <div class="Departur-date">
-                      <button>Confirm Date</button>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
 
@@ -447,6 +414,24 @@
             $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
         });
     }
-  
+    
+    let first_child = jQuery(".schedule_dates").first().attr("id");
+    
+    jQuery('.schedule_dates').hide();
+    jQuery('.schedule_dates#'+first_child).show();
+    jQuery('.show_schedule_dates').first().addClass('active');
+    jQuery('.show_schedule_dates').on('click',function(){
+        let current = jQuery(this).attr('id');
+        jQuery('.schedule_dates').hide();
+        jQuery('.show_schedule_dates').removeClass('active');
+        jQuery(this).addClass('active');
+        jQuery('.schedule_dates#'+current).show();
+    });
+
+    jQuery('.show_quote_form').on('click',function(){
+      $('#staticBackdrop').modal('show');
+      jQuery('#start_date').val(jQuery(this).data('package_start_date'));
+      jQuery('#end_date').val(jQuery(this).data('package_end_date'));
+    });
 </script>
 @endsection

@@ -93,6 +93,25 @@ $('.runforfour').owlCarousel({
     }
 });
 
+$('.runforfive').owlCarousel({
+      rtl: false,
+      loop: false,
+      margin: 10,
+      nav: false,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 5
+        }
+      }
+    });
+
     // const recent_viewed = [1,3,4];
     // const all_packages = "<?php //echo $packages; ?>";
 
