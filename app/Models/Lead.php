@@ -18,4 +18,8 @@ class Lead extends Model
         'start_date',
         'end_date'
     ];
+  
+    public function package(){
+        return $this->belongsTo('App\Models\Admin\Package');
+    }
 }

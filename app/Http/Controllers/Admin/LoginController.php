@@ -14,6 +14,8 @@ class LoginController extends Controller
     	$this->middleware(function ($request, $next) {
 			if($request->session()->has('admin')) {
 				return redirect()->route('admin.dashboard');
+			}else if($request->session()->has('agency')) {
+				return redirect()->route('agency.dashboard');
 			}
 			return $next($request);
 		});
@@ -46,14 +48,23 @@ class LoginController extends Controller
         		return redirect()->back()->with('error', 'Password is wrong');
         	}
         }
-
+        
+        if($check_email->role == 'agency')
+        {
+            session(['role' => 'agency']);
+        }else{
+            session(['role' => 'admin']);
+        }
         // Saving data into session
-        session(['role' => 'admin']);
         session(['id' => $check_email->id]);
         session(['name' => $check_email->name]);
         session(['email' => $check_email->email]);
         session(['photo' => $check_email->photo]);
-
-        return redirect()->route('admin.dashboard');
+        if($check_email->role == 'agency')
+        {
+            return redirect()->route('agency.dashboard');
+        }else{
+            return redirect()->route('admin.dashboard');
+        }
     }
 }

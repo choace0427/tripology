@@ -45,13 +45,7 @@
         <hr class="sidebar-divider my-0">
 
 
-        <!-- Dashboard -->
-        <li class="nav-item @if($conName[1] == 'dashboard') active @endif">
-            <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                <i class="fas fa-fw fa-home"></i>
-                <span>Dashboard</span>
-            </a>
-        </li>
+       
 
 
         <!-- General Settings -->
@@ -137,8 +131,31 @@
                 </div>
             </div>
         </li> -->
+        @if(Session::get('role') == 'agency')
+             <!-- Dashboard -->
+            <li class="nav-item @if($conName[1] == 'dashboard') active @endif">
+                <a class="nav-link" href="{{ route('agency.dashboard') }}">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
 
-
+             <!-- Dashboard -->
+             <li class="nav-item @if($conName[1] == 'leads') active @endif">
+                <a class="nav-link" href="{{ route('agency.leads') }}">
+                     <i class="fas fa-bullhorn"></i>
+                    <span>Leads</span>
+                </a>
+            </li>
+        @else    
+        
+         <!-- Dashboard -->
+         <li class="nav-item @if($conName[1] == 'dashboard') active @endif">
+            <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
         <!-- Destinations -->
         <li class="nav-item @if($conName[1] == 'destination') active @endif">
             <a class="nav-link" href="{{ route('admin.destination.index') }}">
@@ -191,6 +208,14 @@
             </a>
         </li>
 
+        <!-- Dashboard -->
+        <li class="nav-item @if($conName[1] == 'leads') active @endif">
+                <a class="nav-link" href="{{ route('admin.leads') }}">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Leads</span>
+                </a>
+            </li>
+        @endif
         <!-- Dynamic Pages -->
         <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
             <a class="nav-link" href="{{ route('admin.dynamic_page.index') }}">
