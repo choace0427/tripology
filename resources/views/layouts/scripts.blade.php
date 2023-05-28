@@ -11,6 +11,6 @@
 <script src="{{ asset('frontend/js/superfish.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.slicknav.min.js') }}"></script>
 <script src="{{ asset('frontend/js/viewportchecker.js') }}"></script>
-<script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script-->
+<script src="{{ asset('frontend/js/toastr.min.js') }}"></script>

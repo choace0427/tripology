@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Admin\Package;
+use App\Models\Admin\PackageSchedule;
 use DB;
+use Carbon\Carbon;
 
 class PackageController extends Controller
 {
@@ -18,7 +21,7 @@ class PackageController extends Controller
     public function detail($slug)
     {
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
-        $package_detail = DB::table('packages')->where('p_slug', $slug)->first();
+        $package_detail = Package::with('destination:id,d_name')->where('p_slug', $slug)->first();
         $package_photos = DB::table('package_photos')->where('package_id', $package_detail->id)->get();
         $package_videos = DB::table('package_videos')->where('package_id', $package_detail->id)->get();
         $package_reviews_count = DB::table('reviews')->where('package_id', $package_detail->id)->count();
@@ -26,8 +29,13 @@ class PackageController extends Controller
         $package_reviews = DB::table('reviews')->where('package_id', $package_detail->id)->where('published', 1)->get();
         $similar_packages = DB::table('packages')->where('destination_id', $package_detail->destination_id)->where('id', '!=', $package_detail->id)->get();
         $itineraries = DB::table('package_itineraries')->where('package_id', $package_detail->id)->get();
-        $package_schedules = DB::table('package_schedules')->where('package_id', $package_detail->id)->get();
-        
+        //$package_schedules = DB::table('package_schedules')->where('package_id', $package_detail->id)->get();
+      
+        $package_schedules = PackageSchedule::select('id','start_date','end_date','price')
+        ->get()
+        ->groupBy(function($date) {
+            return Carbon::parse($date->start_date)->format('F Y'); // grouping by months
+        });
         if(!$package_detail) {
             return abort(404);
         }

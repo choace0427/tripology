@@ -4,6 +4,7 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     @php
     $url = Request::path();
     $conName = explode('/',$url);
@@ -557,7 +558,7 @@
         <div class="row">
           <div class="col-md-2">
             <div class="last-logo">
-              <img src="images/logo-3.png" alt="">
+              <img src="{{asset('images/logo-3.png')}}" alt="">
             </div>
           </div>
           <div class="col-md-3">
@@ -601,7 +602,7 @@
                 @csrf
                     <h3>Our Newsletter</h3>
                     <p>Subscribe to our newsletter and get exlusive first minute offers straight into your inbox.</p>
-                    <input type="text" class="input2" name="subs_email" value="{{ old('subs_email') }}" placeholder="Enter your email adders">
+                    <input type="text" class="input2" required name="subs_email" value="{{ old('subs_email') }}" placeholder="Enter your email adders">
                     <ul class="ps-0 d-flex mt-2">
                     <li><a href="#">Join As:</a></li>
                         <li class="ps-2"><a href="#"><input type="radio" name="joining_as" value="travel_agent">Travel Agent</a></li>
