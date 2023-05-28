@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\Agency\DashboardController as DashboardControllerForAgency;
+use App\Http\Controllers\Agency\LeadsController as LeadsControllerForAgency;
+use App\Http\Controllers\Agency\RegisterController;
+
 use App\Http\Controllers\Admin\TravellerController;
 use App\Http\Controllers\Admin\DashboardController as DashboardControllerForAdmin;
 use App\Http\Controllers\Admin\DynamicPageController;
 use App\Http\Controllers\Admin\DestinationController;
 use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\LeadsController as LeadsControllerForAdmin;
 use App\Http\Controllers\Admin\EmailTemplateController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\LoginController as LoginControllerForAdmin;
@@ -135,6 +140,15 @@ Route::get('traveller/payment', [CheckoutController::class,'payment'])->name('tr
 Route::post('traveller/payment/stripe', [CheckoutController::class,'stripe'])->name('traveller.stripe');
 Route::get('traveller/execute-payment', [CheckoutController::class,'paypal']);
 
+/* --------------------------------------- */
+/* Agency Panel */
+/* --------------------------------------- */
+
+Route::prefix('agency')->group(function () {
+    Route::get('register', [RegisterController::class,'index'])->name('agency.register');
+    Route::get('dashboard', [DashboardControllerForAgency::class,'index'])->name('agency.dashboard');
+    Route::get('leads', [LeadsControllerForAgency::class,'index'])->name('agency.leads');
+});
 
 /* --------------------------------------- */
 /* Admin Login and profile management */
@@ -154,8 +168,7 @@ Route::get('admin/profile-change', [ProfileChangeControllerForAdmin::class,'inde
 Route::post('admin/profile-change/update', [ProfileChangeControllerForAdmin::class,'update']);
 Route::get('admin/photo-change', [PhotoChangeController::class,'index'])->name('admin.photo_change');
 Route::post('admin/photo-change/update', [PhotoChangeController::class,'update']);
-
-
+Route::get('admin/leads', [LeadsControllerForAdmin::class,'index'])->name('admin.leads');
 
 /* --------------------------------------- */
 /* Payment - Admin */
@@ -568,4 +581,4 @@ Route::post('admin/top-notification/store', [TopNotificationController::class,'s
 Route::post('/subscribe', [MailChimpController::class, 'index'])->name('subscribe');
 Route::get('/subscription-details', [MailChimpController::class, 'index'])->name('subscription_details');
 
-Route::post('/quote/store', [QuotesController::class, 'store'])->name('quote.store');
+Route::post('/lead/store', [LeadController::class, 'store'])->name('lead.store');

@@ -4,11 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminMiddleware
+class Agency
 {
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('role') == 'admin') {
+        if($request->session()->get('role') == 'agency') {
             return $next($request);    
         }        
         return redirect()->route('admin.login');

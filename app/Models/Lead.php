@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quote extends Model
+class Lead extends Model
 {
     use HasFactory;
 
@@ -18,4 +18,8 @@ class Quote extends Model
         'start_date',
         'end_date'
     ];
+
+    public function package(){
+        return $this->belongsTo('App\Models\Admin\Package');
+    }
 }

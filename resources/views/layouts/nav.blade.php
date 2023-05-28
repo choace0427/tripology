@@ -114,8 +114,8 @@
                             <form class="d-flex" role="search">
                               <div class="input">
                                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-                                   <a href="#">Agent <span><i class="bi bi-caret-down-fill"></i></span></a>
-                              <button class="" type="submit">Search</button>
+                              <a href="{{url('agency/register')}}">Agent <span><i class="bi bi-caret-down-fill"></i></span></a>
+                              <button class="" onClick="window.location.href = '{{url('admin/login')}}'" type="button">Login</button>
                               </div>
                             </form>
                           </div>
