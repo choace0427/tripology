@@ -5,8 +5,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/superfish.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/css/slicknav.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">    
+<link rel="stylesheet" href="{{ asset('frontend/css/slicknav.min.css') }}">  
 <link rel="stylesheet" href="{{ asset('frontend/css/spacing.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/chosen.css') }}">

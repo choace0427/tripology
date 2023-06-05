@@ -2046,8 +2046,8 @@ a{
 .big-btn span{
     color: #E65252;
 }
-
-.nav-link{
+ 
+.nav-link{ 
     background: transparent !important;
     color: #000 !important;
     position: relative;
