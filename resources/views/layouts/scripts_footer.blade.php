@@ -6,7 +6,7 @@
 <script src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('frontend/js/superfish.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
-<script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
+<script src="{{ asset('frontend/js/toastr.min.js') }}"></script> 
 <!--
 @if($g_setting->layout_direction == 'Left to Right')
 <script src="{{ asset('frontend/js/ltr.js') }}"></script>

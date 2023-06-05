@@ -29,4 +29,4 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/style_home.css') }}">
 @if($g_setting->layout_direction == 'Right to Left')
 <link rel="stylesheet" href="{{ asset('frontend/css/rtl.css') }}">
-@endif
+@endif 

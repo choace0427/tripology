@@ -14,7 +14,7 @@ class HomeController extends Controller
         $top_notification = DB::table('top_notifications')->first();
         $packages = Package::withCount(['reviews as reviews_avg' => function($query) {
             $query->select(DB::raw('avg(rating)'));
-        },'reviews'])->take(6)->get();
+        },'reviews'])->take(6)->get(); 
         $featured_packages = DB::table('packages')->where('p_is_featured','Yes')->orderBy('created_at','desc')->take(6)->get();
         $spotlight = DB::table('spotlights')->first();
         $sliders = DB::table('sliders')->get();
