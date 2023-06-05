@@ -1,5 +1,13 @@
-<!--script src="{{ asset('frontend/js/custom.js') }}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<!--script src="{{ asset('frontend/js/custom.js') }}"></script-->
+<script src="{{ asset('frontend/js/wow.min.js') }}"></script>
+<script src="{{ asset('frontend/js/jquery.slicknav.min.js') }}"></script>
+<script src="{{ asset('frontend/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('frontend/js/superfish.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.js') }}"></script>
+<script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
+<!--
 @if($g_setting->layout_direction == 'Left to Right')
 <script src="{{ asset('frontend/js/ltr.js') }}"></script>
 @endif
