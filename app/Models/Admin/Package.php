@@ -37,9 +37,4 @@ class Package extends Model
         return $this->belongsTo('App\Models\Admin\Destination');
     }
 
-    public function reviews()
-    {
-        return $this->hasMany('App\Models\Admin\Review','package_id')->where('published', 1);
-    }
-
 }
