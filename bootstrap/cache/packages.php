@@ -74,4 +74,15 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'spatie/laravel-newsletter' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\Newsletter\\NewsletterServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Newsletter' => 'Spatie\\Newsletter\\NewsletterFacade',
+    ),
+  ),
 );
