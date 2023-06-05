@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Destination;
 use DB;
-use App\Models\Admin\Package; 
+use App\Models\Admin\Package;
 
 class HomeController extends Controller
 {
@@ -14,8 +14,7 @@ class HomeController extends Controller
         $top_notification = DB::table('top_notifications')->first();
         $packages = Package::withCount(['reviews as reviews_avg' => function($query) {
             $query->select(DB::raw('avg(rating)'));
-        },'reviews'])->take(6)->get(); 
-        $featured_packages = DB::table('packages')->where('p_is_featured','Yes')->orderBy('created_at','desc')->take(6)->get();
+        },'reviews'])->take(6)->get();
         $spotlight = DB::table('spotlights')->first();
         $sliders = DB::table('sliders')->get();
     	// $page_home = DB::table('page_home_items')->where('id',1)->first();
