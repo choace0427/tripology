@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<!--script src="{{ asset('frontend/js/custom.js') }}"></script>
 
 <script src="{{ asset('frontend/js/wow.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.slicknav.min.js') }}"></script>
@@ -16,6 +16,7 @@
 <script src="{{ asset('frontend/js/rtl.js') }}"></script>
 @endif
 -->
+<script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
 <script>
     toastr.options = {
         "closeButton": false,
@@ -58,7 +59,7 @@
 @endif
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
 
 <script>
