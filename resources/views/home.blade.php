@@ -234,7 +234,7 @@
       </div>
    </div>
    <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12"> 
          <div class="owl-carousel runforthree owl-theme">
           @foreach($packages as $package)
             <div class="item" >
