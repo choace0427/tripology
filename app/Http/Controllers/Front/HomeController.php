@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Destination;
 use DB;
-use App\Models\Admin\Package;
+use App\Models\Admin\Package; 
 
 class HomeController extends Controller
 {
