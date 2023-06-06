@@ -234,7 +234,7 @@
       </div>
    </div>
    <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12"> 
          <div class="owl-carousel runforthree owl-theme">
           @foreach($packages as $package)
             <div class="item" >
@@ -252,8 +252,8 @@
                      $endDate = \Carbon\Carbon::parse($package->p_end_date); 
                      echo $diff = $endDate->diffInDays($startDate);
                   @endphp
-                  Days <span>4 <i class="bi bi-star-fill"></i></span> (45)</a>
-                  <p>"{{$package->p_description_short}}"</p>
+                  Days <span>@if($package->reviews_avg != null){{number_format($package->reviews_avg,1)}} @else 0 @endif <i class="bi bi-star-fill"></i></span> ({{$package->reviews_count}})</a>
+                  <p>{{$package->p_description_short}}</p>
                   <h6>Starting From ₹{{$package->p_price}}</h6>
               </div>
               </a>

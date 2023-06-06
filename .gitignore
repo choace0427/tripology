@@ -4,6 +4,7 @@
 /public/storage
 /public/uploads
 /storage/*.key
+/bootstrap
 /vendor
 /backup
 /tripology
