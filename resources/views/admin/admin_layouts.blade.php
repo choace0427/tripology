@@ -346,12 +346,21 @@
                             </a>
                             @endif
 
+                            @if(session('role') == 'agency')
+                            <a class="dropdown-item" href="{{ route('agency.password_change') }}">
+                                <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
+                            </a>
+                            <a class="dropdown-item" href="{{ route('agency.photo_change') }}">
+                                <i class="fas fa-image fa-sm fa-fw mr-2 text-gray-400"></i> Change Photo
+                            </a>
+                            @else
                             <a class="dropdown-item" href="{{ route('admin.password_change') }}">
                                 <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
                             </a>
                             <a class="dropdown-item" href="{{ route('admin.photo_change') }}">
                                 <i class="fas fa-image fa-sm fa-fw mr-2 text-gray-400"></i> Change Photo
                             </a>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('admin.logout') }}">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout

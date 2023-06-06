@@ -3,6 +3,8 @@
 use App\Http\Controllers\Agency\DashboardController as DashboardControllerForAgency;
 use App\Http\Controllers\Agency\LeadsController as LeadsControllerForAgency;
 use App\Http\Controllers\Agency\RegisterController;
+use App\Http\Controllers\Agency\PasswordChangeController as PasswordChangeControllerForAgency;
+use App\Http\Controllers\Agency\PhotoChangeController as PhotoChangeControllerForAgency;
 
 use App\Http\Controllers\Admin\TravellerController;
 use App\Http\Controllers\Admin\DashboardController as DashboardControllerForAdmin;
@@ -149,6 +151,12 @@ Route::prefix('agency')->group(function () {
     Route::post('register', [RegisterController::class,'store'])->name('agency.store');
     Route::get('dashboard', [DashboardControllerForAgency::class,'index'])->name('agency.dashboard');
     Route::get('leads', [LeadsControllerForAgency::class,'index'])->name('agency.leads');
+
+    Route::get('password-change', [PasswordChangeControllerForAgency::class,'index'])->name('agency.password_change');
+    Route::post('password-change/update', [PasswordChangeControllerForAgency::class,'update']);
+
+    Route::get('photo-change', [PhotoChangeControllerForAgency::class,'index'])->name('agency.photo_change');
+   Route::post('photo-change/update', [PhotoChangeControllerForAgency::class,'update']);
 });
 
 /* --------------------------------------- */
