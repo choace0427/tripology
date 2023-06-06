@@ -13,4 +13,3 @@
 <script src="{{ asset('frontend/js/viewportchecker.js') }}"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script-->
-<script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
