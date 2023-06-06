@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/spacing.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/toastr.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"/>
@@ -30,4 +29,6 @@
 @if($g_setting->layout_direction == 'Right to Left')
 <link rel="stylesheet" href="{{ asset('frontend/css/rtl.css') }}">
 @endif
+
+<style> #toast-container > .toast-error { background-color: #BD362F; } #toast-container > .toast-success{background-color:#51A351} </style>
 

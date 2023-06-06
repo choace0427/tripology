@@ -17,6 +17,7 @@
 <script src="{{ asset('frontend/js/rtl.js') }}"></script>
 @endif
 -->
+<script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
 <script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
 <script>
     toastr.options = {
@@ -39,8 +40,8 @@
 </script>
 
 @if ($errors->any())
-    @php $err = '';  @endphp
     @foreach ($errors->all() as $error)
+    {{ $error }}
         <script>
             toastr.error('{{ $error }}');
         </script>

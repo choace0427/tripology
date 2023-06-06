@@ -146,6 +146,7 @@ Route::get('traveller/execute-payment', [CheckoutController::class,'paypal']);
 
 Route::prefix('agency')->group(function () {
     Route::get('register', [RegisterController::class,'index'])->name('agency.register');
+    Route::post('register', [RegisterController::class,'store'])->name('agency.store');
     Route::get('dashboard', [DashboardControllerForAgency::class,'index'])->name('agency.dashboard');
     Route::get('leads', [LeadsControllerForAgency::class,'index'])->name('agency.leads');
 });
