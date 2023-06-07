@@ -147,6 +147,13 @@
                     <span>Leads</span>
                 </a>
             </li>
+
+            <li class="nav-item @if($conName[1] == 'package') active @endif">
+            <a class="nav-link" href="{{ route('agency.package.index') }}">
+                <i class="fas fa-box"></i>
+                <span>Packages</span>
+            </a> 
+        </li>
         @else    
         
          <!-- Dashboard -->
