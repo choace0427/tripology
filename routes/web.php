@@ -183,6 +183,7 @@ Route::prefix('agency')->group(function () {
     Route::get('photo-change', [PhotoChangeControllerForAgency::class,'index'])->name('agency.photo_change');
    Route::post('photo-change/update', [PhotoChangeControllerForAgency::class,'update']);
 
+
 });
 
 /* --------------------------------------- */
