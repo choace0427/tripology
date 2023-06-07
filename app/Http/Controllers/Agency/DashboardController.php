@@ -10,6 +10,7 @@ use App\Models\Admin\Package;
 use App\Models\Admin\Order;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -25,9 +26,9 @@ class DashboardController extends Controller
         $total_services = Service::count();
         $total_team_members = TeamMember::count();
         $total_destinations = Destination::count();
-        $total_packages = Package::count();
+        $total_packages = Package::where('p_tour_operator',Auth::id())->count();
         $total_completed_orders = Order::where('payment_status', 'Completed')->count();
         $total_pending_orders = Order::where('payment_status', 'Pending')->count();
-        return view('admin.home', compact('total_post','total_active_travellers','total_services','total_team_members','total_destinations','total_packages','total_completed_orders','total_pending_orders'));
+        return view('agency.home', compact('total_post','total_active_travellers','total_services','total_team_members','total_destinations','total_packages','total_completed_orders','total_pending_orders'));
     }
 }

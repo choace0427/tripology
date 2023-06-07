@@ -20,7 +20,7 @@
             </div>
         </div>
       </div>
-
+    @if($profile->description)
       <div class="container">
         <div class="row mt-4">
             <div class="col-md-12">
@@ -32,7 +32,7 @@
             </div>
         </div>
       </div>
-
+        @endif
 
       <div class="container">
         <div class="row">

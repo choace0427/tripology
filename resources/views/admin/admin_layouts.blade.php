@@ -38,7 +38,7 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
-            <div class="sidebar-brand-text mx-3">Admin Panel</div>
+            <div class="sidebar-brand-text mx-3">{{Session::get('role')}} Panel</div>
         </a>
 
         <!-- Divider -->
