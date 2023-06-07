@@ -347,6 +347,9 @@
                             @endif
 
                             @if(session('role') == 'agency')
+                            <a class="dropdown-item" href="{{ route('agency.profile_change') }}">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Change Profile
+                            </a>
                             <a class="dropdown-item" href="{{ route('agency.password_change') }}">
                                 <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
                             </a>

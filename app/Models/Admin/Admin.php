@@ -11,7 +11,15 @@ class Admin extends Model
         'email',
         'password',
         'token',
-        'photo'
+        'photo',
+        'company_name',
+        'username',
+        'website',
+        'city',
+        'country',
+        'phone',
+        'description'
+
     ];
 
 }

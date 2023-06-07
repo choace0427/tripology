@@ -202,8 +202,10 @@
         <meta name="description" content="{{ $item_row->seo_meta_description }}">
         <title>{{ $item_row->seo_title }}</title>
 
+    @elseif($conName[0] == 'agency' && $conName[1] =='register')
+        <meta name="description" content="Register Your Agency">
+        <title>Register Your Agency</title>
     @endif
-
     <link rel="icon" type="image/png" href="{{ asset('uploads/'.$g_setting->favicon) }}">
 
     @include('layouts.styles')
