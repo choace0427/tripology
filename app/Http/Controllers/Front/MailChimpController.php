@@ -23,17 +23,14 @@ class MailChimpController extends Controller
         );
 
         $checkSubscriber = Subscriber::where('subs_email',$request->subs_email)->first();
-
         if($checkSubscriber)
         {
-        	return redirect(url()->previous());
+        	return redirect(url()->previous())->with('error', 'You were already subscribed with us!');
         } else {
 
             if (Newsletter::isSubscribed($request->subs_email) ) {
             //send error, already sub
-            $request->session()->flash('message-for', 'subscribe');
-            $request->session()->flash('message-content', 'You were already subscribed!');
-                return redirect(url()->previous());
+                return redirect(url()->previous())->with('error', 'You were already subscribed with us!');
             }
 
             $parts = explode('@',$request->subs_email);
@@ -47,10 +44,11 @@ class MailChimpController extends Controller
             Newsletter::subscribe($request->subs_email,['FNAME'=>$sub_name]);
             $tag = env('MAILCHIMP_TAG');
             Newsletter::addTags([$tag], $request->subs_email);
-            $request->session()->flash('message-for', 'subscribe');
-            $request->session()->flash('message-content', 'Thanks for subscribing ' . $request->name);
+           
+            //$request->session()->flash('message-for', 'subscribe');
+            //$request->session()->flash('message-content', 'Thanks for subscribing ' . $request->name);
             
-            return redirect(url()->previous());
+            return redirect(url()->previous())->with('success', 'Thanks for subscribing ' . $request->name);
         }
     }
 }
