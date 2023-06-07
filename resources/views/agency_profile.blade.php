@@ -42,7 +42,7 @@
                         <li><a href="tel:{{$profile->phone}}">Phone Number: {{$profile->phone}}</a></li>
                         <li><a href="#">Address: {{$profile->city}}, {{$profile->country}}</a></li>
                         <li><a href="#">Email: {{$profile->email}}</a></li>
-                        <li><a href="#">Website: {{$profile->website}}</a></li>
+                        <li><a href="#">Website: <a href="{{$profile->website}}" target="_blank">{{$profile->website}}</a></li>
                     </ul>
                     <!--button>Edit</button-->
                 </div>
