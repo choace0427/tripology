@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use DB;
+use Auth;
 
 class PackageController extends Controller
 {
@@ -22,8 +23,8 @@ class PackageController extends Controller
 
     public function index()
     {
-        $package = Package::all();
-        return view('admin.package.index', compact('package'));
+        $package = Package::where('p_tour_operator',session('id'))->get();
+        return view('agency.package.index', compact('package'));
     }
 
     public function create()
