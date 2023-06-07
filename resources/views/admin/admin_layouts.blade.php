@@ -328,17 +328,19 @@
                         <a class="btn btn-info btn-sm mt-3" href="{{ url('/') }}" target="_blank">
                             Visit Website
                         </a>
+                        <a class="btn btn-info btn-sm mt-3" href="{{ route('agency.profile',session('id')) }}" target="_blank">
+                            Visit Profile
+                        </a>
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @if(session('id') == 1)
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ session('name') }}</span>
-                            @else
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><a target="_blank" href="{{ route('agency.profile',session('id')) }}">{{ session('name') }}</a></span>
-                            @endif,
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                            {{ session('name') }}
+                        
+                        </span>
                             <img class="img-profile rounded-circle" src="{{ asset('uploads/'.session('photo')) }}">
                         </a>
                         <!-- Dropdown - User Information -->
