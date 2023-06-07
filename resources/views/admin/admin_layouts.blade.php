@@ -334,7 +334,11 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @if(session('id') == 1)
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ session('name') }}</span>
+                            @else
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><a target="_blank" href="{{ route('agency.profile',session('id')) }}">{{ session('name') }}</a></span>
+                            @endif,
                             <img class="img-profile rounded-circle" src="{{ asset('uploads/'.session('photo')) }}">
                         </a>
                         <!-- Dropdown - User Information -->
