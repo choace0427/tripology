@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Destination;
 use DB;
 use App\Models\Admin\Package;
+use App\Models\Admin\Admin;
 
 class HomeController extends Controller
 {
@@ -43,5 +44,13 @@ class HomeController extends Controller
         //     $query1->where('p_name', 'LIKE', '%'. $query . '%');
         // })->orWhere('d_name', 'LIKE', '%'. $query . '%')->pluck('d_name');
         return response()->json($result);
+    }
+
+    public function agencyProfile($id){
+        $profile = Admin::FindOrFail($id);
+        if($profile->role == 'agency'){
+            return view('agency_profile',compact('profile'));
+        }else{
+        }
     }
 }
