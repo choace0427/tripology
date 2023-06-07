@@ -26,7 +26,7 @@
             <div class="col-md-12">
                 <div class="profile-About">
                     <h5><i class="bi bi-person-circle"></i> About</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim eius, est quis assumenda, ex dolorum minus itaque optio reiciendis magnam illo reprehenderit ea, nulla aspernatur ratione at dolorem illum ipsa! Enim eius, est quis assumenda, ex dolorum minus itaque optio reiciendis magnam illo reprehenderit ea, nulla aspernatur ratione at dolorem illum ipsa! Enim eius, est quis assumenda, ex dolorum minus itaque optio reiciendis magnam illo reprehenderit ea, nulla aspernatur ratione at dolorem illum ipsa!</p>
+                    <p>{!! $profile->description !!}</p>
                     <h4><i class="bi bi-person-square"></i> Contact Information</h4>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <li><a href="#">Email: {{$profile->email}}</a></li>
                         <li><a href="#">Website: {{$profile->website}}</a></li>
                     </ul>
-                    <button>Edit</button>
+                    <!--button>Edit</button-->
                 </div>
             </div>
         </div>

@@ -17,7 +17,8 @@ class Admin extends Model
         'website',
         'city',
         'country',
-        'phone'
+        'phone',
+        'description'
 
     ];
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\Agency\LeadsController as LeadsControllerForAgency;
 use App\Http\Controllers\Agency\RegisterController;
 use App\Http\Controllers\Agency\PasswordChangeController as PasswordChangeControllerForAgency;
 use App\Http\Controllers\Agency\PhotoChangeController as PhotoChangeControllerForAgency;
+use App\Http\Controllers\Agency\ProfileChangeController as ProfileChangeControllerForAgency;
 
 use App\Http\Controllers\Admin\TravellerController;
 use App\Http\Controllers\Admin\DashboardController as DashboardControllerForAdmin;
@@ -182,6 +183,9 @@ Route::prefix('agency')->group(function () {
 
     Route::get('photo-change', [PhotoChangeControllerForAgency::class,'index'])->name('agency.photo_change');
    Route::post('photo-change/update', [PhotoChangeControllerForAgency::class,'update']);
+
+   Route::get('profile-change', [ProfileChangeControllerForAgency::class,'index'])->name('agency.profile_change');
+   Route::post('profile-change/update', [ProfileChangeControllerForAgency::class,'update']);
 
 
 });
