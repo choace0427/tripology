@@ -135,7 +135,7 @@
                 <div class="modal-header">
                   <button type="button" class="btn-close" style="background: none;" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
-                <form >
+                <form id="leads_form">
                   <div class="modal-body ms-4">
                     <h2>Get a Quote</h2>
                     <div class="alert alert-danger print-error-msg" style="display:none">
@@ -166,7 +166,7 @@
                     </div>
                     <input type="hidden" name="package_id" id="package_id" value="{{ $package_detail->id }}">
                     <div class="popup-input ms-2 mt-4">
-                      <button type="button" class="btn-submit">submit</button>
+                      <button type="submit" class="btn-submit">submit</button>
                     </div>
                   </div>
                 </form>
@@ -315,7 +315,7 @@
             </div>
 
 
-
+            @if($package_reviews)
             <div class="row mt-5">
               <div class="col-md-12">
                 <div class="row">
@@ -366,8 +366,25 @@
           </div>
         </div>
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+      @endif
+      <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
+      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<style>
+ #leads_form label.error {
+    margin-top:5px;
+    width: 100%;
+    color: red;
+}
+
+#leads_form input.error {
+    border: 2px solid red;
+    background-color: #ffffd5;
+    margin: 0;
+    color: red;
+}
+
+  </style>
   <script type="text/javascript">
       
     $.ajaxSetup({
@@ -377,34 +394,60 @@
     });
   
     $(".btn-submit").click(function(e){
-    
-        e.preventDefault();
-        var first_name = $("#first_name").val();
-        var last_name = $("#last_name").val();
-        var phone_number = $("#phone_number").val();
-        var email = $("#email").val();
-        var start_date = $("#start_date").val();
-        var end_date = $("#end_date").val();
-        var package_id = $("#package_id").val();
-     
-        $.ajax({
-           type:'POST',
-           url:"{{ route('lead.store')}}",
-           headers: {
-                "Accept": "application/json",
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-           data:{package_id:package_id,first_name:first_name, last_name:last_name, phone_number:phone_number, email:email, start_date:start_date, end_date:end_date},
-           success:function(data){
-                if($.isEmptyObject(data.error)){
-                    $('#staticBackdrop').modal('hide');
-                    alert(data.success);
-                }else{
-                    printErrorMsg(data.error);
+        $("#leads_form").validate({
+            rules: {
+              first_name: {           //input name: fullName
+                    required: true,   //required boolean: true/false
+                    minlength: 5,      
+                },
+                last_name: {              //input name: email
+                    required: true,   //required boolean: true/false
+                },
+                phone_number: {            //input name: subject
+                    required: true,   //required boolean: true/false
+                    minlength: 5,
+                    number: true
+                },
+                email: {            //input name: message
+                    required: true,
+                    email:true
+                },
+                start_date: {            //input name: message
+                    required: true,
+                },
+                end_date: {            //input name: message
+                    required: true,
                 }
-           }
-        });
-    
+            },
+            submitHandler: function(form) {
+              var first_name = $("#first_name").val();
+              var last_name = $("#last_name").val();
+              var phone_number = $("#phone_number").val();
+              var email = $("#email").val();
+              var start_date = $("#start_date").val();
+              var end_date = $("#end_date").val();
+              var package_id = $("#package_id").val();
+          
+              $.ajax({
+                type:'POST',
+                url:"{{ route('lead.store')}}",
+                headers: {
+                      "Accept": "application/json",
+                      'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                  },
+                data:{package_id:package_id,first_name:first_name, last_name:last_name, phone_number:phone_number, email:email, start_date:start_date, end_date:end_date},
+                success:function(data){
+                      if($.isEmptyObject(data.error)){
+                          $('#staticBackdrop').modal('hide');
+                          toastr.success('Qoute form submitted Successfully!')
+                          $('#leads_form')[0].reset();
+                      }else{
+                          printErrorMsg(data.error);
+                      }
+                }
+              });
+            }
+        }); 
     });
   
     function printErrorMsg (msg) {
