@@ -394,6 +394,7 @@
     });
   
     $(".btn-submit").click(function(e){
+      e.preventDefault();
         $("#leads_form").validate({
             rules: {
               first_name: {           //input name: fullName
