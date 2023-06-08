@@ -369,7 +369,7 @@
       @endif
       <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+      <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <style>
  #leads_form label.error {
     margin-top:5px;
