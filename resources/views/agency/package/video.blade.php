@@ -6,7 +6,7 @@
     @endphp
 
     <h1 class="h3 mb-3 text-gray-800">Videos of {{ $package_row->p_name }}</h1>
-    <form action="{{ route('admin.package.video-store') }}" method="post">
+    <form action="{{ route('agency.package.video-store') }}" method="post">
         @csrf
 
         <input type="hidden" name="package_id" value="{{ $package_id }}">
@@ -15,7 +15,7 @@
             <div class="card-header py-3">
                 <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Package Video</h6>
                 <div class="float-right d-inline">
-                    <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Back to Package Page</a>
+                    <a href="{{ route('agency.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Back to Package Page</a>
                 </div>
             </div>
             <div class="card-body">
@@ -34,7 +34,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 mt-2 font-weight-bold text-primary">All Existing Videos</h6>
             <div class="float-right d-inline">
-                <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Back to Package Page</a>
+                <a href="{{ route('agency.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Back to Package Page</a>
             </div>
         </div>
         <div class="card-body">
@@ -55,7 +55,7 @@
                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $row->video_youtube_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </td>
                             <td>
-                                <a href="{{ URL::to('admin/package/video-delete/'.$row->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{ URL::to('agency/package/video-delete/'.$row->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach
