@@ -2,13 +2,13 @@
 @section('admin_content')
     <h1 class="h3 mb-3 text-gray-800">Add Package</h1>
 
-    <form action="{{ route('admin.package.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('agency.package.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Pakage</h6>
                 <div class="float-right d-inline">
-                    <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> View All</a>
+                    <a href="{{ route('agency.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> View All</a>
                 </div>
             </div>
             <div class="card-body">
@@ -41,10 +41,6 @@
                 <div class="form-group">
                     <label for="">Started From *</label>
                     <input type="text" name="p_started_from" class="form-control" value="{{ old('p_started_from') }}">
-                </div>
-                <div class="form-group">
-                    <label for="">Tour Operator *</label>
-                    <input type="text" name="p_tour_operator" class="form-control" value="{{ old('p_tour_operator') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Start Date</label>

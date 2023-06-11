@@ -6,7 +6,7 @@
     @endphp
 
     <h1 class="h3 mb-3 text-gray-800">Photos of {{ $package_row->p_name }}</h1>
-    <form action="{{ route('admin.package.photo-store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('agency.package.photo-store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <input type="hidden" name="package_id" value="{{ $package_id }}">
@@ -15,7 +15,7 @@
             <div class="card-header py-3">
                 <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Package Photo</h6>
                 <div class="float-right d-inline">
-                    <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Back to Package Page</a>
+                    <a href="{{ route('agency.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Back to Package Page</a>
                 </div>
             </div>
             <div class="card-body">
@@ -36,7 +36,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 mt-2 font-weight-bold text-primary">All Existing Photos</h6>
             <div class="float-right d-inline">
-                <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Back to Package Page</a>
+                <a href="{{ route('agency.package.index') }}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Back to Package Page</a>
             </div>
         </div>
         <div class="card-body">
@@ -55,7 +55,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td><img src="{{ asset('uploads/'.$row->photo) }}" alt="" class="w_200"></td>
                             <td>
-                                <a href="{{ URL::to('admin/package/photo-delete/'.$row->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{ URL::to('agency/package/photo-delete/'.$row->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach

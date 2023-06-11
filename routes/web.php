@@ -162,22 +162,22 @@ Route::prefix('agency')->group(function () {
     Route::get('package/create', [PackageControllerForAgency::class,'create'])->name('agency.package.create');
     Route::post('package/store', [PackageControllerForAgency::class,'store'])->name('agency.package.store');
     Route::get('package/delete/{id}', [PackageControllerForAgency::class,'destroy']);
-    Route::get('package/edit/{id}', [PackageControllerForAdmin::class,'edit']);
-    Route::post('package/update/{id}', [PackageControllerForAdmin::class,'update']);
-    Route::get('package/photo/{id}', [PackageControllerForAdmin::class,'photo']);
-    Route::post('package/photo-store', [PackageControllerForAdmin::class,'photostore'])->name('agency.package.photo-store');
-    Route::get('package/photo-delete/{id}', [PackageControllerForAdmin::class,'photodelete']);
-    Route::get('package/schedule/{id}', [PackageControllerForAdmin::class,'schedule']);
-    Route::post('package/schedule-store', [PackageControllerForAdmin::class,'schedulestore'])->name('agency.package.schedule-store');
-    Route::get('package/schedule-delete/{id}', [PackageControllerForAdmin::class,'scheduledelete']);
+    Route::get('package/edit/{id}', [PackageControllerForAgency::class,'edit']);
+    Route::post('package/update/{id}', [PackageControllerForAgency::class,'update']);
+    Route::get('package/photo/{id}', [PackageControllerForAgency::class,'photo']);
+    Route::post('package/photo-store', [PackageControllerForAgency::class,'photostore'])->name('agency.package.photo-store');
+    Route::get('package/photo-delete/{id}', [PackageControllerForAgency::class,'photodelete']);
+    Route::get('package/schedule/{id}', [PackageControllerForAgency::class,'schedule']);
+    Route::post('package/schedule-store', [PackageControllerForAgency::class,'schedulestore'])->name('agency.package.schedule-store');
+    Route::get('package/schedule-delete/{id}', [PackageControllerForAgency::class,'scheduledelete']);
 
-    Route::get('package/itinerary/{id}', [PackageControllerForAdmin::class,'itinerary']);
-    Route::post('package/itinerary-store', [PackageControllerForAdmin::class,'itinerarystore'])->name('admin.package.itineray-store');
-    Route::get('package/itinerary-delete/{id}', [PackageControllerForAdmin::class,'itinerarydelete']);
+    Route::get('package/itinerary/{id}', [PackageControllerForAgency::class,'itinerary']);
+    Route::post('package/itinerary-store', [PackageControllerForAgency::class,'itinerarystore'])->name('agency.package.itineray-store');
+    Route::get('package/itinerary-delete/{id}', [PackageControllerForAgency::class,'itinerarydelete']);
 
-    Route::get('package/video/{id}', [PackageControllerForAdmin::class,'video']);
-    Route::post('package/video-store', [PackageControllerForAdmin::class,'videostore'])->name('admin.package.video-store');
-    Route::get('package/video-delete/{id}', [PackageControllerForAdmin::class,'videodelete']);
+    Route::get('package/video/{id}', [PackageControllerForAgency::class,'video']);
+    Route::post('package/video-store', [PackageControllerForAgency::class,'videostore'])->name('admin.package.video-store');
+    Route::get('package/video-delete/{id}', [PackageControllerForAgency::class,'videodelete']);
 
     Route::get('password-change', [PasswordChangeControllerForAgency::class,'index'])->name('agency.password_change');
     Route::post('password-change/update', [PasswordChangeControllerForAgency::class,'update']);

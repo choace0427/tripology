@@ -36,7 +36,7 @@ class PackageController extends Controller
             '46+' => 46
         ];
         $destination=DB::table('destinations')->get();
-        return view('admin.package.create', compact('destination','ranges'));
+        return view('agency.package.create', compact('destination','ranges'));
     }
 
     public function store(Request $request)
@@ -44,7 +44,6 @@ class PackageController extends Controller
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
-
         $package = new Package();
         $data = $request->only($package->getFillable());
         
@@ -56,9 +55,8 @@ class PackageController extends Controller
             'p_last_booking_date' => 'required',
             'p_price' => 'required',
             'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'p_age_range' => 'required|numeric',
+            'p_age_range' => 'required',
             'p_max_group_size' => 'required|numeric',
-            'p_tour_operator' => 'required|numeric',
             'p_started_from' => 'required',
             'p_operated_in' => 'required',
             'p_photo' => 'required'        
@@ -74,7 +72,6 @@ class PackageController extends Controller
             'p_photo' => "Package Photo",
             'p_age_range' => 'Package Age Range',
             'p_max_group_size' => 'Package Max Group Size',
-            'p_tour_operator' => 'Package Tour Operator',
             'p_started_from' => 'Package Started From',
             'p_operated_in' => 'Package Operated In'
         ]);
@@ -90,8 +87,10 @@ class PackageController extends Controller
         $request->file('p_photo')->move(public_path('uploads/'), $final_name);
         $data['p_photo'] = $final_name;
         
+        $data['p_photo'] = $final_name;
+        $data['p_tour_operator'] = session('id');
         $package->fill($data)->save();
-        return redirect()->route('admin.package.index')->with('success', 'Package is added successfully!');
+        return redirect()->route('agency.package.index')->with('success', 'Package is added successfully!');
     }
 
     public function edit($id)
@@ -104,7 +103,7 @@ class PackageController extends Controller
             '36-45' => 36,
             '46+' => 46
         ];
-        return view('admin.package.edit', compact('package', 'destination','ranges'));
+        return view('agency.package.edit', compact('package', 'destination','ranges'));
     }
 
     public function update(Request $request, $id)
@@ -126,7 +125,6 @@ class PackageController extends Controller
                 ],
                 'p_age_range' => 'required',
                 'p_max_group_size' => 'required|numeric',
-                'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',
                 'p_operated_in' => 'required',
                 'p_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
@@ -138,7 +136,6 @@ class PackageController extends Controller
                 'p_photo' => "Package Photo",
                 'p_age_range' => 'Package Age Range',
                 'p_max_group_size' => 'Package Max Group Size',
-                'p_tour_operator' => 'Package Tour Operator',
                 'p_started_from' => 'Package Started From',
                 'p_operated_in' => 'Package Operated In'
             ]);
@@ -158,7 +155,6 @@ class PackageController extends Controller
                 ],
                 'p_age_range' => 'required',
                 'p_max_group_size' => 'required|numeric',
-                'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',
                 'p_operated_in' => 'required'
             ],
@@ -168,15 +164,14 @@ class PackageController extends Controller
                 'p_slug' => "Package Slug",
                 'p_age_range' => 'Package Age Range',
                 'p_max_group_size' => 'Package Max Group Size',
-                'p_tour_operator' => 'Package Tour Operator',
                 'p_started_from' => 'Package Started From',
                 'p_operated_in' => 'Package Operated In'
             ]);
             $data['p_photo'] = $package->p_photo;
         }
-
+        $data['p_tour_operator'] = session('id');
         $package->fill($data)->save();
-        return redirect()->route('admin.package.index')->with('success', 'Package is updated successfully!');
+        return redirect()->route('agency.package.index')->with('success', 'Package is updated successfully!');
     }
 
     public function destroy($id)
@@ -205,7 +200,7 @@ class PackageController extends Controller
     {
         $package_photo = PackagePhoto::where('package_id',$id)->get();
         $package_id = $id;
-        return view('admin.package.photo', compact('package_photo','package_id'));
+        return view('agency.package.photo', compact('package_photo','package_id'));
     }
 
     public function photostore(Request $request)
@@ -247,7 +242,7 @@ class PackageController extends Controller
     {
         $package_schedule = PackageSchedule::where('package_id',$id)->get();
         $package_id = $id;
-        return view('admin.package.schedule', compact('package_schedule','package_id'));
+        return view('agency.package.schedule', compact('package_schedule','package_id'));
     }
 
     public function schedulestore(Request $request)
@@ -289,7 +284,7 @@ class PackageController extends Controller
     {
         $package_itinerary = PackageItinerary::where('package_id',$id)->get();
         $package_id = $id;
-        return view('admin.package.itinerary', compact('package_itinerary','package_id'));
+        return view('agency.package.itinerary', compact('package_itinerary','package_id'));
     }
 
     public function itinerarystore(Request $request)
@@ -330,7 +325,7 @@ class PackageController extends Controller
     {
         $package_video = PackageVideo::where('package_id',$id)->get();
         $package_id = $id;
-        return view('admin.package.video', compact('package_video','package_id'));
+        return view('agency.package.video', compact('package_video','package_id'));
     }
 
     public function videostore(Request $request)
