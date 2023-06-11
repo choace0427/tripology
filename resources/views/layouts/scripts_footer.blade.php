@@ -158,4 +158,4 @@ $('.runforfive').owlCarousel({
 </script>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
