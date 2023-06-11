@@ -4,7 +4,7 @@
 <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('frontend/js/ltr.js') }}"></script> 
-<!--script src="{{ asset('frontend/js/chosen.jquery.js') }}"></script>
+<script src="{{ asset('frontend/js/chosen.jquery.js') }}"></script>
 <script src="{{ asset('frontend/js/docsupport/init.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.dataTables.min.js') }}"></script>
