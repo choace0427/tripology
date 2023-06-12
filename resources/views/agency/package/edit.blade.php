@@ -49,10 +49,6 @@
                     <input type="text" name="p_started_from" class="form-control" value="{{ $package->p_started_from }}">
                 </div>
                 <div class="form-group">
-                    <label for="">Tour Operator *</label>
-                    <input type="text" name="p_tour_operator" class="form-control" value="{{ $package->p_tour_operator }}">
-                </div>
-                <div class="form-group">
                     <label for="">Start Date</label>
                     <input id="txtstartdate" type="text" autocomplete="off" name="p_start_date" class="form-control" value="{{ $package->p_start_date }}">
                 </div>
