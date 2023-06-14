@@ -1,9 +1,9 @@
 <li>
-	<a href="{{ route('traveller.dashboard') }}"><span><i class="fas fa-home"></i></span>{{ DASHBOARD }}</a>
+	<a href="{{ route('traveller.leads') }}"><span><i class="fas fa-home"></i></span>Leads</a>
 </li>
-<li>
+<!--li>
 	<a href="{{ route('traveller.order') }}"><span><i class="fas fa-history"></i></span>{{ PAYMENT_HISTORY }}</a>
-</li>
+</li-->
 <li>
 	<a href="{{ route('traveller.profile_change') }}"><span><i class="fas fa-user"></i></span>{{ UPDATE_PROFILE }}</a>
 </li>

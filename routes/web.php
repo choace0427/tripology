@@ -144,6 +144,8 @@ Route::get('traveller/payment', [CheckoutController::class,'payment'])->name('tr
 Route::post('traveller/payment/stripe', [CheckoutController::class,'stripe'])->name('traveller.stripe');
 Route::get('traveller/execute-payment', [CheckoutController::class,'paypal']);
 
+Route::get('traveller/leads', [DashboardControllerForTraveller::class,'leads'])->name('traveller.leads');
+Route::post('traveller/chat/store', [DashboardControllerForTraveller::class,'store'])->name('traveller.chat.store');
 /* --------------------------------------- */
 /* Agency Panel */
 /* --------------------------------------- */
@@ -153,6 +155,9 @@ Route::prefix('agency')->group(function () {
     Route::post('register', [RegisterController::class,'store'])->name('agency.store');
     Route::get('dashboard', [DashboardControllerForAgency::class,'index'])->name('agency.dashboard');
     Route::get('leads', [LeadsControllerForAgency::class,'index'])->name('agency.leads');
+    Route::get('leads/{id}', [LeadsControllerForAgency::class,'show'])->name('agency.leads.view');
+
+    Route::post('chat/store', [LeadsControllerForAgency::class,'store'])->name('agency.chat.store');
 
     Route::get('profile/{id}', [HomeController::class,'agencyProfile'])->name('agency.profile');
     /* --------------------------------------- */

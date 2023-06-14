@@ -403,7 +403,7 @@
                 },
                 phone_number: {            //input name: subject
                     required: true,   //required boolean: true/false
-                    minlength: 5,
+                    minlength: 10,
                     number: true
                 },
                 email: {            //input name: message
@@ -425,7 +425,7 @@
               var start_date = $("#start_date").val();
               var end_date = $("#end_date").val();
               var package_id = $("#package_id").val();
-          
+              var agency_id = '{{$package_detail->p_tour_operator}}';
               $.ajax({
                 type:'POST',
                 url:"{{ route('lead.store')}}",
@@ -433,7 +433,7 @@
                       "Accept": "application/json",
                       'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                   },
-                data:{package_id:package_id,first_name:first_name, last_name:last_name, phone_number:phone_number, email:email, start_date:start_date, end_date:end_date},
+                data:{package_id:package_id,agency_id:agency_id,first_name:first_name, last_name:last_name, phone_number:phone_number, traveller_email:email, start_date:start_date, end_date:end_date},
                 success:function(data){
                       if($.isEmptyObject(data.error)){
                           $('#staticBackdrop').modal('hide');

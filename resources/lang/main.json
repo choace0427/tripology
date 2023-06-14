@@ -26,7 +26,7 @@
     "LOGOUT": "Logout",
     "COMPLETED_ORDERS": "Completed Orders",
     "PENDING_ORDERS": "Pending Orders",
-    "PROFILE_DATA_UPDATE_WARNING": "Please update your profile information and complete profile before to purchase package.",
+    "PROFILE_DATA_UPDATE_WARNING": "Please update your profile information and complete profile.",
     "VIEW_ALL_PAYMENT": "View All Payments",
     "SERIAL": "Serial",
     "ORDER_NO": "Order No",
