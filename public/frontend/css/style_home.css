@@ -225,7 +225,7 @@ a{
     font-weight: 200;
 }
 
-.last-logo button{
+.last-logo button, .login-form button , .regiser-form button{
     background: #1E73BE;
     color: #fff;
     border: none;
@@ -3316,3 +3316,73 @@ right: 5px;
 }
 
 
+/*
+-------------------------------
+Dashboard-Area
+-------------------------------
+*/
+
+.option-board {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.option-board ul li {
+    border-bottom: 1px solid #ddd;
+}
+
+.option-board ul li:last-child {
+    border-bottom: 0px;
+}
+
+.option-board ul li.active {
+    background: #3367c1;
+
+}
+
+.option-board ul li.active a {
+    color: #fff;
+}
+
+.option-board ul li a {
+    display: block;
+    font-size: 14px;
+    color: #2a2a2a;
+    padding: 7px 15px;
+    transition: all 0.4s;
+}
+
+.option-board ul li a:hover {
+    background: #3367c1;
+    color: #fff;
+}
+
+.option-board ul li span {
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+/*Detail-Dashboard*/
+.detail-dashboard .table {
+    border: 1px solid #ddd;
+}
+
+.detail-dashboard .table tr th,
+.detail-dashboard .table tr td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+a.forget-password-link {
+    margin-left: 20px;
+    color: #3367c1;
+    font-weight: bold;
+}
+
+.w-400 {
+    width: 400px!important;
+}
+
+.w-550 {
+    width: 550px!important;
+}

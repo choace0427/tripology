@@ -11,6 +11,8 @@ class Lead extends Model
 
     protected $fillable = [
         'package_id',
+        'traveller_id',
+        'agency_id',
         'first_name',
         'last_name',
         'phone_number',
@@ -21,5 +23,15 @@ class Lead extends Model
   
     public function package(){
         return $this->belongsTo('App\Models\Admin\Package');
+    }
+
+    public function chat()
+    {
+        return $this->hasMany(LeadChat::class);
+    }
+
+    public function traveller()
+    {
+        return $this->belongsTo(Traveller::class);
     }
 }

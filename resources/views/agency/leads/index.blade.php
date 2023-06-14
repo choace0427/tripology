@@ -13,8 +13,7 @@
                     <tr>
                         <th>SL</th>
                         <th>Package Name</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Start Date</th>
@@ -27,15 +26,14 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->package->p_name }}</td>
-                            <td>{{$row->first_name}}</td>
-                            <td>{{$row->last_name}}</td>
-                            <td>{{ $row->phone_number }}</td>
-                            <td>{{ $row->email }}</td>
+                            <td>{{ $row->traveller->traveller_name}}</td>
+                            <td>{{ $row->traveller->traveller_phone }}</td>
+                            <td>{{ $row->traveller->traveller_email }}</td>
                             <td>{{ $row->start_date }}</td>
                             <td>{{ $row->end_date }}</td>
                             <!-- <td>{{ $row->published }}</td> -->
                             <td>
-                                <a href="" class="btn btn-info btn-sm">Send Quotation</a>
+                                <a href="{{url('/agency/leads',$row->id)}}" class="btn btn-info btn-sm">Send Quotation</a>
                             </td>
                         </tr>
                         @endforeach

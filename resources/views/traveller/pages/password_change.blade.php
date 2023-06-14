@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="dashboard-area bg-area pt_50 pb_80">
-    <div class="container wow fadeIn">
+    <div class="container-fluid wow fadeIn">
         <div class="row">
             
             @include('traveller.pages.check_profile_data')
