@@ -109,7 +109,7 @@
 
                                         <div class="row Response-input mt-3">
                                             <div class="col-md-12 text-end">
-                                                <div>
+                                                <div class="Expand ">
                                                     <input type="hidden" name="receiver_id" value="{{$row->agency_id}}"/>
                                                     <input type="hidden" name="lead_id" value="{{$row->id}}"/>
                                                     <button type="submit">Send</button>
