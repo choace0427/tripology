@@ -159,3 +159,13 @@ $('.runforfive').owlCarousel({
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.dropdown-menu a').on('click',function () {     
+          $('#dropdownMenuButton1').text($(this).text());
+            $('.login_action').attr('onClick',"window.location.href = '"+$(this).data('url')+"'");
+        });
+    })
+    
+</script>

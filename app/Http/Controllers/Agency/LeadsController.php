@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Agency;
 use App\Models\Admin\Blog;
+use App\Models\Admin\Admin;
 use App\Models\Traveller;
 use App\Models\Admin\Service;
 use App\Models\Admin\TeamMember;
@@ -12,6 +13,9 @@ use App\Models\Lead;
 use App\Models\LeadChat;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
+use App\Mail\RegistrationEmailToTraveller;
+use Illuminate\Support\Facades\Mail;
 
 class LeadsController extends Controller
 {
@@ -43,7 +47,34 @@ class LeadsController extends Controller
         $category = new LeadChat();
         $data = $request->only($category->getFillable());
         
+
         $data['sender_id'] = session('id');
+
+        
+        $email_template_data = DB::table('email_templates')->where('id', 13)->first();
+        $subject = $email_template_data->et_subject;
+        $message = $email_template_data->et_content;
+
+        $receiver_id = $request->receiver_id;
+        
+        $traveller = Traveller::find($receiver_id);
+
+        $agency = Admin::find(session('id'));
+
+        $lead = Lead::with('package')->where('id',$request->lead_id)->first();
+        
+        $message = str_replace('[[agency_name]]', $agency->name, $message);
+
+        $message = str_replace('[[package_name]]', $lead->package->p_name, $message);
+
+        $message = str_replace('[[message]]', $request->message, $message);
+
+        $login_link = url('traveller/login');
+
+        $message = str_replace('[[login_link]]', $login_link, $message);
+
+        Mail::to($traveller->traveller_email)->send(new RegistrationEmailToTraveller($subject,$message));
+
         $category->fill($data)->save();
         return redirect()->route('agency.leads.view',$request->lead_id)->with('success', 'Message sent successfully!');
     }
