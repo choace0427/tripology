@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Package;
+use App\Models\Admin\Admin;
 use App\Models\Admin\PackagePhoto;
 use App\Models\Admin\PackageSchedule;
 use App\Models\Admin\PackageItinerary;
@@ -35,7 +36,8 @@ class PackageController extends Controller
             '46+' => 46
         ];
         $destination=DB::table('destinations')->get();
-        return view('admin.package.create', compact('destination','ranges'));
+        $agencies = Admin::where('role','agency')->get()->pluck('name','id');
+        return view('admin.package.create', compact('destination','ranges','agencies'));
     }
 
     public function store(Request $request)
@@ -55,7 +57,7 @@ class PackageController extends Controller
             'p_last_booking_date' => 'required',
             'p_price' => 'required',
             'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'p_age_range' => 'required|numeric',
+            'p_age_range' => 'required',
             'p_max_group_size' => 'required|numeric',
             'p_tour_operator' => 'required|numeric',
             'p_started_from' => 'required',
@@ -103,7 +105,8 @@ class PackageController extends Controller
             '36-45' => 36,
             '46+' => 46
         ];
-        return view('admin.package.edit', compact('package', 'destination','ranges'));
+        $agencies = Admin::where('role','agency')->get()->pluck('name','id');
+        return view('admin.package.edit', compact('package', 'destination','ranges','agencies'));
     }
 
     public function update(Request $request, $id)

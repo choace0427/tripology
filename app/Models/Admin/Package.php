@@ -41,4 +41,9 @@ class Package extends Model
     {
         return $this->hasMany('App\Models\Admin\Review','package_id')->where('published', 1);
     }
+
+    public function agency()
+    {
+        return $this->belongsTo('App\Models\Admin\Admin','p_tour_operator');
+    }
 }
