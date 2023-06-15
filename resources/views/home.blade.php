@@ -246,7 +246,7 @@
                   </div>
                   
                   <h3 style="direction: ltr;">{{$package->p_name}}</h3>
-                  <a href="#"><i class="bi bi-stopwatch-fill"></i> 
+                  <a href="#" style="direction: ltr;"><i class="bi bi-stopwatch-fill"></i> 
                   @php 
                      $startDate = \Carbon\Carbon::parse($package->p_start_date); 
                      $endDate = \Carbon\Carbon::parse($package->p_end_date); 

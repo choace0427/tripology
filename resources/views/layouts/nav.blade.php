@@ -111,11 +111,26 @@
                               </li>
                               
                             </ul>
+                           
                             <form class="d-flex" role="search">
                               <div class="input">
+                              @if(session('traveller_id'))
+                                    <a href="{{url('traveller/leads')}}">{{session('traveller_name')}} </a>
+                                    <button class="" onClick="window.location.href = '{{route('traveller.logout')}}'" type="button">Logout</button>
+                                @else
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        agency
+                                    </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" data-url="{{url('agency/register')}}">Agency</a></li>
+                                            <li><a class="dropdown-item" data-url="{{url('traveller/register')}}">Traveller</a></li>
+                                        </ul>
+                                        
+                                </div>
+                                <button class="login_action" onClick="window.location.href = '{{url('admin/login')}}'" type="button">Login</button>
+                                @endif
                                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-                              <a href="{{url('agency/register')}}">Agent <span><i class="bi bi-caret-down-fill"></i></span></a>
-                              <button class="" onClick="window.location.href = '{{url('admin/login')}}'" type="button">Login</button>
                               </div>
                             </form>
                           </div>
