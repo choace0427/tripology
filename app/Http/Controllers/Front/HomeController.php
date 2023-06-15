@@ -48,9 +48,6 @@ class HomeController extends Controller
 
     public function agencyProfile($id){
         $profile = Admin::FindOrFail($id);
-        if($profile->role == 'agency'){
-            return view('agency_profile',compact('profile'));
-        }else{
-        }
+        return view('agency_profile',compact('profile'));
     }
 }
