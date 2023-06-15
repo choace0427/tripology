@@ -36,7 +36,7 @@ class PackageController extends Controller
             '46+' => 46
         ];
         $destination=DB::table('destinations')->get();
-        $agencies = Admin::where('role','agency')->get()->pluck('name','id');
+        $agencies = Admin::get()->pluck('name','id');
         return view('admin.package.create', compact('destination','ranges','agencies'));
     }
 
@@ -105,7 +105,7 @@ class PackageController extends Controller
             '36-45' => 36,
             '46+' => 46
         ];
-        $agencies = Admin::where('role','agency')->get()->pluck('name','id');
+        $agencies = Admin::get()->pluck('name','id');
         return view('admin.package.edit', compact('package', 'destination','ranges','agencies'));
     }
 
