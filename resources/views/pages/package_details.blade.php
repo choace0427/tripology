@@ -39,7 +39,7 @@
           <div class="col-md-6">
             <div class="babba">
               <h5>Tour Operator:</h5>
-              <p><a href="{{url('agency/profile',$package_detail->agency->id)}}" target="_Blank">{{ $package_detail->agency->name }}</a></p>
+              <p>@if($package_detail->agency)<a href="{{url('agency/profile',$package_detail->agency->id)}}" target="_Blank">{{ $package_detail->agency->name }}</a>@endif</p>
             </div>
           </div>
           <div class="col-md-6">
