@@ -50,8 +50,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">Tour Operator *</label>
-                    <input type="text" name="p_tour_operator" class="form-control" value="{{ $package->p_tour_operator }}">
-                </div>
+                    <select name="p_tour_operator" class="form-control select2">
+                        @foreach($agencies as $key => $agency)
+                        <option value="{{ $key }}" @if($key == $package->p_tour_operator) selected @endif>{{ $agency }}</option>
+                        @endforeach
+                    </select>                </div>
                 <div class="form-group">
                     <label for="">Start Date</label>
                     <input id="txtstartdate" type="text" autocomplete="off" name="p_start_date" class="form-control" value="{{ $package->p_start_date }}">

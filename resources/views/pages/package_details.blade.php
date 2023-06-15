@@ -39,7 +39,7 @@
           <div class="col-md-6">
             <div class="babba">
               <h5>Tour Operator:</h5>
-              <p>{{ $package_detail->p_tour_operator ? $package_detail->p_tour_operator : "Tripology" }}</p>
+              <p><a href="{{url('agency/profile',$package_detail->agency->id)}}" target="_Blank">{{ $package_detail->agency->name }}</a></p>
             </div>
           </div>
           <div class="col-md-6">
@@ -314,8 +314,7 @@
               </div>
             </div>
 
-
-            @if($package_reviews)
+            @if(count($package_reviews) > 0)
             <div class="row mt-5">
               <div class="col-md-12">
                 <div class="row">
@@ -363,10 +362,11 @@
                 @endforeach
               </div>
             </div>
+            @endif
           </div>
         </div>
       </div>
-      @endif
+      
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
  #leads_form label.error {

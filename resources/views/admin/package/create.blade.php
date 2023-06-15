@@ -44,7 +44,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">Tour Operator *</label>
-                    <input type="text" name="p_tour_operator" class="form-control" value="{{ old('p_tour_operator') }}">
+                    <select name="p_tour_operator" class="form-control select2">
+                        @foreach($agencies as $key => $agency)
+                        <option value="{{ $key }}" @if($key == old('p_tour_operator')) selected @endif>{{ $agency }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="">Start Date</label>
@@ -91,7 +95,7 @@
                     <label for="">Max group size *</label>
                     <select name="p_max_group_size" class="form-control select2">
                         @for($i = 1; $i <= 20; $i++ )
-                            <option value="{{ $i }}">{{ $i }}</option>
+                            <option value="{{ $i }}" @if($i == old('p_max_group_size')) selected @endif>{{ $i }}</option>
                         @endfor;
                     </select>
                 </div>
@@ -99,7 +103,7 @@
                     <label for="">Age range *</label>
                     <select name="p_age_range" class="form-control select2">
                         @foreach($ranges as $key => $range)
-                            <option value="{{ $key }}">{{ $key }}</option>
+                            <option value="{{ $key }}" @if($key == old('p_age_range')) selected @endif>{{ $key }}</option>
                         @endforeach;
                     </select>
                 </div>
