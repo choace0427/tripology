@@ -66,7 +66,7 @@
 
 <script>
     $('.runforthree').owlCarousel({
-    rtl:true,
+    rtl:false,
     loop:true,
     margin:10,
     nav:true,
@@ -164,7 +164,7 @@ $('.runforfive').owlCarousel({
     $(document).ready(function(){
         $('.dropdown-menu a').on('click',function () {     
           $('#dropdownMenuButton1').text($(this).text());
-            $('.login_action').attr('onClick',"window.location.href = '"+$(this).data('url')+"'");
+            $('.login_action').attr('onClick',"window.open('"+$(this).data('url')+"')");
         });
     })
     

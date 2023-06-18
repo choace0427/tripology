@@ -102,13 +102,6 @@
                               <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('front.destination') }}">Destinations</a>
                               </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#">Deals</a>
-                              </li>
-
-                              <li class="nav-item">
-                                <a class="nav-link" href="#">Plans</a>
-                              </li>
                               
                             </ul>
                            
@@ -120,15 +113,15 @@
                                 @else
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        agency
+                                        Agency
                                     </a>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" data-url="{{url('agency/register')}}">Agency</a></li>
-                                            <li><a class="dropdown-item" data-url="{{url('traveller/register')}}">Traveller</a></li>
+                                            <li><a class="dropdown-item" data-url="{{url('admin/login')}}">Agency</a></li>
+                                            <li><a class="dropdown-item" data-url="{{url('traveller/login')}}">Traveller</a></li>
                                         </ul>
                                         
                                 </div>
-                                <button class="login_action" onClick="window.location.href = '{{url('admin/login')}}'" type="button">Login</button>
+                                <button class="login_action" onClick="window.open('{{url('admin/login')}}')" type="button">Login</button>
                                 @endif
                                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
                               </div>
