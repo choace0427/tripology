@@ -273,6 +273,9 @@ a{
     color: #20B9FC;
 }
 
+.runforthree.owl-theme .owl-nav{
+    direction: rtl;
+}
 
 @media(max-width:1400px){
     .lock h6 {
