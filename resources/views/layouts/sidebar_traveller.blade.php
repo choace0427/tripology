@@ -1,6 +1,9 @@
 <li>
 	<a href="{{ route('traveller.leads') }}"><span><i class="fas fa-home"></i></span>Leads</a>
 </li>
+<li>
+	<a href="{{ route('wishlists.index') }}"><span><i class="fas bi-heart-fill"></i></span>Wishlist</a>
+</li>
 <!--li>
 	<a href="{{ route('traveller.order') }}"><span><i class="fas fa-history"></i></span>{{ PAYMENT_HISTORY }}</a>
 </li-->
