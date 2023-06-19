@@ -568,14 +568,12 @@
               <h3>Destinations</h3>
               <ul class="ps-0">
                 @php
-                    $destinations = DB::table('destinations')->get();
+                    $destinations = DB::table('destinations')->where('d_parent_id',0)->get();
                 @endphp
                 @foreach($destinations as $destination)
                     <li><a href="#">{{ $destination->d_name }}</a></li>
                 @endforeach
               </ul>
-              <h3>Destinations</h3>
-              <a href="#">Last Minute Deals</a>
             </div>
           </div>
 
@@ -584,15 +582,8 @@
             <div class="last-logo">
               <h3>About</h3>
               <ul class="ps-0">
-                <li><a href="#">About IWV</a></li>
-                <li><a href="#">Flexible Travel</a></li>
-                <li><a href="#">Travel Updates</a></li>
-                <li><a href="#">Health & Safety</a></li>
-                <li><a href="#">Traveler Reviews</a></li>
-                <li><a href="#">On Your Trip</a></li>
-                <li><a href="#">Before You Go</a></li>
-                <li><a href="#">Travel Insurance</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Adventure Styles</a></li>
+                <li><a href="#">Contact</a></li>
                 
               </ul>
             </div>

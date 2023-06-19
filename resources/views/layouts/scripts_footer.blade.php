@@ -162,6 +162,7 @@ $('.runforfive').owlCarousel({
 
 <script>
     $(document).ready(function(){
+      $('#collapse-1').collapse('show');
         $('.dropdown-menu a').on('click',function () {     
           $('#dropdownMenuButton1').text($(this).text());
             $('.login_action').attr('onClick',"window.open('"+$(this).data('url')+"')");
@@ -194,7 +195,9 @@ $('.runforfive').owlCarousel({
                                 .removeClass('bi-heart').css('color','red');
                                 toastr.success(result.message);
                               }else if(result.exists == 1 && result.success == 0) {
-                                toastr.error(result.message);
+                                jQuery('#add_to_wishlist_'+package_id+' i').removeClass('bi-heart-fill')
+                                .addClass('bi-heart').css('color','grey');
+                                toastr.success(result.message);
                               }else {
                                 toastr.error(result.message);
                               }

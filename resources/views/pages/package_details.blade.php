@@ -4,7 +4,7 @@
     <div class="carousel-inner">
       @foreach($package_photos as $key => $photo)
         <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-          <img src="{{ url('uploads',$photo->photo) }}" class="d-block w-100" alt="...">
+          <img src="{{ url('uploads',$photo->photo) }}" class="banner_image d-block w-100" alt="...">
         </div>
       @endforeach
     </div>
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-2">
           <div class="col-md-6">
             <div class="babba">
               <h5>Tour Operator:</h5>
@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-2">
           <div class="col-md-6">
             <div class="babba">
               <h5>Age Range:</h5>
@@ -65,7 +65,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-2">
           <div class="col-md-6">
             <div class="babba">
               <h5>Tour Id:</h5>
@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-5">
           <div class="col-md-10">
             <div>
               <div class="accordion" id="accordionExample">
@@ -91,8 +91,8 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-md-8">
-                        <div class="babba">
+                      <div class="col-md-12">
+                        <div class="babba dation">
                          {!! $package_detail->p_description !!}
                         </div>
                       </div>                      
@@ -100,7 +100,7 @@
                 </div>
                 
                 
-                <h3>Tour Itinerary</h3>
+                <h3 class="mt-3">Tour Itinerary</h3>
                 <div class="accordion-item">
                   @foreach($itineraries as $itinerary)
                     <h2 class="accordion-header">
