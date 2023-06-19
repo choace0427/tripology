@@ -176,6 +176,9 @@ $('.runforfive').owlCarousel({
             $('.add_to_wishlist i').click(function(e) { 
 
               var traveller_id=$(this).data('traveller_id');
+              if(traveller_id == ''){
+                toastr.error('Please Login');
+              }
               var package_id=$(this).data('package_id');
                e.preventDefault()
                   jQuery.ajax({ 
