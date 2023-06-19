@@ -145,10 +145,12 @@ Route::get('traveller/payment', [CheckoutController::class,'payment'])->name('tr
 Route::post('traveller/payment/stripe', [CheckoutController::class,'stripe'])->name('traveller.stripe');
 Route::get('traveller/execute-payment', [CheckoutController::class,'paypal']);
 
-Route::get('traveller/leads', [DashboardControllerForTraveller::class,'leads'])->name('traveller.leads');
+Route::get('traveller/quotes', [DashboardControllerForTraveller::class,'leads'])->name('traveller.leads');
 Route::post('traveller/chat/store', [DashboardControllerForTraveller::class,'store'])->name('traveller.chat.store');
 
 /* Traveller Wishlist */
+Route::get('traveller/wishlist', [WishlistController::class ,'index'])->name('traveller.wishlist');
+
 Route::resource('wishlists', WishlistController::class, ['except' => ['create', 'edit', 'show', 'update']]);
 
 /* --------------------------------------- */

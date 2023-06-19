@@ -41,8 +41,8 @@ class WishlistController extends Controller
 
             if(isset($status->traveller_id) and isset($request->package_id))
             {
-                return response()->json(['success' => false, 'exists' => true,'message' => 'This Package is already in your wishlist!']);
-
+                $status->delete();
+                return response()->json(['success' => false, 'exists' => true,'message' => 'This Package removed from your wishlist!']);
             }
             else
             {
@@ -69,7 +69,7 @@ class WishlistController extends Controller
         $wishlist = Wishlist::findOrFail($id);
         $wishlist->delete();
 
-        return redirect()->route('wishlists.index')->with('success', 'Package removed from wishlist successfully!');
+        return redirect()->route('traveller.wishlist')->with('success', 'Package removed from wishlist successfully!');
 
     }
 }

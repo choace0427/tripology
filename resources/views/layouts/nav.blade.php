@@ -102,18 +102,24 @@
                               <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('front.destination') }}">Destinations</a>
                               </li>
+
+                              <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Adventure Styles</a>
+                              </li>
                               
-                              @if(session('traveller_id'))
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="{{ route('wishlists.index') }}">Wishlist</a>
-                                </li>
-                              @endif
+                              <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Contact</a>
+                              </li>
+
                             </ul>
                            
                             <form class="d-flex" role="search">
                               <div class="input">
                               @if(session('traveller_id'))
-                                    <a href="{{url('traveller/leads')}}">{{session('traveller_name')}} </a>
+                                    @php
+                                        $traveller_name = explode(' ',session('traveller_name'));
+                                    @endphp
+                                    <a href="{{url('traveller/quotes')}}">{{$traveller_name[0]}} </a>
                                     <button class="" onClick="window.location.href = '{{route('traveller.logout')}}'" type="button">Logout</button>
                                 @else
                                 <div class="dropdown">

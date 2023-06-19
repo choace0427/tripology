@@ -241,7 +241,12 @@
               <div class="text-start nadi">
                   <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="{{$package->p_name}}">
                   <div class="herat add_to_wishlist" id="add_to_wishlist_{{$package->id}}">
-                     <i class="bi @if($package->wishlist_count) bi-heart-fill @else bi-heart @endif" style="@if($package->wishlist_count)color:red;@endif" data-traveller_id="@if(session('traveller_id')){{session('traveller_id')}}@endif" data-package_id="{{$package->id}}"></i>
+
+                  @if(session('traveller_id'))
+                  <i class="bi @if($package->wishlist_count)bi-heart-fill @else bi-heart @endif" style="@if($package->wishlist_count) color:red; @endif" data-traveller_id="@if(session('traveller_id')){{session('traveller_id')}}@endif" data-package_id="{{$package->id}}"></i>
+                  @else
+                   <i class="bi bi-heart" data-traveller_id="@if(session('traveller_id')){{session('traveller_id')}}@endif" data-package_id="{{$package->id}}"></i>
+                  @endif
                   </div>
                   <a href="{{ route('front.package_detail', $package->p_slug) }}">  
                   <h3 style="direction: ltr;">{{$package->p_name}}</h3>
