@@ -19,4 +19,8 @@ class Traveller extends Model
         'traveller_token',
         'traveller_stauts'
     ];
+
+    public function wishlist(){
+        return $this->hasMany(Wishlist::class);
+     }
 }

@@ -62,6 +62,7 @@ use App\Http\Controllers\Traveller\OrderController as OrderControllerForTravelle
 use App\Http\Controllers\Traveller\PasswordChangeController as PasswordChangeControllerForTraveller;
 use App\Http\Controllers\Traveller\ProfileChangeController as ProfileChangeControllerForTraveller;
 use App\Http\Controllers\Traveller\RegistrationController;
+use App\Http\Controllers\Traveller\WishlistController;
 use App\Http\Controllers\Traveller\ResetPasswordController as ResetPasswordControllerForTraveller;
 
 use App\Http\Controllers\Front\AboutController;
@@ -146,6 +147,10 @@ Route::get('traveller/execute-payment', [CheckoutController::class,'paypal']);
 
 Route::get('traveller/leads', [DashboardControllerForTraveller::class,'leads'])->name('traveller.leads');
 Route::post('traveller/chat/store', [DashboardControllerForTraveller::class,'store'])->name('traveller.chat.store');
+
+/* Traveller Wishlist */
+Route::resource('wishlists', WishlistController::class, ['except' => ['create', 'edit', 'show', 'update']]);
+
 /* --------------------------------------- */
 /* Agency Panel */
 /* --------------------------------------- */
@@ -632,3 +637,4 @@ Route::get('/subscription-details', [MailChimpController::class, 'index'])->name
 /* Package Detail - Lead submit */
 /* --------------------------------------- */
 Route::post('/lead/store', [LeadController::class, 'store'])->name('lead.store');
+

@@ -103,6 +103,11 @@
                                 <a class="nav-link" aria-current="page" href="{{ route('front.destination') }}">Destinations</a>
                               </li>
                               
+                              @if(session('traveller_id'))
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="{{ route('wishlists.index') }}">Wishlist</a>
+                                </li>
+                              @endif
                             </ul>
                            
                             <form class="d-flex" role="search">

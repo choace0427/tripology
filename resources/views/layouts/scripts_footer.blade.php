@@ -166,6 +166,40 @@ $('.runforfive').owlCarousel({
           $('#dropdownMenuButton1').text($(this).text());
             $('.login_action').attr('onClick',"window.open('"+$(this).data('url')+"')");
         });
+
+        $(document).ready(function(){
+          $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': '{{csrf_token()}}'
+                    }
+                });
+            $('.add_to_wishlist i').click(function(e) { 
+
+              var traveller_id=$(this).data('traveller_id');
+              var package_id=$(this).data('package_id');
+               e.preventDefault()
+                  jQuery.ajax({ 
+                            url: "{{ url('/wishlists') }}",
+                            method: 'post',
+                            data: {
+                              traveller_id: traveller_id,
+                              package_id: package_id,
+                            },
+                            success: function(result){
+                              if(result.success == true && result.exists == false){
+                                jQuery('#add_to_wishlist_'+package_id+' i').addClass('bi-heart-fill')
+                                .removeClass('bi-heart').css('color','red');
+                                toastr.success(result.message);
+                              }else if(result.exists == 1 && result.success == 0) {
+                                toastr.error(result.message);
+                              }else {
+                                toastr.error(result.message);
+                              }
+
+                            }});
+
+            });
+          });
     })
     
 </script>

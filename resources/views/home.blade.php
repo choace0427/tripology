@@ -238,15 +238,14 @@
          <div class="owl-carousel runforthree owl-theme">
           @foreach($packages as $package)
             <div class="item" >
-            <a href="{{ route('front.package_detail', $package->p_slug) }}">
               <div class="text-start nadi">
                   <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="{{$package->p_name}}">
-                  <div class="herat">
-                    <i class="bi bi-heart"></i>
+                  <div class="herat add_to_wishlist" id="add_to_wishlist_{{$package->id}}">
+                     <i class="bi @if($package->wishlist_count) bi-heart-fill @else bi-heart @endif" style="@if($package->wishlist_count)color:red;@endif" data-traveller_id="@if(session('traveller_id')){{session('traveller_id')}}@endif" data-package_id="{{$package->id}}"></i>
                   </div>
-                  
+                  <a href="{{ route('front.package_detail', $package->p_slug) }}">  
                   <h3 style="direction: ltr;">{{$package->p_name}}</h3>
-                  <a href="#" style="direction: ltr;"><i class="bi bi-stopwatch-fill"></i> 
+                  <a href="#"><i class="bi bi-stopwatch-fill"></i> 
                   @php 
                      $startDate = \Carbon\Carbon::parse($package->p_start_date); 
                      $endDate = \Carbon\Carbon::parse($package->p_end_date); 
@@ -255,8 +254,9 @@
                   Days <span>@if($package->reviews_avg != null){{number_format($package->reviews_avg,1)}} @else 0 @endif <i class="bi bi-star-fill"></i></span> ({{$package->reviews_count}})</a>
                   <p>{{$package->p_description_short}}</p>
                   <h6>Starting From ₹{{$package->p_price}}</h6>
+                  </a>
               </div>
-              </a>
+              
             </div>
             @endforeach  
          </div>

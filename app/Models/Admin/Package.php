@@ -46,4 +46,8 @@ class Package extends Model
     {
         return $this->belongsTo('App\Models\Admin\Admin','p_tour_operator');
     }
+    
+    public function wishlist(){
+        return $this->hasMany('App\Models\Wishlist');
+    }
 }

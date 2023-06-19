@@ -2,51 +2,62 @@
 
 @section('content')
 
-    <div class="banner-slider" style="background-image: url({{ asset('uploads/'.$g_setting->banner_registration) }})">
-        <div class="bg"></div>
-        <div class="bannder-table">
-            <div class="banner-text">
-                <h1>{{ TRAVELLER_REGISTRATION }}</h1>
-            </div>
-        </div>
-    </div>
+<div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <form action="{{ route('traveller.registration.store') }}" method="post">
+                                @csrf
+                    <div>
 
-
-    <div class="login-area bg-area pt_80 pb_80">
-        <div class="container wow fadeIn">
-            <div class="row">
-                <div class="mx-auto w-550">
-                    <div class="regiser-form sell-form">
-                        <form action="{{ route('traveller.registration.store') }}" method="post">
-                            @csrf
-                            <div class="form-row">
-                                <div class="form-group mb-3">
-                                    <label for="">{{ NAME }} *</label>
-                                    <input type="text" class="form-control" name="traveller_name">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="">{{ EMAIL_ADDRESS }} *</label>
-                                    <input type="email" class="form-control" name="traveller_email">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="">{{ PASSWORD }} *</label>
-                                    <input type="password" class="form-control" name="traveller_password">
-                                </div>
-
-                                @if($g_setting->google_recaptcha_status == 'Show')
-                                <div class="form-group mb-3">
-                                    <div class="g-recaptcha" data-sitekey="{{ $g_setting->google_recaptcha_site_key }}"></div>
-                                </div>
-                                @endif
-
-                                <button type="submit" class="btn btn-primary">{{ MAKE_REGISTRATION }}</button>
-                                <div class="new-user mt_10">
-                                    <a href="{{ route('traveller.login') }}">{{ EXISTING_USER_GO_TO_LOGIN }}</a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="logi2 text-center">
+                                    <h5>Traveller Registration: in to Tripology</h5>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+
+
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <div class="reg">
+                                    <img src="{{url('images/reg-from.png')}}" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="logi">
+                                    <div>
+                                        <input type="text" class="form-control" name="traveller_name" placeholder="Traveller Name *">
+                                    </div>
+
+                                    <div>
+                                        <input type="email" class="form-control" name="traveller_email" placeholder="Traveller Email Address *">
+                                    </div>
+
+                                    <div>
+                                        <input type="password" class="form-control" name="traveller_password" placeholder="Traveller Password *">
+                                    </div>
+                                     
+                                    <div>
+                                    <div class="mt-2 atti">
+                                        <button type="submit">Submit</button>
+
+                                        <p><a href="{{ route('traveller.login') }}">{{ EXISTING_USER_GO_TO_LOGIN }}</a></p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                               
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
