@@ -119,6 +119,13 @@
                     <label for="">Operated in *</label>
                     <input type="text" name="p_operated_in" class="form-control" value="{{ old('p_operated_in') }}">
                 </div>
+
+                <div class="form-group">
+                    <label for="">Quote Form Backgroud Photo *</label>
+                    <div>
+                        <input type="file" name="p_qoute_form_photo">
+                    </div>
+                </div>
             </div>
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">SEO Information</h6>

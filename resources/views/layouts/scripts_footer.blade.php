@@ -206,6 +206,35 @@ $('.runforfive').owlCarousel({
 
             });
           });
-    })
     
+    $('#review_form').validate({
+      rules: {
+        reviewer_name: {
+          required: true,
+          minlength: 2
+        },
+        reviewer_email: {
+          required: true,
+          email: true
+        },review: {
+          required: true,
+          minlength: 50
+        },
+      },
+      messages: {
+        reviewer_name: {
+          required: "Please enter your name",
+          minlength: "Your name must be at least 2 characters long"
+        },
+        reviewer_email: {
+          required: "Please enter your email",
+          email: "Please enter a valid email address"
+        }, 
+        review: {
+          required: "Please enter your review",
+          minlength: "Your review must be at least 50 characters long"
+        },
+      }
+    });
+  });
 </script>

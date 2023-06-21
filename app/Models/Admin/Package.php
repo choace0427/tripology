@@ -28,6 +28,7 @@ class Package extends Model
         'p_tour_operator',
         'p_started_from',
         'p_operated_in',
+        'p_qoute_form_photo',
         'seo_title',
         'seo_meta_description'
     ];

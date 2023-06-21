@@ -98,6 +98,8 @@ Route::get('package', [PackageControllerForFront::class,'index'])->name('front.p
 Route::get('package/{slug}', [PackageControllerForFront::class,'detail'])->name('front.package_detail');
 Route::post('package/store/list', [PackageControllerForFront::class,'store_list'])->name('front.package_store_list');
 Route::get('package/store/list', [PackageControllerForFront::class,'store_list']);
+Route::post('review/store', [PackageControllerForFront::class,'storeReview'])->name('front.review.store');
+
 
 Route::get('testimonial', [TestimonialControllerForFront::class,'index'])->name('front.testimonial');
 Route::get('services', [ServiceControllerForFront::class,'index'])->name('front.services');
