@@ -24,7 +24,7 @@ class HomeController extends Controller
     	// $team_members = DB::table('team_members')->get();
     	// $blogs = DB::table('blogs')->get();
         // $clients = DB::table('clients')->get();
-        $destinations = DB::table('destinations')->get();
+        $destinations = DB::table('destinations')->where('d_parent_id',0)->get()->pluck('d_name','id');
         $parents = Destination::with('children')->withCount('children')->havingRaw('children_count > 0')->get();
         // $featured_packages = DB::table('packages')->where('p_is_featured','Yes')->get();
         // return view('pages.index', compact('sliders','page_home','services', 'testimonials','team_members','blogs', 'clients','destinations', 'featured_packages'));
@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-        $result = DB::table('destinations')->select('d_name', 'id')->where('d_name', 'LIKE', '%'. $query . '%')->pluck('d_name');
+        $result = DB::table('packages')->where('destination_id',$request->destination)->select('p_name', 'id')->where('p_name', 'LIKE', '%'. $query . '%')->pluck('p_name');
         // $result = DB::table('destinations')->whereHas('d_name', function($query1) use($query) {
         //     $query1->where('p_name', 'LIKE', '%'. $query . '%');
         // })->orWhere('d_name', 'LIKE', '%'. $query . '%')->pluck('d_name');

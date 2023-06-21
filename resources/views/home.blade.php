@@ -35,13 +35,14 @@
          <div class="col-md-12 big1">
             <div class="big-btn">
                <i class="bi bi-geo-alt-fill"></i>
-               <select>
-                  <option value="option1">India</option>
-                  <option value="option2">Usa</option>
+               <select id="desti">
+                  @foreach($destinations as $key => $dest)
+                  <option value="{{$key}}">{{$dest}}</option>
+                  @endforeach
                </select>
                <span>|</span>
                <span><img src="images/Vector.png" style="width: 2.3%;" class="Vecto" alt=""></span> 
-               <input type="text" id="search" name="search" autocomplete="off" placeholder="Search by city, destination or tour">
+               <input type="text" id="search" name="search" autocomplete="off" placeholder="Search by package name">
             </div>
          </div>
       </div>
