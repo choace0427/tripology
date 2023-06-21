@@ -36,7 +36,8 @@ a{
 .navbar-nav li a{
     font-size: 22px;
     color: #FFF204 !important;
-    margin-left: 15px;
+    /*margin-left: 15px;*/
+    margin-left: 4.5px;
 }
 
 .input{

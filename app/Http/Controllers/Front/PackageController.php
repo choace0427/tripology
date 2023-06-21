@@ -7,6 +7,10 @@ use App\Models\Admin\Package;
 use App\Models\Admin\PackageSchedule;
 use DB;
 use Carbon\Carbon;
+use App\Models\Admin\Review;
+use Illuminate\Validation\Rule; 
+use Illuminate\Support\Facades\Validator;
+
 
 class PackageController extends Controller
 {
@@ -66,5 +70,29 @@ class PackageController extends Controller
 
         return view('pages.payment', compact('g_setting'));
     }
+
+    public function storeReview(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'reviewer_name' => 'required',
+            'reviewer_email' => 'required',
+            'review' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        Review::create([
+            'rating' => $request->rating,
+            'reviewer_name' => $request->reviewer_name,
+            'reviewer_email' => $request->reviewer_email,
+            'review' => $request->review,
+            'package_id' => $request->package_id,
+        ]);
+  
+
+        return Redirect()->back()->with('success', 'Review Submitted successfully!');
+    }  
 
 }

@@ -131,7 +131,7 @@
 
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-              <div class="modal-content  popup-bg">
+              <div class="modal-content @if(!$package_detail->p_qoute_form_photo) popup-bg @endif" @if($package_detail->p_qoute_form_photo) style="background: url({{ url('uploads',$package_detail->p_qoute_form_photo)}});background-size: 100% 100%;" @endif>
                 <div class="modal-header">
                   <button type="button" class="btn-close" style="background: none;" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
@@ -363,26 +363,161 @@
               </div>
             </div>
             @endif
+
+            <div class="row">
+                <div class="col-md-12 p-0">
+                  <form class="py-2 px-4" id="review_form" action="{{route('front.review.store')}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
+                      @csrf
+                      <div class="form-group row">
+                        <input type="hidden" name="package_id" value="{{$package_detail->id}}">
+                        <div class="col">
+                            <div class="rate">
+                              <input type="radio" id="star5" class="rate" name="rating" value="5"/>
+                              <label for="star5" title="text">5 stars</label>
+                              <input type="radio" id="star4" class="rate" name="rating" value="4"/>
+                              <label for="star4" title="text">4 stars</label>
+                              <input type="radio" id="star3" class="rate" name="rating" value="3"/>
+                              <label for="star3" title="text">3 stars</label>
+                              <input type="radio" id="star2" class="rate" name="rating" value="2">
+                              <label for="star2" title="text">2 stars</label>
+                              <input type="radio" id="star1" class="rate" name="rating" value="1"/>
+                              <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group row mt-4">
+                        <div class="col">
+                            <input class="form-control" name="reviewer_name" placeholder="Name"/>
+                        </div>
+                      </div>
+                      <div class="form-group row mt-4">
+                        <div class="col">
+                            <input class="form-control" name="reviewer_email" placeholder="Email"/>
+                        </div>
+                      </div>
+                      <div class="form-group row mt-4">
+                        <div class="col">
+                            <textarea class="form-control" name="review" rows="6 " placeholder="Comment" maxlength="200"></textarea>
+                        </div>
+                      </div>
+                      <div class="mt-3 text-right last-logo">
+                        <button  type="submit">Submit
+                        </button>
+                      </div>
+                  </form>
+                </div>
+             </div>
           </div>
         </div>
       </div>
       
+
+
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
- #leads_form label.error {
+ #leads_form label.error ,#review_form label.error {
     margin-top:5px;
     width: 100%;
     color: red;
 }
 
-#leads_form input.error {
+#leads_form input.error ,#review_form input.error, #review_form textarea.error{
     border: 2px solid red;
     background-color: #ffffd5;
     margin: 0;
     color: red;
 }
 
-  </style>
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+    }
+    .rate:not(:checked) > input {
+    position:absolute;
+    display: none;
+    }
+    .rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+    }
+    .rated:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+    }
+    .rate:not(:checked) > label:before {
+    content: '★ ';
+    }
+    .rate > input:checked ~ label {
+    color: #ffc700;
+    }
+    .rate:not(:checked) > label:hover,
+    .rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+    }
+    .rate > input:checked + label:hover,
+    .rate > input:checked + label:hover ~ label,
+    .rate > input:checked ~ label:hover,
+    .rate > input:checked ~ label:hover ~ label,
+    .rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+    }
+    .star-rating-complete{
+      color: #c59b08;
+    }
+    .rating-container .form-control:hover, .rating-container .form-control:focus{
+    background: #fff;
+    border: 1px solid #ced4da;
+    }
+    .rating-container textarea:focus, .rating-container input:focus {
+    color: #000;
+    }
+    .rated {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+    }
+    .rated:not(:checked) > input {
+    position:absolute;
+    display: none;
+    }
+    .rated:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ffc700;
+    }
+    .rated:not(:checked) > label:before {
+    content: '★ ';
+    }
+    .rated > input:checked ~ label {
+    color: #ffc700;
+    }
+    .rated:not(:checked) > label:hover,
+    .rated:not(:checked) > label:hover ~ label {
+    color: #deb217;
+    }
+    .rated > input:checked + label:hover,
+    .rated > input:checked + label:hover ~ label,
+    .rated > input:checked ~ label:hover,
+    .rated > input:checked ~ label:hover ~ label,
+    .rated > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+    }
+</style>  
   <script type="text/javascript">
       
     $.ajaxSetup({
@@ -417,6 +552,29 @@
                     required: true,
                 }
             },
+              messages: {
+                first_name: {
+                  required: "Please enter your first name",
+                  minlength: "Your name must be at least 5 characters long"
+                },
+                last_name: {
+                  required: "Please enter your last name",
+                },
+                phone_number: {
+                  required: "Please enter your phone number",
+                  number: "Please enter a valid phone number"
+                }, 
+                email: {
+                  required: "Please enter your email",
+                  email: "Please enter a valid email address"
+                }, 
+                start_date: {
+                  required: "Please enter Start Date",
+                },
+                end_date: {
+                  required: "Please enter Start Date",
+                },
+              },
             submitHandler: function(form) {
               var first_name = $("#first_name").val();
               var last_name = $("#last_name").val();

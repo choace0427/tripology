@@ -91,6 +91,14 @@ class PackageController extends Controller
         $request->file('p_photo')->move(public_path('uploads/'), $final_name);
         $data['p_photo'] = $final_name;
         
+        if ($request->hasFile('p_qoute_form_photo')) {
+            $profileBackground = $request->file('p_qoute_form_photo');
+            $profileBackgroundName = uniqid() . '-quote-form-background.' . $profileBackground->getClientOriginalExtension();
+            $profileBackground->move(public_path('uploads/'), $profileBackgroundName);
+            $data['p_qoute_form_photo'] = $profileBackgroundName;
+            // Perform any additional logic, such as storing the file name in a database
+        }
+        
         $package->fill($data)->save();
         return redirect()->route('admin.package.index')->with('success', 'Package is added successfully!');
     }
@@ -175,6 +183,14 @@ class PackageController extends Controller
                 'p_operated_in' => 'Package Operated In'
             ]);
             $data['p_photo'] = $package->p_photo;
+        }
+
+        if ($request->hasFile('p_qoute_form_photo')) {
+            $profileBackground = $request->file('p_qoute_form_photo');
+            $profileBackgroundName = uniqid() . '-quote-form-background.' . $profileBackground->getClientOriginalExtension();
+            $profileBackground->move(public_path('uploads/'), $profileBackgroundName);
+            $data['p_qoute_form_photo'] = $profileBackgroundName;
+            // Perform any additional logic, such as storing the file name in a database
         }
 
         $package->fill($data)->save();
