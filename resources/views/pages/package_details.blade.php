@@ -177,6 +177,7 @@
       </div>
       </div>
 
+    @if(count($similar_packages) > 0)
       <div class="row mt-4">
         <div class="col-md-8">
           <div class="row">
@@ -189,6 +190,7 @@
     </div>
 
 
+  
   <div class="row">
     <div class="col-md-12">
       <div class="owl-carousel runforthree owl-theme">
@@ -220,6 +222,7 @@
       </div>
     </div>
   </div>
+  
 
   <div class="row">
     <div class="col-md-12">
@@ -230,7 +233,7 @@
   </div>
   </div>
 </div>
-
+@endif
 
     <div class="row mt-4">
         <div class="col-md-8">

@@ -32,7 +32,7 @@ class PackageController extends Controller
         $package_reviews_count = DB::table('reviews')->where('package_id', $package_detail->id)->count();
         $starRatings = DB::table('reviews')->where('package_id', $package_detail->id)->where('published', 1)->avg('rating');
         $package_reviews = DB::table('reviews')->where('package_id', $package_detail->id)->where('published', 1)->get();
-        $similar_packages = DB::table('packages')->where('destination_id', $package_detail->destination_id)->where('id', '!=', $package_detail->id)->get();
+        $similar_packages = DB::table('packages')->where('destination_id', $package_detail->destination_id)->where('p_price', $package_detail->p_price)->where('p_location', $package_detail->p_location)->where('id', '!=', $package_detail->id)->get();
         $itineraries = DB::table('package_itineraries')->where('package_id', $package_detail->id)->get();
         //$package_schedules = DB::table('package_schedules')->where('package_id', $package_detail->id)->get();
       
