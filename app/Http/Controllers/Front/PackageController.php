@@ -39,7 +39,7 @@ class PackageController extends Controller
         $package_schedules = PackageSchedule::select('id','start_date','end_date','price')
         ->get()
         ->groupBy(function($date) {
-            return Carbon::parse($date->start_date)->format('F Y'); // grouping by months
+            return Carbon::parse($date->start_date)->format('M Y'); // grouping by months
         });
         if(!$package_detail) {
             return abort(404);
