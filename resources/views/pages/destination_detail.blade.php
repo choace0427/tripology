@@ -2,33 +2,56 @@
 
 @section('content')
 
-    <div class="banner-slider" style="background-image: url({{ asset('uploads/'.$g_setting->banner_destination_detail) }})">
-        <div class="bg"></div>
-        <div class="bannder-table">
-            <div class="banner-text">
-                <h1>{{ $destination_detail->d_name }}</h1>
-            </div>
-        </div>
-    </div>
 
-    <div class="country-package pt_80 pb_80">
-        <div class="container">
-            <div class="row">
-                <div class="col align-self-center">
-                    <div class="country-text">
-                        <h2>{{ $destination_detail->d_heading }}</h2>
-                        <p>
-                            {!! clean(nl2br($destination_detail->d_short_description)) !!}
-                        </p>
-                        <div class="country-social mt_30 tac">
-                            <h3>{{ SHARE_NOW }}</h3>
-                            <div class="sharethis-inline-share-buttons"></div>
-                        </div>
+<div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="derination-girl">
+                    <img src="{{ asset('uploads/'.$destination_detail->d_photo) }}" alt="">
+                    <div class="d-flex Excellent mt-4">
+                        <h4>Excellent</h4>
+                        <h5>4 <i class="bi bi-star-fill"></i></h5>
+                        <h6>2926 <span>reviews on</span></h6>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-8">
+                <div class="Tours-Trips">
+                    <h3>{{ $destination_detail->d_heading }}</h3>
+                    <p>{{ $destination_detail->d_short_description }}</p>
+                </div>
+
+
+                <div class="row mt-5 packages-mar">
+                    <div class="col-md-4">
+                        <div class="BTN-destination">
+                            
+                            <i class="bi bi-search"></i><span>Destination</span>
+                            <input type="text" placeholder="{{ $destination_detail->d_name }}">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="BTN-destination2">
+                            <i class="bi bi-calendar3"></i>
+                            <h5>Departure Date</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="BTN-destination3">
+                            <button>Search</button>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
         </div>
-    </div>
+      </div>
+
+
 
     <div class="portfolio-page pt_40 pb_80 bg-area">
         <div class="container wow fadeIn">

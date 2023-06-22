@@ -74,7 +74,7 @@
                     <label for="">Introduction</label>
                     <textarea name="d_introduction" class="form-control editor" cols="30" rows="10">{{ $destination->d_introduction }}</textarea>
                 </div>
-                <!-- <div class="form-group">
+                 <div class="form-group">
                     <label for="">Experience</label>
                     <textarea name="d_experience" class="form-control editor" cols="30" rows="10">{{ $destination->d_experience }}</textarea>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="form-group">
                     <label for="">Culture</label>
                     <textarea name="d_culture" class="form-control editor" cols="30" rows="10">{{ $destination->d_culture }}</textarea>
-                </div> -->
+                </div>
             </div>
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">SEO Information</h6>
