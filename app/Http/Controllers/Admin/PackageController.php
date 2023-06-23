@@ -35,9 +35,15 @@ class PackageController extends Controller
             '36-45' => 36,
             '46+' => 46
         ];
+    
+        $accomodation = DB::table('filter_option')->where('filter_type', 'accomodation')->get();
+        $traveller_type = DB::table('filter_option')->where('filter_type', 'traveller_type')->get();
+        $transposition = DB::table('filter_option')->where('filter_type', 'transposition')->get();
+        $ratings = DB::table('filter_option')->where('filter_type', 'rating')->get();
+        $distance = DB::table('filter_option')->where('filter_type', 'distance')->get();
+
         $destination=DB::table('destinations')->get();
-        $agencies = Admin::get()->pluck('name','id');
-        return view('admin.package.create', compact('destination','ranges','agencies'));
+        return view('admin.package.create', compact('destination','ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
     }
 
     public function store(Request $request)
@@ -45,10 +51,9 @@ class PackageController extends Controller
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
-
         $package = new Package();
         $data = $request->only($package->getFillable());
-        
+
         $request->validate([
             'p_name' => 'required|unique:packages',
             'p_slug' => 'unique:packages',
@@ -57,12 +62,17 @@ class PackageController extends Controller
             'p_last_booking_date' => 'required',
             'p_price' => 'required',
             'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'p_age_range' => 'required',
+            'p_age_range' => 'required|numeric',
             'p_max_group_size' => 'required|numeric',
             'p_tour_operator' => 'required|numeric',
             'p_started_from' => 'required',
             'p_operated_in' => 'required',
-            'p_photo' => 'required'        
+            'p_photo' => 'required',
+            'p_transposition_id' => 'required',
+            'p_accomodation_id' => 'required',
+            'p_traveller_id' => 'required',
+            'p_rating' => 'required',
+            'p_distance_id' => 'required',
         ],
         [],
         [
@@ -77,12 +87,20 @@ class PackageController extends Controller
             'p_max_group_size' => 'Package Max Group Size',
             'p_tour_operator' => 'Package Tour Operator',
             'p_started_from' => 'Package Started From',
-            'p_operated_in' => 'Package Operated In'
+            'p_operated_in' => 'Package Operated In',
+            'accomodation_id' => 'Package Accomodation Type',
+            'rating_id' => 'Package Hotel Rating Type',
+            'distance_id' => 'Package Distance Type',
+            'traveller_id' => 'Package Traveller Type',
+            'transposition_id' => 'Package Transposition Type'
         ]);
 
         if(empty($data['p_slug'])) {
             $data['p_slug'] = Str::slug($request->p_name);
         }
+
+        
+
 
         $statement = DB::select("SHOW TABLE STATUS LIKE 'packages'");
         $ai_id = $statement[0]->Auto_increment;
@@ -91,15 +109,28 @@ class PackageController extends Controller
         $request->file('p_photo')->move(public_path('uploads/'), $final_name);
         $data['p_photo'] = $final_name;
         
-        if ($request->hasFile('p_qoute_form_photo')) {
-            $profileBackground = $request->file('p_qoute_form_photo');
-            $profileBackgroundName = uniqid() . '-quote-form-background.' . $profileBackground->getClientOriginalExtension();
-            $profileBackground->move(public_path('uploads/'), $profileBackgroundName);
-            $data['p_qoute_form_photo'] = $profileBackgroundName;
-            // Perform any additional logic, such as storing the file name in a database
-        }
-        
         $package->fill($data)->save();
+        $new_package = DB::table('packages')->latest()->first();
+
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['destination_id']]
+        );
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_transposition_id']]
+        );
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_accomodation_id']]
+        );
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_traveller_id']]
+        );
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_rating']]
+        );
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_distance_id']]
+        );
+        
         return redirect()->route('admin.package.index')->with('success', 'Package is added successfully!');
     }
 

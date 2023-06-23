@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,39 +18,40 @@
 
 <body id="page-top">
 
-<!-- Page Wrapper -->
-<div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        @php
-        $url = Request::path();
-        $conName = explode('/',$url);
-        if(!isset($conName[3]))
-        {
+            @php
+            $url = Request::path();
+            $conName = explode('/',$url);
+            if(!isset($conName[3]))
+            {
             $conName[3] = '';
-        }
-        if(!isset($conName[2]))
-        {
+            }
+            if(!isset($conName[2]))
+            {
             $conName[2] = '';
-        }
-        @endphp
+            }
+            @endphp
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
-            <div class="sidebar-brand-text mx-3">{{Session::get('role')}} Panel</div>
-        </a>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center"
+                href="{{ route('admin.dashboard') }}">
+                <div class="sidebar-brand-text mx-3">{{Session::get('role')}} Panel</div>
+            </a>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-
-       
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
 
-        <!-- General Settings -->
-        <!-- <li class="nav-item @if($conName[1] == 'setting' && $conName[2] == 'general') active @endif">
+
+
+
+            <!-- General Settings -->
+            <!-- <li class="nav-item @if($conName[1] == 'setting' && $conName[2] == 'general') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSetting" aria-expanded="true" aria-controls="collapseSetting">
                 <i class="fas fa-cog"></i>
                 <span>General Settings</span>
@@ -75,8 +77,8 @@
         </li> -->
 
 
-        <!-- Page Settings -->
-        <!-- <li class="nav-item @if($conName[1] == 'page' || $conName[1] == 'page_home_update') active @endif">
+            <!-- Page Settings -->
+            <!-- <li class="nav-item @if($conName[1] == 'page' || $conName[1] == 'page_home_update') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePageSettings" aria-expanded="true" aria-controls="collapsePageSettings">
                 <i class="fas fa-paste"></i>
                 <span>Page Settings</span>
@@ -102,8 +104,8 @@
 
 
 
-        <!-- Payment Settings -->
-        <!-- <li class="nav-item @if($conName[1] == 'payment' || $conName[1] == 'currency') active @endif">
+            <!-- Payment Settings -->
+            <!-- <li class="nav-item @if($conName[1] == 'payment' || $conName[1] == 'currency') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment">
                 <i class="fas fa-file-invoice-dollar"></i>
                 <span>Payment Settings</span>
@@ -118,8 +120,8 @@
 
 
 
-        <!-- Blog Section -->
-        <!-- <li class="nav-item @if($conName[1] == 'category' || $conName[1] == 'blog') active @endif">
+            <!-- Blog Section -->
+            <!-- <li class="nav-item @if($conName[1] == 'category' || $conName[1] == 'blog') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog" aria-expanded="true" aria-controls="collapseBlog">
                 <i class="fas fa-cubes"></i>
                 <span>Blog Section</span>
@@ -131,8 +133,8 @@
                 </div>
             </div>
         </li> -->
-        @if(Session::get('role') == 'agency')
-             <!-- Dashboard -->
+            @if(Session::get('role') == 'agency')
+            <!-- Dashboard -->
             <li class="nav-item @if($conName[1] == 'dashboard') active @endif">
                 <a class="nav-link" href="{{ route('agency.dashboard') }}">
                     <i class="fas fa-fw fa-home"></i>
@@ -140,91 +142,99 @@
                 </a>
             </li>
 
-             <!-- Dashboard -->
-             <li class="nav-item @if($conName[1] == 'leads') active @endif">
+            <!-- Dashboard -->
+            <li class="nav-item @if($conName[1] == 'leads') active @endif">
                 <a class="nav-link" href="{{ route('agency.leads') }}">
-                     <i class="fas fa-bullhorn"></i>
+                    <i class="fas fa-bullhorn"></i>
                     <span>Leads</span>
                 </a>
             </li>
 
             <li class="nav-item @if($conName[1] == 'package') active @endif">
-            <a class="nav-link" href="{{ route('agency.package.index') }}">
-                <i class="fas fa-box"></i>
-                <span>Packages</span>
-            </a> 
-        </li>
-        @else    
-        
-         <!-- Dashboard -->
-         <li class="nav-item @if($conName[1] == 'dashboard') active @endif">
-            <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                <i class="fas fa-fw fa-home"></i>
-                <span>Dashboard</span>
-            </a>
-        </li>
-        <!-- Destinations -->
-        <li class="nav-item @if($conName[1] == 'destination') active @endif">
-            <a class="nav-link" href="{{ route('admin.destination.index') }}">
-                <i class="fas fa-thumbtack"></i>
-                <span>Destinations</span>
-            </a>
-        </li>
+                <a class="nav-link" href="{{ route('agency.package.index') }}">
+                    <i class="fas fa-box"></i>
+                    <span>Packages</span>
+                </a>
+            </li>
+            @else
 
-        <!-- Packages -->
-        <li class="nav-item @if($conName[1] == 'package') active @endif">
-            <a class="nav-link" href="{{ route('admin.package.index') }}">
-                <i class="fas fa-box"></i>
-                <span>Packages</span>
-            </a> 
-        </li>
+            <!-- Dashboard -->
+            <li class="nav-item @if($conName[1] == 'dashboard') active @endif">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- Destinations -->
+            <li class="nav-item @if($conName[1] == 'destination') active @endif">
+                <a class="nav-link" href="{{ route('admin.destination.index') }}">
+                    <i class="fas fa-thumbtack"></i>
+                    <span>Destinations</span>
+                </a>
+            </li>
 
-        <li class="nav-item @if($conName[1] == 'slider') active @endif">
-            <a class="nav-link" href="{{ route('admin.slider.index') }}">
-            <i class="fas fa-globe-europe"></i>
-                <span>Home Page Slides</span>
-            </a>
-        </li>
+            <!-- Packages -->
+            <li class="nav-item @if($conName[1] == 'package') active @endif">
+                <a class="nav-link" href="{{ route('admin.package.index') }}">
+                    <i class="fas fa-box"></i>
+                    <span>Packages</span>
+                </a>
+            </li>
 
-        <li class="nav-item @if($conName[1] == 'spotlight') active @endif">
-            <a class="nav-link" href="{{ route('admin.spotlight.index') }}">
-            <i class="fas fa-globe-europe"></i>
-                <span>Spotlight</span>
-            </a>
-        </li>
+            <!-- Filter_option -->
+            <li class="nav-item @if($conName[1] == 'filter') active @endif">
+                <a class="nav-link" href="{{ route('admin.filter.index') }}">
+                    <i class="fas fa-box"></i>
+                    <span>Filter Option</span>
+                </a>
+            </li>
 
-        <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
-            <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
-                <i class="fas fa-share-alt-square"></i>
-                <span>Subscribers </span>
-            </a>
-        </li>
+            <li class="nav-item @if($conName[1] == 'slider') active @endif">
+                <a class="nav-link" href="{{ route('admin.slider.index') }}">
+                    <i class="fas fa-globe-europe"></i>
+                    <span>Home Page Slides</span>
+                </a>
+            </li>
 
-        
-        <li class="nav-item @if($conName[1] == 'reviews') active @endif">
-            <a class="nav-link" href="{{ route('admin.review.index') }}">
-                <i class="fas fa-comments"></i>
-                <span>Reviews </span>
-            </a>
-        </li>
+            <li class="nav-item @if($conName[1] == 'spotlight') active @endif">
+                <a class="nav-link" href="{{ route('admin.spotlight.index') }}">
+                    <i class="fas fa-globe-europe"></i>
+                    <span>Spotlight</span>
+                </a>
+            </li>
 
-        <li class="nav-item @if($conName[1] == 'admin_notification') active @endif">
-            <a class="nav-link" href="{{ route('admin.notification.index') }}">
-                <i class="fas fa-comments"></i>
-                <span>Top Notification </span>
-            </a>
-        </li>
+            <li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+                <a class="nav-link" href="{{ route('admin.subscriber.index') }}">
+                    <i class="fas fa-share-alt-square"></i>
+                    <span>Subscribers </span>
+                </a>
+            </li>
 
-        <!-- Dashboard -->
-        <li class="nav-item @if($conName[1] == 'leads') active @endif">
+
+            <li class="nav-item @if($conName[1] == 'reviews') active @endif">
+                <a class="nav-link" href="{{ route('admin.review.index') }}">
+                    <i class="fas fa-comments"></i>
+                    <span>Reviews </span>
+                </a>
+            </li>
+
+            <li class="nav-item @if($conName[1] == 'admin_notification') active @endif">
+                <a class="nav-link" href="{{ route('admin.notification.index') }}">
+                    <i class="fas fa-comments"></i>
+                    <span>Top Notification </span>
+                </a>
+            </li>
+
+            <!-- Dashboard -->
+            <li class="nav-item @if($conName[1] == 'leads') active @endif">
                 <a class="nav-link" href="{{ route('admin.leads') }}">
                     <i class="fas fa-bullhorn"></i>
                     <span>Leads</span>
                 </a>
             </li>
-        @endif
-        <!-- Dynamic Pages -->
-        <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
+            @endif
+            <!-- Dynamic Pages -->
+            <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
             <a class="nav-link" href="{{ route('admin.dynamic_page.index') }}">
                 <i class="fas fa-cube"></i>
                 <span>Dynamic Pages</span>
@@ -232,8 +242,8 @@
         </li> -->
 
 
-        <!-- Language -->
-        <!-- <li class="nav-item @if($conName[1] == 'language') active @endif">
+            <!-- Language -->
+            <!-- <li class="nav-item @if($conName[1] == 'language') active @endif">
             <a class="nav-link" href="{{ route('admin.language.index') }}">
                 <i class="fas fa-globe"></i>
                 <span>Language</span>
@@ -242,8 +252,8 @@
 
 
 
-        <!-- Website Section -->
-        <!-- <li class="nav-item @if($conName[1] == 'slider' || $conName[1] == 'service' || $conName[1] == 'testimonial' || $conName[1] == 'team-member' || $conName[1] == 'faq' || $conName[1] == 'social-media') active @endif">
+            <!-- Website Section -->
+            <!-- <li class="nav-item @if($conName[1] == 'slider' || $conName[1] == 'service' || $conName[1] == 'testimonial' || $conName[1] == 'team-member' || $conName[1] == 'faq' || $conName[1] == 'social-media') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWebsite" aria-expanded="true" aria-controls="collapseWebsite">
                 <i class="fas fa-globe-europe"></i>
                 <span>Website Section</span>
@@ -262,16 +272,16 @@
         </li> -->
 
 
-        <!-- Order -->
-        <!-- <li class="nav-item @if($conName[1] == 'order') active @endif">
+            <!-- Order -->
+            <!-- <li class="nav-item @if($conName[1] == 'order') active @endif">
             <a class="nav-link" href="{{ route('admin.order.index') }}">
                 <i class="fas fa-bookmark"></i>
                 <span>Order</span>
             </a>
         </li> -->
 
-        <!-- Traveller -->
-        <!-- <li class="nav-item @if($conName[1] == 'traveller') active @endif">
+            <!-- Traveller -->
+            <!-- <li class="nav-item @if($conName[1] == 'traveller') active @endif">
             <a class="nav-link" href="{{ route('admin.traveller.index') }}">
                 <i class="fas fa-users"></i>
                 <span>Traveller</span>
@@ -279,16 +289,16 @@
         </li> -->
 
 
-        <!-- Email Template -->
-        <!-- <li class="nav-item @if($conName[1] == 'email-template') active @endif">
+            <!-- Email Template -->
+            <!-- <li class="nav-item @if($conName[1] == 'email-template') active @endif">
             <a class="nav-link" href="{{ route('admin.email_template.index') }}">
                 <i class="fas fa-envelope"></i>
                 <span>Email Template</span>
             </a>
         </li> -->
 
-        <!-- Subscriber -->
-        <!--li class="nav-item @if($conName[1] == 'subscriber') active @endif">
+            <!-- Subscriber -->
+            <!--li class="nav-item @if($conName[1] == 'subscriber') active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubscriber" aria-expanded="true" aria-controls="collapseSubscriber">
                 <i class="fas fa-share-alt-square"></i>
                 <span>Subscriber</span>
@@ -304,110 +314,114 @@
 
 
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-    </ul>
-    <!-- End of Sidebar -->
-
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-        <!-- Main Content -->
-        <div id="content">
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
-
-
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="btn btn-info btn-sm mt-3" href="{{ url('/') }}" target="_blank">
-                            Visit Website
-                        </a>
-                        <a class="btn btn-info btn-sm mt-3" href="{{ route('agency.profile',session('id')) }}" target="_blank">
-                            Visit Profile
-                        </a>
-                    </li>
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-                    <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                            {{ session('name') }}
-                        
-                        </span>
-                            <img class="img-profile rounded-circle" src="{{ asset('uploads/'.session('photo')) }}">
-                        </a>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-
-                            @if(session('id') == 1)
-                            <a class="dropdown-item" href="{{ route('admin.profile_change') }}">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Change Profile
-                            </a>
-                            @endif
-
-                            @if(session('role') == 'agency')
-                            <a class="dropdown-item" href="{{ route('agency.profile_change') }}">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Change Profile
-                            </a>
-                            <a class="dropdown-item" href="{{ route('agency.password_change') }}">
-                                <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
-                            </a>
-                            <a class="dropdown-item" href="{{ route('agency.photo_change') }}">
-                                <i class="fas fa-image fa-sm fa-fw mr-2 text-gray-400"></i> Change Photo
-                            </a>
-                            @else
-                            <a class="dropdown-item" href="{{ route('admin.password_change') }}">
-                                <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
-                            </a>
-                            <a class="dropdown-item" href="{{ route('admin.photo_change') }}">
-                                <i class="fas fa-image fa-sm fa-fw mr-2 text-gray-400"></i> Change Photo
-                            </a>
-                            @endif
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('admin.logout') }}">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-            <!-- End of Topbar -->
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-
-                @yield('admin_content')
-
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-            <!-- /.container-fluid -->
+        </ul>
+        <!-- End of Sidebar -->
+
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="btn btn-info btn-sm mt-3" href="{{ url('/') }}" target="_blank">
+                                Visit Website
+                            </a>
+                            <a class="btn btn-info btn-sm mt-3" href="{{ route('agency.profile',session('id')) }}"
+                                target="_blank">
+                                Visit Profile
+                            </a>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    {{ session('name') }}
+
+                                </span>
+                                <img class="img-profile rounded-circle" src="{{ asset('uploads/'.session('photo')) }}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+
+                                @if(session('id') == 1)
+                                <a class="dropdown-item" href="{{ route('admin.profile_change') }}">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Change Profile
+                                </a>
+                                @endif
+
+                                @if(session('role') == 'agency')
+                                <a class="dropdown-item" href="{{ route('agency.profile_change') }}">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Change Profile
+                                </a>
+                                <a class="dropdown-item" href="{{ route('agency.password_change') }}">
+                                    <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
+                                </a>
+                                <a class="dropdown-item" href="{{ route('agency.photo_change') }}">
+                                    <i class="fas fa-image fa-sm fa-fw mr-2 text-gray-400"></i> Change Photo
+                                </a>
+                                @else
+                                <a class="dropdown-item" href="{{ route('admin.password_change') }}">
+                                    <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
+                                </a>
+                                <a class="dropdown-item" href="{{ route('admin.photo_change') }}">
+                                    <i class="fas fa-image fa-sm fa-fw mr-2 text-gray-400"></i> Change Photo
+                                </a>
+                                @endif
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('admin.logout') }}">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    @yield('admin_content')
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-</div>
-<!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-@include('admin.includes.scripts-footer')
+    @include('admin.includes.scripts-footer')
 
 </body>
+
 </html>
