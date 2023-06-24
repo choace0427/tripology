@@ -42,11 +42,22 @@ class LeadsController extends Controller
         }
 
         $request->validate([
-            'message' => 'required',
+            'media.*' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf,docx',
         ]);
+
+        if($request->hasfile('media'))
+        {
+            foreach($request->file('media') as $file)
+            {
+                $name = time().rand(1,50).'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('chat'), $name);  
+                $files[] = $name;  
+            }
+        }
+
         $category = new LeadChat();
+        $category->media = implode(',',$files);
         $data = $request->only($category->getFillable());
-        
 
         $data['sender_id'] = session('id');
 
@@ -73,8 +84,7 @@ class LeadsController extends Controller
 
         $message = str_replace('[[login_link]]', $login_link, $message);
 
-        Mail::to($traveller->traveller_email)->send(new RegistrationEmailToTraveller($subject,$message));
-
+        Mail::to($traveller->traveller_email)->send(new RegistrationEmailToTraveller($subject,$message,$files));
         $category->fill($data)->save();
         return redirect()->route('agency.leads.view',$request->lead_id)->with('success', 'Message sent successfully!');
     }
