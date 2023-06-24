@@ -16,9 +16,11 @@
                         @elseif($star_ratings > 2 && $star_ratings < 3)
                         <h4>Average</h4>   
                         @elseif($star_ratings > 1 && $star_ratings < 2)
-                        <h4>Below Average</h4> 
-                        @else
+                        <h4>Below Average</h4>
+                        @elseif($star_ratings > 0 && $star_ratings < 1)
                         <h4>Very Poor</h4> 
+                        @else
+                        <h4>No ratings</h4> 
                         @endif
                        
                         <h5 class="star-{{ceil($star_ratings)}}">{{ (float)$star_ratings }} <i class="bi bi-star-fill"></i></h5>
