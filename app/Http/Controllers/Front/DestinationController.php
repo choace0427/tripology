@@ -20,9 +20,14 @@ class DestinationController extends Controller
         $g_setting = DB::table('general_settings')->where('id', 1)->first();
         $destination_detail = DB::table('destinations')->where('d_slug', $slug)->first();
         $packages = DB::table('packages')->where('destination_id', $destination_detail->id)->get();
+        $packages_ids = DB::table('packages')->where('destination_id', $destination_detail->id)->get('id')->pluck('id')->toArray();
+        $packages_ids = implode(',',$packages_ids);
+        $ratingQuery = DB::table('reviews')->whereIn('package_id', [$packages_ids])->where('published', 1);
+        $star_ratings = $ratingQuery->avg('rating');
+        $rating_count = $ratingQuery->count();
         if(!$destination_detail) {
             return abort(404);
         }
-        return view('pages.destination_detail', compact('g_setting','destination_detail','packages'));
+        return view('pages.destination_detail', compact('g_setting','destination_detail','packages','rating_count','star_ratings'));
     }
 }
