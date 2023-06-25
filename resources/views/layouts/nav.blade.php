@@ -124,10 +124,10 @@
                                 @else
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Agency
+                                        Operator
                                     </a>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" data-url="{{url('admin/login')}}">Agency</a></li>
+                                            <li><a class="dropdown-item" data-url="{{url('admin/login')}}">Operator</a></li>
                                             <li><a class="dropdown-item" data-url="{{url('traveller/login')}}">Traveller</a></li>
                                         </ul>
                                         
