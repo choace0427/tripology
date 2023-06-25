@@ -37,7 +37,7 @@
                 <div class="col-md-12">
                 
                 @foreach($lead->chat as $chat)
-
+                
                 @if($chat->receiver_id == session('id'))
                     <div class="row">
                         <div class="col-md-12">
@@ -50,7 +50,19 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div>
-                                <p>{{$chat->message}}</p>
+                                @if($chat->message)
+                                    {{$chat->message}} <br/><br/>
+                                @endif
+                                 
+                                @if($chat->media)
+                                    @foreach(explode(',',$chat->media) as $media)
+                                        @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
+                                            <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
+                                        @else
+                                            <a href="{{ asset('/chat/'.$media)}}" target="_blank"><img src="{{ asset('/chat/'.$media)}}" style="width:200px;" /></a>
+                                        @endif
+                                    @endforeach
+                                @endif  
                             </div>
                         </div>
                     </div>
@@ -66,7 +78,22 @@
                     <div class="row Expand3">
                         <div class="col-md-12">
                             <div>
-                                <p>{{$chat->message}}</p>                        
+                                <p>
+                                    @if($chat->message)
+                                        {{$chat->message}} <br/><br/>
+                                    @endif
+                                 
+                                    @if($chat->media)
+                                        @foreach(explode(',',$chat->media) as $media)
+                                            @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
+                                                <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
+                                            @else
+                                                <a href="{{ asset('/chat/'.$media)}}" target="_blank"><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
+                                            @endif
+                                        @endforeach
+                                    @endif  
+                                </p>
+                                                  
                             </div>
                         </div>
                     </div>
@@ -78,14 +105,21 @@
         </div>
         @endif
 
-        <form action="{{ route('agency.chat.store') }}" method="post">
+        <form action="{{ route('agency.chat.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row Response-input mt-5">
                 <div class="col-md-12">
                     <div>
                         <h5>Response</h5>
-                        <input type="text" name="message" placeholder="Write Response here">
+                        <!-- ?<input type="text" name="message" placeholder="Write Response here"> -->
+                        <textarea name="message"  placeholder="Write Response here" class="form-control"></textarea>
                     </div>
+
+                    <div>
+                        <h5>Media</h5>
+                        <input type="file" name="media[]" placeholder="Select media" multiple>
+                    </div>
+
                 </div>
             </div>
 

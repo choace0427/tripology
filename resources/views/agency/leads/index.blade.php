@@ -33,7 +33,7 @@
                             <td>{{ $row->end_date }}</td>
                             <!-- <td>{{ $row->published }}</td> -->
                             <td>
-                                <a href="{{url('/agency/leads',$row->id)}}" class="btn btn-info btn-sm">Send Quotation</a>
+                                <a href="{{url('/agency/quotes',$row->id)}}" class="btn btn-info btn-sm">Send Quotation</a>
                             </td>
                         </tr>
                         @endforeach
