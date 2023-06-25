@@ -69,7 +69,7 @@
           <div class="col-md-6">
             <div class="babba">
               <h5>Tour Id:</h5>
-              <p>123456</p>
+              <p>{{ $package_detail->id }}</p>
             </div>
           </div>
           <div class="col-md-6">
@@ -312,6 +312,7 @@
                             </div>
                         </div>
                     </div>
+                    
                   @endforeach
                 @endforeach
               </div>

@@ -52,6 +52,7 @@ use App\Http\Controllers\Admin\FaqController as FaqControllerForAdmin;
 use App\Http\Controllers\Admin\OrderController as OrderControllerForAdmin;
 use App\Http\Controllers\Admin\ReviewController as ReviewController;
 use App\Http\Controllers\Admin\TopNotificationController as TopNotificationController;
+use App\Http\Controllers\Admin\FilterController as FilterControllerForAdmin;
 
 use App\Http\Controllers\Traveller\CheckoutController;
 use App\Http\Controllers\Traveller\DashboardController as DashboardControllerForTraveller;
@@ -83,6 +84,8 @@ use App\Http\Controllers\Front\TermController;
 use App\Http\Controllers\Front\TestimonialController as TestimonialControllerForFront;
 use App\Http\Controllers\Front\MailChimpController as MailChimpController;
 use App\Http\Controllers\Front\LeadController as LeadController;
+use App\Http\Controllers\Front\FilterController as FilterControllerForFront;
+
 use Illuminate\Support\Facades\Route;
 
 /* --------------------------------------- */
@@ -158,6 +161,9 @@ Route::resource('wishlists', WishlistController::class, ['except' => ['create', 
 /* --------------------------------------- */
 /* Agency Panel */
 /* --------------------------------------- */
+
+Route::get('operator/register', [RegisterController::class,'showOperatorForm'])->name('operator.register');
+Route::post('operator/register', [RegisterController::class,'storeOperator'])->name('operator.store');
 
 Route::prefix('agency')->group(function () {
     Route::get('register', [RegisterController::class,'index'])->name('agency.register');
@@ -642,4 +648,20 @@ Route::get('/subscription-details', [MailChimpController::class, 'index'])->name
 /* --------------------------------------- */
 Route::post('/lead/store', [LeadController::class, 'store'])->name('lead.store');
 
+/* --------------------------------------- */
+/* Package Filter Detail */
+/* --------------------------------------- */
+
+//-----Front Filter Option-----------//
+Route::get('package/filter/list/', [FilterControllerForFront::class, 'index']);
+Route::get('package/filter/list/{slug}', [FilterControllerForFront::class, 'package_filter']);
+
+//-----Admin Filter Option-----------//
+
+Route::get('admin/filter/view', [FilterControllerForAdmin::class, 'index'])->name('admin.filter.index');
+Route::get('admin/filter/create', [FilterControllerForAdmin::class, 'create'])->name('admin.filter.create');
+Route::post('admin/filter/store', [FilterControllerForAdmin::class, 'store']);
+Route::get('admin/filter/delete/{id}', [FilterControllerForAdmin::class, 'delete'])->name('admin.filter.delete');
+Route::get('admin/filter/edit/{id}', [FilterControllerForAdmin::class,'edit'])->name('admin.filter.edit');
+Route::post('admin/filter/update/{id}', [FilterControllerForAdmin::class,'update']);
 
