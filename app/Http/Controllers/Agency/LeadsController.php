@@ -45,6 +45,7 @@ class LeadsController extends Controller
             'media.*' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf,docx',
         ]);
 
+        $files = [];
         if($request->hasfile('media'))
         {
             foreach($request->file('media') as $file)
