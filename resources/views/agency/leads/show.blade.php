@@ -1,10 +1,10 @@
 @extends('admin.admin_layouts')
 @section('admin_content')
-    <h1 class="h3 mb-3 text-gray-800">Leads</h1>
+    <h1 class="h3 mb-3 text-gray-800">Quotes</h1>
     
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Leads</h6>
+            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Quotes</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -41,7 +41,7 @@
                 @if($chat->receiver_id == session('id'))
                     <div class="row">
                         <div class="col-md-12">
-                            <div>
+                            <div class='mt-3'>
                                 <h4>From Customer</h4>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                         @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
                                             <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
                                         @else
-                                            <a href="{{ asset('/chat/'.$media)}}" target="_blank"><img src="{{ asset('/chat/'.$media)}}" style="width:200px;" /></a>
+                                            <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px;" /></a>
                                         @endif
                                     @endforeach
                                 @endif  
@@ -69,7 +69,7 @@
                     @else
                     <div class="row  text-end">
                         <div class="col-md-12">
-                            <div>
+                            <div class='mt-3'>
                                 <h4>Your Message</h4>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                             @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
                                                 <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
                                             @else
-                                                <a href="{{ asset('/chat/'.$media)}}" target="_blank"><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
+                                                <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
                                             @endif
                                         @endforeach
                                     @endif  
