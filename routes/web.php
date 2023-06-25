@@ -159,6 +159,9 @@ Route::resource('wishlists', WishlistController::class, ['except' => ['create', 
 /* Agency Panel */
 /* --------------------------------------- */
 
+Route::get('operator/register', [RegisterController::class,'showOperatorForm'])->name('operator.register');
+Route::post('operator/register', [RegisterController::class,'storeOperator'])->name('operator.store');
+
 Route::prefix('agency')->group(function () {
     Route::get('register', [RegisterController::class,'index'])->name('agency.register');
     Route::post('register', [RegisterController::class,'store'])->name('agency.store');
