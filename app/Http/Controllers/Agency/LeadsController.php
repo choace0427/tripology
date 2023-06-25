@@ -56,7 +56,10 @@ class LeadsController extends Controller
         }
 
         $category = new LeadChat();
-        $category->media = implode(',',$files);
+        if(count($files) > 0){
+            $category->media = implode(',',$files);
+        }
+        
         $data = $request->only($category->getFillable());
 
         $data['sender_id'] = session('id');
