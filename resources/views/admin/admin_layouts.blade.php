@@ -144,7 +144,7 @@
              <li class="nav-item @if($conName[1] == 'leads') active @endif">
                 <a class="nav-link" href="{{ route('agency.leads') }}">
                      <i class="fas fa-bullhorn"></i>
-                    <span>Leads</span>
+                    <span>Quotes</span>
                 </a>
             </li>
 

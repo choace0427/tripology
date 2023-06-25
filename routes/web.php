@@ -149,7 +149,7 @@ Route::get('traveller/execute-payment', [CheckoutController::class,'paypal']);
 
 Route::get('traveller/quotes', [DashboardControllerForTraveller::class,'leads'])->name('traveller.leads');
 Route::post('traveller/chat/store', [DashboardControllerForTraveller::class,'store'])->name('traveller.chat.store');
-
+Route::put('/lead/status',[DashboardControllerForTraveller::class,'updateStatus'])->name('traveller.chat.status');
 /* Traveller Wishlist */
 Route::get('traveller/wishlist', [WishlistController::class ,'index'])->name('traveller.wishlist');
 
@@ -641,4 +641,5 @@ Route::get('/subscription-details', [MailChimpController::class, 'index'])->name
 /* Package Detail - Lead submit */
 /* --------------------------------------- */
 Route::post('/lead/store', [LeadController::class, 'store'])->name('lead.store');
+
 

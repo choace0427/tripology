@@ -18,7 +18,7 @@
             <div class="col-md-9 col-sm-12 wow fadeIn" data-wow-delay="0.2s">
                 <div class="detail-dashboard table-responsive mt_30">
 
-                    <h1>View All Leads</h1>
+                    <h1>View All Quotes</h1>
 
                     <div class="table-responsive">
                         <table class="table table-bordered order-table" width="100%" cellspacing="0">
@@ -44,7 +44,7 @@
                                 <td>{{ $row->end_date }}</td>
                                 <!-- <td>{{ $row->published }}</td> -->
                                 <td>
-                                    <div class="Expand"><a class="show_chat_form">Expand All</a></div>
+                                    <div class="Expand"><a class="show_chat_form" data-id="{{$row->id}}">Expand All</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -60,7 +60,7 @@
                                     @if($chat->receiver_id == session('traveller_id'))
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div>
+                                                <div class='mt-4'>
                                                     <h4>From Agency</h4>
                                                 </div>
                                             </div>
@@ -78,7 +78,7 @@
                                                             @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
                                                                 <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
                                                             @else
-                                                                <a href="{{ asset('/chat/'.$media)}}" target="_blank"><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
+                                                                <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
                                                             @endif
                                                         @endforeach
                                                     @endif  
@@ -88,7 +88,7 @@
                                         @else
                                         <div class="row  text-end">
                                             <div class="col-md-12">
-                                                <div>
+                                                <div class='mt-4'>
                                                     <h4>Your Message</h4>
                                                 </div>
                                             </div>
@@ -107,7 +107,7 @@
                                                                 @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
                                                                     <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
                                                                 @else
-                                                                    <a href="{{ asset('/chat/'.$media)}}" target="_blank"><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
+                                                                    <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
                                                                 @endif
                                                             @endforeach
                                                         @endif   
@@ -254,7 +254,20 @@ $(function() {
             $target.slideUp();
         } else {
             $target.closest("tr").next().find(".showChatWithForm").slideToggle();
-        }                    
+        }   
+        var lead_id = $(this).data('id');
+        $.ajax({
+            type:'PUT',
+            url:"{{ route('traveller.chat.status')}}",
+            headers: {
+                "Accept": "application/json",
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            data:{id:lead_id},
+            success:function(data){
+                console.log(data.message);
+            }
+        });
     });
 });
 </script>

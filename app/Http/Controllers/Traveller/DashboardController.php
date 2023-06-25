@@ -83,4 +83,9 @@ class DashboardController extends Controller
         $category->fill($data)->save();
         return redirect()->route('traveller.leads')->with('success', 'Message sent successfully!');
     }
+
+    public function updateStatus(Request $request){
+        $status = LeadChat::where('lead_id',$request->id)->update(['status'=> 1]);
+        return response()->json(['message'=>'success']); 
+    } 
 }
