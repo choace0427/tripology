@@ -229,7 +229,7 @@ Route::get('admin/profile-change', [ProfileChangeControllerForAdmin::class,'inde
 Route::post('admin/profile-change/update', [ProfileChangeControllerForAdmin::class,'update']);
 Route::get('admin/photo-change', [PhotoChangeController::class,'index'])->name('admin.photo_change');
 Route::post('admin/photo-change/update', [PhotoChangeController::class,'update']);
-Route::get('admin/leads', [LeadsControllerForAdmin::class,'index'])->name('admin.leads');
+Route::get('admin/quotes', [LeadsControllerForAdmin::class,'index'])->name('admin.leads');
 
 /* --------------------------------------- */
 /* Payment - Admin */
