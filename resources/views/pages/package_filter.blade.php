@@ -484,8 +484,8 @@ $(function() {
             }
         });
 
-        // var url = 'https://tripology.nodesure.com/package/filter/list/' + Object.keys(params).map(
-        var url = 'http://localhost:8000/package/filter/list/' + Object.keys(params).map(
+        var url = 'https://tripology.nodesure.com/package/filter/list/' + Object.keys(params).map(
+            // var url = 'http://localhost:8000/package/filter/list/' + Object.keys(params).map(
             function(key) {
                 return key + '=' + params[key].join(',');
             }).join('+');
@@ -616,8 +616,8 @@ function package_filter(page, filter_url) {
 }
 
 function reset() {
-    // window.location.href = 'https://tripology.nodesure.com/package/filter/list/';
-    window.location.href = 'http://localhost:8000/package/filter/list/';
+    window.location.href = 'https://tripology.nodesure.com/package/filter/list/';
+    // window.location.href = 'http://localhost:8000/package/filter/list/';
 }
 
 function filter_option() {
