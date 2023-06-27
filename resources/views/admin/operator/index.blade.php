@@ -26,12 +26,12 @@
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->email }}</td>
                             <td>
-                                @if($row->status == 'Active')
-                                    <span class="text-success">{{ $row->status }}</span>
+                                @if($row->status == '1')
+                                    <span class="text-success">Active</span>
                                 @endif
 
-                                @if($row->status == 'Pending')
-                                    <span class="text-danger">{{ $row->status }}</span>
+                                @if($row->status == '0')
+                                    <span class="text-danger">Pending</span>
                                 @endif                                
                             </td>
                             <td>

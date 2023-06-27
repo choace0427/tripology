@@ -37,6 +37,8 @@ class LoginController extends Controller
         if(!$check_email)
         {
         	return redirect()->back()->with('error', 'Email address not found');
+        }else if($check_email->status == 0){
+            return redirect()->back()->with('error', 'Your account is not activated yet');
         }
         else
         {
