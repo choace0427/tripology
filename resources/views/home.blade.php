@@ -402,7 +402,7 @@
                               <h6>Starting from $ <span>{{ $package->p_price }}</span></h6>
                            </div>
                         </div>
-                        @endforeach;
+                        @endforeach
                      </div>
                   </div>
                </div>

@@ -18,7 +18,7 @@
             <div class="col-md-9 col-sm-12 wow fadeIn" data-wow-delay="0.2s">
                 <div class="detail-dashboard table-responsive mt_30">
 
-                    <h1>View All Leads</h1>
+                    <h1>View All Quotes</h1>
 
                     <div class="table-responsive">
                         <table class="table table-bordered order-table" width="100%" cellspacing="0">
@@ -44,7 +44,7 @@
                                 <td>{{ $row->end_date }}</td>
                                 <!-- <td>{{ $row->published }}</td> -->
                                 <td>
-                                    <div class="Expand"><a class="show_chat_form">Expand All</a></div>
+                                    <div class="Expand"><a class="show_chat_form" data-id="{{$row->id}}">Expand All</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -60,7 +60,7 @@
                                     @if($chat->receiver_id == session('traveller_id'))
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div>
+                                                <div class='mt-4'>
                                                     <h4>From Agency</h4>
                                                 </div>
                                             </div>
@@ -69,14 +69,26 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div>
-                                                    <p>{{$chat->message}}</p>
+                                                    @if($chat->message)
+                                                        {{$chat->message}} <br/><br/>
+                                                    @endif
+                                                
+                                                    @if($chat->media)
+                                                        @foreach(explode(',',$chat->media) as $media)
+                                                            @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
+                                                                <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
+                                                            @else
+                                                                <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif  
                                                 </div>
                                             </div>
                                         </div>
                                         @else
                                         <div class="row  text-end">
                                             <div class="col-md-12">
-                                                <div>
+                                                <div class='mt-4'>
                                                     <h4>Your Message</h4>
                                                 </div>
                                             </div>
@@ -85,7 +97,21 @@
                                         <div class="row Expand3">
                                             <div class="col-md-12">
                                                 <div>
-                                                    <p>{{$chat->message}}</p>                        
+                                                    <p>
+                                                        @if($chat->message)
+                                                            {{$chat->message}} <br/><br/>
+                                                        @endif
+                                                    
+                                                        @if($chat->media)
+                                                            @foreach(explode(',',$chat->media) as $media)
+                                                                @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
+                                                                    <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
+                                                                @else
+                                                                    <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
+                                                                @endif
+                                                            @endforeach
+                                                        @endif   
+                                                    </p>                     
                                                 </div>
                                             </div>
                                         </div>
@@ -96,13 +122,19 @@
                                     </div>
                                     </div>
 
-                                    <form action="{{ route('traveller.chat.store') }}" method="post">
+                                    <form action="{{ route('traveller.chat.store') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row Response-input mt-5">
                                             <div class="col-md-12">
                                                 <div>
                                                     <h5>Response</h5>
-                                                    <input type="text" name="message" placeholder="Write Response here">
+                                                    <!-- <input type="text" name="message" placeholder="Write Response here"> -->
+                                                    <textarea name="message"  placeholder="Write Response here" class="form-control"></textarea>
+                                                </div>
+
+                                                <div>
+                                                    <h5>Media</h5>
+                                                    <input type="file" name="media[]" placeholder="Select media" multiple>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,6 +166,82 @@
 </div>
        
 @endsection
+<style>
+.chat-first-bg{
+    background: #CDDEFF;
+    padding: 10px 0px;
+    margin: 0px 10px;
+    border: solid 1px #000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px;
+}
+.text-end {
+    text-align: right!important;
+}
+.Expand button{
+    background: #01008C;
+    padding: 8px 30px;
+    margin-right: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.Expand2{
+    background: #CDDEFF;
+    border: solid 1px #000;
+    margin: 0px 10px;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.Expand2 h4{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.Expand2 p{
+    background: #99BCFF;
+    padding: 3px 8px;
+    border-radius: 5px;
+    width: 85%;
+    margin-bottom: 0px;
+}
+
+.Expand2 h6{
+    padding-right: 213px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.Expand3 p{
+    margin-left: 214px;
+}
+
+.Expand3 h6{
+    padding-right: 0px;
+}
+
+.Response-input{
+    margin: 0px 5px;
+}
+
+.Response-input input{
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 4px;
+    border-radius: 5px;
+}
+
+.Response-input button{
+    background: #01008C;
+    padding: 7px 40px;
+    color: #fff;
+    border-radius: 6px;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script>
@@ -146,7 +254,20 @@ $(function() {
             $target.slideUp();
         } else {
             $target.closest("tr").next().find(".showChatWithForm").slideToggle();
-        }                    
+        }   
+        var lead_id = $(this).data('id');
+        $.ajax({
+            type:'PUT',
+            url:"{{ route('traveller.chat.status')}}",
+            headers: {
+                "Accept": "application/json",
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            data:{id:lead_id},
+            success:function(data){
+                console.log(data.message);
+            }
+        });
     });
 });
 </script>

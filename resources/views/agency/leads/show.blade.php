@@ -1,10 +1,10 @@
 @extends('admin.admin_layouts')
 @section('admin_content')
-    <h1 class="h3 mb-3 text-gray-800">Leads</h1>
+    <h1 class="h3 mb-3 text-gray-800">Quotes</h1>
     
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Leads</h6>
+            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Quotes</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -37,11 +37,11 @@
                 <div class="col-md-12">
                 
                 @foreach($lead->chat as $chat)
-
+                
                 @if($chat->receiver_id == session('id'))
                     <div class="row">
                         <div class="col-md-12">
-                            <div>
+                            <div class='mt-3'>
                                 <h4>From Customer</h4>
                             </div>
                         </div>
@@ -50,14 +50,26 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div>
-                                <p>{{$chat->message}}</p>
+                                @if($chat->message)
+                                    {{$chat->message}} <br/><br/>
+                                @endif
+                                 
+                                @if($chat->media)
+                                    @foreach(explode(',',$chat->media) as $media)
+                                        @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
+                                            <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
+                                        @else
+                                            <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px;" /></a>
+                                        @endif
+                                    @endforeach
+                                @endif  
                             </div>
                         </div>
                     </div>
                     @else
                     <div class="row  text-end">
                         <div class="col-md-12">
-                            <div>
+                            <div class='mt-3'>
                                 <h4>Your Message</h4>
                             </div>
                         </div>
@@ -66,7 +78,22 @@
                     <div class="row Expand3">
                         <div class="col-md-12">
                             <div>
-                                <p>{{$chat->message}}</p>                        
+                                <p>
+                                    @if($chat->message)
+                                        {{$chat->message}} <br/><br/>
+                                    @endif
+                                 
+                                    @if($chat->media)
+                                        @foreach(explode(',',$chat->media) as $media)
+                                            @if(pathinfo($media, PATHINFO_EXTENSION) == "pdf")
+                                                <a href="{{ asset('/chat/'.$media)}}" target="_blank">{{$media}}</a>
+                                            @else
+                                                <a href="{{ asset('/chat/'.$media)}}" class='magnific'><img src="{{ asset('/chat/'.$media)}}" style="width:200px; height:200px;" /></a>
+                                            @endif
+                                        @endforeach
+                                    @endif  
+                                </p>
+                                                  
                             </div>
                         </div>
                     </div>
@@ -78,14 +105,21 @@
         </div>
         @endif
 
-        <form action="{{ route('agency.chat.store') }}" method="post">
+        <form action="{{ route('agency.chat.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row Response-input mt-5">
                 <div class="col-md-12">
                     <div>
                         <h5>Response</h5>
-                        <input type="text" name="message" placeholder="Write Response here">
+                        <!-- ?<input type="text" name="message" placeholder="Write Response here"> -->
+                        <textarea name="message"  placeholder="Write Response here" class="form-control"></textarea>
                     </div>
+
+                    <div>
+                        <h5>Media</h5>
+                        <input type="file" name="media[]" placeholder="Select media" multiple>
+                    </div>
+
                 </div>
             </div>
 

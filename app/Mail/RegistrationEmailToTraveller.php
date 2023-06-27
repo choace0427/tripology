@@ -19,10 +19,11 @@ class RegistrationEmailToTraveller extends Mailable
      *
      * @return void
      */
-    public function __construct($subject,$message)
+    public function __construct($subject,$message,$files)
     {
         $this->subject = $subject;
         $this->message = $message;
+        $this->files = $files;
     }
 
     /**
@@ -32,6 +33,16 @@ class RegistrationEmailToTraveller extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.registration_email_to_traveller')->subject($this->subject);
+        
+        // return $this->markdown('emails.registration_email_to_traveller')->subject($this->subject)
+        //                                                                 ->attach(public_path('/chat/'.$file));
+        
+        $this->markdown('emails.registration_email_to_traveller')->subject($this->subject);
+        foreach($this->files as $file){
+            $this->attach(public_path('/chat/'.$file));
+        }
+
+        return $this;
+
     }
 }

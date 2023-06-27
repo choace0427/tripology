@@ -37,7 +37,7 @@ a{
     font-size: 22px;
     color: #FFF204 !important;
     /*margin-left: 15px;*/
-    margin-left: 4.5px;
+    margin-left: 2.5px;
 }
 
 .input{
@@ -50,7 +50,7 @@ a{
 
 .input a{
     color: #FFF204;
-    font-size: 25px;
+    font-size: 23px;
     text-decoration: none;
     padding-right: 20px;
 }
@@ -2690,7 +2690,7 @@ Portfolio-Page
 }
 
 .Excellent h4{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     padding-top: 2px;
 }
@@ -2698,8 +2698,13 @@ Portfolio-Page
 .Excellent h5{
     font-size: 18px;
     margin-left: 12px;
-    background: #24963F;
-    color: #fff;
+    padding: 4px 4px;
+    border-radius: 2px;
+}
+
+.Excellent h5{
+    font-size: 18px;
+    margin-left: 12px;
     padding: 4px 4px;
     border-radius: 2px;
 }
