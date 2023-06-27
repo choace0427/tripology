@@ -121,7 +121,7 @@
 
                             <tr>
                                 <td>Status</td>
-                                <td>{{ $operator_detail->status }}</td>
+                                <td>{{ ($operator_detail->status) ? 'Active' : 'Pending' }}</td>
                             </tr>
                         </table>
                     </div>
