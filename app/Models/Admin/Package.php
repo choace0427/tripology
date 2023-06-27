@@ -29,6 +29,15 @@ class Package extends Model
         'p_started_from',
         'p_operated_in',
         'p_qoute_form_photo',
+        'p_travel_guide',
+        'p_transposition_id',
+        'p_accomodation_id',
+        'p_traveller_id',
+        'p_rating',
+        'p_distance_id',
+        'p_travel_day',
+        'p_travel_accomodation',
+        'p_travel_type',
         'seo_title',
         'seo_meta_description'
     ];

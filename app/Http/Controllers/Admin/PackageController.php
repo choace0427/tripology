@@ -41,19 +41,19 @@ class PackageController extends Controller
         $transposition = DB::table('filter_option')->where('filter_type', 'transposition')->get();
         $ratings = DB::table('filter_option')->where('filter_type', 'rating')->get();
         $distance = DB::table('filter_option')->where('filter_type', 'distance')->get();
+        $combine = DB::table('filter_option')->where('filter_type', 'combine')->get();
 
         $destination=DB::table('destinations')->get();
-        return view('admin.package.create', compact('destination','ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
+        return view('admin.package.create', compact('destination', 'combine', 'ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
     }
 
     public function store(Request $request)
-    {
+    {   
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         $package = new Package();
         $data = $request->only($package->getFillable());
-
         $request->validate([
             'p_name' => 'required|unique:packages',
             'p_slug' => 'unique:packages',
@@ -73,6 +73,10 @@ class PackageController extends Controller
             'p_traveller_id' => 'required',
             'p_rating' => 'required',
             'p_distance_id' => 'required',
+            'p_travel_guide' => 'required',
+            'p_travel_day' => 'required',
+            'p_travel_type' => 'required',
+            'p_travel_accomodation' => 'required',
         ],
         [],
         [
@@ -92,15 +96,16 @@ class PackageController extends Controller
             'rating_id' => 'Package Hotel Rating Type',
             'distance_id' => 'Package Distance Type',
             'traveller_id' => 'Package Traveller Type',
-            'transposition_id' => 'Package Transposition Type'
+            'transposition_id' => 'Package Transposition Type',
+            'p_travel_guide' => 'Package Travel Guide',
+            'p_travel_day' => 'Package Travel Duration',
+            'p_travel_Type' => 'Package Travel Type',
+            'p_travel_accomodation' => 'Package Travel Accomodation',
         ]);
 
         if(empty($data['p_slug'])) {
             $data['p_slug'] = Str::slug($request->p_name);
         }
-
-        
-
 
         $statement = DB::select("SHOW TABLE STATUS LIKE 'packages'");
         $ai_id = $statement[0]->Auto_increment;
@@ -127,10 +132,7 @@ class PackageController extends Controller
         DB::table('package_filter')->insert(
             ['package_id' => $new_package->id , 'filter_id' => $data['p_rating']]
         );
-        DB::table('package_filter')->insert(
-            ['package_id' => $new_package->id , 'filter_id' => $data['p_distance_id']]
-        );
-        
+
         return redirect()->route('admin.package.index')->with('success', 'Package is added successfully!');
     }
 
