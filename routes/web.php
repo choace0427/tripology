@@ -9,6 +9,7 @@ use App\Http\Controllers\Agency\ProfileChangeController as ProfileChangeControll
 use App\Http\Controllers\Agency\PackageController as PackageControllerForAgency;
 
 use App\Http\Controllers\Admin\TravellerController;
+use App\Http\Controllers\Admin\OperatorController;
 use App\Http\Controllers\Admin\DashboardController as DashboardControllerForAdmin;
 use App\Http\Controllers\Admin\DynamicPageController;
 use App\Http\Controllers\Admin\DestinationController;
@@ -614,6 +615,15 @@ Route::get('admin/traveller/detail/{id}', [TravellerController::class,'detail'])
 Route::get('admin/traveller/make-active/{id}', [TravellerController::class,'make_active']);
 Route::get('admin/traveller/make-pending/{id}', [TravellerController::class,'make_pending']);
 Route::get('admin/traveller/delete/{id}', [TravellerController::class,'destroy']);
+
+/* --------------------------------------- */
+/* Operator - Admin */
+/* --------------------------------------- */
+Route::get('admin/operators', [OperatorController::class,'index'])->name('admin.operator.index');
+Route::get('admin/operators/detail/{id}', [OperatorController::class,'detail']);
+Route::get('admin/operators/make-active/{id}', [OperatorController::class,'make_active']);
+Route::get('admin/operators/make-pending/{id}', [OperatorController::class,'make_pending']);
+Route::get('admin/operators/delete/{id}', [OperatorController::class,'destroy']);
 
 
 /* --------------------------------------- */

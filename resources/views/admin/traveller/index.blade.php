@@ -34,7 +34,7 @@
                                 @endif                                
                             </td>
                             <td>
-                                <a href="{{ URL::to('admin/traveller/detail/'.$row->id) }}" class="btn btn-info btn-sm btn-block" target="_blank">Detail</a>
+                                <a href="{{ URL::to('admin/traveller/detail/'.$row->id) }}" class="btn btn-info btn-sm btn-block">Detail</a>
                                 @if($row->traveller_status == 'Active')
                                     <a href="{{ URL::to('admin/traveller/make-pending/'.$row->id) }}" class="btn btn-secondary btn-sm btn-block" onClick="return confirm('Are you sure?');">Make Pending</a>
                                 @else
