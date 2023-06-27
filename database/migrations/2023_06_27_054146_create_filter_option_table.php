@@ -15,13 +15,13 @@ class CreateFilterOptionTable extends Migration
     {
         Schema::create('filter_option', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('filter_name')->unique();
-            $table->text('filter_type')->unique();
-            $table->text('filter_slug')->unique();
+            $table->text('filter_name');
+            $table->text('filter_type');
+            $table->text('filter_slug');
             $table->timestamps();
         });
 
-        DB::table('groups')->insert([
+        DB::table('filter_option')->insert([
             ['filter_name' => 'Apartment', 'filter_type' => 'accomodation', 'filter_slug' => 'apartment'],
             ['filter_name' => 'Hostel', 'filter_type' => 'accomodation', 'filter_slug' => 'hostel'],
             ['filter_name' => 'Vocation Role', 'filter_type' => 'accomodation', 'filter_slug' => 'vocation role'],

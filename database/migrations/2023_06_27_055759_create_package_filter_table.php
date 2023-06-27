@@ -20,7 +20,7 @@ class CreatePackageFilterTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('groups')->insert([
+        DB::table('package_filter')->insert([
             ['package_id' => '23', 'filter_id' => '3'],
             ['package_id' => '23', 'filter_id' => '28'],
             ['package_id' => '23', 'filter_id' => '1'],
