@@ -14,6 +14,7 @@
                         <th>SL</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <td>Company Name</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -25,6 +26,7 @@
                             <!-- <td><img src="{{ asset('uploads/'.$row->photo) }}" alt="" class="w_200"></td> -->
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->email }}</td>
+                            <td>{{ $row->company_name }}</td>
                             <td>
                                 @if($row->status == '1')
                                     <span class="text-success">Active</span>
