@@ -142,7 +142,6 @@
                 </a>
             </li>
 
-            <!-- Dashboard -->
             <li class="nav-item @if($conName[1] == 'leads') active @endif">
                 <a class="nav-link" href="{{ route('agency.leads') }}">
                      <i class="fas fa-bullhorn"></i>
@@ -163,6 +162,20 @@
                 <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item @if($conName[1] == 'operator') active @endif">
+                <a class="nav-link" href="{{ route('admin.operator.index') }}">
+                    <i class="fas fa-user "></i>
+                    <span>Oprators</span>
+                </a>
+            </li>
+
+            <li class="nav-item @if($conName[1] == 'traveller') active @endif">
+                <a class="nav-link" href="{{ route('admin.traveller.index') }}">
+                    <i class="fas fa-suitcase"></i>
+                    <span>Travellers</span>
                 </a>
             </li>
             <!-- Destinations -->
@@ -226,12 +239,14 @@
             </li>
 
             <!-- Dashboard -->
-            <li class="nav-item @if($conName[1] == 'leads') active @endif">
+            <li class="nav-item @if($conName[1] == 'quotes') active @endif">
                 <a class="nav-link" href="{{ route('admin.leads') }}">
                     <i class="fas fa-bullhorn"></i>
-                    <span>Leads</span>
+                    <span>Quotes</span>
                 </a>
             </li>
+
+            
             @endif
             <!-- Dynamic Pages -->
             <!-- <li class="nav-item @if($conName[1] == 'dynamic-page') active @endif">
