@@ -2,14 +2,15 @@
 @section('admin_content')
 <h1 class="h3 mb-3 text-gray-800">Add Package</h1>
 
-<form action="{{ route('admin.package.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('admin.package.store') }}" id="addForm" method="post" enctype="multipart/form-data">
     @csrf
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Pakage</h6>
             <div class="float-right d-inline">
                 <a href="{{ route('admin.package.index') }}" class="btn btn-primary btn-sm"><i
-                        class="fa fa-arrow-left"></i> View All</a>
+                        class="fa fa-arrow-left"></i>
+                    View All</a>
             </div>
         </div>
         <div class="card-body">
@@ -184,72 +185,252 @@
                     @endforeach
                 </select>
             </div>
-            <div id="guide" class="form-group">
-
-                <div class="form-group" style="display: flex; width: 100%">
+            <div id="guide" name="guide" class="form-group">
+                <div id="travel0" class="form-group" style="display: flex; width: 100%">
                     <div style="width: 100%; margin-right: 10px">
-                        <label for="">Travel Guide</label>
-                        <select name="p_distance_id" style="width: 100%" class="form-control select2">
-                            @foreach($distance as $row)
-                            <option value="{{ $row->id }}">{{ $row->filter_name }}</option>
+                        <label>Travel Guide</label>
+                        <select name="travel_location0" class="form-control select2">
+                            @foreach($combine as $row)
+                            <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div style="display: flex">
-                        <div>
-                            <label for="travel_day">Travel Days</label>
-                            <input type="number" name="travel_day" class="form-control" value="{{ old('seo_title') }}">
+                    <div>
+                        <label>Travel Days</label>
+                        <div style="display: flex; justify-content: space-between">
+                            <input name="travel_day0" type="number" style="margin-right: 15px" class="form-control"
+                                value="0">
+                            <span id="add" onclick="add_travel_guide()" class="btn btn-success">
+                                <i class="fa fa-plus"></i>
+                            </span>
                         </div>
-                        <span id="add" onclick="add_option()" class="btn btn-success">
-                            ADD
-                        </span>
                     </div>
-
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <div name="travel_accomodation" id="travel_accomodation">
+                <label for="">Travel Accomodation</label>
+                <div class="form-group" style="display:flex">
+                    <input name="travel_accomodation0" class="form-control" style="margin-right: 15px">
+                    <span id="add_accomodation" onclick="add_travel_accomodation()" class="btn btn-success">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                </div>
+            </div>
+            <div name="travel_type" id="travel_type">
+                <label for="">Travel Type (Type - Start - Destination)</label>
+                <div class="form-group" style="display:flex; justify-content: space-between">
+                    <select name="travel_type0" class="form-control select2">
+                        @foreach($transposition as $row)
+                        <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
+                        @endforeach
+                    </select>
+                    <select name="travel_start0" class="form-control select2">
+                        @foreach($combine as $row)
+                        <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
+                        @endforeach
+                    </select>
+                    <select name="travel_destination0" class="form-control select2">
+                        @foreach($combine as $row)
+                        <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
+                        @endforeach
+                    </select>
+                    <span id="add_type" onclick="add_travel_type()" class="btn btn-success">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                </div>
+            </div>
+            <button id="submit" name="submit" class="btn btn-success">Submit</button>
         </div>
     </div>
 </form>
 
 <script>
-var count = 1;
+var travel_guide_count = 1;
+var travel_accomodation_count = 1;
+var travel_type_count = 1;
 var add = document.getElementById("add");
 var remove = document.getElementById("delete");
-var content = '';
 var guide = document.getElementById("guide");
+var travel_location = [];
 
-function add_option() {
-
-    content += `
-            <div class="form-group" style="display: flex; width: 100%">
-                <div style="width: 100%; margin-right: 10px">
-                    <label for="">Travel Guide</label>
-                    <select name="p_distance_id" style="width: 100%" class="form-control select2">
-                        @foreach($distance as $row)
-                        <option value="{{ $row->id }}">{{ $row->filter_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div style="display: flex">
-                    <div>
-                        <label for="travel_day">Travel Days</label>
-                        <input type="number" name="travel_day" class="form-control" value="{{ old('seo_title') }}">
-                    </div>
-                    <span id="add" onclick="add_option()" class="btn btn-success">
-                        Remove
+function add_travel_guide() {
+    var newElem = `<div id="travel${travel_guide_count}" class="form-group" style="display: flex; width: 100%">
+            <div name="travel" style="width: 100%; margin-right: 10px">
+            <select name="travel_location${travel_guide_count}" style="width: 100%" class="form-control select2">
+                @foreach($combine as $row)
+                    <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
+                @endforeach
+            </select>
+            </div>
+            <div>
+                <div style="display: flex; justify-content: space-between" name="travel_day">
+                    <input name="travel_day${travel_guide_count}" type="number" style="margin-right: 15px" class="form-control"
+                    value="0">
+                    <span id="add" onclick="remove_travel_guide(${travel_guide_count})" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i>
                     </span>
                 </div>
-
             </div>
-        `;
-    guide.innerHTML = content;
-    id++;
+        </div>`;
+
+    $('#guide').append(newElem);
+
+    get_travel_guide_data(travel_guide_count);
+    travel_guide_count++;
 }
 
-function remove() {
-    console.log("remove");
+function add_travel_accomodation() {
+    // var addelement = document.createElement("div");
+    var newElem = `
+        <div class="form-group" id="travel_accomodation${travel_accomodation_count}" style="display:flex">
+        <input name="travel_accomodation${travel_accomodation_count}" class="form-control" style="margin-right: 15px">
+        <span id="remove_accomodation" onclick="remove_travel_accomodation(${travel_accomodation_count})" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+        </span>
+        </div>
+    `;
+
+    $('#travel_accomodation').append(newElem);
+    get_travel_accomodation_data(travel_accomodation_count);
+    travel_accomodation_count++;
 }
+
+function add_travel_type() {
+    var newElem = `
+        <div class="form-group" id="travel_type${travel_type_count}" style="display:flex; justify-content: space-between">
+            <select name="travel_type${travel_type_count}" class="form-control select2">
+                @foreach($transposition as $row)
+                <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
+                @endforeach
+            </select>
+            <select name="travel_start${travel_type_count}" class="form-control select2">
+                @foreach($combine as $row)
+                <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
+                @endforeach
+            </select>
+            <select name="travel_destination${travel_type_count}" class="form-control select2">
+                @foreach($combine as $row)
+                <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
+                @endforeach
+            </select>
+            <span id="remove_type" onclick="remove_travel_type(${travel_type_count})" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </div>
+    `;
+    $('#travel_type').append(newElem);
+    get_travel_type_data(travel_type_count);
+    travel_type_count++;
+}
+
+function remove_travel_type(count) {
+    var elementToRemove = document.getElementById('travel_type' + count);
+    elementToRemove.parentNode.removeChild(elementToRemove);
+}
+
+function remove_travel_guide(count) {
+    var elementToRemove = document.getElementById('travel' + count);
+    elementToRemove.parentNode.removeChild(elementToRemove);
+}
+
+function remove_travel_accomodation(count) {
+    var elementToRemove = document.getElementById('travel_accomodation' + count);
+    console.log(elementToRemove);
+    elementToRemove.parentNode.removeChild(elementToRemove);
+}
+
+function get_travel_type_data(travel_type_count) {
+    var data = [];
+    var elements = document.querySelectorAll('div[name="travel_type"]');
+    if (elements.length > 0) {
+        for (var i = 0; i <= elements.length; i++) {
+            var type = document.querySelector('select[name^="travel_type' + i + '"]').value;
+            var start = document.querySelector('select[name^="travel_start' + i + '"]').value;
+            var destination = document.querySelector('select[name^="travel_destination' + i + '"]').value;
+            var travel_type = type + " Trip to " + " " + destination + " (" + start + ")";
+            data.push(travel_type);
+        }
+    } else {
+        var type = document.querySelector('select[name^="travel_type0"]').value;
+        var start = document.querySelector('select[name^="travel_start0"]').value;
+        var destination = document.querySelector('select[name^="travel_destination0"]').value;
+        var travel_type = type + " Trip to " + " " + destination + " (" + start + ")";
+        data.push(travel_type);
+    }
+    return {
+        data: data,
+    };
+}
+
+function get_travel_guide_data(travel_guide_count) {
+    var data = [];
+    var travel_day = 0;
+    var elements = document.querySelectorAll('#guide div[name="travel_day"]');
+    if (elements.length > 0) {
+        for (var i = 0; i <= elements.length; i++) {
+            var location = document.querySelector('select[name^="travel_location' + i + '"]').value;
+            var day = document.querySelector('input[name="travel_day' + i + '"]').value;
+            var locationWithDay = location + " (" + day + "N)";
+            data.push(locationWithDay);
+            travel_day += parseInt(day);
+            console.log(travel_day);
+        }
+    } else {
+        var location = document.querySelector('select[name^="travel_location0"]').value;
+        var day = document.querySelector('input[name="travel_day0"]').value;
+        var locationWithDay = location + " (" + day + "N)";
+        data.push(locationWithDay);
+        travel_day = parseInt(day);
+    }
+    return {
+        data: data,
+        travel_day: travel_day
+    };
+}
+
+function get_travel_accomodation_data(travel_accomodation_count) {
+    var data = [];
+    var elements = document.querySelectorAll('div[name="travel_accomodation"]');
+    console.log(elements)
+    if (elements.length > 0) {
+        console.log(travel_accomodation_count, elements.length);
+        for (var i = 0; i <= elements.length; i++) {
+            var accomodation = document.querySelector('input[name="travel_accomodation' + i + '"]').value;
+            data.push(accomodation);
+        }
+    } else {
+        var accomodation = document.querySelector('input[name="travel_accomodation0"]').value;
+        data.push(accomodation);
+    }
+    return {
+        data: data
+    };
+}
+
+const submitter = document.querySelector("button[name=submit]");
+
+submitter.addEventListener('click', (event) => {
+
+    const form = document.getElementById("addForm");
+    const formData = new FormData(form);
+
+    event.preventDefault();
+    formData.append('_token', '{{ csrf_token() }}');
+    formData.append('p_travel_guide', get_travel_guide_data(travel_guide_count).data);
+    formData.append('p_travel_day', get_travel_guide_data(travel_guide_count).travel_day);
+    formData.append('p_travel_accomodation', get_travel_accomodation_data(travel_accomodation_count).data);
+    formData.append('p_travel_type', get_travel_type_data(travel_type_count).data);
+    fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            // Handle error
+        });
+});
 </script>
 
 @endsection

@@ -655,6 +655,8 @@ Route::post('/lead/store', [LeadController::class, 'store'])->name('lead.store')
 //-----Front Filter Option-----------//
 Route::get('package/filter/list/', [FilterControllerForFront::class, 'index']);
 Route::get('package/filter/list/{slug}', [FilterControllerForFront::class, 'package_filter']);
+Route::post('package/filter/pagination/', [FilterControllerForFront::class, 'package_filter_pagination']);
+// Route::post('package/filter/list', [FilterControllerForFront::class, 'package_pagination']);
 
 //-----Admin Filter Option-----------//
 
@@ -664,4 +666,3 @@ Route::post('admin/filter/store', [FilterControllerForAdmin::class, 'store']);
 Route::get('admin/filter/delete/{id}', [FilterControllerForAdmin::class, 'delete'])->name('admin.filter.delete');
 Route::get('admin/filter/edit/{id}', [FilterControllerForAdmin::class,'edit'])->name('admin.filter.edit');
 Route::post('admin/filter/update/{id}', [FilterControllerForAdmin::class,'update']);
-
