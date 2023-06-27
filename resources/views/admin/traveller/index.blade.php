@@ -14,7 +14,8 @@
                         <th>SL</th>
                         <th>Traveller Name</th>
                         <th>Traveller Email</th>
-                        <th>Traveller Status</th>
+                        <th>Traveller Phone</th>
+                        <th>Traveller City</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -24,7 +25,9 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->traveller_name }}</td>
                             <td>{{ $row->traveller_email }}</td>
-                            <td>
+                            <td>{{ $row->traveller_phone }}</td>
+                            <td>{{ $row->traveller_city }}</td>
+                            <!--td>
                                 @if($row->traveller_status == 'Active')
                                     <span class="text-success">{{ $row->traveller_status }}</span>
                                 @endif
@@ -32,14 +35,15 @@
                                 @if($row->traveller_status == 'Pending')
                                     <span class="text-danger">{{ $row->traveller_status }}</span>
                                 @endif                                
-                            </td>
+                            </td-->
                             <td>
                                 <a href="{{ URL::to('admin/traveller/detail/'.$row->id) }}" class="btn btn-info btn-sm btn-block">Detail</a>
-                                @if($row->traveller_status == 'Active')
+                                <!--@if($row->traveller_status == 'Active')
                                     <a href="{{ URL::to('admin/traveller/make-pending/'.$row->id) }}" class="btn btn-secondary btn-sm btn-block" onClick="return confirm('Are you sure?');">Make Pending</a>
                                 @else
                                     <a href="{{ URL::to('admin/traveller/make-active/'.$row->id) }}" class="btn btn-secondary btn-sm btn-block" onClick="return confirm('Are you sure?');">Make Active</a>
                                 @endif
+                                -->
                                 <a href="{{ URL::to('admin/traveller/delete/'.$row->id) }}" class="btn btn-danger btn-sm btn-block" onClick="return confirm('Are you sure?');">Delete</a>
                             </td>
                         </tr>

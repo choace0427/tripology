@@ -25,6 +25,10 @@ class Lead extends Model
         return $this->belongsTo('App\Models\Admin\Package');
     }
 
+    public function operator(){
+        return $this->belongsTo('App\Models\Admin\Admin','agency_id');
+    }
+
     public function chat()
     {
         return $this->hasMany(LeadChat::class);

@@ -34,7 +34,7 @@ class OperatorController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
 
-        $data['status'] = 'Active';
+        $data['status'] = '1';
         DB::table('admins')->where('id',$id)->update($data);
 
         return redirect()->route('admin.operator.index')->with('success', 'Operator status is changed to active successfully!');
@@ -46,7 +46,7 @@ class OperatorController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
 
-        $data['status'] = 'Pending';
+        $data['status'] = '0';
         DB::table('admins')->where('id',$id)->update($data);
 
         return redirect()->route('admin.operator.index')->with('success', 'Operator status is changed to pending successfully!');
