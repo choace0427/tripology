@@ -229,7 +229,7 @@
 <div class="container">
    <div class="row mt-5">
       <div class="col-md-12">
-         <div class="explore">
+         <div class="explore my-3">
             <h2>Recent View</h2>
          </div>
       </div>
@@ -239,7 +239,7 @@
          <div class="owl-carousel runforthree owl-theme">
           @foreach($packages as $package)
             <div class="item" >
-              <div class="text-start nadi">
+              <div class="text-start nadi package-border">
                   <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="{{$package->p_name}}">
                   <div class="herat add_to_wishlist" id="add_to_wishlist_{{$package->id}}">
 
@@ -328,13 +328,13 @@
 <!-- section-6 -->
 <!-- section-6 -->
 <!-- section-6 -->
-<div class="bg-4 ges1 upcoming mt-5">
+<div class="bg-4 ges1 upcoming">
    <div class="container pt-3">
       <div class="row">
          <div class="col-md-12">
             <div class="row">
                <div class="col-md-12">
-                  <div class="explore">
+                  <div class="explore my-4">
                      <h2>Places to visit in upcoming months</h2>
                   </div>
                </div>
@@ -344,49 +344,61 @@
                   <div class="img-icon-2">
                      <div class="owl-carousel runforthree owl-theme">
                         <div class="item" >
-                           <div class="text-start">
+                           <div class="text-center nadi package-border">
                               <img src="images/img-1.png" alt="">
+                              <div class="month-bg-blue">
                               <h5><?php echo date('F', strtotime("+3 month")); ?></h5>
                            </div>
+                           </div>
                         </div>
                         <div class="item" >
-                           <div class="text-start">
+                           <div class="text-center nadi package-border">
                               <img src="images/img-2.png" alt="">
+                              <div class="month-bg-blue">
                               <h5><?php echo date('F', strtotime("+2 month")); ?></h5>
+                              </div>
                            </div>
                         </div>
                         <div class="item" >
-                           <div class="text-start">
+                           <div class="text-center nadi package-border">
                               <img src="images/img-3.png" alt="">
+                              <div class="month-bg-blue">
                               <h5><?php echo date('F', strtotime("+1 month")); ?></h5>
+                              </div>
                            </div>
                         </div>
                         <div class="item" >
-                           <div class="text-start">
+                           <div class="text-center nadi package-border">
                               <img src="images/img-4.png" alt="">
+                              <div class="month-bg-blue">
                               <h5><?php echo date('F', strtotime("+6 month")); ?></h5>
+                              </div>
                            </div>
                         </div>
                         <div class="item" >
-                           <div class="text-start">
+                           <div class="text-center nadi package-border">
                               <img src="images/img-5.png" alt="">
+                              <div class="month-bg-blue">
                               <h5><?php echo date('F', strtotime("+5 month")); ?></h5>
+                              </div>
                            </div>
                         </div>
                         <div class="item" >
-                           <div class="text-start">
+                           <div class="text-center nadi package-border">
                               <img src="images/img-6.png" alt="">
+                              <div class="month-bg-blue">
                               <h5><?php echo date('F', strtotime("+4 month")); ?></h5>
+                              </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-            <div class="row mt-4 ges1">
+            <div class="row ges1">
                <div class="col-md-12">
                   <div class="explore">
-                     <h2>Packages in trend</h2>
+                     <h2 class="mb-4">Packages in trend</h2>
                   </div>
                </div>
             </div>
@@ -396,7 +408,7 @@
                      <div class="owl-carousel runforthree owl-theme">
                         @foreach($featured_packages as $package)
                         <div class="item" >
-                           <div class="text-start">
+                           <div class="text-start package-border">
                               <img src="{{ asset('uploads/'.$package->p_photo) }}" alt="">
                               <h5  style="direction: ltr;">{!! $package->p_name !!}</h5>
                               <h6>Starting from $ <span>{{ $package->p_price }}</span></h6>
@@ -516,7 +528,7 @@
                      <div @if($count == 0) class="tab-pane fade show active" @else class="tab-pane" @endif id="pills-home-{{ $dest->id }}" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                         @if($dest->children->isNotEmpty())
                            <div class="row">
-                              <div class="col-md-3 ps-0">
+                              <div class="col-12 ps-0">
                                  <div class="amal">
                                     <ul>
                                        @foreach($dest->children as $child)
