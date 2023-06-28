@@ -21,7 +21,8 @@
                 </div>
             </div>
             <div class="row mt-4 ">
-                <div class="col-md-3 banda" id="filter_option" style="overflow: hidden">
+                <div class="col-md-3 banda" id="filter_option"
+                    style="overflow-y: scroll; padding: 10px 12px !important">
                     <form action="{{ url('package/filter/list') }}" method="GET" id="filter">
                         <div class="row">
                             <div class="col-md-6">
@@ -32,7 +33,7 @@
 
                             <div class="col-md-6">
                                 <div class="babba3">
-                                    <a class="hover" style="cursor: pointer;" onclick="reset()">Reset All</a>
+                                    <h5 style="cursor: pointer;" onclick="reset()">Reset All</a>
                                 </div>
                             </div>
                         </div>
@@ -231,12 +232,12 @@
                 </div>
                 <div class="col-md-9">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <div class="sort">
-                                <h6>{{$filter_count}} Holiday Packages for Vietnam Found</h6>
+                                <h6>{{$filter_count}} Holiday Packages Found</h6>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="row rty">
                                 <div class="col-md-6 rty1 text-end">
                                     <div class="sort">
@@ -245,7 +246,22 @@
                                 </div>
 
                                 <div class="col-md-6 rty1">
-                                    <div class="sort"><button>Relvance</button></div>
+                                    <select class="form-select" id="filter_sort" name="filter_sort">
+                                        <option value="p_price" data-url="{{$filter_slug}}">Price</option>
+                                        <option value="p_travel_day" data-url="{{$filter_slug}}">Duration</option>
+                                    </select>
+                                    <!-- <div class="dropdown sort">
+                                        <a class="dropdown-toggle" type="button" id="dropdownMenuSort"
+                                            data-bs-toggle="dropdown">
+                                            Operator
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuSort">
+                                            <li><a class="dropdown-item">Price</a>
+                                            </li>
+                                            <li><a class="dropdown-item">Traveller</a></li>
+                                        </ul>
+
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -268,14 +284,20 @@
                             <div class="lock">
 
                                 <h6>{{ $row->p_travel_day }} Nights / {{ $row->p_travel_day + 1 }} Days</h6>
-                                <h5>Experience the Best of Vietnam from India - {{ $row->p_travel_day }} Nights
+                                <h5>{{ $row->p_name}} from India - {{ $row->p_travel_day }} Nights
                                     {{ $row->p_travel_day + 1 }} Days</h5>
                                 @php
                                 $travel_guide = explode(",", $row->p_travel_guide);
+                                $count = count($travel_guide);
+                                $re_count = 1;
                                 @endphp
                                 @foreach ($travel_guide as $guide)
-                                <span id="travel_guide">{{ $guide }} → </span>
+                                <span id="travel_guide">{{ $guide }} @if($count != $re_count) → @endif </span>
+                                @php
+                                $re_count++;
+                                @endphp
                                 @endforeach
+
                                 @php
                                 $travel_accomodation = explode(",", $row->p_travel_accomodation);
                                 @endphp
@@ -289,6 +311,7 @@
                                     </div>
                                     @endforeach
                                 </div>
+
                                 @php
                                 $travel_type = explode(",", $row->p_travel_type);
                                 @endphp
@@ -299,18 +322,6 @@
                         </div>
 
                         <div class="col-md-3 mekong">
-                            <div class="row item-list">
-                                <div class="col-md-6">
-                                    <div>
-                                        <h6>INR 62,000</h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div>
-                                        <button>6% off</button>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -324,15 +335,8 @@
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <div class="get">
-                                        <button>Get Quotes ></button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <div class="get2">
-                                        <button>Get Quotes ></button>
+                                        <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">Get Quotes
+                                            ></button>
                                     </div>
                                 </div>
                             </div>
@@ -371,96 +375,62 @@
                     </div>
                     <div id="test"></div>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <div class="babba">
-                            <h5>Best International Tour Packages</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-1">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="tub">
-                                    <img src="{{ asset('images/tub1.png') }}" alt="">
-                                    <h6>Hanoi Packages</h6>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="tub">
-                                    <img src="{{ asset('images/tub2.png') }}" alt="">
-                                    <h6>Phu Quoc Island Packages</h6>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="tub">
-                                    <img src="{{ asset('images/tub3.png') }}" alt="">
-                                    <h6>Siem Reap Packages</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <div class="babba">
-                            <h5>Best International Tour Packages</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div>
-                            <div class="owl-carousel runforfour owl-theme">
-                                <div class="item84">
-                                    <div class="text-start">
-                                        <img src="{{ asset('images/raj1.png') }}" alt="">
-                                        <h5> Maldives Packages</h5>
-                                    </div>
-                                </div>
-                                <div class="item84">
-                                    <div class="text-start">
-                                        <img src="{{ asset('images/raj2.png') }}" alt="">
-                                        <h5> Maldives Packages</h5>
-                                    </div>
-                                </div>
-                                <div class="item84">
-                                    <div class="text-start">
-                                        <img src="{{ asset('images/raj3.png') }}" alt="">
-                                        <h5> Maldives Packages</h5>
-                                    </div>
-                                </div>
-                                <div class="item84">
-                                    <div class="text-start">
-                                        <img src="{{ asset('images/raj4.png') }}" alt="">
-                                        <h5> Maldives Packages</h5>
-                                    </div>
-                                </div>
-                                <div class="item84">
-                                    <div class="text-start">
-                                        <img src="{{ asset('images/raj1.png') }}" alt="">
-                                        <h5> Maldives Packages</h5>
-                                    </div>
-                                </div>
-                                <div class="item84">
-                                    <div class="text-start">
-                                        <img src="{{ asset('images/raj2.png') }}" alt="">
-                                        <h5> Maldives Packages</h5>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content popup-bg">
+            <div class="modal-header">
+                <button type="button" class="btn-close" style="background: none;" data-bs-dismiss="modal"
+                    aria-label="Close">x</button>
+            </div>
+            <form id="leads_form">
+                <div class="modal-body ms-4">
+                    <h2>Get a Quote</h2>
+                    <div class="alert alert-danger print-error-msg" style="display:none">
+                        <ul></ul>
+                    </div>
+                    <div class="popup-input">
+                        <input type="text" placeholder="First Name" name="first_name" id="first_name"
+                            value="{{ old('first_name') }}">
+                    </div>
+
+                    <div class="popup-input mt-4">
+                        <input type="text" placeholder="Last Name" id="last_name" name="last_name"
+                            value="{{ old('last_name') }}">
+                    </div>
+
+                    <div class="popup-input mt-4">
+                        <input type="text" placeholder="Phone Number" id="phone_number" name="phone_number"
+                            value="{{ old('phone_number') }}">
+                    </div>
+
+                    <div class="popup-input mt-4">
+                        <input type="text" placeholder="Email" id="email" name="email" value="{{ old('email') }}">
+                    </div>
+
+                    <div class="popup-input mt-4">
+                        <input type="date" placeholder="Start date" id="start_date" name="start_date"
+                            value="{{ old('start_date') }}">
+                    </div>
+
+                    <div class="popup-input mt-4">
+                        <input type="date" placeholder="End date" id="end_date" name="end_date"
+                            value="{{ old('end_date') }}">
+                    </div>
+
+                    <div class="popup-input ms-2 mt-4">
+                        <button type="submit" class="btn-submit">submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <output id="output"></output>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -484,13 +454,22 @@ $(function() {
             }
         });
 
-        var url = 'https://tripology.nodesure.com/package/filter/list/' + Object.keys(params).map(
+        var url = '/package/filter/list/' + Object.keys(params).map(
             // var url = 'http://localhost:8000/package/filter/list/' + Object.keys(params).map(
             function(key) {
                 return key + '=' + params[key].join(',');
             }).join('+');
 
         window.location.href = url;
+    });
+});
+
+$(function() {
+    $('#filter_sort').change(function(e) {
+        var selectedOption = e.target.options[e.target.selectedIndex];
+        var selectedValue = selectedOption.value;
+        var selectedUrl = selectedOption.getAttribute('data-url');
+        package_filter(1, selectedUrl);
     });
 });
 
@@ -501,6 +480,10 @@ $.ajaxSetup({
 });
 
 function package_filter(page, filter_url) {
+    var sort_optionSelect = document.querySelector('select[name="filter_sort"]');
+    if (sort_optionSelect !== null) {
+        var sort_option = sort_optionSelect.value;
+    }
     $.ajax({
         url: "{{ url('package/filter/pagination/') }}",
         method: "POST",
@@ -511,11 +494,12 @@ function package_filter(page, filter_url) {
         data: {
             filterUrl: filter_url,
             page: page,
+            sort_option: sort_option
         },
         success: function(res) {
-            console.log(((res.filter_data[0].p_travel_accomodation).split(",")).length);
             var elems = document.getElementById('filter_list');
             elems.innerHTML = `<div></div>`;
+            console.log((res.filter_data).length);
             for (var i = 0; i < (res.filter_data).length; i++) {
 
                 elems.innerHTML += `
@@ -530,7 +514,7 @@ function package_filter(page, filter_url) {
                             <div class="lock">
 
                                 <h6>${parseInt(res.filter_data[i].p_travel_day)} Nights / ${parseInt(res.filter_data[i].p_travel_day) + 1 } Days</h6>
-                                <h5>Experience the Best of Vietnam from India - ${ parseInt(res.filter_data[i].p_travel_day) } Nights
+                                <h5>${res.filter_data[i].p_name} from India - ${ parseInt(res.filter_data[i].p_travel_day) } Nights
                                     ${ parseInt(res.filter_data[i].p_travel_day) + 1 } Days</h5>
                                 <span id="travel_guide" guidekey="${i}"></span>
                                 <div id="travel_accomodation" class="row" key="${i}"></div>
@@ -539,19 +523,6 @@ function package_filter(page, filter_url) {
                         </div>
 
                         <div class="col-md-3 mekong">
-                            <div class="row item-list">
-                                <div class="col-md-6">
-                                    <div>
-                                        <h6>INR 62,000</h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div>
-                                        <button>6% off</button>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div>
@@ -564,15 +535,7 @@ function package_filter(page, filter_url) {
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <div class="get">
-                                        <button>Get Quotes ></button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <div class="get2">
-                                        <button>Get Quotes ></button>
+                                        <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">Get Quotes ></button>
                                     </div>
                                 </div>
                             </div>
@@ -582,11 +545,18 @@ function package_filter(page, filter_url) {
                 var elems_accomodation = document.querySelector(`div[key="${i}"]`);
                 var elems_guide = document.querySelector(`span[guidekey="${i}"]`);
                 var elems_type = document.querySelector(`h4[typekey="${i}"]`);
+                var count = ((res.filter_data[i].p_travel_guide).split(",")).length;
 
                 for (var j = 0; j < ((res.filter_data[i].p_travel_guide).split(",")).length; j++) {
-                    elems_guide.innerHTML += `
-                        ${((res.filter_data[i].p_travel_guide).split(","))[j]} → 
-                    `;
+                    if (j != count - 1) {
+                        elems_guide.innerHTML += `
+                            ${((res.filter_data[i].p_travel_guide).split(","))[j]} → 
+                        `;
+                    } else {
+                        elems_guide.innerHTML += `
+                            ${((res.filter_data[i].p_travel_guide).split(","))[j]}
+                        `;
+                    }
                 }
 
                 for (var j = 0; j < ((res.filter_data[i].p_travel_type).split(",")).length; j++) {
@@ -596,7 +566,6 @@ function package_filter(page, filter_url) {
                 }
 
                 for (var j = 0; j < ((res.filter_data[i].p_travel_accomodation).split(",")).length; j++) {
-                    console.log((res.filter_data[i].p_travel_accomodation).split(","));
                     elems_accomodation.innerHTML += `
                     <div class="col-md-4">
                         <div>
@@ -616,45 +585,13 @@ function package_filter(page, filter_url) {
 }
 
 function reset() {
-    window.location.href = 'https://tripology.nodesure.com/package/filter/list/';
+    window.location.href = '/package/filter/list/';
     // window.location.href = 'http://localhost:8000/package/filter/list/';
 }
 
 function filter_option() {
     const form = document.getElementById("filter");
 }
-
-var isDragging = false;
-var startX, startY;
-var scrollLeft, scrollTop;
-
-var scrollContainer = document.getElementById('filter_option');
-
-scrollContainer.addEventListener('mousedown', function(e) {
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    scrollLeft = scrollContainer.scrollLeft;
-    scrollTop = scrollContainer.scrollTop;
-});
-
-document.addEventListener('mousemove', function(e) {
-    if (!isDragging) return;
-
-    var deltaX = e.clientX - startX;
-    var deltaY = e.clientY - startY;
-
-    scrollContainer.scrollLeft = scrollLeft - deltaX;
-    scrollContainer.scrollTop = scrollTop - deltaY;
-});
-
-document.addEventListener('mouseup', function() {
-    isDragging = false;
-});
-
-$(document).ready(function() {
-
-})
 </script>
 
 @endsection

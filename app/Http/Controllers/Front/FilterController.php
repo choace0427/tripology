@@ -119,7 +119,7 @@ class FilterController extends Controller
     }
 
     public function package_filter_pagination(Request $request) {
-        if($request->filterURL == null) {
+        if($request->filterUrl == null) {
             $accomodation = DB::table('filter_option')->where('filter_type', 'accomodation')->get();
             $traveller_type = DB::table('filter_option')->where('filter_type', 'traveller_type')->get();
             $duration = DB::table('filter_option')->where('filter_type', 'duration')->get();
@@ -131,12 +131,11 @@ class FilterController extends Controller
             $destination=DB::table('destinations')->get();
             $filter_count = DB::table("packages")->count();
             $filter_slug = "";
+            $sort_option = $request->sort_option;
             $offset = 5 * (intval($request->page) - 1);
-            // $filter_data = DB::table('packages')->get();
-            $filter_data = DB::select("SELECT * FROM packages ORDER BY id LIMIT 5 OFFSET ".$offset."");
+            $filter_data = DB::select("SELECT * FROM packages ORDER BY ".$sort_option." LIMIT 5 OFFSET ".$offset."");
             $page = ceil(count(DB::table('packages')->get()) / 5);
             $type_list = "";
-        // return view('pages.package_filter', compact('filter_data', 'test', 'filter_slug', 'combine', 'type_list', 'filter_count', 'page', 'price', 'destination', 'duration', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
             return response()->json([
                 'filter_data' => $filter_data,
                 'filter_slug' => $filter_slug,
@@ -154,7 +153,7 @@ class FilterController extends Controller
                 'transposition' => $transposition
             ]);
         } else {
-            $array = explode("+", $request->filterURL);
+            $array = explode("+", $request->filterUrl);
             $subarray_data = array();
             foreach ($array as $row){
                 $subarray = explode("=", $row);
@@ -170,6 +169,8 @@ class FilterController extends Controller
             $price = DB::table('filter_option')->where('filter_type', 'price')->get();
             $combine = DB::table('filter_option')->where('filter_type', 'combine')->get();
             $destination=DB::table('destinations')->get();
+            $sort_option = $request->sort_option;
+            $filter_slug = $request->filterUrl;
             $type_list = '';
             if(intval($request->page)) {
                 $offset = 5 * (intval($request->page) - 1);
@@ -214,22 +215,40 @@ class FilterController extends Controller
                     }, $type);
                 }
                 $type_list = rtrim($data, ','); 
-                foreach ($subarray_data as $key => $value) {
+                foreach ($subarray_id as $key => $value) {
                     if($i == 1){
-                        $query = $query."FROM (SELECT * FROM package_filter WHERE filter_id in (".$output.")) t_1 ";
+                        $query = $query."FROM (SELECT * FROM package_filter WHERE filter_id in (".$value.")) t_1 ";
                         $i++;
                         continue;
                     }
                         $j = $i -1;
-                        $query = $query."INNER JOIN (SELECT * FROM package_filter WHERE filter_id in (".$output.")) t_".$i." ON t_".$j.".package_id = t_".$i.".package_id ";
+                        $query = $query."INNER JOIN (SELECT * FROM package_filter WHERE filter_id in (".$value.")) t_".$i." ON t_".$j.".package_id = t_".$i.".package_id ";
                     $i++;
                 }
-                $query = $query.") ORDER BY id LIMIT 5 OFFSET ".$offset." ";
-                dd($query);
+                $query = $query.") ORDER BY ".$sort_option." LIMIT 5 OFFSET ".$offset." ";
+
                 $filter_data = DB::select($query);
                 $page = ceil(count($filter_data) / 5);
                 $filter_count = count($filter_data);
-                return view('pages.package_filter', compact('filter_data', 'combine', 'type_list', 'filter_count', 'page', 'price', 'destination', 'duration', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
+                
+                return response()->json([
+                    'filter_data' => $filter_data,
+                    'filter_slug' => $filter_slug,
+                    'combine' => $combine,
+                    'type_list' => $type_list,
+                    'filter_count' => $filter_count,
+                    'page' => $page,
+                    'price' => $price,
+                    'destination' => $destination,
+                    'duration' => $duration,
+                    'accomodation' => $accomodation,
+                    'traveller_type' => $traveller_type,
+                    'distance' => $distance,
+                    'ratings' => $ratings,
+                    'transposition' => $transposition
+                ]);
+
+                // return view('pages.package_filter', compact('filter_data', 'filter_slug', 'combine', 'type_list', 'filter_count', 'page', 'price', 'destination', 'duration', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
             }
     }
 

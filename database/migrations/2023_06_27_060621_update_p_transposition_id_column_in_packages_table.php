@@ -14,6 +14,7 @@ class UpdatePTranspositionIdColumnInPackagesTable extends Migration
     public function up()
     {
         Schema::table('packages', function (Blueprint $table) {
+            $table->integer('p_price')->nullable();
             $table->integer('p_transposition_id')->nullable();
             $table->integer('p_accomodation_id')->nullable();
             $table->integer('p_traveller_id')->nullable();
