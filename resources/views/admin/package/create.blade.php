@@ -187,7 +187,7 @@
             </div>
             <div id="guide" name="guide" class="form-group">
                 <div id="travel0" class="form-group" style="display: flex; width: 100%">
-                    <div style="width: 100%; margin-right: 10px">
+                    <div name="travel" style="width: 100%; margin-right: 10px">
                         <label>Travel Guide</label>
                         <select name="travel_location0" class="form-control select2">
                             @foreach($combine as $row)
@@ -207,18 +207,18 @@
                     </div>
                 </div>
             </div>
-            <div name="travel_accomodation" id="travel_accomodation">
+            <div id="travel_accomodation">
                 <label for="">Travel Accomodation</label>
-                <div class="form-group" style="display:flex">
+                <div name="travel_accomodation" class="form-group" style="display:flex">
                     <input name="travel_accomodation0" class="form-control" style="margin-right: 15px">
                     <span id="add_accomodation" onclick="add_travel_accomodation()" class="btn btn-success">
                         <i class="fa fa-plus"></i>
                     </span>
                 </div>
             </div>
-            <div name="travel_type" id="travel_type">
+            <div id="travel_type">
                 <label for="">Travel Type (Type - Start - Destination)</label>
-                <div class="form-group" style="display:flex; justify-content: space-between">
+                <div name="travel_type" class="form-group" style="display:flex; justify-content: space-between">
                     <select name="travel_type0" class="form-control select2">
                         @foreach($transposition as $row)
                         <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
@@ -280,9 +280,8 @@ function add_travel_guide() {
 }
 
 function add_travel_accomodation() {
-    // var addelement = document.createElement("div");
     var newElem = `
-        <div class="form-group" id="travel_accomodation${travel_accomodation_count}" style="display:flex">
+        <div name="travel_accomodation" class="form-group" id="travel_accomodation${travel_accomodation_count}" style="display:flex">
         <input name="travel_accomodation${travel_accomodation_count}" class="form-control" style="margin-right: 15px">
         <span id="remove_accomodation" onclick="remove_travel_accomodation(${travel_accomodation_count})" class="btn btn-danger">
             <i class="fas fa-trash-alt"></i>
@@ -297,7 +296,7 @@ function add_travel_accomodation() {
 
 function add_travel_type() {
     var newElem = `
-        <div class="form-group" id="travel_type${travel_type_count}" style="display:flex; justify-content: space-between">
+        <div name="travel_type" class="form-group" id="travel_type${travel_type_count}" style="display:flex; justify-content: space-between">
             <select name="travel_type${travel_type_count}" class="form-control select2">
                 @foreach($transposition as $row)
                 <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
@@ -335,7 +334,6 @@ function remove_travel_guide(count) {
 
 function remove_travel_accomodation(count) {
     var elementToRemove = document.getElementById('travel_accomodation' + count);
-    console.log(elementToRemove);
     elementToRemove.parentNode.removeChild(elementToRemove);
 }
 
@@ -343,10 +341,15 @@ function get_travel_type_data(travel_type_count) {
     var data = [];
     var elements = document.querySelectorAll('div[name="travel_type"]');
     if (elements.length > 0) {
-        for (var i = 0; i <= elements.length; i++) {
-            var type = document.querySelector('select[name^="travel_type' + i + '"]').value;
-            var start = document.querySelector('select[name^="travel_start' + i + '"]').value;
-            var destination = document.querySelector('select[name^="travel_destination' + i + '"]').value;
+        for (var i = 0; i < elements.length; i++) {
+            var typeSelect = document.querySelector('select[name^="travel_type' + i + '"]');
+            var startSelect = document.querySelector('select[name^="travel_start' + i + '"]');
+            var destinationSelect = document.querySelector('select[name^="travel_destination' + i + '"]');
+            if (typeSelect !== null && startSelect !== null && destinationSelect !== null) {
+                var type = typeSelect.value;
+                var start = startSelect.value;
+                var destination = destinationSelect.value;
+            }
             var travel_type = type + " Trip to " + " " + destination + " (" + start + ")";
             data.push(travel_type);
         }
@@ -365,19 +368,27 @@ function get_travel_type_data(travel_type_count) {
 function get_travel_guide_data(travel_guide_count) {
     var data = [];
     var travel_day = 0;
-    var elements = document.querySelectorAll('#guide div[name="travel_day"]');
+
+    var elements = document.querySelectorAll('#guide div[name="travel"]');
     if (elements.length > 0) {
-        for (var i = 0; i <= elements.length; i++) {
-            var location = document.querySelector('select[name^="travel_location' + i + '"]').value;
-            var day = document.querySelector('input[name="travel_day' + i + '"]').value;
+        for (var i = 0; i < elements.length; i++) {
+            var locationSelect = document.querySelector('select[name="travel_location' + i + '"]');
+            var daySelect = document.querySelector('input[name="travel_day' + i + '"]');
+            if (locationSelect !== null && daySelect !== null) {
+                var location = locationSelect.value;
+                var day = daySelect.value;
+            }
             var locationWithDay = location + " (" + day + "N)";
             data.push(locationWithDay);
             travel_day += parseInt(day);
-            console.log(travel_day);
         }
     } else {
-        var location = document.querySelector('select[name^="travel_location0"]').value;
-        var day = document.querySelector('input[name="travel_day0"]').value;
+        var locationSelect = document.querySelector('select[name^="travel_location0"]');
+        var daySelect = document.querySelector('input[name="travel_day0"]');
+        if (locationSelect !== null && daySelect !== null) {
+            var location = locationSelect.value;
+            var day = daySelect.value;
+        }
         var locationWithDay = location + " (" + day + "N)";
         data.push(locationWithDay);
         travel_day = parseInt(day);
@@ -391,15 +402,21 @@ function get_travel_guide_data(travel_guide_count) {
 function get_travel_accomodation_data(travel_accomodation_count) {
     var data = [];
     var elements = document.querySelectorAll('div[name="travel_accomodation"]');
-    console.log(elements)
     if (elements.length > 0) {
-        console.log(travel_accomodation_count, elements.length);
-        for (var i = 0; i <= elements.length; i++) {
-            var accomodation = document.querySelector('input[name="travel_accomodation' + i + '"]').value;
+        for (var i = 0; i < elements.length; i++) {
+            var accomodationSelect = document.querySelector('input[name="travel_accomodation' + i + '"]');
+            if (accomodationSelect !== null) {
+                var accomodation = accomodationSelect.value;
+                // use the value of location here
+            }
             data.push(accomodation);
         }
     } else {
-        var accomodation = document.querySelector('input[name="travel_accomodation0"]').value;
+        var accomodationSelect = document.querySelector('input[name="travel_accomodation0"]');
+        if (accomodationSelect !== null) {
+            var accomodation = accomodationSelect.value;
+            // use the value of location here
+        }
         data.push(accomodation);
     }
     return {
@@ -413,7 +430,6 @@ submitter.addEventListener('click', (event) => {
 
     const form = document.getElementById("addForm");
     const formData = new FormData(form);
-
     event.preventDefault();
     formData.append('_token', '{{ csrf_token() }}');
     formData.append('p_travel_guide', get_travel_guide_data(travel_guide_count).data);
@@ -425,7 +441,7 @@ submitter.addEventListener('click', (event) => {
             body: formData
         })
         .then(response => {
-            console.log(response);
+            window.location.href = '/admin/package/view';
         })
         .catch(error => {
             // Handle error

@@ -49,6 +49,7 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {   
+        dd($request);
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
@@ -146,12 +147,19 @@ class PackageController extends Controller
             '36-45' => 36,
             '46+' => 46
         ];
+        $accomodation = DB::table('filter_option')->where('filter_type', 'accomodation')->get();
+        $traveller_type = DB::table('filter_option')->where('filter_type', 'traveller_type')->get();
+        $transposition = DB::table('filter_option')->where('filter_type', 'transposition')->get();
+        $ratings = DB::table('filter_option')->where('filter_type', 'rating')->get();
+        $distance = DB::table('filter_option')->where('filter_type', 'distance')->get();
+        $combine = DB::table('filter_option')->where('filter_type', 'combine')->get();
+
         $agencies = Admin::get()->pluck('name','id');
-        return view('admin.package.edit', compact('package', 'destination','ranges','agencies'));
+        return view('admin.package.edit', compact('package', 'destination', 'agencies', 'combine', 'ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
     }
 
     public function update(Request $request, $id)
-    {
+    {   
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
