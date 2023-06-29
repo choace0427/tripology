@@ -218,7 +218,7 @@
                                             Continue
                                         </button>
                                     </div>
-                                    </div>
+                                </div>
                                 <div class="col-sm-4">
                                     <p class="mt-2 p-5"><i class="fa fa-info-circle" aria-hidden="true"></i>
                                         We will use this information to help assess your application. Your head office location will determine which Business Development Team manages your account.</p>            
@@ -432,7 +432,8 @@
                         <!-- Step 8 -->
                         <section id="progress-form__panel-8" role="tabpanel" aria-labelledby="progress-form__tab-8"
                             tabindex="0" hidden>
-
+                            <div class="row">
+                                <div class="col-sm-8"> 
                             <div class="mt-3 sm:mt-0 form__field">
                                 <label for="full_name">
                                     Full Name
