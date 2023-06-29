@@ -92,122 +92,138 @@
                         <!-- Step 1 -->
                         <section id="progress-form__panel-1" role="tabpanel" aria-labelledby="progress-form__tab-1"
                             tabindex="0">
+                            <div class="row">
+                                <div class="col-sm-8"> 
+                                    <div class="mt-3 sm:mt-0 form__field">
+                                        <label for="company_name">
+                                            Company Name
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="company_name" type="text" name="company_name" autocomplete="given-name"
+                                            required>
+                                    </div>
 
-                            <div class="mt-3 sm:mt-0 form__field">
-                                <label for="company_name">
-                                    Company Name
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="company_name" type="text" name="company_name" autocomplete="given-name"
-                                    required>
-                            </div>
+                                    <div class="mt-3 form__field">
+                                        <label for="email">
+                                            Email address
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="email" type="email" name="email" autocomplete="email"
+                                            inputmode="email" required>
+                                    </div>
 
-                            <div class="mt-3 form__field">
-                                <label for="email">
-                                    Email address
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="email" type="email" name="email" autocomplete="email"
-                                    inputmode="email" required>
-                            </div>
+                                    <div class="mt-3 form__field">
+                                        <label for="password">
+                                            Password
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="password" type="password" name="password" autocomplete="password"
+                                            inputmode="password" required>
+                                    </div>
 
-                            <div class="mt-3 form__field">
-                                <label for="password">
-                                    Password
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="password" type="password" name="password" autocomplete="password"
-                                    inputmode="password" required>
-                            </div>
+                                    <div class="mt-3 form__field">
+                                        <label for="confirm_password">
+                                            Confirm Password
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="confirm_password" type="password" name="confirm_password"
+                                            autocomplete="password" inputmode="password" required>
+                                    </div>
+                                
 
-                            <div class="mt-3 form__field">
-                                <label for="confirm_password">
-                                    Confirm Password
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="confirm_password" type="password" name="confirm_password"
-                                    autocomplete="password" inputmode="password" required>
-                            </div>
+                                    <div class="d-flex align-items-center justify-center sm:justify-end mt-4 sm:mt-5">
+                                        <button type="button" data-action="next">
+                                            Continue
+                                        </button>
+                                    </div>
 
-                            <div class="d-flex align-items-center justify-center sm:justify-end mt-4 sm:mt-5">
-                                <button type="button" data-action="next">
-                                    Continue
-                                </button>
-                            </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mt-2 p-5"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    Please note that you're creating a temporary account for the application. If your application is approved, your account will become permanent.</p>            
+                                </div>
+                            </div>    
                         </section>
                         <!-- / End Step 1 -->
 
                         <!-- Step 2 -->
                         <section id="progress-form__panel-2" role="tabpanel" aria-labelledby="progress-form__tab-2"
                             tabindex="0" hidden>
+                            <div class="row">
+                                <div class="col-sm-8"> 
+                                    <div class="mt-3 sm:mt-0 form__field">
+                                        <label for="company_legal_name">
+                                            Company Legal Name
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="company_legal_name" type="text" name="company_legal_name"
+                                            autocomplete="given-name" required>
+                                    </div>
 
-                            <div class="mt-3 sm:mt-0 form__field">
-                                <label for="company_legal_name">
-                                    Company Legal Name
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="company_legal_name" type="text" name="company_legal_name"
-                                    autocomplete="given-name" required>
-                            </div>
+                                    <div class="mt-3 sm:mt-0 form__field">
+                                        <label for="head_office_location">
+                                            Head Office Location
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="head_office_location" type="text" name="head_office_location"
+                                            autocomplete="given-head_office_location" required>
+                                    </div>
 
-                            <div class="mt-3 sm:mt-0 form__field">
-                                <label for="head_office_location">
-                                    Head Office Location
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="head_office_location" type="text" name="head_office_location"
-                                    autocomplete="given-head_office_location" required>
-                            </div>
-
-                            <div class="mt-3 form__field">
-                                <label for="address">
-                                    Address 1
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="address_1" type="text" name="address_1" autocomplete="shipping address-line1"
-                                    required>
-                            </div>
+                                    <div class="mt-3 form__field">
+                                        <label for="address">
+                                            Address 1
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="address_1" type="text" name="address_1" autocomplete="shipping address-line1"
+                                            required>
+                                    </div>
 
 
-                            <div class="mt-3 form__field">
-                                <label for="address">
-                                    Address 2
-                                    <span data-required="true" aria-hidden="true"></span>
-                                </label>
-                                <input id="address_2" type="text" name="address_2"
-                                    autocomplete="shipping address-line1">
-                            </div>
+                                    <div class="mt-3 form__field">
+                                        <label for="address">
+                                            Address 2
+                                            <span data-required="true" aria-hidden="true"></span>
+                                        </label>
+                                        <input id="address_2" type="text" name="address_2"
+                                            autocomplete="shipping address-line1">
+                                    </div>
 
-                            <div class="mt-3 form__field">
-                                <label for="website">
-                                    Website
-                                </label>
-                                <input id="website" type="text" name="website" autocomplete="shipping address-line2">
-                            </div>
+                                    <div class="mt-3 form__field">
+                                        <label for="website">
+                                            Website
+                                        </label>
+                                        <input id="website" type="text" name="website" autocomplete="shipping address-line2">
+                                    </div>
 
-                            <div class="mt-3 form__field">
-                                <label for="base_currency">
-                                    What is your base curreny?
-                                </label>
-                                <p>This is your base currency which will be used to convert your adventure price to any
-                                    currency Tripology offers and the traveller books in which you don
-                                    t provide pricing. The operator bears the risk of exchange rate fluctuations between
-                                    the booking and payment release dates.</p>
-                                <select id="base_currency" name="base_currency" autocomplete="shipping address-level1"
-                                    required>
-                                    <option value="usd" selected>USD</option>
-                                </select>
-                            </div>
+                                    <div class="mt-3 form__field">
+                                        <label for="base_currency">
+                                            What is your base curreny?
+                                        </label>
+                                        <p>This is your base currency which will be used to convert your adventure price to any
+                                            currency Tripology offers and the traveller books in which you don
+                                            t provide pricing. The operator bears the risk of exchange rate fluctuations between
+                                            the booking and payment release dates.</p>
+                                        <select id="base_currency" name="base_currency" autocomplete="shipping address-level1"
+                                            required>
+                                            <option value="usd" selected>USD</option>
+                                        </select>
+                                    </div>
 
-                            <div
-                                class="d-flex flex-column-reverse sm:flex-row align-items-center justify-center sm:justify-end mt-4 sm:mt-5">
-                                <button type="button" class="mt-1 sm:mt-0 button--simple" data-action="prev">
-                                    Back
-                                </button>
-                                <button type="button" data-action="next">
-                                    Continue
-                                </button>
-                            </div>
+                                    <div
+                                        class="d-flex flex-column-reverse sm:flex-row align-items-center justify-center sm:justify-end mt-4 sm:mt-5">
+                                        <button type="button" class="mt-1 sm:mt-0 button--simple" data-action="prev">
+                                            Back
+                                        </button>
+                                        <button type="button" data-action="next">
+                                            Continue
+                                        </button>
+                                    </div>
+                                    </div>
+                                <div class="col-sm-4">
+                                    <p class="mt-2 p-5"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        We will use this information to help assess your application. Your head office location will determine which Business Development Team manages your account.</p>            
+                                </div>
+                            </div>        
                         </section>
                         <!-- / End Step 2 -->
 

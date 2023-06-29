@@ -29,19 +29,19 @@
                             <td>{{ $row->company_name }}</td>
                             <td>
                                 @if($row->status == '1')
-                                    <span class="text-success">Active</span>
+                                    <span class="text-success">Activated</span>
                                 @endif
 
                                 @if($row->status == '0')
-                                    <span class="text-danger">Pending</span>
+                                    <span class="text-danger">Discontinued</span>
                                 @endif                                
                             </td>
                             <td>
                                 <a href="{{ URL::to('admin/operators/detail/'.$row->id) }}" class="btn btn-info btn-sm btn-block">Detail</a>
-                                @if($row->status == 'Active')
-                                    <a href="{{ URL::to('admin/operators/make-pending/'.$row->id) }}" class="btn btn-secondary btn-sm btn-block" onClick="return confirm('Are you sure?');">Make Pending</a>
+                                @if($row->status == 1)
+                                    <a href="{{ URL::to('admin/operators/make-pending/'.$row->id) }}" class="btn btn-secondary btn-sm btn-block" onClick="return confirm('Are you sure?');">Discontinue</a>
                                 @else
-                                    <a href="{{ URL::to('admin/operators/make-active/'.$row->id) }}" class="btn btn-secondary btn-sm btn-block" onClick="return confirm('Are you sure?');">Make Active</a>
+                                    <a href="{{ URL::to('admin/operators/make-active/'.$row->id) }}" class="btn btn-secondary btn-sm btn-block" onClick="return confirm('Are you sure?');">Activate</a>
                                 @endif
                                 <a href="{{ URL::to('admin/operators/delete/'.$row->id) }}" class="btn btn-danger btn-sm btn-block" onClick="return confirm('Are you sure?');">Delete</a>
                             </td>
