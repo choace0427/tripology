@@ -483,6 +483,12 @@
                                     Submit
                                 </button>
                             </div>
+
+                            </div>
+                                <div class="col-sm-4">
+                                    <p class="mt-2 p-5"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        We will use this information to help assess your application. Your head office location will determine which Business Development Team manages your account.</p>            
+                                </div>
                         </section>
                         <!-- / End Step 8 -->
 
