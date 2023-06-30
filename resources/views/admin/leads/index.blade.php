@@ -26,7 +26,7 @@
                         @foreach($leads as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $row->package->p_name }}</td>
+                            <td>@if(isset($row->package->p_name)){{  $row->package->p_name }} @endif</td>
                             <td>{{ $row->traveller->traveller_name}}</td>
                             <td><a href="{{url('/admin/operators/detail',$row->operator->id)}}" target="_blank">{{ $row->operator->name}}</a></td>
                             <td>{{ $row->traveller->traveller_phone }}</td>
