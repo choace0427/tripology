@@ -34,12 +34,14 @@ class Package extends Model
         'p_accomodation_id',
         'p_traveller_id',
         'p_rating',
+        'p_price_id',
         'p_distance_id',
+        'p_combine_id',
         'p_travel_day',
         'p_travel_accomodation',
         'p_travel_type',
         'seo_title',
-        'seo_meta_description'
+        'seo_meta_description',
     ];
 
     public function destination()

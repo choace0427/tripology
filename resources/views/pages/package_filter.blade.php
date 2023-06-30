@@ -250,18 +250,6 @@
                                         <option value="p_price" data-url="{{$filter_slug}}">Price</option>
                                         <option value="p_travel_day" data-url="{{$filter_slug}}">Duration</option>
                                     </select>
-                                    <!-- <div class="dropdown sort">
-                                        <a class="dropdown-toggle" type="button" id="dropdownMenuSort"
-                                            data-bs-toggle="dropdown">
-                                            Operator
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuSort">
-                                            <li><a class="dropdown-item">Price</a>
-                                            </li>
-                                            <li><a class="dropdown-item">Traveller</a></li>
-                                        </ul>
-
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -284,7 +272,7 @@
                             <div class="lock">
 
                                 <h6>{{ $row->p_travel_day }} Nights / {{ $row->p_travel_day + 1 }} Days</h6>
-                                <h5>{{ $row->p_name}} from India - {{ $row->p_travel_day }} Nights
+                                <h5>{{ $row->p_name}} from {{$row->p_started_from}} - {{ $row->p_travel_day }} Nights
                                     {{ $row->p_travel_day + 1 }} Days</h5>
                                 @php
                                 $travel_guide = explode(",", $row->p_travel_guide);
@@ -514,7 +502,7 @@ function package_filter(page, filter_url) {
                             <div class="lock">
 
                                 <h6>${parseInt(res.filter_data[i].p_travel_day)} Nights / ${parseInt(res.filter_data[i].p_travel_day) + 1 } Days</h6>
-                                <h5>${res.filter_data[i].p_name} from India - ${ parseInt(res.filter_data[i].p_travel_day) } Nights
+                                <h5>${res.filter_data[i].p_name} from ${res.filter_data[i].p_started_from} - ${ parseInt(res.filter_data[i].p_travel_day) } Nights
                                     ${ parseInt(res.filter_data[i].p_travel_day) + 1 } Days</h5>
                                 <span id="travel_guide" guidekey="${i}"></span>
                                 <div id="travel_accomodation" class="row" key="${i}"></div>

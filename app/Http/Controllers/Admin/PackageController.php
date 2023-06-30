@@ -9,6 +9,7 @@ use App\Models\Admin\PackagePhoto;
 use App\Models\Admin\PackageSchedule;
 use App\Models\Admin\PackageItinerary;
 use App\Models\Admin\PackageVideo;
+use App\Models\Admin\Filter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -42,13 +43,14 @@ class PackageController extends Controller
         $ratings = DB::table('filter_option')->where('filter_type', 'rating')->get();
         $distance = DB::table('filter_option')->where('filter_type', 'distance')->get();
         $combine = DB::table('filter_option')->where('filter_type', 'combine')->get();
+        $price_range = DB::table('filter_option')->where('filter_type', 'price')->get();
 
         $destination=DB::table('destinations')->get();
-        return view('admin.package.create', compact('destination', 'combine', 'ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
+        return view('admin.package.create', compact('destination', 'price_range', 'combine', 'ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
     }
 
     public function store(Request $request)
-    {   
+    {
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
@@ -77,6 +79,9 @@ class PackageController extends Controller
             'p_travel_day' => 'required',
             'p_travel_type' => 'required',
             'p_travel_accomodation' => 'required',
+            'p_price_id' => 'required',
+            'p_combine_id' => 'required',
+            'destination_id' => 'required'
         ],
         [],
         [
@@ -101,12 +106,15 @@ class PackageController extends Controller
             'p_travel_day' => 'Package Travel Duration',
             'p_travel_Type' => 'Package Travel Type',
             'p_travel_accomodation' => 'Package Travel Accomodation',
+            'p_price_id' => 'Package Price',
+            'p_combine_id' => 'Package Combine',
+            'destination_id' => 'Package Destination'
         ]);
-
+        
         if(empty($data['p_slug'])) {
             $data['p_slug'] = Str::slug($request->p_name);
         }
-
+        
         $statement = DB::select("SHOW TABLE STATUS LIKE 'packages'");
         $ai_id = $statement[0]->Auto_increment;
         $ext = $request->file('p_photo')->extension();
@@ -132,8 +140,20 @@ class PackageController extends Controller
         DB::table('package_filter')->insert(
             ['package_id' => $new_package->id , 'filter_id' => $data['p_rating']]
         );
-
-        return response()->json(['status' => 'success', 'msg' => 'Package is added successfully!']);
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_distance_id']]
+        );
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_combine_id']]
+        );
+        DB::table('package_filter')->insert(
+            ['package_id' => $new_package->id , 'filter_id' => $data['p_price_id']]
+        );
+        if($package->fill($data)->save()) {
+            return response()->json(['status' => 'success', 'msg' => 'Package is added successfully!']);
+        } else {
+            return response()->json(['status' => 'error', 'msg' => 'Package added failed!']);
+        }
     }
 
     public function edit($id)
@@ -152,9 +172,10 @@ class PackageController extends Controller
         $ratings = DB::table('filter_option')->where('filter_type', 'rating')->get();
         $distance = DB::table('filter_option')->where('filter_type', 'distance')->get();
         $combine = DB::table('filter_option')->where('filter_type', 'combine')->get();
-
+        $price_range = DB::table('filter_option')->where('filter_type', 'price')->get();
+        
         $agencies = Admin::get()->pluck('name','id');
-        return view('admin.package.edit', compact('package', 'destination', 'agencies', 'combine', 'ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
+        return view('admin.package.edit', compact('package', 'price_range', 'destination', 'agencies', 'combine', 'ranges', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
     }
 
     public function update(Request $request, $id)
@@ -167,13 +188,8 @@ class PackageController extends Controller
         $data = $request->only($package->getFillable());
         if($request->hasFile('p_photo')) {
             $request->validate([
-                'p_name'   =>  [
-                    'required',
-                    Rule::unique('packages')->ignore($id),
-                ],
-                'p_slug'   =>  [
-                    Rule::unique('packages')->ignore($id),
-                ],
+                'p_name' => 'required|unique:packages',
+                'p_slug' => 'unique:packages',
                 'p_start_date' => 'required',
                 'p_end_date' => 'required',
                 'p_last_booking_date' => 'required',
@@ -194,6 +210,9 @@ class PackageController extends Controller
                 'p_travel_day' => 'required',
                 'p_travel_type' => 'required',
                 'p_travel_accomodation' => 'required',
+                'p_price_id' => 'required',
+                'p_combine_id' => 'required',
+                'destination_id' => 'required'
             ],
             [],
             [
@@ -218,6 +237,10 @@ class PackageController extends Controller
                 'p_travel_day' => 'Package Travel Duration',
                 'p_travel_Type' => 'Package Travel Type',
                 'p_travel_accomodation' => 'Package Travel Accomodation',
+                'p_price_id' => 'Package Price',
+                'p_combine_id' => 'Package Combine',
+                'destination_id' => 'Package Destination'
+                
             ]);
             unlink(public_path('uploads/'.$package->p_photo));
             $ext = $request->file('p_photo')->extension();
@@ -226,11 +249,44 @@ class PackageController extends Controller
             $data['p_photo'] = $final_name;
 
         } else {
-            
             $data['p_photo'] = $package->p_photo;
         }
+        
         $package->fill($data)->save();
-        return response()->json(['status' => 'success', 'msg' => 'Package is updated successfully!']);
+
+        $package_filter = Filter::findOrFail($id);
+
+        $new_package = DB::table('packages')->where('id', $id)->first();
+
+        $filtersToDelete = [
+            $data['destination_id'],
+            $data['p_transposition_id'],
+            $data['p_accomodation_id'],
+            $data['p_traveller_id'],
+            $data['p_rating'],
+            $data['p_distance_id'],
+            $data['p_price_id'],
+            $data['p_combine_id']
+
+        ];
+        DB::table('package_filter')->where('package_id', $new_package->id)->whereIn('filter_id', $filtersToDelete)->delete();
+
+        $insertData = [];
+        foreach($filtersToDelete as $filter) {
+            $insertData[] = ['package_id' => $new_package->id , 'filter_id' => $filter];
+        }
+        DB::table('package_filter')->insert($insertData);
+
+        $data = $request->only($package_filter->getFillable());
+
+        $package_filter->fill($data)->save();     
+
+        if($package->fill($data)->save() && $package_filter->fill($data)->save()) {
+            return response()->json(['status' => 'success', 'msg' => 'Package is updated successfully!']);
+        }
+        else {
+            return response()->json(['status' => 'error', 'msg' => 'Package update failed!']);
+        } 
     }
 
     public function destroy($id)

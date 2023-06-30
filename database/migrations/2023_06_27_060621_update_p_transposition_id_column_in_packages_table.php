@@ -18,6 +18,7 @@ class UpdatePTranspositionIdColumnInPackagesTable extends Migration
             $table->integer('p_transposition_id')->nullable();
             $table->integer('p_accomodation_id')->nullable();
             $table->integer('p_traveller_id')->nullable();
+            $table->integer('p_price_id')->nullable();
             $table->integer('p_rating')->nullable();
             $table->integer('p_combine_id')->nullable();
             $table->integer('p_distance_id')->nullable();

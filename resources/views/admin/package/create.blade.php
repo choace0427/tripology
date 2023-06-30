@@ -154,6 +154,14 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="">Combine</label>
+                <select name="p_combine_id" class="form-control select2">
+                    @foreach($combine as $row)
+                    <option value="{{ $row->id }}">{{ $row->filter_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="">Accomodation</label>
                 <select name="p_accomodation_id" class="form-control select2">
                     @foreach($accomodation as $row)
@@ -173,6 +181,14 @@
                 <label for="">Rating</label>
                 <select name="p_rating" class="form-control select2">
                     @foreach($ratings as $row)
+                    <option value="{{ $row->id }}">{{ $row->filter_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Price Range</label>
+                <select name="p_price_id" class="form-control select2">
+                    @foreach($price_range as $row)
                     <option value="{{ $row->id }}">{{ $row->filter_name }}</option>
                     @endforeach
                 </select>
@@ -441,7 +457,16 @@ submitter.addEventListener('click', (event) => {
             body: formData
         })
         .then(response => {
-            window.location.href = '/admin/package/view';
+            console.log(response)
+            if (response) {
+                $('#staticBackdrop').modal('hide');
+                toastr.success('Package is created successfully!')
+                // window.location.href = '/admin/package/view';
+
+                $('#leads_form')[0].reset();
+            } else {
+                printErrorMsg(data.error);
+            }
         })
         .catch(error => {
             // Handle error

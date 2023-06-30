@@ -173,6 +173,7 @@
             <div class="form-group">
                 <label for="">Destination</label>
                 <select name="destination_id" class="form-control select2">
+                    <option selected></option>
                     @foreach($destination as $key => $row)
                     <option value="{{ $row->id }}">{{ $row->d_name }}</option>
                     @endforeach
@@ -181,6 +182,7 @@
             <div class="form-group">
                 <label for="">Transposition</label>
                 <select name="p_transposition_id" class="form-control select2">
+                    <option selected></option>
                     @foreach($transposition as $row)
                     <option value="{{ $row->id }}" @if($row->id==$package->p_transposition_id) selected
                         @endif>{{ $row->filter_name }}</option>
@@ -190,6 +192,7 @@
             <div class="form-group">
                 <label for="">Accomodation</label>
                 <select name="p_accomodation_id" class="form-control select2">
+                    <option selected></option>
                     @foreach($accomodation as $row)
                     <option value="{{ $row->id }}" @if($row->id==$package->p_accomodation_id) selected
                         @endif>{{ $row->filter_name }}</option>
@@ -199,6 +202,7 @@
             <div class="form-group">
                 <label for="">Traveller</label>
                 <select name="p_traveller_id" class="form-control select2">
+                    <option selected></option>
                     @foreach($traveller_type as $row)
                     <option value="{{ $row->id }}" @if($row->id==$package->p_traveller_id) selected
                         @endif>{{ $row->filter_name }}</option>
@@ -208,6 +212,7 @@
             <div class="form-group">
                 <label for="">Rating</label>
                 <select name="p_rating" class="form-control select2">
+                    <option selected></option>
                     @foreach($ratings as $row)
                     <option value="{{ $row->id }}" @if($row->id==$package->p_rating) selected
                         @endif>{{ $row->filter_name }}</option>
@@ -215,8 +220,29 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="">Price Range</label>
+                <select name="p_price_id" class="form-control select2">
+                    <option selected></option>
+                    @foreach($price_range as $row)
+                    <option value="{{ $row->id }}" @if($row->id==$package->p_price_id) selected
+                        @endif>{{ $row->filter_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Combine</label>
+                <select name="p_combine_id" class="form-control select2">
+                    <option selected></option>
+                    @foreach($combine as $row)
+                    <option value="{{ $row->id }}" @if($row->id==$package->p_combine_id) selected
+                        @endif>{{ $row->filter_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="">Distance</label>
                 <select name="p_distance_id" class="form-control select2">
+                    <option selected></option>
                     @foreach($distance as $row)
                     <option value="{{ $row->id }}" @if($row->id==$package->p_distance_id) selected
                         @endif>{{ $row->filter_name }}</option>
@@ -236,6 +262,7 @@
                         <label>Travel Guide</label>
                         @endif
                         <select name="travel_location{{$i}}" class="form-control select2">
+                            <option selected></option>
                             @foreach($combine as $row1)
                             @php
                             $parts = explode("(", $row);
@@ -276,6 +303,7 @@
                     <div style="width: 100%; margin-right: 10px">
                         <label>Travel Guide</label>
                         <select name="travel_location0" class="form-control select2">
+                            <option selected></option>
                             @foreach($combine as $row)
                             <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                             @endforeach
@@ -351,6 +379,7 @@
                     style="display:flex; justify-content: space-between">
 
                     <select id="travel_type{{$i}}" name="travel_type" class="form-control select2">
+                        <option selected></option>
                         @foreach($transposition as $row1)
                         @php
                         $data1_arr = explode(" to ", $row);
@@ -363,12 +392,14 @@
                         @endforeach
                     </select>
                     <select id="travel_start{{$i}}" name="travel_start" class="form-control select2">
+                        <option selected></option>
                         @foreach($combine as $row2)
                         <option value="{{ $row2->filter_name }}" @if($row2->filter_name==$data1_dest1)
                             selected @endif>{{ $row2->filter_name }}</option>
                         @endforeach
                     </select>
                     <select id="travel_destination{{$i}}" name="travel_destination" class="form-control select2">
+                        <option selected></option>
                         @foreach($combine as $row3)
                         <option value="{{ $row2->filter_name }}" @if($row3->filter_name==$data1_dest2)
                             selected @endif>{{ $row3->filter_name }}</option>
@@ -394,16 +425,19 @@
                 <label for="">Travel Type (Type - Start - Destination)</label>
                 <div name="travel_type" class="form-group" style="display:flex; justify-content: space-between">
                     <select id="travel_type0" name="travel_type" class="form-control select2">
+                        <option selected></option>
                         @foreach($transposition as $row)
                         <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                         @endforeach
                     </select>
                     <select id="travel_start0" name="travel_start" class="form-control select2">
+                        <option selected></option>
                         @foreach($combine as $row)
                         <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                         @endforeach
                     </select>
                     <select id="travel_destination0" name="travel_destination" class="form-control select2">
+                        <option selected></option>
                         @foreach($combine as $row)
                         <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                         @endforeach
@@ -435,6 +469,7 @@ function add_travel_guide() {
     var newElem = `<div id="travel${travel_guide_count}" name="travel_parent" class="form-group" style="display: flex; width: 100%">
             <div style="width: 100%; margin-right: 10px">
             <select name="travel_location${travel_guide_count}" style="width: 100%" class="form-control select2">
+                <option selected></option>
                 @foreach($combine as $row)
                     <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                 @endforeach
@@ -476,16 +511,19 @@ function add_travel_type() {
     var newElem = `
         <div name="travel_type" class="form-group" id="travel_type${travel_type_count}" style="display:flex; justify-content: space-between">
             <select id="travel_type${travel_type_count}" name="travel_type" class="form-control select2">
+                <option selected></option>
                 @foreach($transposition as $row)
                 <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                 @endforeach
             </select>
             <select id="travel_start${travel_type_count}" name="travel_start" class="form-control select2">
+                <option selected></option>
                 @foreach($combine as $row)
                 <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                 @endforeach
             </select>
             <select id="travel_destination${travel_type_count}" name="travel_destination" class="form-control select2">
+                <option selected></option>
                 @foreach($combine as $row)
                 <option value="{{ $row->filter_name }}">{{ $row->filter_name }}</option>
                 @endforeach
@@ -666,6 +704,23 @@ const submitter = document.querySelector("button[name=submit]");
 
 submitter.addEventListener('click', (event) => {
 
+    // var p_price = parseInt(document.querySelector('input[name="p_price"]').value);
+
+    // switch (true) {
+    //     case (p_price >= 0 && p_price <= 100):
+    //         p_price = "$0-$100";
+    //         break;
+    //     case (p_price > 100 && p_price <= 500):
+    //         p_price = "$100-$500";
+    //         break;
+    //     case (p_price > 500 && p_price <= 1000):
+    //         p_price = "$500-$1000";
+    //         break;
+    //     case (p_price > 1000):
+    //         p_price = "over $1000";
+    //         break;
+    // }
+
     const form = document.getElementById("addForm");
     const formData = new FormData(form);
     event.preventDefault();
@@ -674,12 +729,22 @@ submitter.addEventListener('click', (event) => {
     formData.append('p_travel_day', get_travel_guide_data(travel_guide_count).travel_day);
     formData.append('p_travel_accomodation', get_travel_accomodation_data(travel_accomodation_count).data);
     formData.append('p_travel_type', get_travel_type_data(travel_type_count).data);
+    // formData.append('p_travel_type', get_travel_type_data(travel_type_count).data);
     fetch(form.action, {
             method: 'POST',
             body: formData
         })
         .then(response => {
-            window.location.href = '/admin/package/view';
+            if (response.status == 200) {
+                $('#staticBackdrop').modal('hide');
+                toastr.success('Qoute form submitted Successfully!')
+                // window.location.href = '/admin/package/view';
+
+                $('#leads_form')[0].reset();
+            } else {
+                printErrorMsg(data.error);
+            }
+
         })
         .catch(error => {
             // Handle error
