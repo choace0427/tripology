@@ -49,7 +49,6 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {   
-        dd($request);
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
@@ -134,7 +133,7 @@ class PackageController extends Controller
             ['package_id' => $new_package->id , 'filter_id' => $data['p_rating']]
         );
 
-        return redirect()->route('admin.package.index')->with('success', 'Package is added successfully!');
+        return response()->json(['status' => 'success', 'msg' => 'Package is added successfully!']);
     }
 
     public function edit($id)
@@ -164,8 +163,8 @@ class PackageController extends Controller
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         $package = Package::findOrFail($id);
-        $data = $request->only($package->getFillable());
 
+        $data = $request->only($package->getFillable());
         if($request->hasFile('p_photo')) {
             $request->validate([
                 'p_name'   =>  [
@@ -175,67 +174,63 @@ class PackageController extends Controller
                 'p_slug'   =>  [
                     Rule::unique('packages')->ignore($id),
                 ],
-                'p_age_range' => 'required',
+                'p_start_date' => 'required',
+                'p_end_date' => 'required',
+                'p_last_booking_date' => 'required',
+                'p_price' => 'required',
+                'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'p_age_range' => 'required|numeric',
                 'p_max_group_size' => 'required|numeric',
                 'p_tour_operator' => 'required|numeric',
                 'p_started_from' => 'required',
                 'p_operated_in' => 'required',
-                'p_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+                'p_photo' => 'required',
+                'p_transposition_id' => 'required',
+                'p_accomodation_id' => 'required',
+                'p_traveller_id' => 'required',
+                'p_rating' => 'required',
+                'p_distance_id' => 'required',
+                'p_travel_guide' => 'required',
+                'p_travel_day' => 'required',
+                'p_travel_type' => 'required',
+                'p_travel_accomodation' => 'required',
             ],
             [],
             [
                 'p_name' => "Package Name",
                 'p_slug' => "Package Slug",
+                'p_start_date' => "Package Start Date",
+                'p_end_date' => "Package End Date",
+                'p_last_booking_date' => "Package Last Booking Date",
+                'p_price' => "Package Price",
                 'p_photo' => "Package Photo",
                 'p_age_range' => 'Package Age Range',
                 'p_max_group_size' => 'Package Max Group Size',
                 'p_tour_operator' => 'Package Tour Operator',
                 'p_started_from' => 'Package Started From',
-                'p_operated_in' => 'Package Operated In'
+                'p_operated_in' => 'Package Operated In',
+                'accomodation_id' => 'Package Accomodation Type',
+                'rating_id' => 'Package Hotel Rating Type',
+                'distance_id' => 'Package Distance Type',
+                'traveller_id' => 'Package Traveller Type',
+                'transposition_id' => 'Package Transposition Type',
+                'p_travel_guide' => 'Package Travel Guide',
+                'p_travel_day' => 'Package Travel Duration',
+                'p_travel_Type' => 'Package Travel Type',
+                'p_travel_accomodation' => 'Package Travel Accomodation',
             ]);
             unlink(public_path('uploads/'.$package->p_photo));
             $ext = $request->file('p_photo')->extension();
             $final_name = 'package-main-photo-'.$id.'.'.$ext;
             $request->file('p_photo')->move(public_path('uploads/'), $final_name);
             $data['p_photo'] = $final_name;
+
         } else {
-            $request->validate([
-                'p_name'   =>  [
-                    'required',
-                    Rule::unique('packages')->ignore($id),
-                ],
-                'p_slug'   =>  [
-                    Rule::unique('packages')->ignore($id),
-                ],
-                'p_age_range' => 'required',
-                'p_max_group_size' => 'required|numeric',
-                'p_tour_operator' => 'required|numeric',
-                'p_started_from' => 'required',
-                'p_operated_in' => 'required'
-            ],
-            [],
-            [
-                'p_name' => "Package Name",
-                'p_slug' => "Package Slug",
-                'p_age_range' => 'Package Age Range',
-                'p_max_group_size' => 'Package Max Group Size',
-                'p_tour_operator' => 'Package Tour Operator',
-                'p_started_from' => 'Package Started From',
-                'p_operated_in' => 'Package Operated In'
-            ]);
+            
             $data['p_photo'] = $package->p_photo;
         }
-
-        if ($request->hasFile('p_qoute_form_photo')) {
-            $profileBackground = $request->file('p_qoute_form_photo');
-            $profileBackgroundName = uniqid() . '-quote-form-background.' . $profileBackground->getClientOriginalExtension();
-            $profileBackground->move(public_path('uploads/'), $profileBackgroundName);
-            $data['p_qoute_form_photo'] = $profileBackgroundName;
-            // Perform any additional logic, such as storing the file name in a database
-        }
-
         $package->fill($data)->save();
-        return redirect()->route('admin.package.index')->with('success', 'Package is updated successfully!');
+        return response()->json(['status' => 'success', 'msg' => 'Package is updated successfully!']);
     }
 
     public function destroy($id)
