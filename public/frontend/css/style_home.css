@@ -23,11 +23,23 @@ a {
 /* .container{
     width: 970px;
 } */
+:root {
+    --dark-blue: #01008C;
+}
 
 .header {
     /* background: #1E73BE; */
     background-color: #01008C;
 
+}
+
+.btn-primary {
+    background-color: #01008C !important;
+    border-color: transparent !important;
+}
+
+.btn-primary:hover {
+    background-color: #0d6efd !important;
 }
 
 .accordion-item {
@@ -424,9 +436,9 @@ a {
         padding-top: 1px !important;
     }
 
-    .banda {
+    /* .banda {
         height: 1350px !important;
-    }
+    } */
 }
 
 @media(max-width:1024px) {
@@ -973,9 +985,9 @@ a {
         margin-top: 15px !important;
     }
 
-    .banda {
+    /* .banda {
         display: none;
-    }
+    } */
 
     .btn-month span button {
         font-size: 21px !important;
@@ -2030,6 +2042,21 @@ a {
     transition: .3s;
 }
 
+.holiday-package-div {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    min-height: 730px;
+    height: 730px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.holiday-package-div::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+}
+
 /* .dation{
     padding: 1px 22px;
 } */
@@ -2592,10 +2619,15 @@ Portfolio-Page
 
 .banda {
     background: #fff;
-    box-shadow: 0px 0px 11px;
+    box-shadow: 0px 0px 1px;
     padding: 10px;
     border-radius: 5px;
-    height: 1570px;
+    height: 730px !important;
+}
+
+.banda::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
 }
 
 .range h6 {
@@ -2675,11 +2707,14 @@ Portfolio-Page
 
 .list {
     background: #fff;
-    box-shadow: 0px 0px 3px;
-    margin-left: 10px;
+    box-shadow: 0px 0px 2px;
+    margin-left: 3px;
     margin-top: 10px;
     border-radius: 10px;
+    margin-right: 3px;
 }
+
+
 
 .item-list {
     margin-top: 15px;
@@ -2735,17 +2770,19 @@ Portfolio-Page
 }
 
 .qutote a {
-    font-size: 30px;
+    /* font-size: 20px;
     color: #000;
-    font-weight: 600;
+    font-weight: 600; */
+    font-size: 13px;
 }
 
 .qutote a span {
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-size: 13px;
     background: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 6px 12px;
-    border-radius: 60%;
+    border-radius: 50%;
     margin: 5px;
 
 }
@@ -3106,7 +3143,7 @@ Portfolio-Page
 .popup-input input {
     background: #FFFFFF;
     border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     padding: 10px;
     width: 35%;
@@ -3115,7 +3152,7 @@ Portfolio-Page
 .popup-input button {
     background: #0085FF;
     border-radius: 10px;
-    width: 32%;
+    width: 35%;
 }
 
 .modal-header {

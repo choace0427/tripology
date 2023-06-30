@@ -173,7 +173,7 @@
                     </div>
                     <input type="hidden" name="package_id" id="package_id" value="{{ $package_detail->id }}">
                     <div class="popup-input ms-2 mt-4">
-                      <button type="submit" class="btn-submit">submit</button>
+                      <button type="submit" class="btn-submit btn btn-primary">submit</button>
                     </div>
                   </div>
                 </form>
