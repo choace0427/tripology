@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
@@ -8,75 +8,103 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.come h6{
+.come h6 {
     font-size: 14px;
 }
 
-.come img{
+.come img {
     width: 11%;
 }
 
-.container{
+/* .container{
     width: 970px;
+} */
+:root {
+    --dark-blue: #01008C;
 }
 
-.header{
-    background: #1E73BE;
-    
+.header {
+    /* background: #1E73BE; */
+    background-color: #01008C;
+
 }
 
-.accordion-item{
+.btn-primary {
+    background-color: #01008C !important;
+    border-color: transparent !important;
+}
+
+.btn-primary:hover {
+    background-color: #0d6efd !important;
+}
+
+.accordion-item {
     border: none !important;
 }
 
-.navbar-nav li a{
-    font-size: 22px;
+.navbar-expand-lg .navbar-collapse {
+    justify-content: end;
+}
+
+.header-dropdown {
+    background-color: #01008C !important;
+    margin-top: 5px !important;
+}
+
+.navbar-nav li a {
+    /* font-size: 22px; */
+    font-size: 16px;
     color: #FFF204 !important;
     /*margin-left: 15px;*/
     margin-left: 2.5px;
 }
 
-.input{
+.input {
     display: flex;
     background: transparent;
     border: solid 1px #FFF204;
     border-radius: 40px;
     padding: 5px 10px 5px 20px;
+    align-items: center;
 }
 
-.input a{
+.input a {
     color: #FFF204;
-    font-size: 23px;
+    /* font-size: 23px; */
+    font-size: 16px;
     text-decoration: none;
     padding-right: 20px;
+    cursor: pointer;
 }
 
-.input button{
+.input button {
     background: #20B9FC;
-    padding: 6px 20px 6px 20px;
-    font-size: 20px;
+    padding: 6px 15px;
+    /* font-size: 20px; */
+    font-size: 12px;
     border-radius: 30px;
     color: #FFF204;
     border: none;
 
 }
 
-.carousel-caption h2{
+.carousel-caption h2 {
     font-size: 50px;
 }
 
-.carousel-caption p{
+.carousel-caption p {
     margin-bottom: 60px;
 }
 
-.big1{
+.big1 {
     position: relative;
 }
-.big-btn{
+
+.big-btn {
     width: 98%;
     background: #fff;
     border: none;
@@ -87,40 +115,44 @@ a{
     bottom: -34px;
 }
 
-.big-btn i{
+.big-btn i {
     font-size: 25px;
     color: #E65252;
 }
 
-.big-btn span i{
+.big-btn span i {
     padding-left: 10px;
     padding-right: 5px;
     font-size: 20px;
 }
 
-.big-btn span{
+.big-btn span {
     color: #000;
     font-size: 30px;
 }
 
-.big-btn select{
+.big-btn select {
     border: none;
     font-size: 20px;
     width: 26%;
     color: #e65252b2;
+    outline: none;
 }
-.big-btn input{
+
+.big-btn input {
     font-size: 20px;
     border: none;
     color: #eb7373;
     width: 60%;
+    outline: none;
 }
 
-.explore h2{
+.explore h2 {
     color: #333;
+    /* margin: 20px 0px !important; */
 }
 
-.img-icon{
+.img-icon {
     width: 100%;
     background: #fff;
     box-shadow: 0px 0px 11px;
@@ -130,52 +162,52 @@ a{
     height: 150px;
 }
 
-.img-icon img{
+.img-icon img {
     width: 20%;
 }
 
-.img-icon h4{
+.img-icon h4 {
     color: #333;
     font-weight: 400;
 }
 
 
 
-.item img{
+.item img {
     height: 230px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
-.item13 img{
+.item13 img {
     height: 200px !important;
 }
 
-.girl2 h5{
+.girl2 h5 {
     font-size: 17px;
     font-weight: 300;
     margin-bottom: 0px !important;
     color: #949494;
 }
 
-.girl2 h6{
+.girl2 h6 {
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 0px;
     color: #949494;
 }
 
-.departure h3{
+.departure h3 {
     font-weight: 600;
     font-size: 29px;
 }
 
-.girl2 h3{
+.girl2 h3 {
     font-size: 12px;
     font-weight: 300;
     padding-top: 10px;
 }
 
-.btn-shimla button{
+.btn-shimla button {
     padding: 10px 60px;
     margin-top: 10px;
     background: #fff;
@@ -191,42 +223,46 @@ a{
     padding: 2px 9px;
 }
 
-.bg-last{
+.bg-last {
     background: #FFF204;
 }
 
-.last-logo{
+.last-logo {
     width: 100%;
 }
 
-.last-logo img{
+.last-logo img {
     width: 100%;
 }
-.last-logo h3{
+
+.last-logo h3 {
     font-weight: 600;
 }
-.last-logo ul li a{
+
+.last-logo ul li a {
     font-size: 15px;
     font-weight: 200;
     color: #333;
 }
 
-.nav-pills{
+.nav-pills {
     margin-bottom: 10px !important;
 }
 
-.last-logo a{
+.last-logo a {
     font-size: 15px;
     font-weight: 200;
     color: #333;
 }
 
-.last-logo p{
+.last-logo p {
     font-size: 15px;
     font-weight: 200;
 }
 
-.last-logo button, .login-form button , .regiser-form button{
+.last-logo button,
+.login-form button,
+.regiser-form button {
     background: #1E73BE;
     color: #fff;
     border: none;
@@ -236,7 +272,7 @@ a{
     font-size: 19px;
 }
 
-.input2{
+.input2 {
     background: #fff;
     width: 80%;
     height: 50px;
@@ -245,11 +281,11 @@ a{
     border-radius: 5px;
 }
 
-.owl-nav{
+.owl-nav {
     position: relative;
 }
 
-.owl-next span{
+.owl-next span {
     font-size: 55px;
     position: absolute;
     bottom: 3em;
@@ -257,12 +293,12 @@ a{
     color: #20B9FC;
 }
 
-.owl-next span:hover{
+.owl-next span:hover {
     color: #20B9FC;
     color: #FFF204;
 }
 
-.owl-prev span{
+.owl-prev span {
     font-size: 55px;
     position: absolute;
     bottom: 3em;
@@ -270,123 +306,143 @@ a{
     color: #20B9FC;
 }
 
-.owl-prev span:hover{
+.owl-prev span:hover {
     color: #20B9FC;
 }
 
-.runforthree.owl-theme .owl-nav{
+.runforthree.owl-theme .owl-nav {
     direction: rtl;
 }
 
-@media(max-width:1400px){
+.img-icon-2 h5 {
+    margin: 0px !important;
+    padding: 16px 0px !important;
+
+}
+
+.month-bg-blue {
+    background-color: #01008C;
+    color: #fff;
+}
+
+@media(max-width:1400px) {
     .lock h6 {
         font-size: 13px !important;
     }
-.lock h5 {
-    font-size: 16px !important;
-    padding-top: 0px !important;
+
+    .lock h5 {
+        font-size: 16px !important;
+        padding-top: 0px !important;
+    }
+
+    .lock p {
+        font-size: 11px !important;
+        padding-top: 0px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .lock h4 {
+        font-size: 11px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .lock i {
+        font-size: 17px !important;
+    }
+
+    .lock h6 span {
+        font-size: 12px !important;
+        padding-top: 0px !important;
+    }
+
+    .lock span i {
+        font-size: 12px !important;
+    }
+
+    .item-list h6 {
+        font-size: 13px !important;
+        padding-top: 5px !important;
+    }
+
+    .item-list button {
+        font-size: 13px !important;
+        padding: 5px 19px !important;
+    }
+
+    .item-list {
+        margin-top: 25px !important;
+    }
+
+    .mekong h5 {
+        font-size: 15px !important;
+    }
+
+    .mekong p {
+        font-size: 12px !important;
+        font-weight: 200 !important;
+    }
 }
 
-.lock p {
-    font-size: 11px !important;
-    padding-top: 0px !important;
-    margin-bottom: 5px !important;
-}
 
-.lock h4 {
-    font-size: 11px !important;
-    margin-bottom: 0px !important;
-}
-.lock i {
-    font-size: 17px !important;
-}
-.lock h6 span {
-    font-size: 12px !important;
-    padding-top: 0px !important;
-}
-.lock span i{
-    font-size: 12px !important;
-}
-
-.item-list h6 {
-    font-size: 13px !important;
-    padding-top: 5px !important;
-}
-.item-list button {
-    font-size: 13px !important;
-    padding: 5px 19px !important;
-}
-.item-list {
-    margin-top: 25px !important;
-}
-.mekong h5 {
-    font-size: 15px !important;
-}
-.mekong p {
-    font-size: 12px !important;
-    font-weight: 200 !important;
-}
-}
-
-
-@media(max-width:1300px){
+@media(max-width:1300px) {
     .Expand3 p {
         margin-left: 170px !important;
     }
 }
 
 
-@media(max-width:1200px){
-.get button {
-    padding: 8px 18px !important;
-    font-size: 14px !important;
+@media(max-width:1200px) {
+    .get button {
+        padding: 8px 18px !important;
+        font-size: 14px !important;
+    }
+
+
+    .Expand3 p {
+        margin-left: 150px !important;
+    }
+
+    .get2 button {
+        padding: 6px 16px !important;
+        font-size: 14px !important;
+        margin-top: 6px !important;
+    }
+
+
+    .status7 button {
+        font-size: 14px !important;
+        padding: 6px 6px !important;
+    }
+
+
+    .status9 button {
+        font-size: 13px !important;
+        padding: 6px 6px !important;
+    }
+
+    .send-quota a {
+        font-size: 14px !important;
+    }
+
+    .spe-item a {
+        font-size: 14px !important;
+    }
+
+    .spe-item2 a {
+        font-size: 14px !important;
+    }
+
+    .range h5 {
+        padding-top: 1px !important;
+    }
+
+    /* .banda {
+        height: 1350px !important;
+    } */
 }
 
-
-.Expand3 p {
-    margin-left: 150px !important;
-}
-
-.get2 button{
-    padding: 6px 16px !important;
-    font-size: 14px !important;
-    margin-top: 6px !important;
-}
-
-
-.status7 button {
-    font-size: 14px !important;
-    padding: 6px 6px !important;
-}
-
-
-.status9 button{
-    font-size: 13px !important;
-    padding: 6px 6px !important;
-}
-
-.send-quota a {
-    font-size: 14px !important;
-}
-.spe-item a {
-    font-size: 14px !important;
-}
-
-.spe-item2 a {
-    font-size: 14px !important;
-}
-
-.range h5{
-    padding-top: 1px !important;
-}
-
-.banda{
-    height: 1350px !important;
-}
-}
-
-@media(max-width:1024px){
-    .container{
+@media(max-width:1024px) {
+    .container {
         width: 90%;
         box-sizing: border-box;
     }
@@ -395,7 +451,7 @@ a{
         margin-left: 130px !important;
     }
 
-    .chat-first-bg h5{
+    .chat-first-bg h5 {
         font-size: 15px !important;
     }
 
@@ -416,11 +472,11 @@ a{
         width: 75% !important;
     }
 
-    .come h6{
+    .come h6 {
         font-size: 14px;
     }
 
-    .come img{
+    .come img {
         display: none;
     }
 
@@ -440,12 +496,12 @@ a{
         font-size: 16px !important;
     }
 
-    .Departur-date button{
+    .Departur-date button {
         padding: 4px !important;
     }
 
 
-    .ert{
+    .ert {
         padding: 0px 10px !important;
     }
 
@@ -454,14 +510,16 @@ a{
         margin: 0px 0px 0px;
     }
 
-    .girl2 a {color:#000 }
+    .girl2 a {
+        color: #000
+    }
 
     .girl2 p {
         font-size: 15px !important;
         margin: 0px 0px 0px;
     }
 
-    .tika{
+    .tika {
         padding-top: 0px !important;
     }
 
@@ -469,7 +527,7 @@ a{
         font-size: 16px !important;
     }
 
-    .sort{
+    .sort {
         text-align: left;
     }
 
@@ -479,21 +537,21 @@ a{
         padding: 6px 8px !important;
     }
 
-    .item-list h6{
+    .item-list h6 {
         font-size: 12px !important;
     }
-    
+
 
 }
 
-@media(max-width:1008px){
+@media(max-width:1008px) {
     .wat3 h4 {
         font-size: 18px !important;
     }
 }
 
-@media(max-width:992px){
-    .list{
+@media(max-width:992px) {
+    .list {
         width: 100%;
         flex-wrap: wrap;
     }
@@ -524,7 +582,7 @@ a{
         top: 14px !important;
     }
 
-    .BTN-destination3 button{
+    .BTN-destination3 button {
         font-size: 17px !important;
     }
 
@@ -556,11 +614,11 @@ a{
         font-size: 20px !important;
     }
 
-    .Tours-Trips{
+    .Tours-Trips {
         font-size: 13px !important;
     }
 
-    .packages-mar{
+    .packages-mar {
         margin-top: 2px !important;
     }
 
@@ -596,7 +654,7 @@ a{
         font-size: 24px !important;
     }
 
-    .Best-things p{
+    .Best-things p {
         font-size: 14px !important;
     }
 
@@ -616,15 +674,16 @@ a{
         font-size: 13px !important;
     }
 
-    .dard{
+    .dard {
         width: 37%;
     }
 
-    .mekong{
+    .mekong {
         width: 100%;
         margin-top: 10px;
         border-top-right-radius: 0px !important;
     }
+
     .mal img {
         width: 86%;
         border-bottom-left-radius: 0px !important;
@@ -638,9 +697,11 @@ a{
         font-size: 18px !important;
         padding: 6px 30px !important;
     }
+
     .mekong h5 {
         font-size: 20px !important;
     }
+
     .mekong p {
         font-size: 14px !important;
     }
@@ -648,32 +709,34 @@ a{
     .get2 button {
         margin-bottom: 12px !important;
     }
-    .rty{
+
+    .rty {
         width: 100%;
         flex-wrap: wrap;
     }
 
-    .rty1{
+    .rty1 {
         width: 100%;
     }
 }
 
 
 
-@media(max-width:984px){
-    .bg-water{
-        height: 342px !important;
-    }
-    .wat1{
+@media(max-width:984px) {
+    .bg-water {
         height: 342px !important;
     }
 
-    .wat2{
+    .wat1 {
+        height: 342px !important;
+    }
+
+    .wat2 {
         height: 342px !important;
     }
 }
 
-@media(max-width:912px){
+@media(max-width:912px) {
     .bhan::after {
         bottom: 0px !important;
         left: 7px !important;
@@ -683,29 +746,30 @@ a{
         margin-left: 115px !important;
     }
 
-    
 
-    .status7{
+
+    .status7 {
         margin-top: 10px;
         margin-left: 10px;
     }
 
-    .status9{
+    .status9 {
         margin-top: 10px !important;
         margin-left: 10px;
     }
 }
 
 
-@media(max-width:900px){
-    .customer1{
+@media(max-width:900px) {
+    .customer1 {
         display: block !important;
     }
-    .customer2{
+
+    .customer2 {
         display: none;
     }
 
-    .ul-email-sec2{
+    .ul-email-sec2 {
         width: 100% !important;
     }
 
@@ -714,7 +778,7 @@ a{
     }
 }
 
-@media(max-width:790px){
+@media(max-width:790px) {
     .gret h3 {
         font-size: 22px !important;
     }
@@ -728,7 +792,7 @@ a{
     }
 }
 
-@media(max-width:820px){
+@media(max-width:820px) {
     .bhan::after {
         bottom: -1px !important;
     }
@@ -743,29 +807,36 @@ a{
 }
 
 
-@media(max-width:768px){
-    .come2{
+@media(max-width:768px) {
+    .departure-inner-border {
+        display: block !important;
+    }
+
+    .come2 {
         display: none;
     }
 
-    .header{
+    .header {
         margin-top: 0px !important;
     }
 
-    .last-logo ul li a{
+    .last-logo ul li a {
         font-size: 12px;
     }
 
-    .last-logo p{
+    .last-logo p {
         font-size: 12px;
     }
-    .last-logo a{
+
+    .last-logo a {
         font-size: 12px;
     }
-    .last-logo img{
+
+    .last-logo img {
         width: 30% !important;
     }
-    .img-icon{
+
+    .img-icon {
         margin-top: 15px;
     }
 
@@ -773,22 +844,22 @@ a{
         width: 17%;
     }
 
-    .let h1{
+    .let h1 {
         font-size: 40px !important;
         padding-top: 0px !important;
     }
 
-    .let h4{
+    .let h4 {
         font-size: 19px !important;
     }
 
-    .let p{
+    .let p {
         font-size: 16px !important;
         padding-top: 0px !important;
         line-height: 21px !important;
     }
 
-    .ert2{
+    .ert2 {
         padding: 0px 0px !important;
     }
 
@@ -798,14 +869,15 @@ a{
         padding-top: 6px !important;
     }
 
-    .plasi img{
+    .plasi img {
         height: 120px;
     }
+
     .bajna a {
         font-size: 12px !important;
     }
 
-    .girl2{
+    .girl2 {
         padding: 8px !important;
     }
 
@@ -813,22 +885,22 @@ a{
         font-size: 16px !important;
     }
 
-    .kuch{
+    .kuch {
         flex-wrap: wrap;
         width: 100%;
     }
 
-    .kuch1{
+    .kuch1 {
         width: 100%;
         margin-top: 0px !important;
     }
 
-    .katire2 a span{
+    .katire2 a span {
         font-size: 14px !important;
         color: #000;
     }
 
-    .kahdi button{
+    .kahdi button {
         font-size: 14px !important;
     }
 
@@ -836,7 +908,7 @@ a{
         width: 98% !important;
     }
 
-    .popup-input input{
+    .popup-input input {
         width: 41% !important;
     }
 
@@ -844,19 +916,20 @@ a{
 
 
 
-.hid{
+.hid {
     display: none;
 }
 
-@media(max-width:767px){
-    .plasi img{
+@media(max-width:767px) {
+    .plasi img {
         height: 250px !important;
     }
 
-    .blo-none{
+    .blo-none {
         display: block !important;
     }
-    .blo-none2{
+
+    .blo-none2 {
         display: none;
     }
 
@@ -884,27 +957,27 @@ a{
         width: 25% !important;
     }
 
-    .none-sec{
+    .none-sec {
         display: block !important;
     }
 
-    .none-sec2{
+    .none-sec2 {
         display: none;
     }
 
-    .nav-group{
+    .nav-group {
         margin-top: 15px !important;
     }
 
-    .Group-alcat{
+    .Group-alcat {
         margin-top: 15px !important;
     }
 
-    .aari-sec{
+    .aari-sec {
         margin-top: 0px !important;
     }
 
-    .aari-sec2{
+    .aari-sec2 {
         margin-top: 1rem !important;
     }
 
@@ -912,9 +985,9 @@ a{
         margin-top: 15px !important;
     }
 
-    .banda{
+    /* .banda {
         display: none;
-    }
+    } */
 
     .btn-month span button {
         font-size: 21px !important;
@@ -932,10 +1005,10 @@ a{
     .Departur-date button {
         font-size: 20px !important;
     }
-    
-    
 
-    .upcoming{
+
+
+    .upcoming {
         margin-top: 16rem !important;
     }
 
@@ -947,6 +1020,7 @@ a{
         height: 212px !important;
         padding: 10px 18px !important;
     }
+
     .big-btn select {
         width: 87% !important;
     }
@@ -955,7 +1029,7 @@ a{
         font-size: 18px !important;
     }
 
-    .Vecto{
+    .Vecto {
         width: 3% !important;
     }
 
@@ -964,28 +1038,28 @@ a{
         left: 10px !important;
     }
 
-       
-    .hid{
+
+    .hid {
         display: block;
         position: relative;
     }
 
-    .hid2{
+    .hid2 {
         position: absolute;
         top: 65px;
         right: 10px;
         padding: 5px 30px;
-    background: transparent;
-    border: solid 2px #387088;
-    color: #000;
-    border-radius: 0px !important;
+        background: transparent;
+        border: solid 2px #387088;
+        color: #000;
+        border-radius: 0px !important;
     }
 
-    .list{
+    .list {
         margin-left: 0px !important;
     }
 
-    .tnam{
+    .tnam {
         width: 62%;
     }
 
@@ -995,8 +1069,8 @@ a{
 }
 
 
-@media(max-width:626px){
-    .wat4{
+@media(max-width:626px) {
+    .wat4 {
         width: 93% !important;
     }
 
@@ -1010,17 +1084,18 @@ a{
 
     .john-parks h2 {
         font-size: 22px !important;
-    }  
+    }
+
     .john-parks h4 {
         font-size: 13px !important;
-    }  
+    }
 
-    .dar1{
+    .dar1 {
         margin-top: 5px !important;
     }
 }
 
-@media(max-width:555px){
+@media(max-width:555px) {
     .profile-About::after {
         width: 38% !important;
     }
@@ -1042,7 +1117,7 @@ a{
     }
 }
 
-@media(max-width:491px){
+@media(max-width:491px) {
     .profile-About::after {
         width: 38% !important;
     }
@@ -1064,7 +1139,7 @@ a{
     }
 }
 
-@media(max-width:469px){
+@media(max-width:469px) {
     .span4 {
         padding-left: 65px !important;
     }
@@ -1076,6 +1151,7 @@ a{
     .span1 {
         padding-left: 28px !important;
     }
+
     .span3 {
         padding-left: 0px !important;
     }
@@ -1091,16 +1167,16 @@ a{
     .span7 {
         padding-left: 44px !important;
     }
-    
+
 }
 
-@media(max-width:469px){
-    .Expand3 h6{
+@media(max-width:469px) {
+    .Expand3 h6 {
         padding-right: 0px !important;
     }
 }
 
-@media(max-width:445px){
+@media(max-width:445px) {
     .Expand2 h6 {
         padding-right: 52px !important;
     }
@@ -1112,14 +1188,15 @@ a{
     .Expand2 h4 {
         font-size: 20px;
     }
+
     .Expand2 p {
         font-size: 15px !important;
     }
 
-    
+
 }
 
-@media(max-width:452px){
+@media(max-width:452px) {
     .span4 {
         padding-left: 13px !important;
     }
@@ -1148,29 +1225,27 @@ a{
         font-size: 14px !important;
     }
 
-    
+
 }
 
-@media(max-width:447px){
+@media(max-width:447px) {
     .Expand2 h6 {
         padding-right: 52px !important;
     }
 }
 
-@media(max-width:442px){
+@media(max-width:442px) {
     .Expand2 h6 {
         padding-right: 176px !important;
     }
 
-    
-}
-
-@media(max-width:339px){
 
 }
 
-@media(max-width:426px){
-    .big-btn input{
+@media(max-width:339px) {}
+
+@media(max-width:426px) {
+    .big-btn input {
         padding: 15px 20px !important;
         bottom: -29px;
     }
@@ -1203,56 +1278,56 @@ a{
         font-size: 18px !important;
     }
 
-    .popup-bg{
+    .popup-bg {
         background: #f5f5f5 !important;
     }
 
-    .popup-input input{
+    .popup-input input {
         width: 91% !important;
     }
 
-    .popup-input button{
+    .popup-input button {
         width: 85% !important;
     }
 
-    .btn-shimla button{
+    .btn-shimla button {
         padding: 10px 16px !important;
     }
 
     .john-parks h2 {
         font-size: 18px !important;
-    }  
+    }
 
     .john-parks h2 {
         font-size: 18px !important;
     }
 
-    .explore h2{
+    .explore h2 {
         font-size: 20px !important;
     }
 
-    .nav-item a{
+    .nav-item a {
         font-size: 17px !important;
     }
 
-    .input a{
+    .input a {
         font-size: 17px !important;
     }
 
-    .input button{
+    .input button {
         font-size: 17px !important;
         padding: 2px 10px 2px 10px;
     }
 
-    .ges{
+    .ges {
         margin-top: 0px !important;
     }
 
-    .ges1{
+    .ges1 {
         margin-top: 10px !important;
     }
 
-    .upcoming{
+    .upcoming {
         margin-top: 16rem !important;
     }
 
@@ -1281,36 +1356,37 @@ a{
         font-size: 17px !important;
     }
 
-    .navbar-brand{
+    .navbar-brand {
         width: 50%;
     }
 
-    .big-btn input{
-         font-size: 15px;
+    .big-btn input {
+        font-size: 15px;
     }
 
-    .expol h3{
+    .expol h3 {
         font-size: 19px !important;
     }
 
-    .form-bg{
+    .form-bg {
         padding: 0px 10px !important;
     }
 
-    .let h1{
+    .let h1 {
         font-size: 25px !important;
         margin: 0px 0px 2px !important;
     }
 
-    .let h4{
+    .let h4 {
         font-size: 15px !important;
         margin: 0px 0px 0px !important;
     }
-    .contact h2{
+
+    .contact h2 {
         font-size: 35px !important;
     }
 
-    .girl{
+    .girl {
         margin-top: 10px !important;
     }
 
@@ -1336,45 +1412,50 @@ a{
         font-size: 18px !important;
         padding-top: 5px !important;
     }
+
     .lock p {
         font-size: 13px !important;
         padding-top: 5px !important;
     }
+
     .lock i {
         font-size: 30px !important;
         padding-top: 5px !important;
     }
+
     .lock h6 span {
         font-size: 18px !important;
         padding-top: 0px !important;
-    }  
+    }
 
     .tika {
         padding-top: 20px !important;
     }
 }
 
-@media(max-width:403px){
-    .map iframe{
+@media(max-width:403px) {
+    .map iframe {
         width: 300px !important;
     }
 }
-@media(max-width:376px){
-.map iframe{
-    width: 290px !important;
-}
+
+@media(max-width:376px) {
+    .map iframe {
+        width: 290px !important;
+    }
 }
 
-@media(max-width:358px){
+@media(max-width:358px) {
     .ul-email-sec2 {
         padding: 10px 6px !important;
     }
 }
 
-@media(max-width:350px){
-    .map iframe{
+@media(max-width:350px) {
+    .map iframe {
         width: 270px !important;
     }
+
     .profile-About::after {
         width: 30% !important;
     }
@@ -1398,12 +1479,12 @@ a{
     .profile-Tripology h4 {
         font-size: 22px !important;
     }
-    
+
 
 }
 
-@media(max-width:329px){
-    .map iframe{
+@media(max-width:329px) {
+    .map iframe {
         width: 255px !important;
     }
 
@@ -1422,7 +1503,7 @@ a{
 
 
 
-@media(max-width:348px){
+@media(max-width:348px) {
     .wat1 {
         height: 388px !important;
     }
@@ -1432,18 +1513,18 @@ a{
     }
 }
 
-@media(max-width:340px){
+@media(max-width:340px) {
     .hid2 {
         top: 84px !important;
     }
 }
 
-@media(max-width:320px){
-    .qutote a span{
+@media(max-width:320px) {
+    .qutote a span {
         margin: 0px !important;
     }
 
-    .map iframe{
+    .map iframe {
         width: 255px !important;
     }
 
@@ -1462,11 +1543,12 @@ a{
 /* section-2 */
 
 
-.form-bg{
-    background: url(../images/form-bg.png); background-size: 100% 100%; 
+.form-bg {
+    background: url(../images/form-bg.png);
+    background-size: 100% 100%;
 }
 
-.let h4{
+.let h4 {
     font-style: normal;
     font-weight: 100;
     font-size: 24px;
@@ -1474,14 +1556,14 @@ a{
     letter-spacing: 0.27em;
 }
 
-.let h1{
+.let h1 {
     padding-top: 10px;
     font-size: 56px;
     /* width: 45%; */
     font-weight: 800;
 }
 
-.let p{
+.let p {
     padding-top: 15px;
     font-weight: 100;
     font-size: 20px;
@@ -1489,91 +1571,93 @@ a{
     /* width: 50%; */
 }
 
-.contact h2{
+.contact h2 {
     font-size: 46px;
     font-weight: 600;
 }
 
-.contact p{
+.contact p {
     font-size: 19px;
     font-weight: 100;
 }
 
-.contact p span{
+.contact p span {
     font-weight: bold;
 }
 
-.first label{
+.first label {
     font-weight: 100;
     color: #043552;
     margin: 0px 0px 3px;
 }
 
-.first input{
+.first input {
     background: #fff;
     color: #043552;
     border: 1px solid #000000;
     padding: 15px 8px;
 }
 
-.tact h3{
+.tact h3 {
     font-weight: 600;
 }
 
-.tact h4{
+.tact h4 {
     font-weight: 400;
     font-size: 25px;
 }
 
-.tact p{
+.tact p {
     font-weight: 200;
     font-size: 19px;
 }
 
-.port li a{
-     color: #333;
+.port li a {
+    color: #333;
 }
 
-.port li a span{
+.port li a span {
     padding-left: 10px;
 }
 
-.port h5{
+.port h5 {
     font-size: 1rem;
 }
 
-.recent h3{
+.recent h3 {
     color: #043552;
     letter-spacing: 0.1em;
     font-weight: 200;
 }
-.recent h2{
+
+.recent h2 {
     color: #000;
     font-size: 32px;
     font-weight: 600;
     padding-top: 10px;
 }
-.recent p{
+
+.recent p {
     color: #000;
     font-size: 19px;
     font-weight: 200;
     padding-top: 8px;
 }
 
-.girl{
+.girl {
     width: 100%;
     color: #fff;
 }
 
-.girl img{
+.girl img {
     width: 100%;
     height: 150px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-    
+
 }
 
-.girl2{
+.girl2 {
     background: #fff;
     box-shadow: 0px 0px 5px #000;
     color: #000;
@@ -1585,11 +1669,11 @@ a{
 
 
 
-.girl2 h4{
+.girl2 h4 {
     font-size: 19px;
 }
 
-.girl2 a{
+.girl2 a {
     color: #000;
 }
 
@@ -1603,13 +1687,15 @@ a{
 }
 
 
-.btn-month span button ,  .btn-month button.active{
+.btn-month span button,
+.btn-month button.active {
     background: #387088;
-    color: #000;
+    color: #fff;
     width: 100%;
     padding: 5px;
-    border: none;
+    border-color: transparent;
     border-radius: 5px;
+
 }
 
 .btn-month button {
@@ -1623,19 +1709,29 @@ a{
 }
 
 
-.box-btn{
+.box-btn {
     background: #fff;
-    box-shadow: 0px 0px 3px;
+    /* box-shadow: 0px 0px 3px; */
     padding: 10px 0px;
     border-radius: 5px;
 }
 
-.Departur-date h3{
-    font-size: 19px;
+.Departur-date h3 {
+    font-size: 16px;
 }
 
+.departure-inner-border {
+    border-bottom: #ccc 1px solid;
+    display: flex;
+    margin-bottom: 5px;
+}
 
-.Departur-date button{
+.reviews-border {
+    border-bottom: solid 2px #ccc;
+    margin-top: 8px;
+}
+
+.Departur-date button {
     background: #387088;
     color: #fff;
     width: 100%;
@@ -1644,7 +1740,7 @@ a{
     border-radius: 5px;
 }
 
-.john-parks h3{
+.john-parks h3 {
     background: #D9D9D9;
     color: #fff;
     padding: 10px 19px;
@@ -1652,52 +1748,52 @@ a{
 }
 
 
-.john-parks h2{
+.john-parks h2 {
     font-size: 29px;
     font-weight: 600;
     margin-bottom: 2px;
 }
 
-.john-parks h4{
+.john-parks h4 {
     font-size: 15px;
 }
 
-.star-1{
+.star-1 {
     background: #EF4F5F;
     color: #fff;
     padding: 5px 5px;
     border-radius: 5px;
 }
 
-.star-2{
+.star-2 {
     background: #FF7E8B;
     color: #fff;
     padding: 5px 5px;
     border-radius: 5px;
 }
 
-.star-3{
+.star-3 {
     background: #E9B501;
     color: #fff;
     padding: 5px 5px;
     border-radius: 5px;
 }
 
-.star-4{
+.star-4 {
     background: #24963F;
     color: #fff;
     padding: 5px 5px;
     border-radius: 5px;
 }
 
-.star-5{
+.star-5 {
     background: #0E5020;
     color: #fff;
     padding: 5px 5px;
     border-radius: 5px;
 }
 
-.john-parks p{
+.john-parks p {
     line-height: 20px;
 }
 
@@ -1706,13 +1802,19 @@ a{
     padding: 17px !important;
     border-radius: 100%;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.carousel-control-next-icon{
-     background: #000;
+.carousel-control-next-icon {
+    background: #000;
     padding: 17px !important;
     border-radius: 100%;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -1722,36 +1824,36 @@ a{
 /* details-page */
 
 
-.Samundar h3{
-   color: #333333;
-   font-weight: 600;
-   font-size: 25px;
-   padding-top: 10px;
-   margin: 0px 0px 5px;
+.Samundar h3 {
+    color: #333333;
+    font-weight: 600;
+    font-size: 25px;
+    padding-top: 10px;
+    margin: 0px 0px 5px;
 }
 
-.Samundar a{
+.Samundar a {
     color: #01008C;
     font-size: 18px;
 }
 
-.Samundar a span{
+.Samundar a span {
     font-size: 12px;
 }
 
-.Samundar h4{
+.Samundar h4 {
     font-size: 25px;
     font-weight: 600;
     color: #237C74;
 }
 
-.Samundar h4 span{
+.Samundar h4 span {
     font-size: 15px;
     color: #000;
     font-weight: 300;
 }
 
-.Samundar button{
+.Samundar button {
     padding: 10px;
     background: #387088;
     color: #fff;
@@ -1759,40 +1861,41 @@ a{
     border-radius: 4px;
 }
 
-.Na{
+.Na {
     background: #aaaaaa6b;
     padding: 8px 10px 20px 10px;
 }
 
-.Na p{
+.Na p {
     color: #000;
     margin: 0px 0px 0px;
     padding-top: 10px;
 }
 
-.Na p span{
+.Na p span {
     font-weight: bold;
 }
 
-.ndar h4{
+.ndar h4 {
     color: #000;
     font-weight: 600;
     margin: 0px 0px 2px;
 }
 
-.ndar p{
+.ndar p {
     color: #000;
     line-height: 19px;
     font-weight: 100;
 }
 
-.ndar button{
+.ndar button {
     background: #fff;
     border: solid 2px #01008C;
     padding: 10px 20px;
     font-size: 20px;
     color: #01008C;
 }
+
 /* 
 .accordion-button{
     border: solid 2px #000;
@@ -1801,30 +1904,33 @@ a{
 
 
 
-.uld h4{
+.uld h4 {
     color: #000;
     font-weight: 600;
     margin: 0px 0px 2px;
 }
-.uld p{
+
+.uld p {
     font-size: 14px;
 }
-.patiya{
+
+.patiya {
     background: #F3EEEE;
     padding: 20px 10px;
 }
-.patiya h5{
-   color: #000000;
-   font-size: 22px;
+
+.patiya h5 {
+    color: #000000;
+    font-size: 22px;
 }
 
-.patiya h3{
+.patiya h3 {
     font-size: 21px;
     letter-spacing: 0.5px;
     font-weight: 600;
 }
 
-.patiya button{
+.patiya button {
     padding: 10px 20px;
     background: #237C29;
     color: #fff;
@@ -1832,18 +1938,18 @@ a{
     border-radius: 5px;
 }
 
-.patiya h2{
+.patiya h2 {
     font-size: 22px;
     padding-top: 5px;
 }
 
-.patiya a{
+.patiya a {
     font-size: 19px;
     font-weight: 600;
     padding-top: 10px;
 }
 
-.oad button{
+.oad button {
     padding: 10px 50px;
     font-size: 19px;
     background: #FFFFFF;
@@ -1852,38 +1958,40 @@ a{
     border-radius: 5px;
 }
 
-.near h3{
+.near h3 {
     color: #333;
     font-weight: 600;
 }
 
-.bajna{
+.bajna {
     width: 100%;
 }
 
-.bajna img{
+.bajna img {
     width: 100%;
 }
-.bajna a{
+
+.bajna a {
     font-size: 17px;
     color: #000;
 }
-.bajna p{
+
+.bajna p {
     font-size: 18px;
     padding-top: 10px;
     line-height: 22px;
 }
 
-.girl21{
+.girl21 {
     background: #F3EEEE;
     padding: 10px;
 }
 
-.rus img{
+.rus img {
     width: 100%;
 }
 
-.rus h6{
+.rus h6 {
     font-size: 14px;
     padding-top: 8px;
     color: #008000;
@@ -1899,48 +2007,72 @@ a{
 /* colletion-page */
 
 
-.map iframe{
+.map iframe {
     padding: 0px !important;
     border-radius: 5px !important;
+    width: 100% !important;
 }
 
+.package-border:hover {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
 
-
-
-
-.nadi h4{
+.nadi h4 {
     font-size: 20px;
     font-weight: 600;
+    /* margin: 16px 0px !important; */
 }
 
-.nadi img{
+.nadi img {
     width: 100%;
 }
 
-.nadi a{
+.nadi a {
     color: #4A4A4A;
 }
 
-.nadi{
+/* .nadi {
     padding: 5px 0px;
+} */
+.package-border {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 1px;
+    transition: .3s;
+}
+
+.holiday-package-div {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    min-height: 730px;
+    height: 730px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.holiday-package-div::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
 }
 
 /* .dation{
     padding: 1px 22px;
 } */
 
-.babba h4{
+.babba h4 {
     font-size: 20px;
     font-weight: 500;
 }
 
-.babba h3{
+.babba h3 {
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 2px;
+    /* margin-bottom: 2px; */
 }
 
-.nadi span{
+.nadi span {
     background-color: #24963F;
     border-radius: 2px;
     color: white;
@@ -1948,19 +2080,20 @@ a{
     font-size: 11px;
 }
 
-.nadi h3{
+.nadi h3 {
     font-size: 22px;
     font-weight: 600;
+    margin: 16px 0px !important;
 }
 
-.nadi p{
+.nadi p {
     line-height: 17px;
     padding-top: 3px;
     font-size: 14px;
-    margin-bottom: 5px;
+    margin: 5px 0px;
 }
 
-.nadi h6{
+.nadi h6 {
     font-size: 14px;
     font-weight: 100;
     padding-top: 4px;
@@ -1969,38 +2102,42 @@ a{
 
 
 
-.bg-water{
-    background: url(../../images/waater-bg.png); background-size: 100% 100%; height: 300;
+.bg-water {
+    background: url(../../images/waater-bg.png);
+    background-size: 100% 100%;
+    height: 300;
+    border-radius: 10px;
 }
 
-.wat1{
+.wat1 {
     background: #241212be;
     color: #fff;
     padding: 10px;
     height: 300px;
+    border-radius: 10px 0px 0px 10px;
 }
 
-.wat1 h3{
+.wat1 h3 {
     font-size: 35px;
 }
 
-.wat1 p{
+.wat1 p {
     font-size: 11px;
     font-weight: initial;
 }
 
-.wat3{
+.wat3 {
     border: solid 3px #fff;
     border-radius: 10px;
 }
 
-.wat3 h4{
+.wat3 h4 {
     padding-left: 10px;
     font-size: 23px;
     padding-top: 5px;
 }
 
-.gret button{
+.gret button {
     border: 2px solid #FFFBF8;
     background: transparent;
     margin-left: 10px;
@@ -2010,34 +2147,37 @@ a{
     border-radius: 5px;
 }
 
-.gret h3{
+.gret h3 {
     text-align: center;
     font-size: 29px;
     font-weight: 600;
-    font-family:revert;
+    font-family: revert;
 }
 
-.clip{
-    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%); width: 47%;
-     background: #21313A;
+.clip {
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    width: 47%;
+    background: #21313A;
     display: flex;
     align-items: center;
     padding: 5px;
     margin-top: 20px;
 }
 
-.clip h2{
+.clip h2 {
     color: #33FF00;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.wat2{
+.wat2 {
     background: #2411117a;
-    padding: 10px 30px; height: 300px;
+    padding: 10px 30px;
+    height: 300px;
     position: relative;
+    border-radius: 0px 10px 10px 0px;
 }
 
-.wat4{
+.wat4 {
     background: #44216774;
     color: #fff;
     padding: 5px 0px 24px 0px;
@@ -2048,24 +2188,24 @@ a{
     width: 86%;
 }
 
-.big-btn span{
+.big-btn span {
     color: #E65252;
 }
- 
-.nav-link{ 
+
+.nav-link {
     background: transparent !important;
     color: #000 !important;
     position: relative;
 }
 
-#pills-tab .nav-link img{
+#pills-tab .nav-link img {
     width: 35px !important;
     border-radius: 50%;
     object-fit: cover;
     height: 35px;
 }
 
-.bhan::after{
+.bhan::after {
     content: "";
     position: absolute;
     bottom: -11px;
@@ -2074,6 +2214,7 @@ a{
     height: 4px;
     background: #4200FF;
 }
+
 /* Destination Page */
 .banner-slider .banner-text {
     display: table-cell;
@@ -2089,6 +2230,7 @@ a{
     color: #fff;
     margin: 0;
 }
+
 .banner-slider {
     background-size: cover;
     background-position: top center;
@@ -2102,6 +2244,7 @@ a{
     width: 100%;
     height: 100%;
 }
+
 .banner-slider .bg {
     position: absolute;
     background-color: #333;
@@ -2112,7 +2255,11 @@ a{
     opacity: 0.3;
 }
 
-.banner_image{height:500px}
+.banner_image {
+    height: 450px;
+    object-fit: cover;
+}
+
 /*
 -------------------------------
 Portfolio-Page
@@ -2161,15 +2308,18 @@ Portfolio-Page
     -webkit-transform: scale(0.2);
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .photo-title {
     text-align: center;
-    background: #333;
+    /* background: #333; */
+    background-color: #01008C;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .photo-title p {
-    font-size: 16px!important;
+    font-size: 16px !important;
     font-weight: 600;
     color: #fff;
     margin: 0;
@@ -2185,6 +2335,7 @@ Portfolio-Page
     margin: 0;
     padding: 13px;
     transition: all 0.3s;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .photo-title a:hover {
@@ -2233,24 +2384,64 @@ Portfolio-Page
 
 .portfolio-item img {
     width: 100%;
-    height: 220px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
 }
 
-.amal ul li a{
+.destination-border {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px 30px;
+    margin-top: 30px;
+}
+
+.destination-border i {
+    vertical-align: top !important;
+    margin-right: 10px;
+}
+
+.amal ul {
+    padding-left: 1rem !important;
+}
+
+.amal ul li a:hover {
+    text-decoration: underline #1E73BE;
+    color: #1E73BE;
+}
+
+.amal ul li a {
     color: #000000bf;
 }
 
-.herat{
+.scroll-top {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    background-color: #1E73BE;
+    z-index: 99;
+    display: inline-block;
+    padding: 0px 15px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.herat {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    /* top: 10px;
+    right: 10px; */
     padding: 6px 11px;
     border-radius: 100%;
     font-size: 19px;
     background: #fff;
     color: #666666;
+    border: solid 1px #ccc;
+    top: 13px;
+    right: 13px;
 }
+
 /* 
 
 .herat h3{
@@ -2258,28 +2449,28 @@ Portfolio-Page
     font-weight: 600 !important;
 } */
 
-.pul img{
+.pul img {
     width: 53%;
     position: absolute;
     bottom: 0px;
     border-bottom-right-radius: 5px;
 }
 
-.wat4 h3{
+.wat4 h3 {
     font-weight: 600;
     margin-bottom: 2px;
 }
 
-.wat4 p{
+.wat4 p {
     margin: 0px;
     font-size: 13px;
 }
 
-.wat4 p span{
+.wat4 p span {
     color: #33FF00;
 }
 
-.wat4 button{
+.wat4 button {
     background: transparent;
     border: solid 2px #FFFBF8;
     color: #fff;
@@ -2289,31 +2480,33 @@ Portfolio-Page
     margin-top: 15px;
 }
 
-.babba h5{
+.babba h5 {
     font-size: 18px;
     font-weight: 600;
 }
-.havai img{
+
+.havai img {
     width: 50%;
     border-radius: 11px;
 }
-.havai h6{
+
+.havai h6 {
     font-size: 14px;
 }
 
-.babba h4{
+.babba h4 {
     margin-bottom: 0px;
     font-size: 25px;
     font-weight: 600;
     padding-top: 10px;
 }
 
-.babba h5{
+.babba h5 {
     font-size: 18px;
     margin-bottom: 2px;
 }
 
-.babba p{
+.babba p {
     font-size: 14px;
     font-weight: 300;
     margin-bottom: 2px;
@@ -2321,13 +2514,13 @@ Portfolio-Page
     padding-top: 5px;
 }
 
-.babba2 h5{
+.babba2 h5 {
     font-size: 27px;
     margin-bottom: 2px;
     font-weight: 500;
 }
 
-.babba2 p{
+.babba2 p {
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 2px;
@@ -2335,47 +2528,48 @@ Portfolio-Page
     letter-spacing: 1px;
 }
 
-.babba2 p span{
+.babba2 p span {
     font-size: 19px;
     font-weight: 600;
 }
 
-.babba3 h5{
+.babba3 h5 {
     font-size: 15px;
     font-weight: 400;
 }
 
-.babba3 h6{
+.babba3 h6 {
     font-size: 15px;
     font-weight: 400;
     color: #949494;
 }
 
-.katire{
+.katire {
     background: #fff;
     box-shadow: 0px 0px 11px;
     padding: 30px 20px;
 }
-.katire a img{
+
+.katire a img {
     width: 35px;
 }
 
-.katire a span{
+.katire a span {
     font-size: 19px;
     color: #000;
 }
 
 
-.katire2 a img{
+.katire2 a img {
     width: 27px;
 }
 
-.katire2 a span{
+.katire2 a span {
     font-size: 17px;
     color: #000;
 }
 
-.callbtn button{
+.callbtn button {
     padding: 10px 30px;
     border-radius: 5px;
     background: #387088;
@@ -2383,29 +2577,39 @@ Portfolio-Page
     font-size: 19px;
     color: #fff;
 }
-.kahdi{
+
+.kahdi {
     background: #fff;
     box-shadow: 0px 0px 11px;
     padding: 10px;
-}
-.kahdi h3{
-     font-size: 19px;
-     font-weight: 600;
+    border-radius: 10px;
+    position: sticky;
+    top: 20px;
 }
 
-.kahdi h3 span{
+.kahdi .btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+.kahdi h3 {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.kahdi h3 span {
     font-size: 12px;
     font-weight: 100;
     margin-bottom: 2px;
 }
 
-.kahdi p{
+.kahdi p {
     font-size: 16px;
     line-height: 20px;
     padding-top: 20px;
 }
 
-.kahdi button{
+.kahdi button {
     background: #FF433A;
     padding: 10px;
     border: none;
@@ -2413,123 +2617,133 @@ Portfolio-Page
     font-size: 19px;
 }
 
-.banda{
+.banda {
     background: #fff;
-    box-shadow: 0px 0px 11px;
+    box-shadow: 0px 0px 1px;
     padding: 10px;
     border-radius: 5px;
-    height: 1570px;
+    height: 730px !important;
 }
 
-.range h6{
+.banda::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+}
+
+.range h6 {
     font-size: 14px;
     padding-top: 10px;
 }
 
-.range h5{
+.range h5 {
     font-size: 16px;
     padding-top: 10px;
 }
 
-.sort h6{
+.sort h6 {
     font-size: 19px;
     font-weight: 500;
     padding-top: 6px;
 }
 
-.sort button{
+.sort button {
     padding: 5px 30px;
     background: transparent;
     border: solid 2px #387088;
 }
 
-.mal{
+.mal {
     width: 100%;
 }
 
-.mal img{
+.mal img {
     width: 96%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-.lock h6{
+.lock h6 {
     color: #F44336;
     font-size: 16px;
     padding-top: 4px;
 }
 
-.lock h5{
+.lock h5 {
     color: #000;
     font-size: 20px;
     padding-top: 0px;
 }
 
-.lock p{
+.lock p {
     color: #333333;
     font-size: 13px;
     padding-top: 0px;
     margin-bottom: 7px;
 }
 
-.tika{
+.tika {
     padding-top: 5px !important;
 }
 
-.lock i{
+.lock i {
     font-size: 23px;
 }
 
-.lock span i{
+.lock span i {
     font-size: 15px;
 }
-.lock h6 span{
+
+.lock h6 span {
     color: #333333;
     font-size: 14px;
     padding-top: 5px;
 }
 
-.lock h4{
+.lock h4 {
     color: #333333;
     font-size: 16px;
     font-weight: 600;
 }
 
-.list{
+.list {
     background: #fff;
-    box-shadow: 0px 0px 3px;
-    margin-left: 10px;
+    box-shadow: 0px 0px 2px;
+    margin-left: 3px;
     margin-top: 10px;
     border-radius: 10px;
+    margin-right: 3px;
 }
 
-.item-list{
+
+
+.item-list {
     margin-top: 15px;
 }
-.item-list h6{
+
+.item-list h6 {
     font-size: 13px;
     padding-top: 5px;
 }
 
-.mekong{
+.mekong {
     background: #d4b0b035;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    
+
 }
 
-.mekong h5{
+.mekong h5 {
     font-size: 19px;
     font-weight: 600;
     padding-top: 10px;
 }
 
-.mekong p{
+.mekong p {
     font-size: 13px;
     font-weight: 300;
 }
 
-.item-list button{
+.item-list button {
     font-size: 14px;
     padding: 5px 12px;
     background: #237C29;
@@ -2538,7 +2752,7 @@ Portfolio-Page
     border-radius: 5px;
 }
 
-.get button{
+.get button {
     background: #FF433A;
     color: #fff;
     border: none;
@@ -2546,7 +2760,7 @@ Portfolio-Page
     border-radius: 8px;
 }
 
-.get2 button{
+.get2 button {
     background: #ffff;
     color: #3D81BB;
     border: solid 2px #3D81BB;
@@ -2555,60 +2769,62 @@ Portfolio-Page
     margin-top: 20px;
 }
 
-.qutote a{
-    font-size: 30px;
+.qutote a {
+    /* font-size: 20px;
     color: #000;
-    font-weight: 600;
+    font-weight: 600; */
+    font-size: 13px;
 }
 
-.qutote a span{
-    font-size: 20px;
+.qutote a span {
+    /* font-size: 20px; */
+    font-size: 13px;
     background: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 6px 12px;
-    border-radius: 60%;
+    border-radius: 50%;
     margin: 5px;
-   
+
 }
 
-.tub{
+.tub {
     width: 100%;
 }
 
-.tub img{
+.tub img {
     width: 100%;
 }
 
-.tub h6{
+.tub h6 {
     padding-top: 8px;
     font-size: 17px;
 }
 
-.item84 img{
+.item84 img {
     position: relative;
 }
 
-.item84 h5{
+.item84 h5 {
     position: absolute;
     bottom: 5px;
     left: 15px;
     color: #fff;
 }
 
-.logi{
+.logi {
     width: 100%;
 }
 
-.logi img{
+.logi img {
     width: 90%;
 }
 
-.logi h5{
+.logi h5 {
     font-size: 19px;
     font-weight: 600;
 }
 
-.logi input{
+.logi input {
     background: #fff;
     border: solid 2px #333;
     width: 90%;
@@ -2618,13 +2834,13 @@ Portfolio-Page
     color: #333;
 }
 
-.logi p{
+.logi p {
     font-size: 16px;
     font-weight: 100;
     padding-top: 10px;
 }
 
-.logi button{
+.logi button {
     background: #01008C;
     color: #fff;
     width: 90%;
@@ -2634,26 +2850,26 @@ Portfolio-Page
     border: none;
 }
 
-.main-login{
+.main-login {
     background: #fff;
     box-shadow: 0px 0px 11px;
     border-radius: 10px;
 }
 
-.reg{
+.reg {
     width: 100%;
 }
 
-.reg img{
+.reg img {
     width: 67%;
 }
 
-.logi2 h5{
+.logi2 h5 {
     font-size: 29px;
     font-weight: 600;
 }
 
-.optio{
+.optio {
     background: #fff;
     border: solid 2px #333;
     width: 90%;
@@ -2663,12 +2879,12 @@ Portfolio-Page
     color: #333;
 }
 
-.atti button{
-     background: #1988D6;
-     color: #ffff;
-     border: none;
-     padding: 10px 30px;
-     border-radius: 5px;
+.atti button {
+    background: #1988D6;
+    color: #ffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
 }
 
 
@@ -2681,56 +2897,58 @@ Portfolio-Page
 
 
 
-.derination-girl{
+.derination-girl {
     width: 100%;
 }
 
-.derination-girl img{
+.derination-girl img {
     width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
-.Excellent h4{
+.Excellent h4 {
     font-size: 16px;
     font-weight: 600;
     padding-top: 2px;
 }
 
-.Excellent h5{
+.Excellent h5 {
     font-size: 18px;
     margin-left: 12px;
     padding: 4px 4px;
     border-radius: 2px;
 }
 
-.Excellent h5{
+.Excellent h5 {
     font-size: 18px;
     margin-left: 12px;
     padding: 4px 4px;
     border-radius: 2px;
 }
 
-.Excellent h6{
+.Excellent h6 {
     margin-left: 12px;
     font-size: 18px;
     font-weight: 600;
     padding-top: 4px;
 }
 
-.Excellent h6 span{
+.Excellent h6 span {
     font-weight: 100;
     font-size: 18px;
 }
 
-.Tours-Trips h3{
+.Tours-Trips h3 {
     font-size: 25px;
     font-weight: 600;
 }
 
-.Tours-Trips p span{
+.Tours-Trips p span {
     font-weight: 600;
 }
 
-.BTN-destination{
+.BTN-destination {
     border: solid 1px #000;
     padding: 5px 5px;
     position: relative;
@@ -2738,24 +2956,24 @@ Portfolio-Page
     height: 60px;
 }
 
-.BTN-destination i{
+.BTN-destination i {
     font-size: 24px;
     position: absolute;
     top: 11px;
 }
 
-.BTN-destination span{
+.BTN-destination span {
     font-size: 12px;
     padding-left: 26px;
 }
 
-.BTN-destination input{
+.BTN-destination input {
     margin-left: 27px;
     border: none;
     width: 85%;
 }
 
-.BTN-destination2{
+.BTN-destination2 {
     border: solid 1px #000;
     padding: 5px 5px;
     position: relative;
@@ -2763,19 +2981,19 @@ Portfolio-Page
     height: 60px;
 }
 
-.BTN-destination2 h5{
+.BTN-destination2 h5 {
     margin-left: 27px;
     margin-top: 11px;
     font-size: 18px
 }
 
-.BTN-destination2 i{
+.BTN-destination2 i {
     font-size: 24px;
     position: absolute;
     top: 10px;
 }
 
-.BTN-destination3 button{
+.BTN-destination3 button {
     background: #0A7BBD;
     color: #fff;
     /* padding: 5px 10px; */
@@ -2787,31 +3005,31 @@ Portfolio-Page
 
 }
 
-.nadicrousal img{
+.nadicrousal img {
     height: 180px;
 }
 
-.nadicrousal h3{
+.nadicrousal h3 {
     font-size: 19px;
 }
 
-.nadicrousal p{
+.nadicrousal p {
     padding-top: 0px;
     font-size: 12px;
     line-height: 16px;
 }
 
-.nadicrousal h2{
+.nadicrousal h2 {
     font-size: 29px;
     font-weight: 600;
     margin-bottom: 0px !important;
 }
 
-.none-sec{
+.none-sec {
     display: none;
 }
 
-.nadicrousal button{
+.nadicrousal button {
     background: #0A7BBD;
     color: #fff;
     padding: 10px 30px;
@@ -2819,19 +3037,20 @@ Portfolio-Page
     border-radius: 3px;
 }
 
-.nadicrousal{
+.nadicrousal {
     padding: 5px;
 }
-.nadicrousal h4{
+
+.nadicrousal h4 {
     font-size: 20px;
     font-weight: 600;
 }
 
-.nadicrousal a{
+.nadicrousal a {
     color: #4A4A4A;
 }
 
-.nadicrousal span{
+.nadicrousal span {
     background-color: #04730b;
     border-radius: 5px;
     color: white;
@@ -2839,25 +3058,25 @@ Portfolio-Page
     font-size: 14px;
 }
 
-.most-popular h3{
+.most-popular h3 {
     font-size: 25px;
     font-weight: 600;
 }
 
-.pul-desti img{
+.pul-desti img {
     width: 100%;
 }
 
-.pul-desti h3{
+.pul-desti h3 {
     font-size: 29px;
     font-weight: 600;
 }
 
-.pul-desti p{
+.pul-desti p {
     font-size: 19px;
 }
 
-.pul-desti button{
+.pul-desti button {
     background: #0A7BBD;
     color: #fff;
     padding: 10px 30px;
@@ -2865,45 +3084,49 @@ Portfolio-Page
     border-radius: 3px;
 }
 
-.nav-group img{
+.navbar-expand-lg .navbar-nav {
+    margin-right: 10px !important;
+}
+
+.nav-group img {
     width: 100%;
 }
 
-.nav-group2{
+.nav-group2 {
     background: #46507D;
     color: #fff;
     padding: 5px 20px;
 }
 
-.nav-group2 h4{
+.nav-group2 h4 {
     font-weight: 600;
     font-size: 20px;
 }
 
-.nav-group2 h6{
+.nav-group2 h6 {
     font-size: 14px;
 }
 
-.Best-things h3{
+.Best-things h3 {
     font-size: 29px;
     font-weight: 600;
 }
 
-.Best-things img{
+.Best-things img {
     width: 100%;
 }
 
-.Group-alcat img{
+.Group-alcat img {
     width: 100%;
 }
 
-.Group-alcat h4{
+.Group-alcat h4 {
     font-size: 25px;
     margin-bottom: 0px;
     font-weight: 600;
 }
 
-.Group-alcat h5{
+.Group-alcat h5 {
     font-size: 17px;
     margin-bottom: 0px;
 }
@@ -2911,51 +3134,52 @@ Portfolio-Page
 
 /* popup */
 
-.popup-bg{
-   background: url(../../images/popup-bac.png); background-size: 100% 100%;
-  
+.popup-bg {
+    background: url(../../images/popup-bac.png);
+    background-size: 100% 100%;
+
 }
 
-.popup-input input{
+.popup-input input {
     background: #FFFFFF;
-border: 1px solid #000000;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 3px;
-padding: 10px;
-width: 35%;
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding: 10px;
+    width: 35%;
 }
 
-.popup-input button{
+.popup-input button {
     background: #0085FF;
-border-radius: 10px;
-width: 32%;
+    border-radius: 10px;
+    width: 35%;
 }
 
-.modal-header{
+.modal-header {
     border: none !important;
     position: relative;
 }
 
-.modal-footer{
+.modal-footer {
     border: none !important;
 }
 
-.modal-body{
+.modal-body {
     padding-top: 0px !important;
 }
 
 
-.btn-close{
-background-color:none !important;
-color: #000 !important;
-font-size: 25px !important;
-border-radius: 100%;
-position: absolute;
-top: 0px;
-right: 5px;
+.btn-close {
+    background-color: none !important;
+    color: #000 !important;
+    font-size: 25px !important;
+    border-radius: 100%;
+    position: absolute;
+    top: 0px;
+    right: 5px;
 }
 
-.btn-close:hover{
+.btn-close:hover {
     background: #000;
     color: #fff;
 }
@@ -2964,52 +3188,52 @@ right: 5px;
 
 /* profile */
 
-.y-hed{
+.y-hed {
     background: yellow;
     padding: 1px 17px;
     border-radius: 100%;
 }
 
-.y-hed h4{
+.y-hed h4 {
     padding-top: 10px;
 }
 
-.all-logo img{
+.all-logo img {
     width: 100%;
 }
 
-.profile-Tripology h4{
+.profile-Tripology h4 {
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
-.profile-Tripology h5{
+.profile-Tripology h5 {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.profile-Tripology h6{
+.profile-Tripology h6 {
     font-size: 17px;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.profile-Tripology p{
+.profile-Tripology p {
     font-size: 16px;
 }
 
-.profile-Tripology p span{
+.profile-Tripology p span {
     color: yellow;
 }
 
-.profile-About{
+.profile-About {
     text-align: center;
     position: relative;
 }
 
-.profile-About::after{
+.profile-About::after {
     content: "";
     width: 45%;
     height: 2px;
@@ -3019,7 +3243,7 @@ right: 5px;
     left: 0px;
 }
 
-.profile-About::before{
+.profile-About::before {
     content: "";
     width: 45%;
     height: 2px;
@@ -3029,16 +3253,16 @@ right: 5px;
     right: 0px;
 }
 
-.profile-About p{
+.profile-About p {
     text-align: left;
 }
 
-.profile-About h4{
+.profile-About h4 {
     text-align: center;
     position: relative;
 }
 
-.profile-About h4::after{
+.profile-About h4::after {
     content: "";
     width: 35%;
     height: 2px;
@@ -3048,7 +3272,7 @@ right: 5px;
     left: 0px;
 }
 
-.profile-About h4::before{
+.profile-About h4::before {
     content: "";
     width: 35%;
     height: 2px;
@@ -3058,20 +3282,20 @@ right: 5px;
     right: 0px;
 }
 
-.tripology-number{
+.tripology-number {
     position: relative;
 }
 
-.tripology-number ul{
+.tripology-number ul {
     padding-left: 0px !important;
 }
 
-.tripology-number ul li a{
+.tripology-number ul li a {
     color: #000;
     font-size: 15px;
 }
 
-.tripology-number button{
+.tripology-number button {
     background: blue;
     padding: 6px 15px;
     color: #fff;
@@ -3082,11 +3306,11 @@ right: 5px;
     bottom: 6px;
 }
 
-.tripology-copy h5{
+.tripology-copy h5 {
     font-size: 17px;
 }
 
-.icon-btn-search button{
+.icon-btn-search button {
     background: transparent;
     padding: 5px 15px;
     border-radius: 5px;
@@ -3099,46 +3323,46 @@ right: 5px;
     width: 45%;
 } */
 
-.ul-email-sec2{
+.ul-email-sec2 {
     background: #fff;
     box-shadow: 0px 0px 3px #000;
     padding: 10px 20px;
     width: 45%;
 }
 
-.ul-email-sec ul li a{
+.ul-email-sec ul li a {
     color: #000;
 }
 
-.span1{
+.span1 {
     padding-left: 40px;
 }
 
-.span3{
+.span3 {
     padding-left: 10px;
 }
 
-.span4{
+.span4 {
     padding-left: 80px;
 }
 
-.span5{
+.span5 {
     padding-left: 29px;
 }
 
-.span6{
+.span6 {
     padding-left: 56px;
 }
 
-.span7{
+.span7 {
     padding-left: 60px;
 }
 
-.span8{
+.span8 {
     margin-left: 60px;
 }
 
-.span8 button{
+.span8 button {
     margin-top: 10px;
     padding: 2px 5px;
     border-radius: 3px;
@@ -3148,47 +3372,47 @@ right: 5px;
     font-size: 15px;
 }
 
-.customer1{
+.customer1 {
     display: none;
 }
 
-.send-quota a{
+.send-quota a {
     color: #000;
 }
 
-.status{
+.status {
     margin-left: 0px;
 }
 
-.status2{
+.status2 {
     margin-left: 0px;
 }
 
-.status3{
+.status3 {
     margin-left: 2px;
 }
 
-.status4{
+.status4 {
     margin-left: 50px;
 }
 
-.status5{
+.status5 {
     margin-right: 18px;
 }
 
-.status6{
+.status6 {
     margin-right: 50px;
 }
 
-.spe-item a{
+.spe-item a {
     color: #000;
 }
 
-.spe-item2 a{
+.spe-item2 a {
     color: #000;
 }
 
-.status7 button{
+.status7 button {
     padding: 6px 20px;
     background: #0A7BBD;
     border-radius: 5px;
@@ -3196,7 +3420,7 @@ right: 5px;
     border: none;
 }
 
-.status9 button{
+.status9 button {
     padding: 6px 20px;
     background: #20B9FC;
     border-radius: 5px;
@@ -3204,7 +3428,7 @@ right: 5px;
     border: none;
 }
 
-.spe-item{
+.spe-item {
     background: #fff;
     box-shadow: 0px 0px 3px;
     padding: 10px 0px;
@@ -3212,7 +3436,7 @@ right: 5px;
     border-radius: 5px;
 }
 
-.spe-item2{
+.spe-item2 {
     background: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -3221,11 +3445,11 @@ right: 5px;
     border-radius: 5px;
 }
 
-.chote-icon span i{
+.chote-icon span i {
     font-size: 22px;
 }
 
-.chat-first-bg{
+.chat-first-bg {
     background: #CDDEFF;
     padding: 10px 0px;
     margin: 0px 10px;
@@ -3234,7 +3458,7 @@ right: 5px;
     box-shadow: 0px 0px 3px;
 }
 
-.Expand button{
+.Expand button {
     background: #01008C;
     padding: 8px 30px;
     margin-right: 10px;
@@ -3243,7 +3467,7 @@ right: 5px;
     border-radius: 5px;
 }
 
-.Expand2{
+.Expand2 {
     background: #CDDEFF;
     border: solid 1px #000;
     margin: 0px 10px;
@@ -3251,13 +3475,13 @@ right: 5px;
     padding: 10px 20px;
 }
 
-.Expand2 h4{
+.Expand2 h4 {
     font-size: 25px;
     font-weight: 600;
     margin-bottom: 0px;
 }
 
-.Expand2 p{
+.Expand2 p {
     background: #99BCFF;
     padding: 3px 8px;
     border-radius: 5px;
@@ -3265,25 +3489,25 @@ right: 5px;
     margin-bottom: 0px;
 }
 
-.Expand2 h6{
+.Expand2 h6 {
     padding-right: 213px;
     font-weight: 600;
     font-size: 13px;
 }
 
-.Expand3 p{
+.Expand3 p {
     margin-left: 214px;
 }
 
-.Expand3 h6{
+.Expand3 h6 {
     padding-right: 0px;
 }
 
-.Response-input{
+.Response-input {
     margin: 0px 5px;
 }
 
-.Response-input input{
+.Response-input input {
     width: 100%;
     padding: 20px;
     background: #fff;
@@ -3291,38 +3515,38 @@ right: 5px;
     border-radius: 5px;
 }
 
-.Response-input button{
+.Response-input button {
     background: #01008C;
     padding: 7px 40px;
     color: #fff;
     border-radius: 6px;
 }
 
-#hide{
+#hide {
     display: none;
 }
 
-#hide2{
+#hide2 {
     display: none;
 }
 
-#hide3{
+#hide3 {
     display: none;
 }
 
-#hide4{
+#hide4 {
     display: none;
 }
 
-#hide5{
+#hide5 {
     display: none;
 }
 
-#hide7{
+#hide7 {
     display: none;
 }
 
-.blo-none{
+.blo-none {
     display: none;
 }
 
@@ -3391,9 +3615,9 @@ a.forget-password-link {
 }
 
 .w-400 {
-    width: 400px!important;
+    width: 400px !important;
 }
 
 .w-550 {
-    width: 550px!important;
+    width: 550px !important;
 }

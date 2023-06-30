@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row mt-4">
-                <div class="col-md-12">
-                    <div class="babba2">
+                <div class="col-md-12 p-0">
+                    <div class="babba2" style="border-radius:10px;border: 1px solid #ccc;padding:10px;">
                         <h5>Similar Packages</h5>
                         <p><span>About Vietnam Tourism: </span>Evoking pictures of bustling historical cities, rivers,
                             beaches, rolling
@@ -22,22 +22,22 @@
             </div>
             <div class="row mt-4 ">
                 <div class="col-md-3 banda" id="filter_option"
-                    style="overflow-y: scroll; padding: 10px 12px !important">
+                    style="overflow-y: scroll; padding: 10px 12px !important;">
                     <form action="{{ url('package/filter/list') }}" method="GET" id="filter">
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-md-6">
                                 <div class="babba3">
-                                    <h5>Filter By</h5>
+                                    <h5 class="mb-0">Filter By</h5>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="babba3">
-                                    <h5 style="cursor: pointer;" onclick="reset()">Reset All</a>
+                                    <button type="button" class=" btn btn-primary float-end" onclick="reset()">Reset All</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-4">
                             <div class="col-md-12">
                                 <div class="babba">
                                     <h5>Price Range (per person)</h5>
@@ -230,7 +230,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 pe-0">
+                    <div class="holiday-package-div">
                     <div class="row">
                         <div class="col-md-7">
                             <div class="sort">
@@ -294,7 +295,7 @@
                                     <div class="col-md-4">
                                         <div>
                                             <i class="bi bi-house-lock-fill"></i>
-                                            <h6><span>{{ $accomodation }}</span></h6>
+                                            <h6 class="mb-0 p-0"><span>{{ $accomodation }}</span></h6 class="mb-0 p-0">
                                         </div>
                                     </div>
                                     @endforeach
@@ -332,16 +333,17 @@
                     </div>
                     @endforeach
                     @endif
+                    </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-12">
                         <div class="qutote text-center"
                             style="display: flex; justify-content: center; align-items: center">
-                            <ul class="pagination" id="pagination">
+                            <ul class="pagination mb-0" id="pagination" style="gap:5px;">
                                 @if($page >= 1)
                                 <li style="display: flex; align-items: center">
-                                    <a style="cursor: pointer;" onclick="package_filter(1, '{{$filter_slug}}')">
-                                        << </a>
+                                    <a class="btn btn-primary" style="cursor: pointer;" onclick="package_filter(1, '{{$filter_slug}}')">
+                                        <</a>
                                 </li>
                                 @for ($i = 1; $i <= $page; $i++) <li><a class="hover"
                                         onclick="package_filter({{$i}}, '{{$filter_slug}}')"
@@ -352,9 +354,9 @@
                                     </a></li>
                                     @endfor
                                     <li style="display: flex; align-items: center">
-                                        <a style="cursor: pointer;"
+                                        <a class="btn btn-primary" style="cursor: pointer;"
                                             onclick="package_filter({{$page}}, '{{$filter_slug}}')">
-                                            >>
+                                            >
                                         </a>
                                     </li>
                                     @endif
@@ -412,8 +414,8 @@
                             value="{{ old('end_date') }}">
                     </div>
 
-                    <div class="popup-input ms-2 mt-4">
-                        <button type="submit" class="btn-submit">submit</button>
+                    <div class="popup-input mt-4">
+                        <button type="submit" class="btn btn-primary btn-submit">submit</button>
                     </div>
                 </div>
             </form>

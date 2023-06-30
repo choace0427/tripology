@@ -21,7 +21,7 @@
                     <option value="0">Create Parent</option> 
                     @foreach($parents as $category)
                         @if($category->d_parent_id == 0)
-                        <option value="{{$category->id}}" @if($destination->id == $category->id) selected @endif>{{ $category->d_name }}</option>
+                        <option value="{{$category->id}}" @if($destination->d_parent_id == $category->id) selected @endif>{{ $category->d_name }}</option>
                         @endif
                     @endforeach
                     </select>
@@ -70,7 +70,7 @@
                         <input type="file" name="d_photo">
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="">Introduction</label>
                     <textarea name="d_introduction" class="form-control editor" cols="30" rows="10">{{ $destination->d_introduction }}</textarea>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="form-group">
                     <label for="">Culture</label>
                     <textarea name="d_culture" class="form-control editor" cols="30" rows="10">{{ $destination->d_culture }}</textarea>
-                </div>
+                </div> -->
             </div>
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">SEO Information</h6>

@@ -128,6 +128,7 @@ class DestinationController extends Controller
                 'd_slug' => "Destination Slug"
             ]);
             $data['d_photo'] = $destination->d_photo;
+            $data['d_parent_id'] = $request->d_parent_id;
         }
 
         $destination->fill($data)->save();

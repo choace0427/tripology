@@ -1,10 +1,10 @@
 @extends('admin.admin_layouts')
 @section('admin_content')
-    <h1 class="h3 mb-3 text-gray-800">Leads</h1>
+    <h1 class="h3 mb-3 text-gray-800">Quotes</h1>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Leads</h6>
+            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Quotes</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -13,13 +13,13 @@
                     <tr>
                         <th>SL</th>
                         <th>Package Name</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
+                        <th>Operator</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Start Date</th>
                         <th>Start End</th>
-                        <th>Action</th>
+                        <!--th>Action</th-->
                     </tr>
                     </thead>
                     <tbody>
@@ -27,16 +27,16 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->package->p_name }}</td>
-                            <td>{{$row->first_name}}</td>
-                            <td>{{$row->last_name}}</td>
-                            <td>{{ $row->phone_number }}</td>
-                            <td>{{ $row->email }}</td>
+                            <td>{{ $row->traveller->traveller_name}}</td>
+                            <td><a href="{{url('/admin/operators/detail',$row->operator->id)}}" target="_blank">{{ $row->operator->name}}</a></td>
+                            <td>{{ $row->traveller->traveller_phone }}</td>
+                            <td>{{ $row->traveller->traveller_email }}</td>
                             <td>{{ $row->start_date }}</td>
                             <td>{{ $row->end_date }}</td>
                             <!-- <td>{{ $row->published }}</td> -->
-                            <td>
-                                <a href="" class="btn btn-info btn-sm">Send Quotation</a>
-                            </td>
+                            <!--td>
+                                <a href="{{url('/agency/quotes',$row->id)}}" class="btn btn-info btn-sm">Send Quotation</a>
+                            </td-->
                         </tr>
                         @endforeach
                     </tbody>

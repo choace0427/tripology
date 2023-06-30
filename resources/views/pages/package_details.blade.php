@@ -19,8 +19,11 @@
   </div>
   <div class="container">
     <div class="row mt-5">
+    
       <div class="col-md-8">
+      <div class="package-border">
         <div class="row">
+          
           <div class="col-md-12">
             <div class="nadi">
               <h4>{{ $package_detail->p_name }}</h4>
@@ -79,9 +82,10 @@
             </div>
           </div>
         </div>
+</div>
 
-        <div class="row mt-5">
-          <div class="col-md-10">
+        <div class="row mt-3">
+          <div class="col-md-12">
             <div>
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
@@ -90,17 +94,17 @@
                     {!! $package_detail->p_map !!}
                     </div>
 
-                    <div class="row">
+                    <div class="row mt-2">
                       <div class="col-md-12">
-                        <div class="babba dation">
+                        <div class="babba dation package-border">
                          {!! $package_detail->p_description !!}
                         </div>
                       </div>                      
                   </h2>
                 </div>
                 
-                
-                <h3 class="mt-3">Tour Itinerary</h3>
+                <div class="package-border mt-3">
+                <h3 class="mt-3 fw-bold">Tour Itinerary</h3>
                 <div class="accordion-item">
                   @foreach($itineraries as $itinerary)
                     <h2 class="accordion-header">
@@ -114,6 +118,7 @@
                     </div>
                   @endforeach
                 </div>
+                </div>
               </div>
             </div>
           </div>
@@ -125,9 +130,11 @@
 
           <p><i class="bi bi-exclamation-circle"></i> Final price will be shared by our partner agents based on your requirements</p>
           <!-- <button>Get Customised Quotes</button> -->
+          <div class="btn-div">
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Get Customised Quotes
           </button>
+          </div>
 
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -166,7 +173,7 @@
                     </div>
                     <input type="hidden" name="package_id" id="package_id" value="{{ $package_detail->id }}">
                     <div class="popup-input ms-2 mt-4">
-                      <button type="submit" class="btn-submit">submit</button>
+                      <button type="submit" class="btn-submit btn btn-primary">submit</button>
                     </div>
                   </div>
                 </form>
@@ -287,12 +294,13 @@
 
                 <div class="row">
                   <div class="col-md-12 p-0">
-                    <hr style="margin-bottom: 5px;">
+                    <hr style="margin-bottom: 5px; margin-top: 5px">
                   </div>
                 </div>
                 @foreach($package_schedules as $key => $schedule)
                   @foreach($schedule as  $schedule_dates)
                     <div class="row schedule_dates" id="{{str_replace(' ', '_',$key)}}" >
+                      <div class="departure-inner-border">
                         <div class="col-md-3">
                             <div class="Departur-date"><h3>{{ date("d F, Y", strtotime($schedule_dates->start_date)) }}</h3></div>
                           </div>
@@ -310,6 +318,7 @@
                                 data-package_end_date="{{ date('Y-m-d', strtotime($schedule_dates->end_date)) }}"
                                 data-package_id="{{$schedule_dates->package_id}}">Confirm Date</button>
                             </div>
+                        </div>
                         </div>
                     </div>
                     
@@ -329,13 +338,13 @@
                   </div>
                 </div>
                 @foreach($package_reviews as $reviews)
-                  <div class="row">
+                  <!-- <div class="row">
                       <div class="col-md-12 p-0">
                           <hr style="margin-bottom: 8px; margin-top: 5px; border: solid 1.5px #000;">
                       </div>
-                  </div>
+                  </div> -->
 
-                  <div class="row">
+                  <div class="row reviews-border">
                     <div class="col-md-12">
                       <div class="d-flex john-parks">
                         <div>
@@ -358,17 +367,17 @@
                     </div>
                   </div>
 
-                  <div class="row mt-3">
+                  <!-- <div class="row mt-3">
                     <div class="col-md-12 p-0">
                       <hr style="margin-bottom: 8px; margin-top: 5px; border: solid 1.5px #000;">
                     </div>
-                  </div>
+                  </div> -->
                 @endforeach
               </div>
             </div>
             @endif
 
-            <div class="row">
+            <div class="row mt-2">
                 <div class="col-md-12 p-0">
                   <form class="py-2 px-4" id="review_form" action="{{route('front.review.store')}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
                       @csrf

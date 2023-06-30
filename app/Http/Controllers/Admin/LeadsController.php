@@ -21,7 +21,7 @@ class LeadsController extends Controller
 
     public function index()
     {
-        $leads = Lead::with('package')->get();
-        return view('agency.leads.index', compact('leads'));
+        $leads = Lead::with('package','operator:id,name')->get();
+        return view('admin.leads.index', compact('leads'));
     }
 }
