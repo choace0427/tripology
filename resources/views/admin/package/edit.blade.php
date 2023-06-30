@@ -219,7 +219,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
+            <div style="display: none" class="form-group">
                 <label for="">Price Range</label>
                 <select name="p_price_id" class="form-control select2">
                     <option selected></option>
@@ -704,23 +704,6 @@ const submitter = document.querySelector("button[name=submit]");
 
 submitter.addEventListener('click', (event) => {
 
-    // var p_price = parseInt(document.querySelector('input[name="p_price"]').value);
-
-    // switch (true) {
-    //     case (p_price >= 0 && p_price <= 100):
-    //         p_price = "$0-$100";
-    //         break;
-    //     case (p_price > 100 && p_price <= 500):
-    //         p_price = "$100-$500";
-    //         break;
-    //     case (p_price > 500 && p_price <= 1000):
-    //         p_price = "$500-$1000";
-    //         break;
-    //     case (p_price > 1000):
-    //         p_price = "over $1000";
-    //         break;
-    // }
-
     const form = document.getElementById("addForm");
     const formData = new FormData(form);
     event.preventDefault();
@@ -729,7 +712,6 @@ submitter.addEventListener('click', (event) => {
     formData.append('p_travel_day', get_travel_guide_data(travel_guide_count).travel_day);
     formData.append('p_travel_accomodation', get_travel_accomodation_data(travel_accomodation_count).data);
     formData.append('p_travel_type', get_travel_type_data(travel_type_count).data);
-    // formData.append('p_travel_type', get_travel_type_data(travel_type_count).data);
     fetch(form.action, {
             method: 'POST',
             body: formData
@@ -738,7 +720,7 @@ submitter.addEventListener('click', (event) => {
             if (response.status == 200) {
                 $('#staticBackdrop').modal('hide');
                 toastr.success('Qoute form submitted Successfully!')
-                // window.location.href = '/admin/package/view';
+                window.location.href = '/admin/package/view';
 
                 $('#leads_form')[0].reset();
             } else {

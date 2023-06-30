@@ -50,12 +50,33 @@ class PackageController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         $package = new Package();
         $data = $request->only($package->getFillable());
+
+        $p_price = intval($request->p_price);
+        $price_range = "";
+
+        switch (true) {
+            case ($p_price >= 0 && $p_price <= 100):
+                $price_range = "$0-$100";
+                break;
+            case ($p_price > 100 && $p_price <= 500):
+                $price_range = "$100-$500";
+                break;
+            case ($p_price > 500 && $p_price <= 1000):
+                $price_range = "$500-$1000";
+                break;
+            case ($p_price > 1000):
+                $price_range = "over $1000";
+                break;
+        }
+
+        $query = "SELECT id FROM filter_option WHERE filter_slug = '".$price_range."'";
+        $p_price_id= DB::select($query)[0]->id;
         $request->validate([
             'p_name' => 'required|unique:packages',
             'p_slug' => 'unique:packages',
@@ -79,7 +100,6 @@ class PackageController extends Controller
             'p_travel_day' => 'required',
             'p_travel_type' => 'required',
             'p_travel_accomodation' => 'required',
-            'p_price_id' => 'required',
             'p_combine_id' => 'required',
             'destination_id' => 'required'
         ],
@@ -106,7 +126,6 @@ class PackageController extends Controller
             'p_travel_day' => 'Package Travel Duration',
             'p_travel_Type' => 'Package Travel Type',
             'p_travel_accomodation' => 'Package Travel Accomodation',
-            'p_price_id' => 'Package Price',
             'p_combine_id' => 'Package Combine',
             'destination_id' => 'Package Destination'
         ]);
@@ -121,7 +140,8 @@ class PackageController extends Controller
         $final_name = 'package-main-photo-'.$ai_id.'.'.$ext;
         $request->file('p_photo')->move(public_path('uploads/'), $final_name);
         $data['p_photo'] = $final_name;
-        
+        $data['p_price_id'] = $p_price_id;
+    
         $package->fill($data)->save();
         $new_package = DB::table('packages')->latest()->first();
 
@@ -179,13 +199,33 @@ class PackageController extends Controller
     }
 
     public function update(Request $request, $id)
-    {   
+    {        
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
         $package = Package::findOrFail($id);
 
         $data = $request->only($package->getFillable());
+        $p_price = intval($request->p_price);
+        $price_range = "";
+
+        switch (true) {
+            case ($p_price >= 0 && $p_price <= 100):
+                $price_range = "$0-$100";
+                break;
+            case ($p_price > 100 && $p_price <= 500):
+                $price_range = "$100-$500";
+                break;
+            case ($p_price > 500 && $p_price <= 1000):
+                $price_range = "$500-$1000";
+                break;
+            case ($p_price > 1000):
+                $price_range = "over $1000";
+                break;
+        }
+
+        $query = "SELECT id FROM filter_option WHERE filter_slug = '".$price_range."'";
+        $p_price_id= DB::select($query)[0]->id;
         if($request->hasFile('p_photo')) {
             $request->validate([
                 'p_name' => 'required|unique:packages',
@@ -210,7 +250,6 @@ class PackageController extends Controller
                 'p_travel_day' => 'required',
                 'p_travel_type' => 'required',
                 'p_travel_accomodation' => 'required',
-                'p_price_id' => 'required',
                 'p_combine_id' => 'required',
                 'destination_id' => 'required'
             ],
@@ -237,7 +276,6 @@ class PackageController extends Controller
                 'p_travel_day' => 'Package Travel Duration',
                 'p_travel_Type' => 'Package Travel Type',
                 'p_travel_accomodation' => 'Package Travel Accomodation',
-                'p_price_id' => 'Package Price',
                 'p_combine_id' => 'Package Combine',
                 'destination_id' => 'Package Destination'
                 
@@ -247,11 +285,12 @@ class PackageController extends Controller
             $final_name = 'package-main-photo-'.$id.'.'.$ext;
             $request->file('p_photo')->move(public_path('uploads/'), $final_name);
             $data['p_photo'] = $final_name;
+            $data['p_price_id'] = $p_price_id;
 
         } else {
             $data['p_photo'] = $package->p_photo;
+            $data['p_price_id'] = $p_price_id;
         }
-        
         $package->fill($data)->save();
 
         $package_filter = Filter::findOrFail($id);

@@ -185,9 +185,10 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
+            <div style="display: none" class="form-group">
                 <label for="">Price Range</label>
                 <select name="p_price_id" class="form-control select2">
+                    <option selected></option>
                     @foreach($price_range as $row)
                     <option value="{{ $row->id }}">{{ $row->filter_name }}</option>
                     @endforeach
@@ -461,7 +462,7 @@ submitter.addEventListener('click', (event) => {
             if (response) {
                 $('#staticBackdrop').modal('hide');
                 toastr.success('Package is created successfully!')
-                // window.location.href = '/admin/package/view';
+                window.location.href = '/admin/package/view';
 
                 $('#leads_form')[0].reset();
             } else {

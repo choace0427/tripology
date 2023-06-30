@@ -41,6 +41,7 @@ class FilterController extends Controller
             $subarray_data[$subarray[0]] = $subarray[1]; 
         }
 
+
         $accomodation = DB::table('filter_option')->where('filter_type', 'accomodation')->get();
         $traveller_type = DB::table('filter_option')->where('filter_type', 'traveller_type')->get();
         $duration = DB::table('filter_option')->where('filter_type', 'duration')->get();
@@ -59,7 +60,6 @@ class FilterController extends Controller
         }
         $filter_count = '';
         $page = ceil(count(DB::table('packages')->get()) / 5);
-        
         if($subarray_data == null) {
             dd(qweqwe);
         } else {
@@ -106,11 +106,18 @@ class FilterController extends Controller
                     $j = $i -1;
                     $query = $query."INNER JOIN (SELECT * FROM package_filter WHERE filter_id in (".$value.")) t_".$i." ON t_".$j.".package_id = t_".$i.".package_id ";
                 $i++;
-            }
-            $query = $query.") ORDER BY id LIMIT 5 OFFSET ".$offset." ";
-            
+            } 
+            $query = $query.")";
             $filter_data = DB::select($query);
-            $page = ceil(count($filter_data) / 5);
+            if(count($filter_data) > 5) {
+                $page = ceil(count($filter_data) / 5);    
+                $query = $query."ORDER BY id LIMIT 5 OFFSET ".$offset." ";
+                $filter_data = DB::select($query);
+            } else{
+                $query = $query."ORDER BY id LIMIT 5 OFFSET ".$offset." ";
+                $filter_data = DB::select($query);
+                $page = ceil(count($filter_data) / 5);
+            }
             $filter_count = count($filter_data);
         }
 
