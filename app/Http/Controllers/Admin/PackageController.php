@@ -241,6 +241,7 @@ class PackageController extends Controller
         } else {
             // Handle the case when no matching record is found
         }
+        
         if($request->hasFile('p_photo')) {
             $request->validate([
                 'p_name' => 'required|unique:packages',
