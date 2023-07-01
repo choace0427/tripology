@@ -51,6 +51,7 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {   
+
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
@@ -76,6 +77,7 @@ class PackageController extends Controller
         }
 
         $query = "SELECT id FROM filter_option WHERE filter_slug = '".$price_range."'";
+        dd($query);
         $p_price_id= DB::select($query)[0]->id;
         $request->validate([
             'p_name' => 'required|unique:packages',
