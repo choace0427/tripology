@@ -76,7 +76,15 @@ class PackageController extends Controller
         }
 
         $query = "SELECT id FROM filter_option WHERE filter_slug = '".$price_range."'";
-        $p_price_id= DB::select($query)[0]->id;
+        $result = DB::select($query);
+
+        if (!empty($result)) {
+            $p_price_id = $result[0]->id;
+            dd($p_price_id);
+        } else {
+            // Handle the case when no matching record is found
+        }
+        
         $request->validate([
             'p_name' => 'required|unique:packages',
             'p_slug' => 'unique:packages',
@@ -225,7 +233,14 @@ class PackageController extends Controller
         }
 
         $query = "SELECT id FROM filter_option WHERE filter_slug = '".$price_range."'";
-        $p_price_id= DB::select($query)[0]->id;
+        $result = DB::select($query);
+
+        if (!empty($result)) {
+            $p_price_id = $result[0]->id;
+            dd($p_price_id);
+        } else {
+            // Handle the case when no matching record is found
+        }
         if($request->hasFile('p_photo')) {
             $request->validate([
                 'p_name' => 'required|unique:packages',
