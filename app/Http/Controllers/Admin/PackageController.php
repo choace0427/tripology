@@ -51,7 +51,6 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {   
-
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }
@@ -77,60 +76,7 @@ class PackageController extends Controller
         }
 
         $query = "SELECT id FROM filter_option WHERE filter_slug = '".$price_range."'";
-        dd($query);
         $p_price_id= DB::select($query)[0]->id;
-        $request->validate([
-            'p_name' => 'required|unique:packages',
-            'p_slug' => 'unique:packages',
-            'p_start_date' => 'required',
-            'p_end_date' => 'required',
-            'p_last_booking_date' => 'required',
-            'p_price' => 'required',
-            'p_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'p_age_range' => 'required|numeric',
-            'p_max_group_size' => 'required|numeric',
-            'p_tour_operator' => 'required|numeric',
-            'p_started_from' => 'required',
-            'p_operated_in' => 'required',
-            'p_photo' => 'required',
-            'p_transposition_id' => 'required',
-            'p_accomodation_id' => 'required',
-            'p_traveller_id' => 'required',
-            'p_rating' => 'required',
-            'p_distance_id' => 'required',
-            'p_travel_guide' => 'required',
-            'p_travel_day' => 'required',
-            'p_travel_type' => 'required',
-            'p_travel_accomodation' => 'required',
-            'p_combine_id' => 'required',
-            'destination_id' => 'required'
-        ],
-        [],
-        [
-            'p_name' => "Package Name",
-            'p_slug' => "Package Slug",
-            'p_start_date' => "Package Start Date",
-            'p_end_date' => "Package End Date",
-            'p_last_booking_date' => "Package Last Booking Date",
-            'p_price' => "Package Price",
-            'p_photo' => "Package Photo",
-            'p_age_range' => 'Package Age Range',
-            'p_max_group_size' => 'Package Max Group Size',
-            'p_tour_operator' => 'Package Tour Operator',
-            'p_started_from' => 'Package Started From',
-            'p_operated_in' => 'Package Operated In',
-            'accomodation_id' => 'Package Accomodation Type',
-            'rating_id' => 'Package Hotel Rating Type',
-            'distance_id' => 'Package Distance Type',
-            'traveller_id' => 'Package Traveller Type',
-            'transposition_id' => 'Package Transposition Type',
-            'p_travel_guide' => 'Package Travel Guide',
-            'p_travel_day' => 'Package Travel Duration',
-            'p_travel_Type' => 'Package Travel Type',
-            'p_travel_accomodation' => 'Package Travel Accomodation',
-            'p_combine_id' => 'Package Combine',
-            'destination_id' => 'Package Destination'
-        ]);
         
         if(empty($data['p_slug'])) {
             $data['p_slug'] = Str::slug($request->p_name);
@@ -143,7 +89,7 @@ class PackageController extends Controller
         $request->file('p_photo')->move(public_path('uploads/'), $final_name);
         $data['p_photo'] = $final_name;
         $data['p_price_id'] = $p_price_id;
-    
+        
         $package->fill($data)->save();
         $new_package = DB::table('packages')->latest()->first();
 
@@ -201,7 +147,7 @@ class PackageController extends Controller
     }
 
     public function update(Request $request, $id)
-    {        
+    {    
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }

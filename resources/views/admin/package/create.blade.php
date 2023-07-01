@@ -462,7 +462,7 @@ submitter.addEventListener('click', (event) => {
             if (response) {
                 $('#staticBackdrop').modal('hide');
                 toastr.success('Package is created successfully!')
-                window.location.href = '/admin/package/view';
+                // window.location.href = '/admin/package/view';
 
                 $('#leads_form')[0].reset();
             } else {

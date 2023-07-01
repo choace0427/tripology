@@ -175,7 +175,8 @@
                 <select name="destination_id" class="form-control select2">
                     <option selected></option>
                     @foreach($destination as $key => $row)
-                    <option value="{{ $row->id }}">{{ $row->d_name }}</option>
+                    <option value="{{ $row->id }}" @if($row->id==$package->destination_id) selected
+                        @endif>{{ $row->d_name }}</option>
                     @endforeach
                 </select>
             </div>
