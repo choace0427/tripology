@@ -80,7 +80,6 @@ class PackageController extends Controller
 
         if (!empty($result)) {
             $p_price_id = $result[0]->id;
-            dd($p_price_id);
         } else {
             // Handle the case when no matching record is found
         }
@@ -237,7 +236,6 @@ class PackageController extends Controller
 
         if (!empty($result)) {
             $p_price_id = $result[0]->id;
-            dd($p_price_id);
         } else {
             // Handle the case when no matching record is found
         }
