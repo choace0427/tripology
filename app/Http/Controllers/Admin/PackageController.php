@@ -308,7 +308,21 @@ class PackageController extends Controller
             $data['p_combine_id']
 
         ];
-        DB::table('package_filter')->where('package_id', $new_package->id)->whereIn('filter_id', $filtersToDelete)->delete();
+        $new_package_id = $new_package->id;
+        $filtersToDelete = implode(',', $filtersToDelete);
+        DB::select("DELETE FROM package_filter WHERE package_id = $new_package_id");
+
+        $filtersToDelete = [
+            $data['destination_id'],
+            $data['p_transposition_id'],
+            $data['p_accomodation_id'],
+            $data['p_traveller_id'],
+            $data['p_rating'],
+            $data['p_distance_id'],
+            $data['p_price_id'],
+            $data['p_combine_id']
+
+        ];
 
         $insertData = [];
         foreach($filtersToDelete as $filter) {
