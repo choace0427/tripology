@@ -149,7 +149,7 @@ class PackageController extends Controller
         $request->file('p_photo')->move(public_path('uploads/'), $final_name);
         $data['p_photo'] = $final_name;
         $data['p_price_id'] = $p_price_id;
-    
+        
         $package->fill($data)->save();
         $new_package = DB::table('packages')->latest()->first();
 
@@ -207,7 +207,7 @@ class PackageController extends Controller
     }
 
     public function update(Request $request, $id)
-    {        
+    {    
         if(env('PROJECT_MODE') == 0) {
             return redirect()->back()->with('error', env('PROJECT_NOTIFICATION'));
         }

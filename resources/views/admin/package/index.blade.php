@@ -32,7 +32,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td><img src="{{ asset('uploads/'.$row->p_photo) }}" alt="" class="w_200"></td>
                             <td>{{ $row->p_name }}</td>
-                            <td>{{ $row->destination->d_name }}</td>
+                            <td>@if(isset($row->destination->d_name)){{ $row->destination->d_name }} @endif</td>
                             <td>
                                 @php
                                     $total_per = 0;

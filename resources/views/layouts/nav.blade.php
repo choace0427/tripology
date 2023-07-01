@@ -99,8 +99,15 @@
                           </button>
                           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mb-2 mb-lg-0">
-                              <li class="nav-item">
+                              <li class="nav-item destination-dropdown">
                                 <a class="nav-link" aria-current="page" href="{{ route('front.destination') }}">Destinations</a>
+                                <ul class="destination-dropdown-menu">
+                                    <span class="dropdown-heading">Destinations</span>
+                                    <li class="dropdown-list">
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    </li>
+                                </ul>
                               </li>
 
                               <li class="nav-item">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilterOptionTable extends Migration
+class Updatefilteroptiontable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,8 @@ class CreateFilterOptionTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('filter_option');
+
         Schema::create('filter_option', function (Blueprint $table) {
             $table->increments('id');
             $table->text('filter_name');
@@ -76,6 +78,6 @@ class CreateFilterOptionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filter_option');
+        //
     }
 }
