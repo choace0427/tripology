@@ -33,7 +33,9 @@
 
                             <div class="col-md-6">
                                 <div class="babba3">
-                                    <button type="button" class=" btn btn-primary float-end" onclick="reset()">Reset All</button>
+                                    <button type="button" class=" btn btn-primary float-end"
+                                        onclick="filter_reset()">Reset
+                                        All</button>
                                 </div>
                             </div>
                         </div>
@@ -232,107 +234,110 @@
                 </div>
                 <div class="col-md-9 pe-0">
                     <div class="holiday-package-div">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="sort">
-                                <h6>{{$filter_count}} Holiday Packages Found</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="row rty">
-                                <div class="col-md-6 rty1 text-end">
-                                    <div class="sort">
-                                        <h6>Sort by:</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 rty1">
-                                    <select class="form-select" id="filter_sort" name="filter_sort">
-                                        <option value="p_price" data-url="{{$filter_slug}}">Price</option>
-                                        <option value="p_travel_day" data-url="{{$filter_slug}}">Duration</option>
-                                    </select>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="sort">
+                                    <h6>{{$filter_count}} Holiday Packages Found</h6>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div id="filter_list">
-                        @if($page < 1) <div class="row list"
-                            style="display: flex; height: 240px; align-items: center; justify-content: center"
-                            id="data">No
-                            Data
-                    </div>
-                    @else
-                    @foreach ($filter_data as $row)
-                    <div class="ddd row list">
-                        <div class="col-md-3 dard ps-0">
-                            <div class="mal" style="height: 100%">
-                                <img style="height: 100%" src="{{ asset('uploads/'.$row->p_photo) }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 tnam">
-                            <div class="lock">
-
-                                <h6>{{ $row->p_travel_day }} Nights / {{ $row->p_travel_day + 1 }} Days</h6>
-                                <h5>{{ $row->p_name}} from {{$row->p_started_from}} - {{ $row->p_travel_day }} Nights
-                                    {{ $row->p_travel_day + 1 }} Days</h5>
-                                @php
-                                $travel_guide = explode(",", $row->p_travel_guide);
-                                $count = count($travel_guide);
-                                $re_count = 1;
-                                @endphp
-                                @foreach ($travel_guide as $guide)
-                                <span id="travel_guide">{{ $guide }} @if($count != $re_count) → @endif </span>
-                                @php
-                                $re_count++;
-                                @endphp
-                                @endforeach
-
-                                @php
-                                $travel_accomodation = explode(",", $row->p_travel_accomodation);
-                                @endphp
-                                <div id="travel_accomodation" class="row">
-                                    @foreach ($travel_accomodation as $accomodation)
-                                    <div class="col-md-4">
-                                        <div>
-                                            <i class="bi bi-house-lock-fill"></i>
-                                            <h6 class="mb-0 p-0"><span>{{ $accomodation }}</span></h6 class="mb-0 p-0">
+                            <div class="col-md-5">
+                                <div class="row rty">
+                                    <div class="col-md-6 rty1 text-end">
+                                        <div class="sort">
+                                            <h6>Sort by:</h6>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-6 rty1">
+                                        <select class="form-select" id="filter_sort" name="filter_sort">
+                                            <option value="p_price" data-url="{{$filter_slug}}">Price</option>
+                                            <option value="p_travel_day" data-url="{{$filter_slug}}">Duration</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="filter_list">
+                            @if($page < 1) <div class="row list"
+                                style="display: flex; height: 240px; align-items: center; justify-content: center"
+                                id="data">No
+                                Data
+                        </div>
+                        @else
+                        @foreach ($filter_data as $row)
+                        <div class="ddd row list">
+                            <div class="col-md-3 dard ps-0">
+                                <div class="mal" style="height: 100%">
+                                    <img style="height: 100%" src="{{ asset('uploads/'.$row->p_photo) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 tnam">
+                                <div class="lock">
+
+                                    <h6>{{ $row->p_travel_day }} Nights / {{ $row->p_travel_day + 1 }} Days</h6>
+                                    <h5>{{ $row->p_name}} from {{$row->p_started_from}} - {{ $row->p_travel_day }}
+                                        Nights
+                                        {{ $row->p_travel_day + 1 }} Days</h5>
+                                    @php
+                                    $travel_guide = explode(",", $row->p_travel_guide);
+                                    $count = count($travel_guide);
+                                    $re_count = 1;
+                                    @endphp
+                                    @foreach ($travel_guide as $guide)
+                                    <span id="travel_guide">{{ $guide }} @if($count != $re_count) → @endif </span>
+                                    @php
+                                    $re_count++;
+                                    @endphp
+                                    @endforeach
+
+                                    @php
+                                    $travel_accomodation = explode(",", $row->p_travel_accomodation);
+                                    @endphp
+                                    <div id="travel_accomodation" class="row">
+                                        @foreach ($travel_accomodation as $accomodation)
+                                        <div class="col-md-4">
+                                            <div>
+                                                <i class="bi bi-house-lock-fill"></i>
+                                                <h6 class="mb-0 p-0"><span>{{ $accomodation }}</span></h6
+                                                    class="mb-0 p-0">
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+
+                                    @php
+                                    $travel_type = explode(",", $row->p_travel_type);
+                                    @endphp
+                                    @foreach ($travel_type as $type)
+                                    <h4 class="pt-3 tika"><span><i class="bi bi-arrow-up-right"></i></span> {{$type}}
+                                    </h4>
                                     @endforeach
                                 </div>
-
-                                @php
-                                $travel_type = explode(",", $row->p_travel_type);
-                                @endphp
-                                @foreach ($travel_type as $type)
-                                <h4 class="pt-3 tika"><span><i class="bi bi-arrow-up-right"></i></span> {{$type}}</h4>
-                                @endforeach
                             </div>
-                        </div>
 
-                        <div class="col-md-3 mekong">
+                            <div class="col-md-3 mekong">
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div>
-                                        <h5>$ {{$row->p_price}}</h5>
-                                        <p>per adult on twin sharing</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <h5>$ {{$row->p_price}}</h5>
+                                            <p>per adult on twin sharing</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <div class="get">
-                                        <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">Get Quotes
-                                            ></button>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="get">
+                                            <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">Get Quotes
+                                                ></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
-                    @endif
+                        @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -342,8 +347,9 @@
                             <ul class="pagination mb-0" id="pagination" style="gap:5px;">
                                 @if($page >= 1)
                                 <li style="display: flex; align-items: center">
-                                    <a class="btn btn-primary" style="cursor: pointer;" onclick="package_filter(1, '{{$filter_slug}}')">
-                                        <</a>
+                                    <a class="btn btn-primary" style="cursor: pointer;"
+                                        onclick="package_filter(1, '{{$filter_slug}}')">
+                                        < </a>
                                 </li>
                                 @for ($i = 1; $i <= $page; $i++) <li><a class="hover"
                                         onclick="package_filter({{$i}}, '{{$filter_slug}}')"
@@ -574,7 +580,7 @@ function package_filter(page, filter_url) {
     })
 }
 
-function reset() {
+function filter_reset() {
     window.location.href = '/package/filter/list/';
     // window.location.href = 'http://localhost:8000/package/filter/list/';
 }
