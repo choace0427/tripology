@@ -111,14 +111,15 @@ class FilterController extends Controller
             $filter_data = DB::select($query);
             if(count($filter_data) > 5) {
                 $page = ceil(count($filter_data) / 5);    
+                $filter_count = count($filter_data);
                 $query = $query."ORDER BY id LIMIT 5 OFFSET ".$offset." ";
                 $filter_data = DB::select($query);
             } else{
                 $query = $query."ORDER BY id LIMIT 5 OFFSET ".$offset." ";
                 $filter_data = DB::select($query);
                 $page = ceil(count($filter_data) / 5);
+                $filter_count = count($filter_data);
             }
-            $filter_count = count($filter_data);
         }
 
         return view('pages.package_filter', compact('filter_data', 'filter_slug', 'combine', 'type_list', 'filter_count', 'page', 'price', 'destination', 'duration', 'accomodation', 'traveller_type', 'distance', 'ratings', 'transposition'));
